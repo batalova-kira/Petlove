@@ -4,18 +4,18 @@ import { Navigate } from "react-router-dom";
 
 import Layout from "./Layout/Layout";
 
-const HomePage = lazy(() => import("../../pages/HomePage"));
-const Catalog = lazy(() => import("../../pages/Catalog"));
-const Favorites = lazy(() => import("../../pages/Favorites"));
+const News = lazy(() => import("../../pages/News"));
+const Notices = lazy(() => import("../../pages/Notices"));
+const Friends = lazy(() => import("../../pages/Friends"));
 
 export const App = () => {
     return (
         <Layout>
             <Suspense fallback={<p>Loading..</p>}>
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/catalog" element={<Catalog />} />
-                    <Route path="/favorites" element={<Favorites />} />
+                    <Route path="/news" element={<News />} />
+                    <Route path="/notices" element={<Notices />} />
+                    <Route path="/friends" element={<Friends />} />
                     {/* <Route path="/posts/:postId/*" element={<PostDetails />} /> */}
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
