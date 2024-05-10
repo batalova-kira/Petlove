@@ -5,6 +5,7 @@ import {
     Header,
     StyledNavLink,
 } from "./Layout.styled";
+import { Icon } from "../Icon/Icon";
 
 const Layout = ({ children }) => {
     return (
@@ -23,9 +24,7 @@ const Layout = ({ children }) => {
                     Friends
                 </StyledNavLink>
                 <BurgerMenuBtn>
-                    <svg>
-                        <use xlinkHref="/sprite.svg#icon-burger" />
-                    </svg>
+                    <Icon height={32} width={32} name="icon-burger-menu" />
                 </BurgerMenuBtn>
             </Header>
             <main>{children}</main>
