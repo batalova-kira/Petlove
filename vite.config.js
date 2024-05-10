@@ -14,5 +14,8 @@ export default defineConfig({
     css: {
         modules: false,
     },
+    define: {
+        "process.env": process.env,
+    },
     base: "/petlove",
 });
