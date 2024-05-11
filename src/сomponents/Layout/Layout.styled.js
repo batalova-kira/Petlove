@@ -23,11 +23,28 @@ export const Header = styled.header`
     max-width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
     margin-bottom: 40px;
 `;
 
+export const LogoBtn = styled.button`
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: ${(props) => props.theme.colors.black};
+`;
 export const StyledNavLink = styled(NavLink)`
     padding: 12px 24px;
     border-radius: 12px;

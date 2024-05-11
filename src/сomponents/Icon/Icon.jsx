@@ -1,5 +1,6 @@
 import React from "react";
-const spriteURL = "src/assets/sprite.svg";
+
+const spriteURL = "/petlove/src/assets/sprite.svg";
 
 export const Icon = ({ name, width, height }) => {
     return (
@@ -8,3 +9,5 @@ export const Icon = ({ name, width, height }) => {
         </svg>
     );
 };
+
+export default Icon;

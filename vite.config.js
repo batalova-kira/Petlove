@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-    plugins: [react()],
+    plugins: [svgr(), react()],
     server: {
         port: 3000,
         open: true,
@@ -14,8 +15,8 @@ export default defineConfig({
     css: {
         modules: false,
     },
-    define: {
-        "process.env": process.env,
-    },
+    // define: {
+    //     "process.env": process.env,
+    // },
     base: "/petlove",
 });

@@ -24,16 +24,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none; 
+  color: inherit;
+}
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 .list {
   margin: 0;
   padding: 0;
