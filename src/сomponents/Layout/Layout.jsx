@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import {
+    AuthContainer,
     AuthNavLink,
+    AuthNavLinkLogin,
+    AuthNavLinkRegistration,
     BtnClose,
     BurgerMenuBtn,
     Container,
@@ -9,6 +12,7 @@ import {
     StyledNavLink,
     WrapperAuthNav,
     WrapperBtnClose,
+    WrapperBurgerAuthNav,
     WrapperBurgerMenu,
     WrapperNav,
 } from "./Layout.styled";
@@ -33,54 +37,77 @@ const Layout = ({ children }) => {
                         ve
                     </LogoBtn>
                 </NavLink>
-                {isBurgerMenuOpen ? (
-                    // Випливаюче бургер-меню
-                    <WrapperBurgerMenu className="burger-menu">
-                        <WrapperBtnClose
-                            className="burger-menu-close"
-                            onClick={toggleBurgerMenu}
+                <AuthContainer>
+                    <WrapperAuthNav>
+                        <AuthNavLinkLogin className="header-link" to="/login">
+                            Log in
+                        </AuthNavLinkLogin>
+                        <AuthNavLinkRegistration
+                            className="header-link"
+                            to="/registration"
                         >
-                            <BtnClose
-                                name="icon-close-white"
+                            Registration
+                        </AuthNavLinkRegistration>
+                    </WrapperAuthNav>
+                    {isBurgerMenuOpen ? (
+                        // Випливаюче бургер-меню
+                        <WrapperBurgerMenu className="burger-menu">
+                            <WrapperBtnClose
+                                className="burger-menu-close"
+                                onClick={toggleBurgerMenu}
+                            >
+                                <BtnClose
+                                    name="icon-close-white"
+                                    width={32}
+                                    height={32}
+                                />
+                            </WrapperBtnClose>
+                            <WrapperNav className="burger-menu-nav">
+                                <StyledNavLink
+                                    className="header-link"
+                                    to="/news"
+                                >
+                                    News
+                                </StyledNavLink>
+                                <StyledNavLink
+                                    className="header-link"
+                                    to="/notices"
+                                >
+                                    Find pet
+                                </StyledNavLink>
+                                <StyledNavLink
+                                    className="header-link"
+                                    to="/friends"
+                                >
+                                    Our friends
+                                </StyledNavLink>
+                            </WrapperNav>
+                            <WrapperBurgerAuthNav>
+                                <AuthNavLink
+                                    className="header-link"
+                                    to="/login"
+                                >
+                                    Log in
+                                </AuthNavLink>
+                                <AuthNavLink
+                                    className="header-link"
+                                    to="/registration"
+                                >
+                                    Registration
+                                </AuthNavLink>
+                            </WrapperBurgerAuthNav>
+                        </WrapperBurgerMenu>
+                    ) : (
+                        // Кнопка бургер-меню
+                        <BurgerMenuBtn onClick={toggleBurgerMenu}>
+                            <Icon
+                                name="icon-burger-menu"
                                 width={32}
                                 height={32}
                             />
-                        </WrapperBtnClose>
-                        <WrapperNav className="burger-menu-nav">
-                            <StyledNavLink className="header-link" to="/news">
-                                News
-                            </StyledNavLink>
-                            <StyledNavLink
-                                className="header-link"
-                                to="/notices"
-                            >
-                                Find pet
-                            </StyledNavLink>
-                            <StyledNavLink
-                                className="header-link"
-                                to="/friends"
-                            >
-                                Our friends
-                            </StyledNavLink>
-                        </WrapperNav>
-                        <WrapperAuthNav>
-                            <AuthNavLink className="header-link" to="/login">
-                                Log in
-                            </AuthNavLink>
-                            <AuthNavLink
-                                className="header-link"
-                                to="/registration"
-                            >
-                                Registration
-                            </AuthNavLink>
-                        </WrapperAuthNav>
-                    </WrapperBurgerMenu>
-                ) : (
-                    // Кнопка бургер-меню
-                    <BurgerMenuBtn onClick={toggleBurgerMenu}>
-                        <Icon name="icon-burger-menu" width={32} height={32} />
-                    </BurgerMenuBtn>
-                )}
+                        </BurgerMenuBtn>
+                    )}
+                </AuthContainer>
             </Header>
             <main>{children}</main>
         </Container>

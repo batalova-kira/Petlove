@@ -1,13 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-@import 'node_modules/modern-normalize/modern-normalize.css';
 
 :root {
   --font-family: "Manrope", sans-serif;
-  /* --font-weight-medium: 500;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700; */
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
   --primary-transition: 0.3s ease-in-out;
 }
 
@@ -26,10 +26,11 @@ html {
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
+  /* font-weight: var(--font-weight-medium); */
   color: ${(props) => props.theme.colors.black};
   background: ${(props) => props.theme.colors.secondBackground};
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 p,

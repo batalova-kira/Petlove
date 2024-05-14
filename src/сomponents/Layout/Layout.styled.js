@@ -23,11 +23,40 @@ export const Header = styled.header`
     width: 100%;
     max-width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
     padding: 18px 0px;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 15px 0;
+    width: 119px;
+
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+
+    color: ${(props) => props.theme.colors.secondBackground};
+    transition-duration: 0.4s;
+
+    &:not(.active) {
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    &:hover {
+        cursor: pointer;
+        background: ${(props) => props.theme.colors.lightYellow};
+        color: ${(props) => props.theme.colors.yellow};
+    }
 `;
 
 export const LogoBtn = styled.button`
@@ -38,11 +67,47 @@ export const LogoBtn = styled.button`
     gap: 0px;
     background: none;
     margin: 0;
-    font-weight: 700;
+
+    font-weight: var(--font-weight-bold);
     font-size: 20px;
     line-height: 100%;
     letter-spacing: -0.04em;
     color: ${(props) => props.theme.colors.black};
+`;
+
+export const AuthContainer = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+`;
+
+export const WrapperAuthNav = styled.div`
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 8px;
+    }
+`;
+
+export const AuthNavLinkLogin = styled(StyledNavLink)`
+    width: 100%;
+    font-weight: var(--font-weight-bold);
+    padding: 15px 34px;
+    font-size: 16px;
+    line-height: 125%;
+
+    color: ${(props) => props.theme.colors.secondBackground};
+    background: ${(props) => props.theme.colors.yellow};
+    text-transform: uppercase;
+`;
+
+export const AuthNavLinkRegistration = styled(AuthNavLinkLogin)`
+    width: 100%;
+    padding: 15px 20px;
 `;
 
 export const BurgerMenuBtn = styled.button`
@@ -60,6 +125,10 @@ export const BurgerMenuBtn = styled.button`
     &:hover {
         transform: scale(1.1);
     }
+
+    @media only screen and (min-width: 1280px) {
+        display: none;
+    }
 `;
 
 export const WrapperBurgerMenu = styled.div`
@@ -74,7 +143,7 @@ export const WrapperBurgerMenu = styled.div`
     width: 218px;
     height: 100vh;
     padding: 28px 20px;
-    background-color: ${(props) => props.theme.colors.secondBackground};
+    color: ${(props) => props.theme.colors.secondBackground};
     /* box-shadow: -1px 0 7px rgba(0, 0, 0, 0.1); */
     overflow-y: auto;
     z-index: 1000;
@@ -111,36 +180,7 @@ export const WrapperNav = styled.nav`
     gap: 10px;
 `;
 
-export const StyledNavLink = styled(NavLink)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 30px;
-    padding: 15px 0;
-    width: 119px;
-
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 129%;
-    letter-spacing: -0.03em;
-    text-decoration: none;
-
-    color: ${(props) => props.theme.colors.background};
-    transition-duration: 0.4s;
-
-    &:not(.active) {
-        border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    &:hover {
-        cursor: pointer;
-        background: ${(props) => props.theme.colors.lightYellow};
-        color: ${(props) => props.theme.colors.yellow};
-    }
-`;
-
-export const WrapperAuthNav = styled.div`
+export const WrapperBurgerAuthNav = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -151,9 +191,8 @@ export const WrapperAuthNav = styled.div`
 `;
 
 export const AuthNavLink = styled(StyledNavLink)`
-    font-family: var(--font-family);
     width: 100%;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
 `;
 
