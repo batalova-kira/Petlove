@@ -73,6 +73,10 @@ export const LogoBtn = styled.button`
     line-height: 100%;
     letter-spacing: -0.04em;
     color: ${(props) => props.theme.colors.black};
+
+    @media only screen and (min-width: 768px) {
+        font-size: 28px;
+    }
 `;
 
 export const AuthContainer = styled.div`
@@ -93,16 +97,48 @@ export const WrapperAuthNav = styled.div`
     }
 `;
 
-export const AuthNavLinkLogin = styled(StyledNavLink)`
+export const WrapperHeart = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+`;
+
+export const WrapperHeartTablet = styled.div`
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+`;
+
+export const AuthNavLinkLogin = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    border-radius: 30px;
+    padding: 15px 35px;
+
     font-weight: var(--font-weight-bold);
-    padding: 15px 34px;
     font-size: 16px;
     line-height: 125%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
 
     color: ${(props) => props.theme.colors.secondBackground};
     background: ${(props) => props.theme.colors.yellow};
-    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+        background: ${(props) => props.theme.colors.lightYellow};
+        color: ${(props) => props.theme.colors.yellow};
+    }
 `;
 
 export const AuthNavLinkRegistration = styled(AuthNavLinkLogin)`
@@ -126,7 +162,28 @@ export const BurgerMenuBtn = styled.button`
         transform: scale(1.1);
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+`;
+
+export const BurgerMenuBtnTablet = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all var(--primary-transition);
+    color: ${(props) => props.theme.colors.black};
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    @media only screen and (max-width: 767px) {
         display: none;
     }
 `;
@@ -147,11 +204,17 @@ export const WrapperBurgerMenu = styled.div`
     /* box-shadow: -1px 0 7px rgba(0, 0, 0, 0.1); */
     overflow-y: auto;
     z-index: 1000;
-    /* transition: transform 0.3s ease; */
+    transition: transform 0.3s ease;
     background: ${(props) => props.theme.colors.yellow};
+
+    @media only screen and (min-width: 768px) {
+        width: 374px;
+        padding: 40px 32px;
+    }
 `;
 
 export const WrapperBtnClose = styled.div`
+    display: flex;
     margin-left: auto;
     margin-bottom: 176px;
     cursor: pointer;
@@ -161,14 +224,25 @@ export const WrapperBtnClose = styled.div`
     &:hover {
         transform: scale(1.1);
     }
+
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
 `;
 
-export const BtnClose = styled(Icon)`
+export const WrapperBtnCloseTablet = styled.div`
+    margin-left: auto;
+    margin-bottom: 294px;
+    cursor: pointer;
     transition: all var(--primary-transition);
     stroke: ${(props) => props.theme.colors.yellow};
 
     &:hover {
         transform: scale(1.1);
+    }
+
+    @media only screen and (max-width: 767px) {
+        display: none;
     }
 `;
 
