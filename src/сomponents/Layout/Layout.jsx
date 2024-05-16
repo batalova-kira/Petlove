@@ -3,7 +3,9 @@ import {
     AuthContainer,
     AuthNavLink,
     AuthNavLinkLogin,
+    AuthNavLinkLoginTablet,
     AuthNavLinkRegistration,
+    AuthNavLinkRegistrationTablet,
     BurgerMenuBtn,
     BurgerMenuBtnTablet,
     Container,
@@ -14,6 +16,7 @@ import {
     WrapperBtnClose,
     WrapperBtnCloseTablet,
     WrapperBurgerAuthNav,
+    WrapperBurgerAuthNavTablet,
     WrapperBurgerMenu,
     WrapperHeart,
     WrapperHeartTablet,
@@ -83,6 +86,14 @@ const Layout = ({ children }) => {
                                     Registration
                                 </AuthNavLink>
                             </WrapperBurgerAuthNav>
+                            <WrapperBurgerAuthNavTablet>
+                                <AuthNavLinkLoginTablet to="/login">
+                                    Log in
+                                </AuthNavLinkLoginTablet>
+                                <AuthNavLinkRegistrationTablet to="/registration">
+                                    Registration
+                                </AuthNavLinkRegistrationTablet>
+                            </WrapperBurgerAuthNavTablet>
                         </WrapperBurgerMenu>
                     ) : (
                         // Кнопка бургер-меню

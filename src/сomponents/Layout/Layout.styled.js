@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Icon from "../Icon/Icon";
 
 export const Container = styled.div`
     // Basic styles
@@ -35,13 +34,13 @@ export const StyledNavLink = styled(NavLink)`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid ${(props) => props.theme.colors.borderWhite};
     border-radius: 30px;
     padding: 15px 0;
     width: 119px;
 
     font-size: 14px;
-    line-height: 129%;
+    line-height: 1.29;
     letter-spacing: -0.03em;
     text-decoration: none;
 
@@ -49,13 +48,18 @@ export const StyledNavLink = styled(NavLink)`
     transition-duration: 0.4s;
 
     &:not(.active) {
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        border: 1px solid ${(props) => props.theme.colors.borderWhiteActive};
     }
 
     &:hover {
         cursor: pointer;
         background: ${(props) => props.theme.colors.lightYellow};
         color: ${(props) => props.theme.colors.yellow};
+    }
+
+    @media only screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 1.25;
     }
 `;
 
@@ -183,7 +187,7 @@ export const BurgerMenuBtnTablet = styled.button`
         transform: scale(1.1);
     }
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 767px), (min-width: 1280px) {
         display: none;
     }
 `;
@@ -224,7 +228,6 @@ export const WrapperBtnClose = styled.div`
     &:hover {
         transform: scale(1.1);
     }
-
     @media only screen and (min-width: 768px) {
         display: none;
     }
@@ -262,12 +265,37 @@ export const WrapperBurgerAuthNav = styled.div`
     width: 100%;
     gap: 8px;
     margin-top: auto;
+
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
 `;
 
-export const AuthNavLink = styled(StyledNavLink)`
+export const AuthNavLink = styled(NavLink)`
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid ${(props) => props.theme.colors.borderWhite};
+    padding: 15px 35px;
+
     font-weight: var(--font-weight-bold);
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
+
+    color: ${(props) => props.theme.colors.secondBackground};
+    background: ${(props) => props.theme.colors.yellow};
+
+    &:hover {
+        cursor: pointer;
+        border: none;
+        background: ${(props) => props.theme.colors.lightYellow};
+        color: ${(props) => props.theme.colors.yellow};
+    }
 `;
 
 export const ContainerAuthNav = styled.div`
@@ -278,4 +306,24 @@ export const ContainerAuthNav = styled.div`
     width: 100%;
     gap: 8px;
     margin-top: auto;
+`;
+
+export const WrapperBurgerAuthNavTablet = styled.div`
+    display: none;
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 8px;
+        margin-top: auto;
+    }
+`;
+
+export const AuthNavLinkLoginTablet = styled(AuthNavLinkLogin)`
+    border: 1px solid ${(props) => props.theme.colors.borderWhite};
+`;
+
+export const AuthNavLinkRegistrationTablet = styled(AuthNavLinkRegistration)`
+    border: 1px solid ${(props) => props.theme.colors.borderWhite};
 `;
