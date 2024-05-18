@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// import tabX1 from "/petlove/src/assets/images/loader_tab_x1.jpg";
 
 export const Preloader = styled.div`
     position: fixed;
@@ -6,92 +7,79 @@ export const Preloader = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
-    background-size: cover;
-    background-color: pink;
+
+    // Дефолтне зображення
+    background: pink;
+
+    /* background-size: cover; */
+    /* 
+    // Mobile
+    @media (max-width: 767px) {
+        background: ${(props) => props.theme.colors.backgroundBlur},
+            url("/src/assets/images/loader_mob_x1.jpg") no-repeat center center;
+        background-size: cover;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            background: ${(props) => props.theme.colors.backgroundBlur},
+                url("/src/assets/images/loader_mob_x2.jpg") no-repeat center
+                    center;
+            background-size: cover;
+        }
+    }
+
+    // Tablets
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        background: ${(props) => props.theme.colors.backgroundBlur},
+            url("/src/assets/images/loader_tab_x1.jpg") no-repeat center center;
+        background-size: cover;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            background: ${(props) => props.theme.colors.backgroundBlur},
+                url("/src/assets/images/loader_tab_x2.jpg") no-repeat center
+                    center;
+            background-size: cover;
+        }
+    }
+
+    // Desktop
+    @media (min-width: 1280px) {
+        background: ${(props) => props.theme.colors.backgroundBlur},
+            url("/src/assets/images/loader_desk_x1.jpg") no-repeat center center;
+        background-size: cover;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            background: ${(props) => props.theme.colors.backgroundBlur},
+                url("/src/assets/images/loader_desk_x2.jpg") no-repeat center
+                    center;
+            background-size: cover;
+        }
+    } */
 `;
-
-// /* Mobile Devices */
-// @media (max-width: 767px) {
-//     #preloader {
-//         background: url('mobile-image.jpg') no-repeat center center;
-//     }
-//     @supports (background-image: url(image.webp)) {
-//         #preloader {
-//             background: url('mobile-image.webp') no-repeat center center;
-//         }
-//     }
-//     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-//         #preloader {
-//             background: url('mobile-image@2x.jpg') no-repeat center center;
-//         }
-//         @supports (background-image: url(image.webp)) {
-//             #preloader {
-//                 background: url('mobile-image@2x.webp') no-repeat center center;
-//             }
-//         }
-//     }
-// }
-
-// /* Tablets */
-// @media (min-width: 768px) and (max-width: 1023px) {
-//     #preloader {
-//         background: url('tablet-image.jpg') no-repeat center center;
-//     }
-//     @supports (background-image: url(image.webp)) {
-//         #preloader {
-//             background: url('tablet-image.webp') no-repeat center center;
-//         }
-//     }
-//     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-//         #preloader {
-//             background: url('tablet-image@2x.jpg') no-repeat center center;
-//         }
-//         @supports (background-image: url(image.webp)) {
-//             #preloader {
-//                 background: url('tablet-image@2x.webp') no-repeat center center;
-//             }
-//         }
-//     }
-// }
-
-// /* Desktop */
-// @media (min-width: 1024px) {
-//     #preloader {
-//         background: url('desktop-image.jpg') no-repeat center center;
-//     }
-//     @supports (background-image: url(image.webp)) {
-//         #preloader {
-//             background: url('desktop-image.webp') no-repeat center center;
-//         }
-//     }
-//     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-//         #preloader {
-//             background: url('desktop-image@2x.jpg') no-repeat center center;
-//         }
-//         @supports (background-image: url(image.webp)) {
-//             #preloader {
-//                 background: url('desktop-image@2x.webp') no-repeat center center;
-//             }
-//         }
-//     }
-// }
 
 export const PreloaderInner = styled.div`
     position: relative;
     text-align: center;
 `;
 
-export const LoaderDesc = styled.div`
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
+export const SpinningContainer = styled.div`
+    width: 292px;
+    height: 292px;
     animation: spin 2s linear infinite;
+
+    @media only screen and (min-width: 768px) {
+        width: 427px;
+        height: 427px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+        width: 396px;
+        height: 396px;
+    }
 
     @keyframes spin {
         0% {
@@ -101,6 +89,11 @@ export const LoaderDesc = styled.div`
             transform: rotate(360deg);
         }
     }
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 export const LoaderPercentage = styled.div`
@@ -108,7 +101,15 @@ export const LoaderPercentage = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: black;
+
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: ${(props) => props.theme.colors.secondBackground};
     z-index: 1;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 80px;
+    }
 `;
