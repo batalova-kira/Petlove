@@ -1,5 +1,10 @@
 import styled from "styled-components";
-// import tabX1 from "/petlove/src/assets/images/loader_tab_x1.jpg";
+import tabX1 from "/petlove/images/loader_tab_x1.jpg";
+import tabX2 from "/petlove/images/loader_tab_x2.jpg";
+import mobX1 from "/petlove/images/loader_mob_x1.jpg";
+import mobX2 from "/petlove/images/loader_mob_x2.jpg";
+import deskX1 from "/petlove/images/loader_desk_x1.jpg";
+import deskX2 from "/petlove/images/loader_desk_x2.jpg";
 
 export const Preloader = styled.div`
     position: fixed;
@@ -13,52 +18,42 @@ export const Preloader = styled.div`
     justify-content: center;
 
     // Дефолтне зображення
-    background: pink;
+    background: url(${tabX1}) no-repeat center center,
+        ${(props) => props.theme.colors.backgroundBlur};
+    background-size: cover;
 
-    /* background-size: cover; */
-    /* 
     // Mobile
     @media (max-width: 767px) {
-        background: ${(props) => props.theme.colors.backgroundBlur},
-            url("/src/assets/images/loader_mob_x1.jpg") no-repeat center center;
-        background-size: cover;
+        background: url(${mobX1}) no-repeat center center,
+            ${(props) => props.theme.colors.backgroundBlur};
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: ${(props) => props.theme.colors.backgroundBlur},
-                url("/src/assets/images/loader_mob_x2.jpg") no-repeat center
-                    center;
-            background-size: cover;
+            background: url(${mobX2}) no-repeat center center,
+                ${(props) => props.theme.colors.backgroundBlur};
         }
     }
 
     // Tablets
-
     @media (min-width: 768px) and (max-width: 1279px) {
-        background: ${(props) => props.theme.colors.backgroundBlur},
-            url("/src/assets/images/loader_tab_x1.jpg") no-repeat center center;
-        background-size: cover;
+        background: url(${tabX1}) no-repeat center center,
+            ${(props) => props.theme.colors.backgroundBlur};
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: ${(props) => props.theme.colors.backgroundBlur},
-                url("/src/assets/images/loader_tab_x2.jpg") no-repeat center
-                    center;
-            background-size: cover;
+            background: url(${tabX2}) no-repeat center center,
+                ${(props) => props.theme.colors.backgroundBlur};
         }
     }
 
     // Desktop
     @media (min-width: 1280px) {
-        background: ${(props) => props.theme.colors.backgroundBlur},
-            url("/src/assets/images/loader_desk_x1.jpg") no-repeat center center;
-        background-size: cover;
+        background: url(${deskX1}) no-repeat center center,
+            ${(props) => props.theme.colors.backgroundBlur};
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: ${(props) => props.theme.colors.backgroundBlur},
-                url("/src/assets/images/loader_desk_x2.jpg") no-repeat center
-                    center;
-            background-size: cover;
+            background: url(${deskX2}) no-repeat center center,
+                ${(props) => props.theme.colors.backgroundBlur};
         }
-    } */
+    }
 `;
 
 export const PreloaderInner = styled.div`
