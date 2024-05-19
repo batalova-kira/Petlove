@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import tabX1 from "../../../public/images/loader_tab_x1.jpg";
-import tabX2 from "../../../public/images/loader_tab_x2.jpg";
-import mobX1 from "../../../public/images/loader_mob_x1.jpg";
-import mobX2 from "../../../public/images/loader_mob_x2.jpg";
-import deskX1 from "../../../public/images/loader_desk_x1.jpg";
-import deskX2 from "../../../public/images/loader_desk_x2.jpg";
+import tabX1 from "/images/loader_tab_x1.jpg";
+import tabX2 from "/images/loader_tab_x2.jpg";
+import mobX1 from "/images/loader_mob_x1.jpg";
+import mobX2 from "/images/loader_mob_x2.jpg";
+import deskX1 from "/images/loader_desk_x1.jpg";
+import deskX2 from "/images/loader_desk_x2.jpg";
 
 export const Preloader = styled.div`
     position: fixed;
