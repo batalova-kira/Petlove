@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import tabX1 from "/petlove/images/loader_tab_x1.jpg";
-import tabX2 from "/petlove/images/loader_tab_x2.jpg";
-import mobX1 from "/petlove/images/loader_mob_x1.jpg";
-import mobX2 from "/petlove/images/loader_mob_x2.jpg";
-import deskX1 from "/petlove/images/loader_desk_x1.jpg";
-import deskX2 from "/petlove/images/loader_desk_x2.jpg";
+import tabX1 from "../../../public/images/loader_tab_x1.jpg";
+import tabX2 from "../../../public/images/loader_tab_x2.jpg";
+import mobX1 from "../../../public/images/loader_mob_x1.jpg";
+import mobX2 from "../../../public/images/loader_mob_x2.jpg";
+import deskX1 from "../../../public/images/loader_desk_x1.jpg";
+import deskX2 from "../../../public/images/loader_desk_x2.jpg";
 
 export const Preloader = styled.div`
     position: fixed;
@@ -18,10 +18,10 @@ export const Preloader = styled.div`
     justify-content: center;
 
     // Дефолтне зображення
-    /* background: url(${tabX1}) no-repeat center center,
-        ${(props) => props.theme.colors.backgroundBlur}; */
+    background: url(${tabX1}) no-repeat center center,
+        ${(props) => props.theme.colors.backgroundBlur};
     background-size: cover;
-
+    /* 
     // Mobile
     @media (max-width: 767px) {
         background: url(${mobX1}) no-repeat center center,
@@ -56,7 +56,7 @@ export const Preloader = styled.div`
                 ${(props) => props.theme.colors.backgroundBlur};
             background-size: cover;
         }
-    }
+    } */
 `;
 
 export const PreloaderInner = styled.div`
