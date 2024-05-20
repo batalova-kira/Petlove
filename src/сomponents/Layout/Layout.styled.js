@@ -83,6 +83,41 @@ export const LogoBtn = styled.button`
     }
 `;
 
+export const WrapperNavMenu = styled.div`
+    display: none;
+
+    @media only screen and (min-width: 1280px) {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+`;
+
+export const NavLinkDesk = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+    padding: 15px 20px;
+
+    font-weight: var(--font-weight-bold);
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.03em;
+
+    border: 1px solid ${(props) => props.theme.colors.borderGrey};
+    border-radius: 30px;
+    color: ${(props) => props.theme.colors.black};
+
+    &:hover {
+        cursor: pointer;
+        border: 1px solid ${(props) => props.theme.colors.yellow};
+    }
+`;
+
 export const AuthContainer = styled.div`
     display: flex;
     align-items: center;

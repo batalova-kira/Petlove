@@ -11,6 +11,7 @@ import {
     Container,
     Header,
     LogoBtn,
+    NavLinkDesk,
     StyledNavLink,
     WrapperAuthNav,
     WrapperBtnClose,
@@ -21,6 +22,7 @@ import {
     WrapperHeart,
     WrapperHeartTablet,
     WrapperNav,
+    WrapperNavMenu,
 } from "./Layout.styled";
 import { Icon } from "../Icon/Icon";
 import { NavLink } from "react-router-dom";
@@ -47,6 +49,11 @@ const Layout = ({ children }) => {
                         ve
                     </LogoBtn>
                 </NavLink>
+                <WrapperNavMenu>
+                    <NavLinkDesk to="/news">News</NavLinkDesk>
+                    <NavLinkDesk to="/notices">Find pet</NavLinkDesk>
+                    <NavLinkDesk to="/friends">Our friends</NavLinkDesk>
+                </WrapperNavMenu>
                 <AuthContainer>
                     <WrapperAuthNav>
                         <AuthNavLinkLogin to="/login">Log in</AuthNavLinkLogin>

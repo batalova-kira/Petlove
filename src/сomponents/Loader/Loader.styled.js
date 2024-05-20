@@ -21,7 +21,7 @@ export const Preloader = styled.div`
     background: url(${tabX1}) no-repeat center center,
         ${(props) => props.theme.colors.backgroundBlur};
     background-size: cover;
-    /* 
+
     // Mobile
     @media (max-width: 767px) {
         background: url(${mobX1}) no-repeat center center,
@@ -56,7 +56,7 @@ export const Preloader = styled.div`
                 ${(props) => props.theme.colors.backgroundBlur};
             background-size: cover;
         }
-    } */
+    }
 `;
 
 export const PreloaderInner = styled.div`
