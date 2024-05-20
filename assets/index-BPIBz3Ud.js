@@ -81,8 +81,9 @@ Error generating stack: `+o.message+`
 
     @media only screen and (min-width: 768px) {
         max-width: 768px;
-        padding: 16px 32px;
+        padding: 32px;
     }
+
     @media only screen and (min-width: 1280px) {
         max-width: 1280px;
     }
@@ -95,7 +96,13 @@ Error generating stack: `+o.message+`
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    padding: 18px 0px;
+    padding-top: 18px;
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+        padding-top: 0px;
+        margin-bottom: 32px;
+    }
 `,vi=F(Jr)`
     display: flex;
     align-items: center;
@@ -483,7 +490,7 @@ Error generating stack: `+o.message+`
     @media only screen and (min-width: 768px) {
         font-size: 80px;
     }
-`,wv=()=>P.jsxs("svg",{width:"399",height:"399",viewBox:"0 0 399 399",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[P.jsx("path",{opacity:"0.3",d:"M2.25909 183.331C-1.16278 224.861 8.60542 266.413 30.1728 302.068C51.7401 337.724 84.0071 365.666 122.379 381.915C160.751 398.165 203.272 401.894 243.886 392.572C284.501 383.249 321.139 361.351 348.584 329.994C376.028 298.637 392.88 259.42 396.739 217.928C400.599 176.437 391.269 134.785 370.079 98.904C348.888 63.0232 316.918 34.7426 278.719 18.0893C240.521 1.43592 198.042 -2.74119 157.331 6.15272",stroke:"url(#paint0_linear_55801_151)",strokeWidth:"2"}),P.jsx("defs",{children:P.jsxs("linearGradient",{id:"paint0_linear_55801_151",x1:"183.331",y1:"396.922",x2:"-14.4097",y2:"199.59",gradientUnits:"userSpaceOnUse",children:[P.jsx("stop",{stopColor:"white"}),P.jsx("stop",{offset:"1",stopColor:"white",stopOpacity:"0"})]})})]}),xv=()=>{const[e,t]=C.useState(0),[n,r]=C.useState(!1);return C.useEffect(()=>{const l=setInterval(()=>{t(o=>o>=100?(clearInterval(l),r(!0),100):o+1)},50);return()=>clearInterval(l)},[]),P.jsx(mv,{children:P.jsxs(gv,{children:[!n&&P.jsxs(P.Fragment,{children:[P.jsx(vv,{children:P.jsx(wv,{})}),P.jsxs(yv,{children:[e,"%"]})]}),n&&P.jsx("p",{children:"Loading finish!"})]})})},Sv=C.lazy(()=>Yn(()=>import("./HomePage-DuoHheVz.js"),__vite__mapDeps([]))),kv=C.lazy(()=>Yn(()=>import("./News-jb9TyCV_.js"),__vite__mapDeps([]))),Ev=C.lazy(()=>Yn(()=>import("./Notices-JxWbh5Ik.js"),__vite__mapDeps([]))),Cv=C.lazy(()=>Yn(()=>import("./Friends-C9AnPZDD.js"),__vite__mapDeps([]))),_v=C.lazy(()=>Yn(()=>import("./LoginPage-DdIDbuAp.js"),__vite__mapDeps([]))),Pv=C.lazy(()=>Yn(()=>import("./RegisterPage-Bzech3lT.js"),__vite__mapDeps([]))),Nv=[{path:M0,element:P.jsx(Sv,{})},{path:D0,element:P.jsx(kv,{})},{path:F0,element:P.jsx(Ev,{})},{path:A0,element:P.jsx(Cv,{})},{path:U0,element:P.jsx(_v,{})},{path:B0,element:P.jsx(Pv,{})}],Rv=()=>P.jsx(P.Fragment,{children:P.jsx(av,{children:P.jsx(C.Suspense,{fallback:P.jsx(xv,{}),children:P.jsxs(S0,{children:[Nv.map(({path:e,element:t})=>P.jsx(hu,{path:e,element:t},e)),P.jsx(hu,{path:"*",element:P.jsx(w0,{to:"/"})})]})})})}),Lv=Vg`
+`,wv=()=>P.jsxs("svg",{width:"399",height:"399",viewBox:"0 0 399 399",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:[P.jsx("path",{opacity:"0.3",d:"M2.25909 183.331C-1.16278 224.861 8.60542 266.413 30.1728 302.068C51.7401 337.724 84.0071 365.666 122.379 381.915C160.751 398.165 203.272 401.894 243.886 392.572C284.501 383.249 321.139 361.351 348.584 329.994C376.028 298.637 392.88 259.42 396.739 217.928C400.599 176.437 391.269 134.785 370.079 98.904C348.888 63.0232 316.918 34.7426 278.719 18.0893C240.521 1.43592 198.042 -2.74119 157.331 6.15272",stroke:"url(#paint0_linear_55801_151)",strokeWidth:"2"}),P.jsx("defs",{children:P.jsxs("linearGradient",{id:"paint0_linear_55801_151",x1:"183.331",y1:"396.922",x2:"-14.4097",y2:"199.59",gradientUnits:"userSpaceOnUse",children:[P.jsx("stop",{stopColor:"white"}),P.jsx("stop",{offset:"1",stopColor:"white",stopOpacity:"0"})]})})]}),xv=()=>{const[e,t]=C.useState(0),[n,r]=C.useState(!1);return C.useEffect(()=>{const l=setInterval(()=>{t(o=>o>=100?(clearInterval(l),r(!0),100):o+1)},50);return()=>clearInterval(l)},[]),P.jsx(mv,{children:P.jsxs(gv,{children:[!n&&P.jsxs(P.Fragment,{children:[P.jsx(vv,{children:P.jsx(wv,{})}),P.jsxs(yv,{children:[e,"%"]})]}),n&&P.jsx("p",{children:"Loading finish!"})]})})},Sv=C.lazy(()=>Yn(()=>import("./HomePage-BpnlC160.js"),__vite__mapDeps([]))),kv=C.lazy(()=>Yn(()=>import("./News-BtUi9a4i.js"),__vite__mapDeps([]))),Ev=C.lazy(()=>Yn(()=>import("./Notices-BpMqG6Jv.js"),__vite__mapDeps([]))),Cv=C.lazy(()=>Yn(()=>import("./Friends-CWY38KQg.js"),__vite__mapDeps([]))),_v=C.lazy(()=>Yn(()=>import("./LoginPage-B7qmHHA2.js"),__vite__mapDeps([]))),Pv=C.lazy(()=>Yn(()=>import("./RegisterPage-CZCWyyoq.js"),__vite__mapDeps([]))),Nv=[{path:M0,element:P.jsx(Sv,{})},{path:D0,element:P.jsx(kv,{})},{path:F0,element:P.jsx(Ev,{})},{path:A0,element:P.jsx(Cv,{})},{path:U0,element:P.jsx(_v,{})},{path:B0,element:P.jsx(Pv,{})}],Rv=()=>P.jsx(P.Fragment,{children:P.jsx(av,{children:P.jsx(C.Suspense,{fallback:P.jsx(xv,{}),children:P.jsxs(S0,{children:[Nv.map(({path:e,element:t})=>P.jsx(hu,{path:e,element:t},e)),P.jsx(hu,{path:"*",element:P.jsx(w0,{to:"/"})})]})})})}),Lv=Vg`
  :root {
    --font-family: "Manrope", sans-serif;
    --font-weight-medium: 500;
@@ -558,4 +565,4 @@ Error generating stack: `+o.message+`
   letter-spacing: -0.03em;
   margin-bottom: 40px;
   } */
-`,$v={colors:{background:"#F9F9F9",secondBackground:"#fff",lightYellow:"#FFF4DF",yellow:"#F6B83D",black:"#262626",pink:"#F43F5E",borderWhite:"rgba(255, 255, 255, 0.5)",borderGrey:"rgba(38, 38, 38, 0.15)",borderWhiteActive:"rgba(255, 255, 255, 0.15)",lightPink:"rgba(244, 63, 94, 0.1)",green:"#08AA83",blue:"#54ADFF",lightBlue:"rgba(84, 173, 255, 0.1)",greyText:"rgba(43, 43, 42, 0.4)",backgroundBlur:"rgba(0, 0, 0, 0.3)"},spacing:e=>`${e*4}px`},Tv=wi.createRoot(document.getElementById("root"));Tv.render(P.jsx(Ne.StrictMode,{children:P.jsx(L0,{basename:"/petlove",children:P.jsxs(Ug,{theme:$v,children:[P.jsx(Rv,{}),P.jsx(Lv,{})]})})}));export{P as j};
+`,$v={colors:{background:"#F9F9F9",secondBackground:"#fff",lightYellow:"#FFF4DF",yellow:"#F6B83D",black:"#262626",pink:"#F43F5E",borderWhite:"rgba(255, 255, 255, 0.5)",borderGrey:"rgba(38, 38, 38, 0.15)",borderWhiteActive:"rgba(255, 255, 255, 0.15)",lightPink:"rgba(244, 63, 94, 0.1)",green:"#08AA83",blue:"#54ADFF",lightBlue:"rgba(84, 173, 255, 0.1)",greyText:"rgba(43, 43, 42, 0.4)",backgroundBlur:"rgba(0, 0, 0, 0.3)"},spacing:e=>`${e*4}px`},Tv=wi.createRoot(document.getElementById("root"));Tv.render(P.jsx(Ne.StrictMode,{children:P.jsx(L0,{basename:"/petlove",children:P.jsxs(Ug,{theme:$v,children:[P.jsx(Rv,{}),P.jsx(Lv,{})]})})}));export{P as j,F as u};
