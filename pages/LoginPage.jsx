@@ -1,7 +1,12 @@
 import React from "react";
+import { HeroImg } from "../src/сomponents/HeroImg/HeroImg";
 
 const LoginPage = () => {
-    return <div>LoginPage</div>;
+    return (
+        <>
+            <HeroImg />
+        </>
+    );
 };
 
 export default LoginPage;

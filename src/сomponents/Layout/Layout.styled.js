@@ -11,8 +11,9 @@ export const Container = styled.div`
 
     @media only screen and (min-width: 768px) {
         max-width: 768px;
-        padding: 16px 32px;
+        padding: 32px;
     }
+
     @media only screen and (min-width: 1280px) {
         max-width: 1280px;
     }
@@ -27,7 +28,13 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    padding: 18px 0px;
+    padding-top: 18px;
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+        padding-top: 0px;
+        margin-bottom: 32px;
+    }
 `;
 
 export const StyledNavLink = styled(NavLink)`
