@@ -1,10 +1,15 @@
 import React from "react";
-import { BackgroundHero, ShapeOverlay } from "./HeroImg.styled";
+import {
+    BackgroundHero,
+    ShapeOverlay,
+    WrapperHeroIcon,
+} from "./HeroImg.styled";
 
-export const HeroImg = () => {
+export const HeroImg = ({ children }) => {
     return (
         <BackgroundHero>
             <ShapeOverlay />
+            <WrapperHeroIcon>{children}</WrapperHeroIcon>
         </BackgroundHero>
     );
 };

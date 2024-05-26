@@ -27,3 +27,11 @@ export const ShapeOverlay = styled.div`
     background-size: contain;
     z-index: 1;
 `;
+
+export const WrapperHeroIcon = styled.div`
+    display: inline-block;
+
+    position: absolute;
+
+    z-index: 2;
+`;
