@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import dog_hero_X1 from "../public/images/dog_hero_mob_x1.png";
-import dog_hero_X2 from "../public/images/dog_hero_mob_x2.png";
+import dog_hero_X1 from "/images/dog_hero_mob_x1.png";
+import dog_hero_X2 from "/images/dog_hero_mob_x2.png";
 
 export const IconDogMobile = styled.div`
     width: 335px;
