@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import dog_hero_X1 from "/images/dog_hero_mob_x1.png";
 import dog_hero_X2 from "/images/dog_hero_mob_x2.png";
+import dog_hero_tabX1 from "/images/dog_hero_tabx1.png";
+import dog_hero_tabX2 from "/images/dog_hero_tabx2.png";
 
 export const IconDogMobile = styled.div`
     width: 335px;
@@ -8,13 +10,31 @@ export const IconDogMobile = styled.div`
 
     /* background: url() no-repeat center center; */
     background-size: contain;
-    z-index: 1;
+    z-index: 10;
 
     @media (max-width: 767px) {
         background: url(${dog_hero_X1}) no-repeat center center;
         background-size: cover;
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
             background: url(${dog_hero_X2}) no-repeat center center;
+            background-size: cover;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        width: 364px;
+        height: 302px;
+
+        position: absolute;
+        bottom: 0;
+        left: 258px;
+
+        background: url(${dog_hero_tabX1}) no-repeat center center;
+        background-size: cover;
+        z-index: 10;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            background: url(${dog_hero_tabX2}) no-repeat center center;
             background-size: cover;
         }
     }

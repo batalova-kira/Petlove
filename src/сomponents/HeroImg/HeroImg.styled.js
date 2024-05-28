@@ -23,30 +23,24 @@ export const BackgroundHero = styled.div`
 `;
 
 export const ShapeOverlay = styled.div`
-    width: 316px;
-    height: 390px;
+    width: 305px;
+    height: 280px;
 
     position: absolute;
-    top: -35px;
-    left: 20px;
+    bottom: -20px;
+    left: 27px;
 
     background: url(${shapeBcgr}) no-repeat center center;
     background-size: contain;
     z-index: 1;
 
     @media only screen and (min-width: 768px) {
-        /* width: 500px;
-        height: 715px; */
-        width: 100%;
-        height: 100%;
+        width: 550px;
+        height: 302px;
 
         position: absolute;
-        /* top: -185px; */
-        /* left: 150px;
-        bottom: 0; */
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
+        bottom: -30px;
+        left: 106px;
 
         background: url(${shapeBcgrTab}) no-repeat center center;
         background-size: contain;
@@ -56,8 +50,4 @@ export const ShapeOverlay = styled.div`
 
 export const WrapperHeroIcon = styled.div`
     display: inline-block;
-
-    position: absolute;
-
-    z-index: 2;
 `;
