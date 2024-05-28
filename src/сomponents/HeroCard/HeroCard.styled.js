@@ -47,6 +47,52 @@ export const HeroAvatar = styled.div`
     }
 `;
 
-export const WrapperCardDesc = styled.div`
-    
+export const WrapperHeroCardDesc = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    max-width: 194px;
+`;
+
+export const WrapperHeroCardTitle = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const HeroCardTitle = styled.h3`
+    font-weight: var(--font-weight-bold);
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    color: ${(props) => props.theme.colors.yellow};
+`;
+
+export const WrapperCardBirth = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+`;
+
+export const CardBirth = styled.p`
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    color: ${(props) => props.theme.colors.lightGrey};
+`;
+
+export const CardBirthNumber = styled.p`
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    color: ${(props) => props.theme.colors.black};
+`;
+
+export const WrapperHeroCardText = styled.p`
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    color: ${(props) => props.theme.colors.mediumGrey};
 `;

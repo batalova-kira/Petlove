@@ -1,8 +1,15 @@
 import React from "react";
 import {
+    CardBirth,
+    CardBirthNumber,
     HeroAvatar,
+    HeroCardTitle,
+    WrapperCardBirth,
     WrapperHeroAvatar,
     WrapperHeroCard,
+    WrapperHeroCardDesc,
+    WrapperHeroCardText,
+    WrapperHeroCardTitle,
 } from "./HeroCard.styled";
 
 export const HeroCard = () => {
@@ -11,9 +18,20 @@ export const HeroCard = () => {
             <WrapperHeroAvatar>
                 <HeroAvatar />
             </WrapperHeroAvatar>
-            <WrapperCardDesc>
-                <div></div>
-            </WrapperCardDesc>
+            <WrapperHeroCardDesc>
+                <WrapperHeroCardTitle>
+                    <HeroCardTitle>Rich</HeroCardTitle>
+                    <WrapperCardBirth>
+                        <CardBirth>Birthday: </CardBirth>
+                        <CardBirthNumber>21.09.2020</CardBirthNumber>
+                    </WrapperCardBirth>
+                </WrapperHeroCardTitle>
+                <WrapperHeroCardText>
+                    Rich would be the perfect addition to an active family that
+                    loves to play and go on walks. I bet he would love having a
+                    doggy playmate too!
+                </WrapperHeroCardText>
+            </WrapperHeroCardDesc>
         </WrapperHeroCard>
     );
 };

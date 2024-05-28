@@ -17,6 +17,8 @@ const theme = {
         lightYellow: "#FFF4DF",
         yellow: "#F6B83D",
         black: "#262626",
+        mediumGrey: "rgba(38, 38, 38, 0.8)",
+        lightGrey: "rgba(38, 38, 38, 0.5)",
         pink: "#F43F5E",
         borderWhite: "rgba(255, 255, 255, 0.5)",
         borderGrey: "rgba(38, 38, 38, 0.15)",
