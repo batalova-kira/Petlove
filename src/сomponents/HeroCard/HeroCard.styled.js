@@ -20,6 +20,18 @@ export const WrapperHeroCard = styled.div`
         border-radius: 20px;
         background: ${(props) => props.theme.colors.secondBackground};
     }
+
+    @media only screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        padding: 16px;
+
+        position: absolute;
+        bottom: 87px;
+        left: 61px;
+        z-index: 5;
+    }
 `;
 
 export const WrapperHeroAvatar = styled.div`
