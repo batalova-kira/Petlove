@@ -6,6 +6,22 @@ import dog_hero_tabX2 from "/images/dog_hero_tabx2.png";
 import dog_hero_desk_X1 from "/images/dog_hero_desk_x1.png";
 import dog_hero_desk_X2 from "/images/dog_hero_desk_x2.png";
 
+export const StyledLoginContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media only screen and (min-width: 768px) {
+        gap: 16px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+`;
+
 export const IconDogMobile = styled.div`
     width: 335px;
     height: 280px;
