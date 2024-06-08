@@ -1,8 +1,8 @@
 import React from "react";
-import { HeroImg } from "../src/сomponents/HeroImg/HeroImg";
+import { HeroImg } from "../сomponents/HeroImg/HeroImg";
 import { IconDogMobile, StyledLoginContainer } from "./LoginPage.styled";
-import { HeroCard } from "../src/сomponents/HeroCard/HeroCard";
-import { LoginForm } from "../src/сomponents/LoginForm/LoginForm";
+import { HeroCard } from "../сomponents/HeroCard/HeroCard";
+import { LoginForm } from "../сomponents/LoginForm/LoginForm";
 
 const LoginPage = () => {
     return (

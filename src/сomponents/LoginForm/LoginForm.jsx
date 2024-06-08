@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Title } from "../Title/Title";
 import {
     AccentTextForLink,
@@ -44,8 +45,8 @@ export const LoginForm = () => {
                     <FormInput
                         type="email"
                         placeholder="Email"
-                        isInvalid={errors.email}
-                        isValid={!errors.email && isValid}
+                        $isInvalid={errors.email}
+                        $isValid={!errors.email && isValid}
                         {...register("email", {
                             required: "This field is required",
                             pattern: {
@@ -54,10 +55,10 @@ export const LoginForm = () => {
                             },
                         })}
                     />
-                    {errors.email && (
-                        <ErrorText>{errors.email.message}</ErrorText>
+                    {errors?.email && (
+                        <ErrorText>{errors?.email.message}</ErrorText>
                     )}
-                    {isValid && !errors.email && (
+                    {isValid && !errors?.email && (
                         <ValidationMessage isValid={true}>
                             Email successfully validated!
                         </ValidationMessage>
@@ -65,8 +66,8 @@ export const LoginForm = () => {
                     <FormInput
                         type="password"
                         placeholder="Password"
-                        isInvalid={errors.password}
-                        isValid={!errors.password && isValid}
+                        $isInvalid={errors?.password}
+                        $isValid={!errors?.password && isValid}
                         {...register("password", {
                             required: "This field is required",
                             minLength: {
@@ -76,10 +77,10 @@ export const LoginForm = () => {
                             },
                         })}
                     />
-                    {errors.password && (
-                        <ErrorText>{errors.password.message}</ErrorText>
+                    {errors?.password && (
+                        <ErrorText>{errors?.password.message}</ErrorText>
                     )}
-                    {isValid && !errors.password && (
+                    {isValid && !errors?.password && (
                         <ValidationMessage isValid={true}>
                             Password is secure
                         </ValidationMessage>

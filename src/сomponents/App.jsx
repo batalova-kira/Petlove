@@ -5,12 +5,12 @@ import * as ROUTES from "../constants/routes.js";
 import Layout from "./Layout/Layout";
 import { Loader } from "./Loader/Loader.jsx";
 
-const HomePage = lazy(() => import("../../pages/HomePage"));
-const News = lazy(() => import("../../pages/News"));
-const Notices = lazy(() => import("../../pages/Notices"));
-const Friends = lazy(() => import("../../pages/Friends"));
-const Login = lazy(() => import("../../pages/LoginPage"));
-const Registration = lazy(() => import("../../pages/RegisterPage"));
+const HomePage = lazy(() => import("../pages/HomePage.jsx"));
+const News = lazy(() => import("../pages/News"));
+const Notices = lazy(() => import("../pages/Notices"));
+const Friends = lazy(() => import("../pages/Friends"));
+const Login = lazy(() => import("../pages/LoginPage"));
+const Registration = lazy(() => import("../pages/RegisterPage"));
 
 export const appRoutes = [
     {
