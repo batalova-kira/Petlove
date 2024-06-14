@@ -1,42 +1,38 @@
-import { createSlice } from "@reduxjs/toolkit";
-import {} from "./auth-operations";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { loginThunk } from "./auth-operations";
 
 const initialState = {
-    user: { name: null, email: null },
+    isLoading: false,
+    error: null,
+    authenticated: false,
     token: null,
-    isLoggedIn: false,
-    isRefreshing: false,
+    userData: null,
 };
 
 const authSlice = createSlice({
+    // Ім'я слайсу
     name: "auth",
+    // Початковий стан редюсера слайсу
     initialState,
-    extraReducers: (builder) => builder,
-    // .addCase(register.pending, (state, action) => {})
-    // .addCase(register.fulfilled, (state, action) => {
-    //     state.user = action.payload.user;
-    //     state.token = action.payload.token;
-    //     state.isLoggedIn = true;
-    // })
-    // .addCase(register.rejected, (state, action) => {
-    //     state.user = { name: null, email: null };
-    //     state.isLoggedIn = false;
-    // })
-    // .addCase(logIn.pending, (state, action) => {})
-    // .addCase(logIn.fulfilled, (state, action) => {
-    //     state.user = action.payload.user;
-    //     state.token = action.payload.token;
-    //     state.isLoggedIn = true;
-    // })
-    // .addCase(logIn.rejected, (state, action) => {}),
-    // .addCase(logOut.fulfilled, (state) => {
-    //     state.user = { name: null, email: null };
-    //     state.token = null;
-    //     state.isLoggedIn = false;
-    // })
-    // .addCase(refreshUser.pending, (state, action) => {
-    //     state.isRefreshing = true;
-    // })
+    // Об'єкт редюсерів
+    reducers: {},
+    extraReducers: (builder) =>
+        builder
+            .addCase(loginThunk.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.authenticated = true;
+                state.token = payload.token;
+                state.userData = payload.user;
+            })
+            .addMatcher(isAnyOf(loginThunk.pending), (state) => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addMatcher(isAnyOf(loginThunk.rejected), (state, { payload }) => {
+                state.isLoading = false;
+                state.error = payload;
+            }),
+
     // .addCase(refreshUser.fulfilled, (state, action) => {
     //     state.user = action.payload;
     //     state.isLoggedIn = true;

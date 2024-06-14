@@ -11,11 +11,11 @@ export const GlobalStyle = createGlobalStyle`
   --primary-transition: 0.3s ease-in-out;
  }
 
-*,
+/* *,
  *::before,
  *::after {
    box-sizing: inherit;
- }
+ } */
 
   body {
     margin: 0;

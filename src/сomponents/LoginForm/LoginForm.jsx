@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Title } from "../Title/Title";
 import {
     AccentTextForLink,
@@ -13,8 +12,12 @@ import {
     WrapperTextForLink,
 } from "./LoginForm.styled";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { loginThunk } from "../../redux/auth/auth-operations";
 
 export const LoginForm = () => {
+    const dispatch = useDispatch();
+
     const {
         register,
         handleSubmit,
@@ -29,9 +32,21 @@ export const LoginForm = () => {
     });
 
     const onSubmit = (data) => {
+        const formData = {
+            email: data.email,
+            password: data.password,
+        };
+
+        dispatch(loginThunk(formData));
+
         console.log("Email:", data.email);
         console.log("Password:", data.password);
         reset();
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        handleSubmit(onSubmit)();
     };
 
     return (
@@ -40,7 +55,7 @@ export const LoginForm = () => {
             <LoginFormText>
                 Welcome! Please enter your credentials to login to the platform:
             </LoginFormText>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleFormSubmit}>
                 <WrapperInputs>
                     <FormInput
                         type="email"
