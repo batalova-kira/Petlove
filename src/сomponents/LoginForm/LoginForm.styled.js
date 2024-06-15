@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
+import Icon from "../Icon/Icon";
 
 export const LoginFormContainer = styled.div`
     padding: 55px 20px;
@@ -88,6 +89,35 @@ export const FormInput = styled.input`
 
         font-size: 16px;
         line-height: 1.25;
+    }
+`;
+
+export const Label = styled.div`
+    position: relative;
+    width: 100%;
+`;
+
+export const EyeWrapper = styled.div`
+    position: absolute;
+    top: 19px;
+    right: 16px;
+
+    display: flex;
+    align-items: center;
+    transform: translateY(-35%);
+    transition: all var(--primary-transition);
+    fill: ${(props) => props.theme.colors.yellow};
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        svg {
+            width: 22px;
+            height: 22px;
+        }
     }
 `;
 

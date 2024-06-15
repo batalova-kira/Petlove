@@ -3,7 +3,9 @@ import {
     AccentTextForLink,
     BtnSubmit,
     ErrorText,
+    EyeWrapper,
     FormInput,
+    Label,
     LoginFormContainer,
     LoginFormText,
     TextForLink,
@@ -14,10 +16,12 @@ import {
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/auth/auth-operations";
+import { useState } from "react";
+import Icon from "../Icon/Icon";
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
-
+    const [showPassword, setShowPassword] = useState(false);
     const {
         register,
         handleSubmit,
@@ -49,6 +53,10 @@ export const LoginForm = () => {
         handleSubmit(onSubmit)();
     };
 
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <LoginFormContainer>
             <Title text="Log in" />
@@ -78,20 +86,29 @@ export const LoginForm = () => {
                             Email successfully validated!
                         </ValidationMessage>
                     )}
-                    <FormInput
-                        type="password"
-                        placeholder="Password"
-                        $isInvalid={errors?.password}
-                        $isValid={!errors?.password && isValid}
-                        {...register("password", {
-                            required: "This field is required",
-                            minLength: {
-                                value: 7,
-                                message:
-                                    "Password must be at least 7 characters",
-                            },
-                        })}
-                    />
+                    <Label>
+                        <FormInput
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                            $isInvalid={errors?.password}
+                            $isValid={!errors?.password && isValid}
+                            {...register("password", {
+                                required: "This field is required",
+                                minLength: {
+                                    value: 7,
+                                    message:
+                                        "Password must be at least 7 characters",
+                                },
+                            })}
+                        />
+                        <EyeWrapper onClick={handleClickShowPassword}>
+                            {showPassword ? (
+                                <Icon name="open-eye" width={18} height={18} />
+                            ) : (
+                                <Icon name="close-eye" width={18} height={18} />
+                            )}
+                        </EyeWrapper>
+                    </Label>
                     {errors?.password && (
                         <ErrorText>{errors?.password.message}</ErrorText>
                     )}
