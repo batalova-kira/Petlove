@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
-import Icon from "../Icon/Icon";
 
 export const LoginFormContainer = styled.div`
     padding: 55px 20px;
