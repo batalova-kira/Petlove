@@ -36,7 +36,7 @@ export const LoginFormText = styled.div`
 export const WrapperInputs = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     margin-bottom: 40px;
 
     @media only screen and (min-width: 768px) {
@@ -71,14 +71,14 @@ export const FormInput = styled.input`
         border-color: ${(props) => props.theme.colors.red};
     }
 
-    ${(props) =>
-        props.$isInvalid &&
+    ${({ $isinvalid }) =>
+        $isinvalid &&
         css`
             border-color: ${(props) => props.theme.colors.red};
         `}
 
-    ${(props) =>
-        props.$isValid &&
+    ${({ $isvalid }) =>
+        $isvalid &&
         css`
             border-color: ${(props) => props.theme.colors.green};
         `}
@@ -91,9 +91,63 @@ export const FormInput = styled.input`
     }
 `;
 
-export const Label = styled.div`
+export const InputWrapper = styled.div`
     position: relative;
     width: 100%;
+`;
+
+export const IconMessageWrapper = styled.div`
+    position: absolute;
+    top: 19px;
+    right: 16px;
+
+    display: flex;
+    align-items: center;
+    transform: translateY(-35%);
+    transition: all var(--primary-transition);
+    fill: ${(props) => props.theme.colors.yellow};
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        top: 23px;
+        right: 15px;
+
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+`;
+
+export const IconPasswordMessageWrapper = styled.div`
+    position: absolute;
+    top: 19px;
+    right: 42px;
+
+    display: flex;
+    align-items: center;
+    transform: translateY(-35%);
+    transition: all var(--primary-transition);
+    fill: ${(props) => props.theme.colors.yellow};
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        top: 23px;
+        right: 46px;
+
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
 `;
 
 export const EyeWrapper = styled.div`
@@ -113,6 +167,9 @@ export const EyeWrapper = styled.div`
     }
 
     @media only screen and (min-width: 768px) {
+        top: 23px;
+        right: 15px;
+
         svg {
             width: 22px;
             height: 22px;
@@ -122,7 +179,7 @@ export const EyeWrapper = styled.div`
 
 export const ErrorText = styled.p`
     margin-left: 12px;
-    margin-top: -10px;
+    margin-bottom: -10px;
 
     font-size: 10px;
     line-height: 120%;
@@ -136,7 +193,7 @@ export const ErrorText = styled.p`
 
 export const ValidationMessage = styled.p`
     margin-left: 12px;
-    margin-top: -10px;
+    margin-bottom: -10px;
 
     font-size: 10px;
     line-height: 120%;

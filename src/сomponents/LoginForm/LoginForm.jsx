@@ -5,7 +5,9 @@ import {
     ErrorText,
     EyeWrapper,
     FormInput,
-    Label,
+    IconMessageWrapper,
+    IconPasswordMessageWrapper,
+    InputWrapper,
     LoginFormContainer,
     LoginFormText,
     TextForLink,
@@ -28,7 +30,7 @@ export const LoginForm = () => {
         reset,
         formState: { errors, isValid },
     } = useForm({
-        mode: "onBlur",
+        mode: "onChange",
         defaultValues: {
             email: "",
             password: "",
@@ -65,33 +67,50 @@ export const LoginForm = () => {
             </LoginFormText>
             <form onSubmit={handleFormSubmit}>
                 <WrapperInputs>
-                    <FormInput
-                        type="email"
-                        placeholder="Email"
-                        $isInvalid={errors.email}
-                        $isValid={!errors.email && isValid}
-                        {...register("email", {
-                            required: "This field is required",
-                            pattern: {
-                                value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-                                message: "Enter a valid Email",
-                            },
-                        })}
-                    />
-                    {errors?.email && (
-                        <ErrorText>{errors?.email.message}</ErrorText>
-                    )}
-                    {isValid && !errors?.email && (
-                        <ValidationMessage isValid={true}>
-                            Email successfully validated!
-                        </ValidationMessage>
-                    )}
-                    <Label>
+                    <InputWrapper>
+                        <FormInput
+                            type="email"
+                            placeholder="Email"
+                            $isinvalid={errors.email}
+                            $isvalid={!errors.email && isValid}
+                            {...register("email", {
+                                required: "This field is required",
+                                pattern: {
+                                    value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+                                    message: "Enter a valid Email",
+                                },
+                            })}
+                        />
+                        {errors?.email && (
+                            <ErrorText>{errors?.email.message}</ErrorText>
+                        )}
+                        {isValid && !errors?.email && (
+                            <ValidationMessage isValid={true}>
+                                Email successfully validated!
+                            </ValidationMessage>
+                        )}
+                        {errors?.email && (
+                            <IconMessageWrapper>
+                                <Icon name="red-false" width={18} height={18} />
+                            </IconMessageWrapper>
+                        )}
+                        {isValid && !errors?.email && (
+                            <IconMessageWrapper>
+                                <Icon
+                                    name="green-success"
+                                    width={18}
+                                    height={18}
+                                />
+                            </IconMessageWrapper>
+                        )}
+                    </InputWrapper>
+
+                    <InputWrapper>
                         <FormInput
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
-                            $isInvalid={errors?.password}
-                            $isValid={!errors?.password && isValid}
+                            $isinvalid={errors?.password}
+                            $isvalid={!errors?.password && isValid}
                             {...register("password", {
                                 required: "This field is required",
                                 minLength: {
@@ -108,18 +127,31 @@ export const LoginForm = () => {
                                 <Icon name="close-eye" width={18} height={18} />
                             )}
                         </EyeWrapper>
-                    </Label>
-                    {errors?.password && (
-                        <ErrorText>{errors?.password.message}</ErrorText>
-                    )}
-                    {isValid && !errors?.password && (
-                        <ValidationMessage isValid={true}>
-                            Password is secure
-                        </ValidationMessage>
-                    )}
+                        {errors?.password && (
+                            <ErrorText>{errors?.password.message}</ErrorText>
+                        )}
+                        {isValid && !errors?.password && (
+                            <ValidationMessage isValid={true}>
+                                Password is secure
+                            </ValidationMessage>
+                        )}
+                        {errors?.password && (
+                            <IconPasswordMessageWrapper>
+                                <Icon name="red-false" width={18} height={18} />
+                            </IconPasswordMessageWrapper>
+                        )}
+                        {isValid && !errors?.password && (
+                            <IconPasswordMessageWrapper>
+                                <Icon
+                                    name="green-success"
+                                    width={18}
+                                    height={18}
+                                />
+                            </IconPasswordMessageWrapper>
+                        )}
+                    </InputWrapper>
                 </WrapperInputs>
-
-                <BtnSubmit type="submit" disabled={!isValid}>
+                <BtnSubmit type="submit" id="loginBtn">
                     Log in
                 </BtnSubmit>
                 <WrapperTextForLink>
