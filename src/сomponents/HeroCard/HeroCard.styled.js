@@ -48,12 +48,13 @@ export const WrapperHeroAvatar = styled.div`
 export const HeroAvatar = styled.div`
     width: 32px;
     height: 32px;
-    background: url(${dog_avatar_x1}) no-repeat center center;
+    background: url(${(props) => props.$avatarSrc}) no-repeat center center;
     background-size: cover;
     z-index: 20;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        background: url(${dog_avatar_x2}) no-repeat center center;
+        background: url(${(props) => props.$avatarSrc2x}) no-repeat center
+            center;
         background-size: cover;
         z-index: 20;
     }

@@ -109,6 +109,7 @@ export const LoginForm = () => {
                         <FormInput
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
+                            autoComplete="off"
                             $isinvalid={errors?.password}
                             $isvalid={!errors?.password && isValid}
                             {...register("password", {
