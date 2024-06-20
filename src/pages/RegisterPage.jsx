@@ -5,6 +5,7 @@ import { HeroCard } from "../сomponents/HeroCard/HeroCard";
 import { IconCatHero } from "./RegisterPage.styled";
 import cat_avatar_x1 from "/images/🐈avatar_cat.png";
 import cat_avatar_x2 from "/images/🐈avatar_cat_x2.png";
+import { RegisterForm } from "../сomponents/RegisterForm/RegisterForm";
 
 const RegisterPage = () => {
     return (
@@ -19,7 +20,7 @@ const RegisterPage = () => {
                     description="Jack is a gray Persian cat with green eyes. He loves to be pampered and groomed, and enjoys playing with toys."
                 />
             </HeroImg>
-            <div>RegisterForm</div>
+            <RegisterForm />
         </StyledLoginContainer>
     );
 };

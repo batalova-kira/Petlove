@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import dog_avatar_x1 from "/images/🐶avatar_dog.png";
-import dog_avatar_x2 from "/images/🐶avatar_dog_x2.png";
 
 export const WrapperHeroCard = styled.div`
     display: none;

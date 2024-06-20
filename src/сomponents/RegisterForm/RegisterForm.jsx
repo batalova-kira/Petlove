@@ -1,4 +1,5 @@
-import { Title } from "../Title/Title";
+import { useForm } from "react-hook-form";
+import Icon from "../Icon/Icon";
 import {
     AccentTextForLink,
     BtnSubmit,
@@ -8,30 +9,31 @@ import {
     IconMessageWrapper,
     IconPasswordMessageWrapper,
     InputWrapper,
-    LoginFormContainer,
     LoginFormText,
     TextForLink,
     ValidationMessage,
     WrapperInputs,
     WrapperTextForLink,
-} from "./LoginForm.styled";
-import { useForm } from "react-hook-form";
+} from "../LoginForm/LoginForm.styled";
+import { Title } from "../Title/Title";
+import { RegisterFormContainer } from "./RegisterForm.styled";
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../redux/auth/auth-operations";
 import { useState } from "react";
-import Icon from "../Icon/Icon";
+import { registerThunk } from "../../redux/auth/auth-operations";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState(false);
     const {
         register,
         handleSubmit,
         reset,
+        watch,
         formState: { errors, isValid },
     } = useForm({
         mode: "onBlur",
         defaultValues: {
+            name: "",
             email: "",
             password: "",
         },
@@ -39,12 +41,13 @@ export const LoginForm = () => {
 
     const onSubmit = (data) => {
         const formData = {
+            name: data.name,
             email: data.email,
             password: data.password,
         };
 
-        dispatch(loginThunk(formData));
-
+        dispatch(registerThunk(formData));
+        console.log("Name:", data.name);
         console.log("Email:", data.email);
         console.log("Password:", data.password);
         reset();
@@ -59,14 +62,54 @@ export const LoginForm = () => {
         setShowPassword(!showPassword);
     };
 
+    const password = watch("password", "");
+
     return (
-        <LoginFormContainer>
-            <Title text="Log in" />
+        <RegisterFormContainer>
+            <Title text="Registration" />
             <LoginFormText>
-                Welcome! Please enter your credentials to login to the platform:
+                Thank you for your interest in our platform.
             </LoginFormText>
             <form onSubmit={handleFormSubmit}>
                 <WrapperInputs>
+                    <InputWrapper>
+                        <FormInput
+                            type="text"
+                            placeholder="Name"
+                            $isinvalid={errors.name}
+                            $isvalid={!errors.name && isValid}
+                            {...register("name", {
+                                required: "This field is required",
+                                minLength: {
+                                    value: 3,
+                                    message:
+                                        "Name must be at least 3 characters",
+                                },
+                            })}
+                        />
+                        {errors?.name && (
+                            <ErrorText>{errors?.name.message}</ErrorText>
+                        )}
+                        {isValid && !errors?.name && (
+                            <ValidationMessage isValid={true}>
+                                Name successfully validated!
+                            </ValidationMessage>
+                        )}
+                        {errors?.name && (
+                            <IconMessageWrapper>
+                                <Icon name="red-false" width={18} height={18} />
+                            </IconMessageWrapper>
+                        )}
+                        {isValid && !errors?.name && (
+                            <IconMessageWrapper>
+                                <Icon
+                                    name="green-success"
+                                    width={18}
+                                    height={18}
+                                />
+                            </IconMessageWrapper>
+                        )}
+                    </InputWrapper>
                     <InputWrapper>
                         <FormInput
                             type="email"
@@ -104,7 +147,6 @@ export const LoginForm = () => {
                             </IconMessageWrapper>
                         )}
                     </InputWrapper>
-
                     <InputWrapper>
                         <FormInput
                             type={showPassword ? "text" : "password"}
@@ -151,20 +193,66 @@ export const LoginForm = () => {
                             </IconPasswordMessageWrapper>
                         )}
                     </InputWrapper>
+                    <InputWrapper>
+                        <FormInput
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Confirm password"
+                            autoComplete="off"
+                            $isinvalid={errors?.confirmPassword}
+                            $isvalid={!errors?.confirmPassword && isValid}
+                            {...register("confirmPassword", {
+                                required: "Please confirm your password",
+                                validate: (value) =>
+                                    value === password ||
+                                    "Passwords do not match",
+                            })}
+                        />
+                        <EyeWrapper onClick={handleClickShowPassword}>
+                            {showPassword ? (
+                                <Icon name="open-eye" width={18} height={18} />
+                            ) : (
+                                <Icon name="close-eye" width={18} height={18} />
+                            )}
+                        </EyeWrapper>
+                        {errors?.confirmPassword && (
+                            <ErrorText>
+                                {errors?.confirmPassword.message}
+                            </ErrorText>
+                        )}
+                        {isValid && !errors?.confirmPassword && (
+                            <ValidationMessage isValid={true}>
+                                Password is secure
+                            </ValidationMessage>
+                        )}
+                        {errors?.confirmPassword && (
+                            <IconPasswordMessageWrapper>
+                                <Icon name="red-false" width={18} height={18} />
+                            </IconPasswordMessageWrapper>
+                        )}
+                        {isValid && !errors?.confirmPassword && (
+                            <IconPasswordMessageWrapper>
+                                <Icon
+                                    name="green-success"
+                                    width={18}
+                                    height={18}
+                                />
+                            </IconPasswordMessageWrapper>
+                        )}
+                    </InputWrapper>
                 </WrapperInputs>
                 <BtnSubmit type="submit" id="loginBtn">
-                    Log in
+                    Registration
                 </BtnSubmit>
                 <WrapperTextForLink>
                     <TextForLink>
-                        Don’t have an account?{" "}
-                        <AccentTextForLink to="/registration">
+                        Already have an account?{" "}
+                        <AccentTextForLink to="/login">
                             {" "}
-                            Register
+                            Login
                         </AccentTextForLink>
                     </TextForLink>
                 </WrapperTextForLink>
             </form>
-        </LoginFormContainer>
+        </RegisterFormContainer>
     );
 };
