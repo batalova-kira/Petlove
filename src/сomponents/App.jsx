@@ -1,9 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import * as ROUTES from "../constants/routes.js";
 import Layout from "./Layout/Layout";
 import { Loader } from "./Loader/Loader.jsx";
+import { useDispatch } from "react-redux";
+import { refreshThunk } from "../redux/auth/auth-operations.js";
 
 const HomePage = lazy(() => import("../pages/HomePage.jsx"));
 const News = lazy(() => import("../pages/News"));
@@ -56,6 +58,12 @@ export const appRoutes = [
 ];
 
 export const App = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(refreshThunk());
+    }, [dispatch]);
+
     return (
         <>
             <Layout>
