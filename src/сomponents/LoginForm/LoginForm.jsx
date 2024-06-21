@@ -44,9 +44,6 @@ export const LoginForm = () => {
         };
 
         dispatch(loginThunk(formData));
-
-        console.log("Email:", data.email);
-        console.log("Password:", data.password);
         reset();
     };
 
