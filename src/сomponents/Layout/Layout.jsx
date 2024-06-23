@@ -26,9 +26,13 @@ import {
 } from "./Layout.styled";
 import { Icon } from "../Icon/Icon";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectAuthenticated } from "../../redux/auth/auth-selectors";
+import { LogoutButton } from "../LogoutButton/LogoutButton";
 
 const Layout = ({ children }) => {
     const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+    const isAuthenticated = useSelector(selectAuthenticated);
 
     const toggleBurgerMenu = () => {
         setIsBurgerMenuOpen(!isBurgerMenuOpen);
@@ -57,9 +61,13 @@ const Layout = ({ children }) => {
                 <AuthContainer>
                     <WrapperAuthNav>
                         <AuthNavLinkLogin to="/login">Log in</AuthNavLinkLogin>
-                        <AuthNavLinkRegistration to="/registration">
-                            Registration
-                        </AuthNavLinkRegistration>
+                        {isAuthenticated ? (
+                            <LogoutButton />
+                        ) : (
+                            <AuthNavLinkRegistration to="/registration">
+                                Registration
+                            </AuthNavLinkRegistration>
+                        )}
                     </WrapperAuthNav>
                     {isBurgerMenuOpen ? (
                         // Випливаюче бургер-меню
@@ -89,17 +97,25 @@ const Layout = ({ children }) => {
                             </WrapperNav>
                             <WrapperBurgerAuthNav>
                                 <AuthNavLink to="/login">Log in</AuthNavLink>
-                                <AuthNavLink to="/registration">
-                                    Registration
-                                </AuthNavLink>
+                                {isAuthenticated ? (
+                                    <LogoutButton />
+                                ) : (
+                                    <AuthNavLink to="/registration">
+                                        Registration
+                                    </AuthNavLink>
+                                )}
                             </WrapperBurgerAuthNav>
                             <WrapperBurgerAuthNavTablet>
                                 <AuthNavLinkLoginTablet to="/login">
                                     Log in
                                 </AuthNavLinkLoginTablet>
-                                <AuthNavLinkRegistrationTablet to="/registration">
-                                    Registration
-                                </AuthNavLinkRegistrationTablet>
+                                {isAuthenticated ? (
+                                    <LogoutButton />
+                                ) : (
+                                    <AuthNavLinkRegistrationTablet to="/registration">
+                                        Registration
+                                    </AuthNavLinkRegistrationTablet>
+                                )}
                             </WrapperBurgerAuthNavTablet>
                         </WrapperBurgerMenu>
                     ) : (
