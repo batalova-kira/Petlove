@@ -10,6 +10,6 @@ export const LogoutButton = () => {
     };
 
     return (
-        <StyledLogoutButton onClick={handleLogout}>Logout</StyledLogoutButton>
+        <StyledLogoutButton onClick={handleLogout}>Log out</StyledLogoutButton>
     );
 };

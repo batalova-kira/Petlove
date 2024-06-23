@@ -164,26 +164,30 @@ export const WrapperHeartTablet = styled.div`
 `;
 
 export const AuthNavLinkLogin = styled(NavLink)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border-radius: 30px;
-    padding: 15px 35px;
+    display: none;
 
-    font-weight: var(--font-weight-bold);
-    font-size: 16px;
-    line-height: 125%;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 30px;
+        padding: 15px 35px;
 
-    color: ${(props) => props.theme.colors.secondBackground};
-    background: ${(props) => props.theme.colors.yellow};
+        font-weight: var(--font-weight-bold);
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
 
-    &:hover {
-        cursor: pointer;
-        background: ${(props) => props.theme.colors.lightYellow};
-        color: ${(props) => props.theme.colors.yellow};
+        color: ${(props) => props.theme.colors.secondBackground};
+        background: ${(props) => props.theme.colors.yellow};
+
+        &:hover {
+            cursor: pointer;
+            background: ${(props) => props.theme.colors.lightYellow};
+            color: ${(props) => props.theme.colors.yellow};
+        }
     }
 `;
 
@@ -321,7 +325,7 @@ export const AuthNavLink = styled(NavLink)`
     width: 100%;
     border-radius: 30px;
     border: 1px solid ${(props) => props.theme.colors.borderWhite};
-    padding: 15px 35px;
+    padding: 12px 0;
 
     font-weight: var(--font-weight-bold);
     font-size: 14px;
