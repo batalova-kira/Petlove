@@ -26,15 +26,15 @@ const newsSlice = createSlice({
         builder
             .addCase(fetchNews.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                console.log("Payload:", payload);
-                const { results } = payload;
-                if (Array.isArray(results)) {
-                    state.news = [...state.news, ...results];
-                    state.hasMore = results.length > 0;
-                } else {
-                    state.hasMore = false;
-                }
-                state.currentPage += 1;
+                const uniqueNews = payload.results.filter(
+                    (item) =>
+                        !state.news.some(
+                            (existingItem) => existingItem._id === item._id
+                        )
+                );
+                state.news = [...state.news, ...uniqueNews];
+                state.hasMore = payload.page < payload.totalPages;
+                state.currentPage = payload.page;
             })
             .addMatcher(isAnyOf(fetchNews.pending), (state) => {
                 state.isLoading = true;
@@ -46,4 +46,5 @@ const newsSlice = createSlice({
             }),
 });
 
+export const { resetNews } = newsSlice.actions;
 export const newsReducer = newsSlice.reducer;
