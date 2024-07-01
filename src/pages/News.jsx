@@ -8,40 +8,19 @@ import {
 import { fetchNews } from "../redux/news/news-operations";
 import { resetNews } from "../redux/news/newsSlice";
 import { NewsCard } from "../сomponents/NewsCard/NewsCard";
+import { ContainerNewsCards } from "./News.styled";
 
 const News = () => {
     const dispatch = useDispatch();
-    const [limit, setLimit] = useState(6);
+
     const news = useSelector(selectNews);
     const currentPage = useSelector(selectNewsCurrentPage);
     const hasMore = useSelector(selectNewsHasMore);
 
     useEffect(() => {
         dispatch(resetNews()); // Скидання стану новин
-        dispatch(fetchNews({ page: 1, limit })); // Завантаження першої сторінки з поточним лімітом
-    }, [dispatch, limit]);
-
-    useEffect(() => {
-        // Встановити ліміт при завантаженні сторінки
-        updateLimit();
-
-        // Додати слухач на зміну розміру вікна
-        window.addEventListener("resize", updateLimit);
-
-        return () => {
-            // Видалити слухач при розмонтуванні компоненту
-            window.removeEventListener("resize", updateLimit);
-        };
-    }, []);
-
-    const updateLimit = () => {
-        const width = window.innerWidth;
-        if (width >= 768 && width < 1280) {
-            setLimit(8); // для Tablet
-        } else {
-            setLimit(6); // Для mobile, desktop
-        }
-    };
+        dispatch(fetchNews({ page: 1, limit: 6 })); // Завантаження першої сторінки з поточним лімітом
+    }, [dispatch]);
 
     const handleCurrentPage = (page) => {
         dispatch(fetchNews({ page, limit: 6 }));
@@ -61,11 +40,11 @@ const News = () => {
 
     return (
         <div>
-            <ul>
+            <ContainerNewsCards>
                 {news.map((item) => (
                     <NewsCard key={item._id} newsItem={item} />
                 ))}
-            </ul>
+            </ContainerNewsCards>
             <div>
                 <button onClick={handlePrevPage} disabled={currentPage === 1}>
                     Prev
