@@ -3,6 +3,7 @@ import {
     BtnReadMoreNews,
     DataNews,
     ImgNews,
+    Spacer,
     TextNews,
     ThumbImgNews,
     TitleNews,
@@ -15,18 +16,17 @@ export const NewsCard = ({ newsItem }) => {
     const data = date.slice(0, 10).replace(/-/g, "/");
 
     return (
-        <li key={newsItem._id}>
-            <WrapperNewsCard>
-                <ThumbImgNews>
-                    <ImgNews src={imgUrl} alt="Image of news" />
-                </ThumbImgNews>
-                <TitleNews>{title}</TitleNews>
-                <TextNews>{text}</TextNews>
-                <WrapperFooterNews>
-                    <DataNews>{data}</DataNews>
-                    <BtnReadMoreNews>Read more</BtnReadMoreNews>
-                </WrapperFooterNews>
-            </WrapperNewsCard>
-        </li>
+        <WrapperNewsCard key={newsItem._id}>
+            <ThumbImgNews>
+                <ImgNews src={imgUrl} alt="Image of news" />
+            </ThumbImgNews>
+            <TitleNews>{title}</TitleNews>
+            <TextNews>{text}</TextNews>
+            <Spacer />
+            <WrapperFooterNews>
+                <DataNews>{data}</DataNews>
+                <BtnReadMoreNews>Read more</BtnReadMoreNews>
+            </WrapperFooterNews>
+        </WrapperNewsCard>
     );
 };

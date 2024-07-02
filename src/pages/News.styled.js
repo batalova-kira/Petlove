@@ -11,4 +11,11 @@ export const ContainerNewsCards = styled.ul`
         row-gap: 32px;
         column-gap: 24px;
     }
+
+    @media only screen and (min-width: 1280px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        column-gap: 34px;
+    }
 `;

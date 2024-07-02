@@ -10,12 +10,14 @@ export const Container = styled.div`
     margin: 0 auto;
 
     @media only screen and (min-width: 768px) {
-        max-width: 768px;
-        padding: 32px;
+        max-width: 704px;
+        width: 704px;
+        padding: 32px 0px;
     }
 
     @media only screen and (min-width: 1280px) {
-        max-width: 1280px;
+        max-width: 1152px;
+        width: 1152px;
     }
 `;
 
@@ -27,7 +29,7 @@ export const Header = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
     padding-top: 18px;
     margin-bottom: 20px;
 
