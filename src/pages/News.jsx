@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     selectNews,
@@ -7,8 +7,10 @@ import {
 } from "../redux/news/news-selectors";
 import { fetchNews } from "../redux/news/news-operations";
 import { resetNews } from "../redux/news/newsSlice";
-import { NewsCard } from "../сomponents/NewsCard/NewsCard";
+
 import { ContainerNewsCards } from "./News.styled";
+import { Pagination } from "../сomponents/Pagination/Pagination";
+import { NewsCard } from "../сomponents/NewsCard/NewsCard";
 
 const News = () => {
     const dispatch = useDispatch();
@@ -45,31 +47,13 @@ const News = () => {
                     <NewsCard key={item._id} newsItem={item} />
                 ))}
             </ContainerNewsCards>
-            <div>
-                <button onClick={handlePrevPage} disabled={currentPage === 1}>
-                    Prev
-                </button>
-                {/* Створення кнопок для сторінок */}
-                {currentPage > 1 && (
-                    <button onClick={() => handleCurrentPage(currentPage - 1)}>
-                        {currentPage - 1}
-                    </button>
-                )}
-                <button disabled>{currentPage}</button>
-                {currentPage < 192 && (
-                    <>
-                        <button
-                            onClick={() => handleCurrentPage(currentPage + 1)}
-                        >
-                            {currentPage + 1}
-                        </button>
-                        <button disabled>...</button>
-                    </>
-                )}
-                <button onClick={handleNextPage} disabled={!hasMore}>
-                    Next
-                </button>
-            </div>
+            <Pagination
+                currentPage={currentPage}
+                hasMore={hasMore}
+                handleCurrentPage={handleCurrentPage}
+                handleNextPage={handleNextPage}
+                handlePrevPage={handlePrevPage}
+            />
         </div>
     );
 };

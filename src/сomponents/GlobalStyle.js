@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     display: flex;
-    margin: 0 auto;
+    margin: 0;
     align-items: center;
     font-family: inherit;
     cursor: pointer;
