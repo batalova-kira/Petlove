@@ -1,4 +1,4 @@
-import{u as _,j as L,e as Pe,N as yt,R as M}from"./index-CL28W6qZ.js";const xt="/petlove/shape_bcgr_mob1.png",mt="/petlove/shape_bcgr_tab1.png",vt="/petlove/shape_bcgr_desk1.png",bt=_.div`
+import{u as _,j as L,e as Pe,N as yt,R as M}from"./index-CwjFdQ7X.js";const xt="/petlove/shape_bcgr_mob1.png",mt="/petlove/shape_bcgr_tab1.png",vt="/petlove/shape_bcgr_desk1.png",bt=_.div`
     /* width: 100%;
     height: 100%; */
     width: 335px;
