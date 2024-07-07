@@ -42,7 +42,7 @@ export const Pagination = ({
             </ContainerButtons>
 
             <BtnSlider onClick={handleNextPage} disabled={!hasMore}>
-                Next
+                <Icon name="arrow-right" width={20} height={20} />
             </BtnSlider>
         </ContainerPagination>
     );
