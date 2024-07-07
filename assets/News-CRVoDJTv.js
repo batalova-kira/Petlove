@@ -1,4 +1,4 @@
-import{u as t,I as x,j as i,a as m,b as h,r as w,c as g,f as d}from"./index-BoMDLY2g.js";const f=e=>e.news.news,b=e=>e.news.currentPage,y=e=>e.news.hasMore,j=t.ul`
+import{u as t,I as x,j as i,a as m,b as h,r as w,c as g,f as d}from"./index-BZzek7fD.js";const f=e=>e.news.news,b=e=>e.news.currentPage,j=e=>e.news.hasMore,y=t.ul`
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -53,7 +53,7 @@ import{u as t,I as x,j as i,a as m,b as h,r as w,c as g,f as d}from"./index-BoMD
     }
 `;t(x)`
     stroke: ${e=>e.theme.colors.black};
-`;const k=({currentPage:e,handleCurrentPage:o,handleNextPage:n,handlePrevPage:s,hasMore:r,maxPages:a=192})=>i.jsxs(u,{children:[i.jsx(l,{onClick:s,disabled:e===1,children:i.jsx(x,{name:"arrow-left",width:20,height:20})}),i.jsxs(v,{children:[e>1&&i.jsx(l,{onClick:()=>o(e-1),children:e-1}),i.jsx(l,{disabled:!0,children:e}),e<a&&i.jsxs(i.Fragment,{children:[i.jsx(l,{onClick:()=>o(e+1),children:e+1}),i.jsx(l,{disabled:!0,children:"..."})]})]}),i.jsx(l,{onClick:n,disabled:!r,children:"Next"})]}),N=t.li`
+`;const k=({currentPage:e,handleCurrentPage:o,handleNextPage:n,handlePrevPage:s,hasMore:r,maxPages:a=192})=>i.jsxs(u,{children:[i.jsx(l,{onClick:s,disabled:e===1,children:i.jsx(x,{name:"arrow-left",width:20,height:20})}),i.jsxs(v,{children:[e>1&&i.jsx(l,{onClick:()=>o(e-1),children:e-1}),i.jsx(l,{disabled:!0,children:e}),e<a&&i.jsxs(i.Fragment,{children:[i.jsx(l,{onClick:()=>o(e+1),children:e+1}),i.jsx(l,{disabled:!0,children:"..."})]})]}),i.jsx(l,{onClick:n,disabled:!r,children:i.jsx(x,{name:"arrow-right",width:20,height:20})})]}),N=t.li`
     display: flex;
     flex-direction: column;
     max-width: 335px;
@@ -170,4 +170,4 @@ import{u as t,I as x,j as i,a as m,b as h,r as w,c as g,f as d}from"./index-BoMD
 
     /* @media only screen and (min-width: 768px) {
     } */
-`,S=({newsItem:e})=>{const{title:o,text:n,date:s,imgUrl:r}=e,a=s.slice(0,10).replace(/-/g,"/");return i.jsxs(N,{children:[i.jsx(C,{children:i.jsx($,{src:r,alt:"Image of news"})}),i.jsx(z,{children:o}),i.jsx(I,{children:n}),i.jsx(B,{}),i.jsxs(M,{children:[i.jsx(E,{children:a}),i.jsx(R,{children:"Read more"})]})]},e._id)},D=()=>{const e=m(),o=h(f),n=h(b),s=h(y);w.useEffect(()=>{e(g()),e(d({page:1,limit:6}))},[e]);const r=c=>{e(d({page:c,limit:6}))},a=()=>{s&&e(d({page:n+1,limit:6}))},p=()=>{n>1&&e(d({page:n-1,limit:6}))};return i.jsxs("div",{children:[i.jsx(j,{children:o.map(c=>i.jsx(S,{newsItem:c},c._id))}),i.jsx(k,{currentPage:n,hasMore:s,handleCurrentPage:r,handleNextPage:a,handlePrevPage:p})]})};export{D as default};
+`,S=({newsItem:e})=>{const{title:o,text:n,date:s,imgUrl:r}=e,a=s.slice(0,10).replace(/-/g,"/");return i.jsxs(N,{children:[i.jsx(C,{children:i.jsx($,{src:r,alt:"Image of news"})}),i.jsx(z,{children:o}),i.jsx(I,{children:n}),i.jsx(B,{}),i.jsxs(M,{children:[i.jsx(E,{children:a}),i.jsx(R,{children:"Read more"})]})]},e._id)},D=()=>{const e=m(),o=h(f),n=h(b),s=h(j);w.useEffect(()=>{e(g()),e(d({page:1,limit:6}))},[e]);const r=c=>{e(d({page:c,limit:6}))},a=()=>{s&&e(d({page:n+1,limit:6}))},p=()=>{n>1&&e(d({page:n-1,limit:6}))};return i.jsxs("div",{children:[i.jsx(y,{children:o.map(c=>i.jsx(S,{newsItem:c},c._id))}),i.jsx(k,{currentPage:n,hasMore:s,handleCurrentPage:r,handleNextPage:a,handlePrevPage:p})]})};export{D as default};
