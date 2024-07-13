@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+    selectFilterWord,
     selectNews,
     selectNewsCurrentPage,
     selectNewsHasMore,
+    selectTotalPages,
 } from "../redux/news/news-selectors";
 import { fetchNews } from "../redux/news/news-operations";
-import { resetNews } from "../redux/news/newsSlice";
+import { resetNews, setFilterWord } from "../redux/news/newsSlice";
 
 import { ContainerNewsCards } from "./News.styled";
 import { Pagination } from "../сomponents/Pagination/Pagination";
 import { NewsCard } from "../сomponents/NewsCard/NewsCard";
+import { Filter } from "../сomponents/Filter/Filter";
+import { Title } from "../сomponents/Title/Title";
 
 const News = () => {
     const dispatch = useDispatch();
@@ -18,41 +22,79 @@ const News = () => {
     const news = useSelector(selectNews);
     const currentPage = useSelector(selectNewsCurrentPage);
     const hasMore = useSelector(selectNewsHasMore);
+    const totalPages = useSelector(selectTotalPages);
+    const filterWord = useSelector(selectFilterWord);
+
+    const limit = 6;
+
+    const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
     useEffect(() => {
-        dispatch(resetNews()); // Скидання стану новин
-        dispatch(fetchNews({ page: 1, limit: 6 })); // Завантаження першої сторінки з поточним лімітом
-    }, [dispatch]);
+        dispatch(resetNews());
+        dispatch(fetchNews({ page: 1, limit }));
+    }, [dispatch, limit]);
 
     const handleCurrentPage = (page) => {
-        dispatch(fetchNews({ page, limit: 6 }));
+        setCurrentPageNumber(page);
+        dispatch(fetchNews({ page, limit }));
     };
 
     const handleNextPage = () => {
         if (hasMore) {
-            dispatch(fetchNews({ page: currentPage + 1, limit: 6 }));
+            const nextPage = currentPageNumber + 1;
+            setCurrentPageNumber(nextPage);
+            dispatch(fetchNews({ page: nextPage, limit }));
         }
     };
 
     const handlePrevPage = () => {
         if (currentPage > 1) {
-            dispatch(fetchNews({ page: currentPage - 1, limit: 6 }));
+            const prevPage = currentPageNumber - 1;
+            setCurrentPageNumber(prevPage);
+            dispatch(fetchNews({ page: prevPage, limit }));
         }
+    };
+
+    const handleFirstPage = () => {
+        setCurrentPageNumber(1);
+        dispatch(fetchNews({ page: 1, limit }));
+    };
+
+    const handleLastPage = () => {
+        setCurrentPageNumber(totalPages);
+        dispatch(fetchNews({ page: totalPages, limit }));
+    };
+
+    const handleFilterSubmit = (filterWord) => {
+        dispatch(setFilterWord(filterWord));
+        setCurrentPageNumber(1);
+        dispatch(fetchNews({ page: 1, limit, filterWord }));
     };
 
     return (
         <div>
+            <div>
+                <Title text="News" />
+                <Filter onFilterSubmit={handleFilterSubmit} />
+            </div>
             <ContainerNewsCards>
                 {news.map((item) => (
-                    <NewsCard key={item._id} newsItem={item} />
+                    <NewsCard
+                        key={item._id}
+                        newsItem={item}
+                        id={`news-${item._id}`}
+                    />
                 ))}
             </ContainerNewsCards>
             <Pagination
                 currentPage={currentPage}
-                hasMore={hasMore}
                 handleCurrentPage={handleCurrentPage}
                 handleNextPage={handleNextPage}
                 handlePrevPage={handlePrevPage}
+                handleFirstPage={handleFirstPage}
+                handleLastPage={handleLastPage}
+                hasMore={hasMore}
+                maxPages={totalPages}
             />
         </div>
     );

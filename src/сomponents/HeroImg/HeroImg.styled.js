@@ -4,8 +4,6 @@ import shapeBcgrTab from "/shape_bcgr_tab1.png";
 import shapeBcgrDesk from "/shape_bcgr_desk1.png";
 
 export const BackgroundHero = styled.div`
-    /* width: 100%;
-    height: 100%; */
     width: 335px;
     height: 280px;
     border-radius: 30px;

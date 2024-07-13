@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Icon from "../Icon/Icon";
 
 export const ContainerPagination = styled.div`
     display: flex;
@@ -42,6 +41,41 @@ export const BtnSlider = styled.button`
     }
 `;
 
-export const ArrowIcon = styled(Icon)`
-    stroke: ${(props) => props.theme.colors.black};
+export const IconWrapper = styled.div`
+    display: flex;
+    align-items: center;
+
+    svg {
+        margin-left: -17px;
+    }
+
+    svg:first-child {
+        margin-left: 0;
+    }
+`;
+
+export const BtnsWrapper = styled.div`
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+
+    &:focus,
+    &:hover {
+        border-color: transparent;
+        stroke: ${(props) => props.theme.colors.secondBackground};
+        color: transparent;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+        viewport-fit: 20 20 0 0;
+    }
+
+    @media only screen and (min-width: 768px) {
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
 `;

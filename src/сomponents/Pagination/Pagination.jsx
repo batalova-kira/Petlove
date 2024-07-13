@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import Icon from "../Icon/Icon";
 import {
-    ArrowIcon,
     BtnSlider,
+    BtnsWrapper,
     ContainerButtons,
     ContainerPagination,
+    IconWrapper,
 } from "./Pagination.styled";
 
 export const Pagination = ({
@@ -11,14 +13,31 @@ export const Pagination = ({
     handleCurrentPage,
     handleNextPage,
     handlePrevPage,
+    handleFirstPage,
+    handleLastPage,
     hasMore,
-    maxPages = 192,
+    maxPages,
 }) => {
     return (
         <ContainerPagination>
-            <BtnSlider onClick={handlePrevPage} disabled={currentPage === 1}>
-                <Icon name="arrow-left" width={20} height={20} />
-            </BtnSlider>
+            <BtnsWrapper>
+                <BtnSlider
+                    onClick={handleFirstPage}
+                    disabled={currentPage === 1}
+                >
+                    <IconWrapper>
+                        <Icon name="arrow-left" width={20} height={20} />
+                        <Icon name="arrow-left" width={20} height={20} />
+                    </IconWrapper>
+                </BtnSlider>
+                <BtnSlider
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 1}
+                >
+                    <Icon name="arrow-left" width={20} height={20} />
+                </BtnSlider>
+            </BtnsWrapper>
+
             {/* Створення кнопок для сторінок */}
             <ContainerButtons>
                 {currentPage > 1 && (
@@ -40,10 +59,20 @@ export const Pagination = ({
                     </>
                 )}
             </ContainerButtons>
-
-            <BtnSlider onClick={handleNextPage} disabled={!hasMore}>
-                <Icon name="arrow-right" width={20} height={20} />
-            </BtnSlider>
+            <BtnsWrapper>
+                <BtnSlider onClick={handleNextPage} disabled={!hasMore}>
+                    <Icon name="arrow-right" width={20} height={20} />
+                </BtnSlider>
+                <BtnSlider
+                    onClick={handleLastPage}
+                    disabled={currentPage === maxPages}
+                >
+                    <IconWrapper>
+                        <Icon name="arrow-right" width={20} height={20} />
+                        <Icon name="arrow-right" width={20} height={20} />
+                    </IconWrapper>
+                </BtnSlider>
+            </BtnsWrapper>
         </ContainerPagination>
     );
 };
