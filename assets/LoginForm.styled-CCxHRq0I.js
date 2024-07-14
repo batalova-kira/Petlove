@@ -1,4 +1,4 @@
-import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
+import{u as t,e as i,N as n}from"./index-BDStsNCy.js";const a=t.div`
     padding: 55px 20px;
 
     width: 335px;
@@ -11,7 +11,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
 
         width: 704px;
     }
-`,l=t.div`
+`,s=t.div`
     margin-bottom: 24px;
 
     letter-spacing: -0.02em;
@@ -26,7 +26,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
         font-size: 18px;
         line-height: 1.22;
     }
-`,d=t.div`
+`,p=t.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -37,7 +37,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
 
         margin-bottom: 54px;
     }
-`,c=t.input`
+`,l=t.input`
     width: 100%;
     padding: 12px;
 
@@ -76,10 +76,10 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
         font-size: 16px;
         line-height: 1.25;
     }
-`,m=t.div`
+`,d=t.div`
     position: relative;
     width: 100%;
-`,x=t.div`
+`,c=t.div`
     position: absolute;
     top: 19px;
     right: 16px;
@@ -104,7 +104,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
             height: 22px;
         }
     }
-`,h=t.div`
+`,x=t.div`
     position: absolute;
     top: 19px;
     right: 42px;
@@ -129,7 +129,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
             height: 22px;
         }
     }
-`,g=t.div`
+`,m=t.div`
     position: absolute;
     top: 19px;
     right: 16px;
@@ -154,7 +154,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
             height: 22px;
         }
     }
-`,f=t.p`
+`,h=t.p`
     margin-left: 12px;
     margin-bottom: -10px;
 
@@ -166,7 +166,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
     @media only screen and (min-width: 768px) {
         margin-left: 16px;
     }
-`,w=t.p`
+`,g=t.p`
     margin-left: 12px;
     margin-bottom: -10px;
 
@@ -178,7 +178,7 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
     @media only screen and (min-width: 768px) {
         margin-left: 16px;
     }
-`,y=t.button`
+`,f=t.button`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,11 +203,11 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
         font-size: 16px;
         line-height: 1.25;
     }
-`,b=t.div`
+`,w=t.div`
     display: flex;
     align-items: center;
     justify-content: center;
-`,u=t.p`
+`,y=t.p`
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.03em;
@@ -217,23 +217,9 @@ import{u as t,e as i,N as n,j as r}from"./index-BrvqWY58.js";const p=t.div`
         font-size: 14px;
         line-height: 1.43;
     }
-`,v=t(n)`
+`,b=t(n)`
     font-weight: var(--font-weight-bold);
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: ${e=>e.theme.colors.yellow};
-`,a=t.h1`
-    margin-bottom: 12px;
-
-    font-weight: var(--font-weight-bold);
-    font-size: 28px;
-    line-height: 100%;
-    letter-spacing: -0.04em;
-    color: ${e=>e.color||e.theme.colors.black};
-
-    @media only screen and (min-width: 768px) {
-        margin-bottom: 16px;
-
-        font-size: 54px;
-    }
-`,$=({text:e,color:o})=>r.jsx(a,{color:o,children:e});export{v as A,y as B,f as E,c as F,m as I,p as L,$ as T,w as V,d as W,l as a,x as b,g as c,h as d,b as e,u as f};
+`;export{b as A,f as B,h as E,l as F,d as I,a as L,y as T,g as V,p as W,s as a,c as b,m as c,x as d,w as e};

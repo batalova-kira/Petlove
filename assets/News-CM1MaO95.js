@@ -1,4 +1,28 @@
-import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./index-BrvqWY58.js";import{F as W,T as $}from"./Title-BkU8A1As.js";const S=e=>e.news.news,I=e=>e.news.currentPage,P=e=>e.news.hasMore,B=e=>e.news.totalPages,z=e=>e.news.filterWord,T=i.ul`
+import{u as i,j as t,I as p,r as g,a as N,b as m,c as C,f as h,s as F}from"./index-BDStsNCy.js";import{F as $}from"./LoginForm.styled-CCxHRq0I.js";const S=e=>e.news.news,I=e=>e.news.currentPage,P=e=>e.news.hasMore,W=e=>e.news.totalPages,z=i.div`
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 44px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+        margin-bottom: 60px;
+    }
+`,B=i.h1`
+    margin-bottom: 20px;
+
+    font-weight: var(--font-weight-bold);
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: ${e=>e.theme.colors.black};
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 0;
+    }
+`,T=i.ul`
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -86,7 +110,7 @@ import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./ind
             height: 24px;
         }
     }
-`,E=({currentPage:e,handleCurrentPage:s,handleNextPage:l,handlePrevPage:d,handleFirstPage:r,handleLastPage:n,hasMore:m,maxPages:a})=>t.jsxs(M,{children:[t.jsxs(f,{children:[t.jsx(c,{onClick:r,disabled:e===1,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-left",width:20,height:20}),t.jsx(p,{name:"arrow-left",width:20,height:20})]})}),t.jsx(c,{onClick:d,disabled:e===1,children:t.jsx(p,{name:"arrow-left",width:20,height:20})})]}),t.jsxs(D,{children:[e>1&&t.jsx(c,{onClick:()=>s(e-1),children:e-1}),t.jsx(c,{disabled:!0,children:e}),e<a&&t.jsxs(t.Fragment,{children:[t.jsx(c,{onClick:()=>s(e+1),children:e+1}),t.jsx(c,{disabled:!0,children:"..."})]})]}),t.jsxs(f,{children:[t.jsx(c,{onClick:l,disabled:!m,children:t.jsx(p,{name:"arrow-right",width:20,height:20})}),t.jsx(c,{onClick:n,disabled:e===a,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-right",width:20,height:20}),t.jsx(p,{name:"arrow-right",width:20,height:20})]})})]})]}),L=i.li`
+`,E=({currentPage:e,handleCurrentPage:s,handleNextPage:l,handlePrevPage:d,handleFirstPage:r,handleLastPage:n,hasMore:x,maxPages:a})=>t.jsxs(M,{children:[t.jsxs(f,{children:[t.jsx(c,{onClick:r,disabled:e===1,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-left",width:20,height:20}),t.jsx(p,{name:"arrow-left",width:20,height:20})]})}),t.jsx(c,{onClick:d,disabled:e===1,children:t.jsx(p,{name:"arrow-left",width:20,height:20})})]}),t.jsxs(D,{children:[e>1&&t.jsx(c,{onClick:()=>s(e-1),children:e-1}),t.jsx(c,{disabled:!0,children:e}),e<a&&t.jsxs(t.Fragment,{children:[t.jsx(c,{onClick:()=>s(e+1),children:e+1}),t.jsx(c,{disabled:!0,children:"..."})]})]}),t.jsxs(f,{children:[t.jsx(c,{onClick:l,disabled:!x,children:t.jsx(p,{name:"arrow-right",width:20,height:20})}),t.jsx(c,{onClick:n,disabled:e===a,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-right",width:20,height:20}),t.jsx(p,{name:"arrow-right",width:20,height:20})]})})]})]}),H=i.li`
     display: flex;
     flex-direction: column;
     max-width: 335px;
@@ -103,7 +127,7 @@ import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./ind
         max-width: 361px;
         width: 361px;
     }
-`,R=i.div`
+`,L=i.div`
     width: 100%;
     overflow: hidden;
     margin-bottom: 20px;
@@ -111,7 +135,7 @@ import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./ind
     @media only screen and (min-width: 768px) {
         margin-bottom: 28px;
     }
-`,_=i.img`
+`,R=i.img`
     width: 100%;
     height: 190px;
     border-radius: 15px;
@@ -122,7 +146,7 @@ import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./ind
     @media only screen and (min-width: 768px) {
         height: 226px;
     }
-`,G=i.h2`
+`,_=i.h2`
     margin-bottom: 12px;
     --line-height: 1.25;
     max-height: calc(2 * var(--line-height) * 1em);
@@ -152,7 +176,7 @@ import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./ind
         font-size: 20px;
         --line-height: 1.3;
     }
-`,H=i.p`
+`,G=i.p`
     margin-bottom: 19px;
     --line-height: 1.29;
     max-height: calc(4 * var(--line-height) * 1em);
@@ -203,21 +227,25 @@ import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./ind
 
     /* @media only screen and (min-width: 768px) {
     } */
-`,K=({newsItem:e})=>{const{title:s,text:l,date:d,imgUrl:r}=e,n=d.slice(0,10).replace(/-/g,"/");return t.jsxs(L,{children:[t.jsx(R,{children:t.jsx(_,{src:r,alt:"Image of news"})}),t.jsx(G,{children:s}),t.jsx(H,{children:l}),t.jsx(U,{}),t.jsxs(q,{children:[t.jsx(A,{children:n}),t.jsx(J,{children:"Read more"})]})]},e._id)},O=i.form`
+`,K=({newsItem:e})=>{const{title:s,text:l,date:d,imgUrl:r}=e,n=d.slice(0,10).replace(/-/g,"/");return t.jsxs(H,{children:[t.jsx(L,{children:t.jsx(R,{src:r,alt:"Image of news"})}),t.jsx(_,{children:s}),t.jsx(G,{children:l}),t.jsx(U,{}),t.jsxs(q,{children:[t.jsx(A,{children:n}),t.jsx(J,{children:"Read more"})]})]},e._id)},O=i.form`
     position: relative;
+
+    display: flex;
+    align-items: center;
 
     margin-bottom: 24px;
     width: 100%;
 
-    @media only screen and (min-width: 1280px) {
-        margin-bottom: 24px;
+    @media only screen and (min-width: 768px) {
+        width: 230px;
+        margin-bottom: 0;
     }
-`,Q=i(W)`
+`,Q=i($)`
     background-color: transparent;
 
-    /* @media only screen and (min-width: 1280px) {
-        margin-bottom: 24px;
-    } */
+    @media only screen and (min-width: 768px) {
+        padding: 14px;
+    }
 `,V=i.button`
     position: absolute;
     top: 12px;
@@ -225,7 +253,9 @@ import{u as i,j as t,I as p,r as g,a as N,b as x,c as C,f as h,s as F}from"./ind
 
     background-color: transparent;
 
-    /* @media only screen and (min-width: 1280px) {
-        margin-bottom: 24px;
-    } */
-`,X=({onFilterSubmit:e})=>{const[s,l]=g.useState(""),d=n=>{l(n.target.value)},r=n=>{n.preventDefault(),e(s)};return t.jsxs(O,{onSubmit:r,children:[t.jsx(Q,{type:"text",value:s,onChange:d,placeholder:"Введіть слово для фільтрації"}),t.jsx(V,{type:"submit",children:t.jsx(p,{name:"green-success",width:18,height:18})})]})},ee=()=>{const e=N(),s=x(S),l=x(I),d=x(P),r=x(B);x(z);const n=6,[m,a]=g.useState(1);g.useEffect(()=>{e(C()),e(h({page:1,limit:n}))},[e,n]);const b=o=>{a(o),e(h({page:o,limit:n}))},u=()=>{if(d){const o=m+1;a(o),e(h({page:o,limit:n}))}},j=()=>{if(l>1){const o=m-1;a(o),e(h({page:o,limit:n}))}},y=()=>{a(1),e(h({page:1,limit:n}))},v=()=>{a(r),e(h({page:r,limit:n}))},k=o=>{e(F(o)),a(1),e(h({page:1,limit:n,filterWord:o}))};return t.jsxs("div",{children:[t.jsxs("div",{children:[t.jsx($,{text:"News"}),t.jsx(X,{onFilterSubmit:k})]}),t.jsx(T,{children:s.map(o=>t.jsx(K,{newsItem:o,id:`news-${o._id}`},o._id))}),t.jsx(E,{currentPage:l,handleCurrentPage:b,handleNextPage:u,handlePrevPage:j,handleFirstPage:y,handleLastPage:v,hasMore:d,maxPages:r})]})};export{ee as default};
+    @media only screen and (min-width: 768px) {
+        position: absolute;
+        top: 15px;
+        right: 14px;
+    }
+`,X=({onFilterSubmit:e})=>{const[s,l]=g.useState(""),d=n=>{l(n.target.value)},r=n=>{n.preventDefault(),e(s)};return t.jsxs(O,{onSubmit:r,children:[t.jsx(Q,{type:"text",value:s,onChange:d,placeholder:"Search"}),t.jsx(V,{type:"submit",children:t.jsx(p,{name:"loupe",width:18,height:18})})]})},ee=()=>{const e=N(),s=m(S),l=m(I),d=m(P),r=m(W),n=6,[x,a]=g.useState(1);g.useEffect(()=>{e(C()),e(h({page:1,limit:n}))},[e,n]);const b=o=>{a(o),e(h({page:o,limit:n}))},u=()=>{if(d){const o=x+1;a(o),e(h({page:o,limit:n}))}},j=()=>{if(l>1){const o=x-1;a(o),e(h({page:o,limit:n}))}},y=()=>{a(1),e(h({page:1,limit:n}))},v=()=>{a(r),e(h({page:r,limit:n}))},k=o=>{e(F(o)),a(1),e(h({page:1,limit:n,filterWord:o}))};return t.jsxs("div",{children:[t.jsxs(z,{children:[t.jsx(B,{children:"News"}),t.jsx(X,{onFilterSubmit:k})]}),t.jsx(T,{children:s.map(o=>t.jsx(K,{newsItem:o,id:`news-${o._id}`},o._id))}),t.jsx(E,{currentPage:l,handleCurrentPage:b,handleNextPage:u,handlePrevPage:j,handleFirstPage:y,handleLastPage:v,hasMore:d,maxPages:r})]})};export{ee as default};
