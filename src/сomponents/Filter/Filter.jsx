@@ -21,10 +21,10 @@ export const Filter = ({ onFilterSubmit }) => {
                 type="text"
                 value={filterWord}
                 onChange={handleFilterChange}
-                placeholder="Введіть слово для фільтрації"
+                placeholder="Search"
             />
             <BtnLoupe type="submit">
-                <Icon name="green-success" width={18} height={18} />
+                <Icon name="loupe" width={18} height={18} />
             </BtnLoupe>
         </WrapperFilter>
     );

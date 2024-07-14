@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    selectFilterWord,
     selectNews,
     selectNewsCurrentPage,
     selectNewsHasMore,
@@ -10,11 +9,14 @@ import {
 import { fetchNews } from "../redux/news/news-operations";
 import { resetNews, setFilterWord } from "../redux/news/newsSlice";
 
-import { ContainerNewsCards } from "./News.styled";
+import {
+    ContainerNewsCards,
+    TitleNewsHeader,
+    WrapperNewsHeader,
+} from "./News.styled";
 import { Pagination } from "../сomponents/Pagination/Pagination";
 import { NewsCard } from "../сomponents/NewsCard/NewsCard";
 import { Filter } from "../сomponents/Filter/Filter";
-import { Title } from "../сomponents/Title/Title";
 
 const News = () => {
     const dispatch = useDispatch();
@@ -23,7 +25,6 @@ const News = () => {
     const currentPage = useSelector(selectNewsCurrentPage);
     const hasMore = useSelector(selectNewsHasMore);
     const totalPages = useSelector(selectTotalPages);
-    const filterWord = useSelector(selectFilterWord);
 
     const limit = 6;
 
@@ -73,10 +74,10 @@ const News = () => {
 
     return (
         <div>
-            <div>
-                <Title text="News" />
+            <WrapperNewsHeader>
+                <TitleNewsHeader>News</TitleNewsHeader>
                 <Filter onFilterSubmit={handleFilterSubmit} />
-            </div>
+            </WrapperNewsHeader>
             <ContainerNewsCards>
                 {news.map((item) => (
                     <NewsCard
