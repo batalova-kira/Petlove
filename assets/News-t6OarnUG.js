@@ -1,4 +1,4 @@
-import{u as i,j as t,I as p,r as g,a as N,b as m,c as C,f as h,s as F}from"./index-BDStsNCy.js";import{F as $}from"./LoginForm.styled-CCxHRq0I.js";const S=e=>e.news.news,I=e=>e.news.currentPage,P=e=>e.news.hasMore,W=e=>e.news.totalPages,z=i.div`
+import{u as i,j as t,I as p,r as g,a as N,b as m,c as C,f as h,s as F}from"./index-TJcVmG02.js";import{F as $}from"./LoginForm.styled-V67W009A.js";const S=e=>e.news.news,I=e=>e.news.currentPage,P=e=>e.news.hasMore,W=e=>e.news.totalPages,z=i.div`
     @media only screen and (min-width: 768px) {
         display: flex;
         flex-direction: row;
@@ -26,12 +26,14 @@ import{u as i,j as t,I as p,r as g,a as N,b as m,c as C,f as h,s as F}from"./ind
     display: flex;
     flex-direction: column;
     gap: 24px;
+    margin-bottom: 44px;
 
     @media only screen and (min-width: 768px) {
         flex-direction: row;
         flex-wrap: wrap;
         row-gap: 32px;
         column-gap: 24px;
+        margin-bottom: 60px;
     }
 
     @media only screen and (min-width: 1280px) {
@@ -80,13 +82,19 @@ import{u as i,j as t,I as p,r as g,a as N,b as m,c as C,f as h,s as F}from"./ind
     align-items: center;
 
     svg {
-        margin-left: -17px;
+        margin-left: -14px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        svg {
+            margin-left: -17px;
+        }
     }
 
     svg:first-child {
         margin-left: 0;
     }
-`,f=i.div`
+`,b=i.div`
     display: flex;
     gap: 6px;
     justify-content: center;
@@ -110,7 +118,7 @@ import{u as i,j as t,I as p,r as g,a as N,b as m,c as C,f as h,s as F}from"./ind
             height: 24px;
         }
     }
-`,E=({currentPage:e,handleCurrentPage:s,handleNextPage:l,handlePrevPage:d,handleFirstPage:r,handleLastPage:n,hasMore:x,maxPages:a})=>t.jsxs(M,{children:[t.jsxs(f,{children:[t.jsx(c,{onClick:r,disabled:e===1,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-left",width:20,height:20}),t.jsx(p,{name:"arrow-left",width:20,height:20})]})}),t.jsx(c,{onClick:d,disabled:e===1,children:t.jsx(p,{name:"arrow-left",width:20,height:20})})]}),t.jsxs(D,{children:[e>1&&t.jsx(c,{onClick:()=>s(e-1),children:e-1}),t.jsx(c,{disabled:!0,children:e}),e<a&&t.jsxs(t.Fragment,{children:[t.jsx(c,{onClick:()=>s(e+1),children:e+1}),t.jsx(c,{disabled:!0,children:"..."})]})]}),t.jsxs(f,{children:[t.jsx(c,{onClick:l,disabled:!x,children:t.jsx(p,{name:"arrow-right",width:20,height:20})}),t.jsx(c,{onClick:n,disabled:e===a,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-right",width:20,height:20}),t.jsx(p,{name:"arrow-right",width:20,height:20})]})})]})]}),H=i.li`
+`,E=({currentPage:e,handleCurrentPage:s,handleNextPage:l,handlePrevPage:d,handleFirstPage:r,handleLastPage:n,hasMore:x,maxPages:a})=>t.jsxs(M,{children:[t.jsxs(b,{children:[t.jsx(c,{onClick:r,disabled:e===1,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-left",width:20,height:20}),t.jsx(p,{name:"arrow-left",width:20,height:20})]})}),t.jsx(c,{onClick:d,disabled:e===1,children:t.jsx(p,{name:"arrow-left",width:20,height:20})})]}),t.jsxs(D,{children:[e>1&&t.jsx(c,{onClick:()=>s(e-1),children:e-1}),t.jsx(c,{disabled:!0,children:e}),e<a&&t.jsxs(t.Fragment,{children:[t.jsx(c,{onClick:()=>s(e+1),children:e+1}),t.jsx(c,{disabled:!0,children:"..."})]})]}),t.jsxs(b,{children:[t.jsx(c,{onClick:l,disabled:!x,children:t.jsx(p,{name:"arrow-right",width:20,height:20})}),t.jsx(c,{onClick:n,disabled:e===a,children:t.jsxs(w,{children:[t.jsx(p,{name:"arrow-right",width:20,height:20}),t.jsx(p,{name:"arrow-right",width:20,height:20})]})})]})]}),H=i.li`
     display: flex;
     flex-direction: column;
     max-width: 335px;
@@ -258,4 +266,4 @@ import{u as i,j as t,I as p,r as g,a as N,b as m,c as C,f as h,s as F}from"./ind
         top: 15px;
         right: 14px;
     }
-`,X=({onFilterSubmit:e})=>{const[s,l]=g.useState(""),d=n=>{l(n.target.value)},r=n=>{n.preventDefault(),e(s)};return t.jsxs(O,{onSubmit:r,children:[t.jsx(Q,{type:"text",value:s,onChange:d,placeholder:"Search"}),t.jsx(V,{type:"submit",children:t.jsx(p,{name:"loupe",width:18,height:18})})]})},ee=()=>{const e=N(),s=m(S),l=m(I),d=m(P),r=m(W),n=6,[x,a]=g.useState(1);g.useEffect(()=>{e(C()),e(h({page:1,limit:n}))},[e,n]);const b=o=>{a(o),e(h({page:o,limit:n}))},u=()=>{if(d){const o=x+1;a(o),e(h({page:o,limit:n}))}},j=()=>{if(l>1){const o=x-1;a(o),e(h({page:o,limit:n}))}},y=()=>{a(1),e(h({page:1,limit:n}))},v=()=>{a(r),e(h({page:r,limit:n}))},k=o=>{e(F(o)),a(1),e(h({page:1,limit:n,filterWord:o}))};return t.jsxs("div",{children:[t.jsxs(z,{children:[t.jsx(B,{children:"News"}),t.jsx(X,{onFilterSubmit:k})]}),t.jsx(T,{children:s.map(o=>t.jsx(K,{newsItem:o,id:`news-${o._id}`},o._id))}),t.jsx(E,{currentPage:l,handleCurrentPage:b,handleNextPage:u,handlePrevPage:j,handleFirstPage:y,handleLastPage:v,hasMore:d,maxPages:r})]})};export{ee as default};
+`,X=({onFilterSubmit:e})=>{const[s,l]=g.useState(""),d=n=>{l(n.target.value)},r=n=>{n.preventDefault(),e(s)};return t.jsxs(O,{onSubmit:r,children:[t.jsx(Q,{type:"text",value:s,onChange:d,placeholder:"Search"}),t.jsx(V,{type:"submit",children:t.jsx(p,{name:"loupe",width:18,height:18})})]})},ee=()=>{const e=N(),s=m(S),l=m(I),d=m(P),r=m(W),n=6,[x,a]=g.useState(1);g.useEffect(()=>{e(C()),e(h({page:1,limit:n}))},[e,n]);const f=o=>{a(o),e(h({page:o,limit:n}))},u=()=>{if(d){const o=x+1;a(o),e(h({page:o,limit:n}))}},j=()=>{if(l>1){const o=x-1;a(o),e(h({page:o,limit:n}))}},y=()=>{a(1),e(h({page:1,limit:n}))},v=()=>{a(r),e(h({page:r,limit:n}))},k=o=>{e(F(o)),a(1),e(h({page:1,limit:n,filterWord:o}))};return t.jsxs("div",{children:[t.jsxs(z,{children:[t.jsx(B,{children:"News"}),t.jsx(X,{onFilterSubmit:k})]}),t.jsx(T,{children:s.map(o=>t.jsx(K,{newsItem:o,id:`news-${o._id}`},o._id))}),t.jsx(E,{currentPage:l,handleCurrentPage:f,handleNextPage:u,handlePrevPage:j,handleFirstPage:y,handleLastPage:v,hasMore:d,maxPages:r})]})};export{ee as default};
