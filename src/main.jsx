@@ -13,6 +13,7 @@ const theme = {
     colors: {
         background: "#F9F9F9",
         secondBackground: "#fff",
+        accentWhite: "rgba(255, 255, 255, 0.4);",
         lightYellow: "#FFF4DF",
         yellow: "#F6B83D",
         black: "#262626",
@@ -47,7 +48,9 @@ root.render(
                 <PersistGate persistor={persistor}>
                     <ThemeProvider theme={theme}>
                         <App />
-                        <GlobalStyle />
+                        {/* <GlobalStyle
+                            isHomePage={window.location.pathname === "/"}
+                        /> */}
                     </ThemeProvider>
                 </PersistGate>
             </Provider>

@@ -30,7 +30,7 @@ import { useSelector } from "react-redux";
 import { selectAuthenticated } from "../../redux/auth/auth-selectors";
 import { LogoutButton } from "../LogoutButton/LogoutButton";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, $isHomePage, ...rest }) => {
     const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
     const isAuthenticated = useSelector(selectAuthenticated);
 
@@ -39,15 +39,15 @@ const Layout = ({ children }) => {
     };
 
     return (
-        <Container>
+        <Container {...rest}>
             <Header>
                 <NavLink to="/">
-                    <LogoBtn>
+                    <LogoBtn $isHomePage={$isHomePage}>
                         petl{" "}
-                        <WrapperHeart>
+                        <WrapperHeart $isHomePage={$isHomePage}>
                             <Icon height={17} width={17} name="icon-logo-mob" />
                         </WrapperHeart>
-                        <WrapperHeartTablet>
+                        <WrapperHeartTablet $isHomePage={$isHomePage}>
                             <Icon height={23} width={23} name="icon-logo-mob" />
                         </WrapperHeartTablet>
                         ve
@@ -121,14 +121,20 @@ const Layout = ({ children }) => {
                     ) : (
                         // Кнопка бургер-меню
                         <>
-                            <BurgerMenuBtn onClick={toggleBurgerMenu}>
+                            <BurgerMenuBtn
+                                $isHomePage={$isHomePage}
+                                onClick={toggleBurgerMenu}
+                            >
                                 <Icon
                                     name="icon-burger-menu"
                                     width={32}
                                     height={32}
                                 />
                             </BurgerMenuBtn>
-                            <BurgerMenuBtnTablet onClick={toggleBurgerMenu}>
+                            <BurgerMenuBtnTablet
+                                $isHomePage={$isHomePage}
+                                onClick={toggleBurgerMenu}
+                            >
                                 <Icon
                                     name="icon-burger-menu"
                                     width={36}

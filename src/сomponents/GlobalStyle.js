@@ -14,9 +14,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: "Manrope", sans-serif;
-    color: ${(p) => p.theme.colors.black};
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.black};
+    /* color: ${(p) => p.theme.colors.black}; */
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
     background-color: ${(p) => p.theme.colors.background};
   }
 
@@ -31,6 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: inherit;
+    
   }
 
   
@@ -44,6 +47,7 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     outline: none;
     padding: 0;
+    
   }
 
   img {

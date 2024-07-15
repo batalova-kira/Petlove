@@ -6,6 +6,7 @@ export const Container = styled.div`
     min-width: 320px;
     max-width: 375px;
     padding: 10px 20px;
+    padding-bottom: 80px;
 
     margin: 0 auto;
 
@@ -30,6 +31,7 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     /* gap: 16px; */
+    padding: 0 20px;
     padding-top: 18px;
     margin-bottom: 20px;
 
@@ -85,7 +87,8 @@ export const LogoBtn = styled.button`
     font-size: 20px;
     line-height: 100%;
     letter-spacing: -0.04em;
-    color: ${(props) => props.theme.colors.black};
+    color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.black};
 
     @media only screen and (min-width: 768px) {
         font-size: 28px;
@@ -150,6 +153,13 @@ export const WrapperHeart = styled.div`
     align-items: center;
     justify-content: center;
 
+    svg {
+        stroke: ${({ $isHomePage, theme }) =>
+            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+        fill: ${({ $isHomePage, theme }) =>
+            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+    }
+
     @media only screen and (min-width: 768px) {
         display: none;
     }
@@ -162,6 +172,14 @@ export const WrapperHeartTablet = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        stroke: ${({ $isHomePage, theme }) =>
+            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+        svg {
+            fill: ${({ $isHomePage, theme }) =>
+                $isHomePage
+                    ? theme.colors.secondBackground
+                    : theme.colors.yellow};
+        }
     }
 `;
 
@@ -208,7 +226,8 @@ export const BurgerMenuBtn = styled.button`
     background-color: transparent;
     cursor: pointer;
     transition: all var(--primary-transition);
-    color: ${(props) => props.theme.colors.black};
+    color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.black};
 
     &:hover {
         transform: scale(1.1);
@@ -229,7 +248,8 @@ export const BurgerMenuBtnTablet = styled.button`
     background-color: transparent;
     cursor: pointer;
     transition: all var(--primary-transition);
-    color: ${(props) => props.theme.colors.black};
+    color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.black};
 
     &:hover {
         transform: scale(1.1);

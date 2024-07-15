@@ -46,7 +46,13 @@ export const IconWrapper = styled.div`
     align-items: center;
 
     svg {
-        margin-left: -17px;
+        margin-left: -14px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        svg {
+            margin-left: -17px;
+        }
     }
 
     svg:first-child {

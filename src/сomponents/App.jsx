@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import * as ROUTES from "../constants/routes.js";
@@ -6,6 +6,7 @@ import Layout from "./Layout/Layout";
 import { Loader } from "./Loader/Loader.jsx";
 import { useDispatch } from "react-redux";
 import { refreshThunk } from "../redux/auth/auth-operations.js";
+import { GlobalStyle } from "./GlobalStyle.js";
 
 const HomePage = lazy(() => import("../pages/HomePage.jsx"));
 const News = lazy(() => import("../pages/News"));
@@ -17,7 +18,7 @@ const Registration = lazy(() => import("../pages/RegisterPage"));
 export const appRoutes = [
     {
         path: ROUTES.HOME_ROUTE,
-        element: <HomePage />,
+        element: <HomePage isHomePage={true} />,
     },
     {
         path: ROUTES.NEWS_ROUTE,
@@ -59,6 +60,8 @@ export const appRoutes = [
 
 export const App = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
+    const isHomePage = location.pathname === ROUTES.HOME_ROUTE;
 
     useEffect(() => {
         dispatch(refreshThunk());
@@ -66,7 +69,8 @@ export const App = () => {
 
     return (
         <>
-            <Layout>
+            <GlobalStyle $isHomePage={isHomePage} />
+            <Layout $isHomePage={isHomePage}>
                 <Suspense fallback={<Loader />}>
                     <Routes>
                         {appRoutes.map(({ path, element }) => (
