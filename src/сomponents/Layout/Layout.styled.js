@@ -6,7 +6,7 @@ export const Container = styled.div`
     min-width: 320px;
     max-width: 375px;
     padding: 10px 20px;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
 
     margin: 0 auto;
 
@@ -154,8 +154,10 @@ export const WrapperHeart = styled.div`
     justify-content: center;
 
     svg {
-        stroke: ${({ $isHomePage, theme }) =>
-            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+        /* stroke: ${({ $isHomePage, theme }) =>
+            $isHomePage
+                ? theme.colors.secondBackground
+                : theme.colors.yellow}; */
         fill: ${({ $isHomePage, theme }) =>
             $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
     }
@@ -172,8 +174,10 @@ export const WrapperHeartTablet = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        stroke: ${({ $isHomePage, theme }) =>
-            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+        /* stroke: ${({ $isHomePage, theme }) =>
+            $isHomePage
+                ? theme.colors.secondBackground
+                : theme.colors.yellow}; */
         svg {
             fill: ${({ $isHomePage, theme }) =>
                 $isHomePage

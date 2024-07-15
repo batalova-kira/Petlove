@@ -1,6 +1,7 @@
 import React from "react";
 import {
     HomePageContainer,
+    HomePageImg,
     HomePageTitle,
     HomePageTitleAccent,
     HomePageTitleText,
@@ -19,6 +20,7 @@ const HomePage = () => {
                     enrich your life with immeasurable joy and tenderness.
                 </HomePageTitleText>
             </HomePageContainer>
+            <HomePageImg />
         </>
     );
 };
