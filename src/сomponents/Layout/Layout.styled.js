@@ -154,14 +154,17 @@ export const WrapperHeart = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    stroke: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+    fill: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+    color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
+    transition-duration: 0.4s;
 
     svg {
         width: 17px;
         height: 17px;
-        stroke: ${({ $isHomePage, theme }) =>
-            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
-        fill: ${({ $isHomePage, theme }) =>
-            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
     }
 
     @media only screen and (min-width: 768px) {
