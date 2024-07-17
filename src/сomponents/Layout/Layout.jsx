@@ -15,12 +15,10 @@ import {
     StyledNavLink,
     WrapperAuthNav,
     WrapperBtnClose,
-    WrapperBtnCloseTablet,
     WrapperBurgerAuthNav,
     WrapperBurgerAuthNavTablet,
     WrapperBurgerMenu,
     WrapperHeart,
-    WrapperHeartTablet,
     WrapperNav,
     WrapperNavMenu,
 } from "./Layout.styled";
@@ -40,16 +38,13 @@ const Layout = ({ children, $isHomePage, ...rest }) => {
 
     return (
         <Container {...rest}>
-            <Header>
+            <Header $isHomePage={$isHomePage}>
                 <NavLink to="/">
                     <LogoBtn $isHomePage={$isHomePage}>
                         petl{" "}
                         <WrapperHeart $isHomePage={$isHomePage}>
                             <Icon height={17} width={17} name="icon-logo-mob" />
                         </WrapperHeart>
-                        <WrapperHeartTablet $isHomePage={$isHomePage}>
-                            <Icon height={23} width={23} name="icon-logo-mob" />
-                        </WrapperHeartTablet>
                         ve
                     </LogoBtn>
                 </NavLink>
@@ -79,13 +74,6 @@ const Layout = ({ children, $isHomePage, ...rest }) => {
                                     height={32}
                                 />
                             </WrapperBtnClose>
-                            <WrapperBtnCloseTablet onClick={toggleBurgerMenu}>
-                                <Icon
-                                    name="icon-close-white"
-                                    width={36}
-                                    height={36}
-                                />
-                            </WrapperBtnCloseTablet>
                             <WrapperNav>
                                 <StyledNavLink to="/news">News</StyledNavLink>
                                 <StyledNavLink to="/notices">

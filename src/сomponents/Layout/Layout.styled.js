@@ -31,7 +31,7 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     /* gap: 16px; */
-    padding: 0 20px;
+    padding: ${({ $isHomePage }) => ($isHomePage ? "0px 20px" : 0)};
     padding-top: 18px;
     margin-bottom: 20px;
 
@@ -156,35 +156,18 @@ export const WrapperHeart = styled.div`
     justify-content: center;
 
     svg {
-        /* stroke: ${({ $isHomePage, theme }) =>
-            $isHomePage
-                ? theme.colors.secondBackground
-                : theme.colors.yellow}; */
+        width: 17px;
+        height: 17px;
+        stroke: ${({ $isHomePage, theme }) =>
+            $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
         fill: ${({ $isHomePage, theme }) =>
             $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
     }
 
     @media only screen and (min-width: 768px) {
-        display: none;
-    }
-`;
-
-export const WrapperHeartTablet = styled.div`
-    display: none;
-
-    @media only screen and (min-width: 768px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* stroke: ${({ $isHomePage, theme }) =>
-            $isHomePage
-                ? theme.colors.secondBackground
-                : theme.colors.yellow}; */
         svg {
-            fill: ${({ $isHomePage, theme }) =>
-                $isHomePage
-                    ? theme.colors.secondBackground
-                    : theme.colors.yellow};
+            width: 23px;
+            height: 23px;
         }
     }
 `;
@@ -302,24 +285,18 @@ export const WrapperBtnClose = styled.div`
     &:hover {
         transform: scale(1.1);
     }
+
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+
     @media only screen and (min-width: 768px) {
-        display: none;
-    }
-`;
-
-export const WrapperBtnCloseTablet = styled.div`
-    margin-left: auto;
-    margin-bottom: 294px;
-    cursor: pointer;
-    transition: all var(--primary-transition);
-    stroke: ${(props) => props.theme.colors.yellow};
-
-    &:hover {
-        transform: scale(1.1);
-    }
-
-    @media only screen and (max-width: 767px) {
-        display: none;
+        margin-bottom: 294px;
+        svg {
+            width: 36px;
+            height: 36px;
+        }
     }
 `;
 
