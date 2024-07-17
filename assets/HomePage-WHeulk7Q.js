@@ -1,84 +1,77 @@
-import{u as o,j as e}from"./index-DYexlFFK.js";const i="/petlove/images/bgr_home_mob_x1.webp",t="/petlove/images/bgr_home_mob_x2.webp",r=o.div`
+import{u as n,j as e}from"./index-B41R5OhF.js";const i="/petlove/images/bgr_home_mob_x1.webp",r="/petlove/images/bgr_home_mob_x2.webp",t="/petlove/images/bgr_home_tab_x1.webp",a="/petlove/images/bgr_home_tab_x2.webp",d=n.div`
     padding: 50px 20px;
     padding-top: 118px;
     margin-top: -70px;
     border-radius: 30px;
     width: 100%;
-    background: ${n=>n.theme.colors.yellow};
+    background: ${o=>o.theme.colors.yellow};
 
     @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
+        margin-top: -100px;
+        padding: 44px 32px;
+        padding-top: 178px;
 
-        width: 704px; */
+        border-radius: 60px;
     }
-`,a=o.h2`
+`,c=n.h2`
     margin-bottom: 24px;
 
     font-weight: var(--font-weight-bold);
     font-size: 50px;
     line-height: 0.96;
     letter-spacing: -0.03em;
-    color: ${n=>n.theme.colors.secondBackground};
+    color: ${o=>o.theme.colors.secondBackground};
 
     @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
+        margin-bottom: 32px;
 
-        width: 704px; */
+        font-size: 80px;
     }
-`,d=o.span`
-    color: ${n=>n.theme.colors.accentWhite};
-
-    @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
-
-        width: 704px; */
-    }
-`,c=o.p`
+`,p=n.span`
+    color: ${o=>o.theme.colors.accentWhite};
+`,m=n.p`
     font-weight: var(--font-weight-medium);
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.02em;
 
     @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
-
-        width: 704px; */
+        max-width: 255px;
+        margin-left: auto;
+        font-size: 18px;
+        line-height: 1.22;
     }
-`,p=o.div`
+`,s=n.div`
     width: 335px;
     height: 402px;
     border-radius: 30px;
 
-    /* background: url() no-repeat center center; */
+    /* background: url(${t}) no-repeat center center; */
     background-size: contain;
 
     @media (max-width: 767px) {
         background: url(${i}) no-repeat center center;
         background-size: cover;
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: url(${t}) no-repeat center center;
+            background: url(${r}) no-repeat center center;
+            background-size: cover;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        border-radius: 60px;
+        width: 704px;
+        height: 496px;
+
+        background: url(${t}) no-repeat center center;
+        background-size: cover;
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            background: url(${a}) no-repeat center center;
             background-size: cover;
         }
     }
     /* 
-    @media only screen and (min-width: 768px) {
-        width: 364px;
-        height: 302px;
-
-        position: absolute;
-        bottom: 0;
-        left: 258px;
-
-        background: url() no-repeat center center;
-        background-size: cover;
-        z-index: 10;
-
-        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: url() no-repeat center center;
-            background-size: cover;
-        }
-    }
-
     @media only screen and (min-width: 1280px) {
         width: 512px;
         height: 660px;
@@ -97,4 +90,4 @@ import{u as o,j as e}from"./index-DYexlFFK.js";const i="/petlove/images/bgr_home
             background-size: cover;
         } */
     /* } */
-`,m=()=>e.jsxs(e.Fragment,{children:[e.jsxs(r,{children:[e.jsxs(a,{children:["Take good ",e.jsx(d,{children:"care"})," of your small pets"]}),e.jsx(c,{children:"Choosing a pet for your home is a choice that is meant to enrich your life with immeasurable joy and tenderness."})]}),e.jsx(p,{})]});export{m as default};
+`,l=()=>e.jsxs(e.Fragment,{children:[e.jsxs(d,{children:[e.jsxs(c,{children:["Take good ",e.jsx(p,{children:"care"})," of your small pets"]}),e.jsx(m,{children:"Choosing a pet for your home is a choice that is meant to enrich your life with immeasurable joy and tenderness."})]}),e.jsx(s,{})]});export{l as default};
