@@ -1,4 +1,4 @@
-import{u as T,j as L,R as M}from"./index-B41R5OhF.js";const hr="/petlove/shape_bcgr_mob1.png",xr="/petlove/shape_bcgr_tab1.png",pr="/petlove/shape_bcgr_desk1.png",vr=T.div`
+import{u as T,j as L,R as M}from"./index-Bns5lvz_.js";const hr="/petlove/shape_bcgr_mob1.png",xr="/petlove/shape_bcgr_tab1.png",pr="/petlove/shape_bcgr_desk1.png",vr=T.div`
     width: 335px;
     height: 280px;
     border-radius: 30px;
