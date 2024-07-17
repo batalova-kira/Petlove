@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import home_mob_X1 from "/images/bgr_home_mob_x1.webp";
 import home_mob_X2 from "/images/bgr_home_mob_x2.webp";
+import home_tab_X1 from "/images/bgr_home_tab_x1.webp";
+import home_tab_X2 from "/images/bgr_home_tab_x2.webp";
 
 export const HomePageContainer = styled.div`
     padding: 50px 20px;
@@ -11,9 +13,11 @@ export const HomePageContainer = styled.div`
     background: ${(props) => props.theme.colors.yellow};
 
     @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
+        margin-top: -100px;
+        padding: 44px 32px;
+        padding-top: 178px;
 
-        width: 704px; */
+        border-radius: 60px;
     }
 `;
 
@@ -27,20 +31,14 @@ export const HomePageTitle = styled.h2`
     color: ${(props) => props.theme.colors.secondBackground};
 
     @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
+        margin-bottom: 32px;
 
-        width: 704px; */
+        font-size: 80px;
     }
 `;
 
 export const HomePageTitleAccent = styled.span`
     color: ${(props) => props.theme.colors.accentWhite};
-
-    @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
-
-        width: 704px; */
-    }
 `;
 
 export const HomePageTitleText = styled.p`
@@ -50,9 +48,10 @@ export const HomePageTitleText = styled.p`
     letter-spacing: -0.02em;
 
     @media only screen and (min-width: 768px) {
-        /* padding: 71px 140px;
-
-        width: 704px; */
+        max-width: 255px;
+        margin-left: auto;
+        font-size: 18px;
+        line-height: 1.22;
     }
 `;
 
@@ -61,7 +60,7 @@ export const HomePageImg = styled.div`
     height: 402px;
     border-radius: 30px;
 
-    /* background: url() no-repeat center center; */
+    /* background: url(${home_tab_X1}) no-repeat center center; */
     background-size: contain;
 
     @media (max-width: 767px) {
@@ -72,25 +71,21 @@ export const HomePageImg = styled.div`
             background-size: cover;
         }
     }
-    /* 
+
     @media only screen and (min-width: 768px) {
-        width: 364px;
-        height: 302px;
+        border-radius: 60px;
+        width: 704px;
+        height: 496px;
 
-        position: absolute;
-        bottom: 0;
-        left: 258px;
-
-        background: url() no-repeat center center;
+        background: url(${home_tab_X1}) no-repeat center center;
         background-size: cover;
-        z-index: 10;
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: url() no-repeat center center;
+            background: url(${home_tab_X2}) no-repeat center center;
             background-size: cover;
         }
     }
-
+    /* 
     @media only screen and (min-width: 1280px) {
         width: 512px;
         height: 660px;

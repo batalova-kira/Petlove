@@ -89,6 +89,8 @@ export const LogoBtn = styled.button`
     letter-spacing: -0.04em;
     color: ${({ $isHomePage, theme }) =>
         $isHomePage ? theme.colors.secondBackground : theme.colors.black};
+    fill: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
 
     @media only screen and (min-width: 768px) {
         font-size: 28px;
