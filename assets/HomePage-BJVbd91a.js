@@ -1,4 +1,4 @@
-import{u as n,j as e}from"./index-DxBawV7M.js";const i="/petlove/images/bgr_home_mob_x1.webp",r="/petlove/images/bgr_home_mob_x2.webp",t="/petlove/images/bgr_home_tab_x1.webp",a="/petlove/images/bgr_home_tab_x2.webp",d=n.div`
+import{u as n,j as e}from"./index-DDsHIeHB.js";const i="/petlove/images/bgr_home_mob_x1.webp",r="/petlove/images/bgr_home_mob_x2.webp",t="/petlove/images/bgr_home_tab_x1.webp",a="/petlove/images/bgr_home_tab_x2.webp",d=n.div`
     padding: 50px 20px;
     padding-top: 118px;
     margin-top: -70px;
