@@ -36,7 +36,8 @@ export const Header = styled.header`
     margin-bottom: 20px;
 
     @media only screen and (min-width: 768px) {
-        padding-top: 0px;
+        margin-top: ${({ $isHomePage }) => ($isHomePage ? "16px" : 0)};
+        padding: ${({ $isHomePage }) => ($isHomePage ? "0px 32px" : 0)};
         margin-bottom: 32px;
     }
 `;
@@ -192,6 +193,8 @@ export const AuthNavLinkLogin = styled(NavLink)`
         letter-spacing: -0.03em;
         text-transform: uppercase;
 
+        border: ${({ $isHomePage, theme }) =>
+            $isHomePage ? `1px solid ${theme.colors.accentWhite}` : "none"};
         color: ${(props) => props.theme.colors.secondBackground};
         background: ${(props) => props.theme.colors.yellow};
 
@@ -225,29 +228,19 @@ export const BurgerMenuBtn = styled.button`
         transform: scale(1.1);
     }
 
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+
     @media only screen and (min-width: 768px) {
-        display: none;
-    }
-`;
-
-export const BurgerMenuBtnTablet = styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all var(--primary-transition);
-    color: ${({ $isHomePage, theme }) =>
-        $isHomePage ? theme.colors.secondBackground : theme.colors.black};
-
-    &:hover {
-        transform: scale(1.1);
+        svg {
+            width: 36px;
+            height: 36px;
+        }
     }
 
-    @media only screen and (max-width: 767px), (min-width: 1280px) {
+    @media only screen and (min-width: 1280px) {
         display: none;
     }
 `;
@@ -264,12 +257,13 @@ export const WrapperBurgerMenu = styled.div`
     width: 218px;
     height: 100vh;
     padding: 28px 20px;
-    color: ${(props) => props.theme.colors.secondBackground};
-    /* box-shadow: -1px 0 7px rgba(0, 0, 0, 0.1); */
+    /* color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.black : theme.colors.secondBackground}; */
     overflow-y: auto;
     z-index: 1000;
     transition: transform 0.3s ease;
-    background: ${(props) => props.theme.colors.yellow};
+    background: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
 
     @media only screen and (min-width: 768px) {
         width: 374px;
@@ -283,7 +277,9 @@ export const WrapperBtnClose = styled.div`
     margin-bottom: 176px;
     cursor: pointer;
     transition: all var(--primary-transition);
-    stroke: ${(props) => props.theme.colors.yellow};
+
+    stroke: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.black : theme.colors.secondBackground};
 
     &:hover {
         transform: scale(1.1);

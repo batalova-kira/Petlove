@@ -7,7 +7,6 @@ import {
     AuthNavLinkRegistration,
     AuthNavLinkRegistrationTablet,
     BurgerMenuBtn,
-    BurgerMenuBtnTablet,
     Container,
     Header,
     LogoBtn,
@@ -55,26 +54,34 @@ const Layout = ({ children, $isHomePage, ...rest }) => {
                 </WrapperNavMenu>
                 <AuthContainer>
                     <WrapperAuthNav>
-                        <AuthNavLinkLogin to="/login">Log in</AuthNavLinkLogin>
+                        <AuthNavLinkLogin to="/login" $isHomePage={$isHomePage}>
+                            Log in
+                        </AuthNavLinkLogin>
                         {isAuthenticated ? (
-                            <LogoutButton />
+                            <LogoutButton $isHomePage={$isHomePage} />
                         ) : (
-                            <AuthNavLinkRegistration to="/registration">
+                            <AuthNavLinkRegistration
+                                to="/registration"
+                                $isHomePage={$isHomePage}
+                            >
                                 Registration
                             </AuthNavLinkRegistration>
                         )}
                     </WrapperAuthNav>
                     {isBurgerMenuOpen ? (
                         // Випливаюче бургер-меню
-                        <WrapperBurgerMenu>
-                            <WrapperBtnClose onClick={toggleBurgerMenu}>
+                        <WrapperBurgerMenu $isHomePage={$isHomePage}>
+                            <WrapperBtnClose
+                                $isHomePage={$isHomePage}
+                                onClick={toggleBurgerMenu}
+                            >
                                 <Icon
                                     name="icon-close-white"
                                     width={32}
                                     height={32}
                                 />
                             </WrapperBtnClose>
-                            <WrapperNav>
+                            <WrapperNav $isHomePage={$isHomePage}>
                                 <StyledNavLink to="/news">News</StyledNavLink>
                                 <StyledNavLink to="/notices">
                                     Find pet
@@ -119,16 +126,6 @@ const Layout = ({ children, $isHomePage, ...rest }) => {
                                     height={32}
                                 />
                             </BurgerMenuBtn>
-                            <BurgerMenuBtnTablet
-                                $isHomePage={$isHomePage}
-                                onClick={toggleBurgerMenu}
-                            >
-                                <Icon
-                                    name="icon-burger-menu"
-                                    width={36}
-                                    height={36}
-                                />
-                            </BurgerMenuBtnTablet>
                         </>
                     )}
                 </AuthContainer>

@@ -8,7 +8,10 @@ export const StyledLogoutButton = styled.button`
     padding: 12px 0;
 
     border-radius: 30px;
-    border: 1px solid ${(props) => props.theme.colors.borderWhite};
+    border: ${({ $isHomePage, theme }) =>
+        $isHomePage
+            ? `1px solid ${theme.colors.accentWhite}`
+            : `1px solid ${theme.colors.borderWhite}`};
 
     font-weight: var(--font-weight-bold);
     font-size: 14px;
