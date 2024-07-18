@@ -3,6 +3,8 @@ import home_mob_X1 from "/images/bgr_home_mob_x1.webp";
 import home_mob_X2 from "/images/bgr_home_mob_x2.webp";
 import home_tab_X1 from "/images/bgr_home_tab_x1.webp";
 import home_tab_X2 from "/images/bgr_home_tab_x2.webp";
+import home_desk_X1 from "/images/bgr_home_desk_x1.webp";
+import home_desk_X2 from "/images/bgr_home_desk_x2.webp";
 
 export const HomePageContainer = styled.div`
     padding: 50px 20px;
@@ -19,6 +21,15 @@ export const HomePageContainer = styled.div`
 
         border-radius: 60px;
     }
+    @media only screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        gap: 73px;
+
+        padding: 32px 64px;
+        padding-top: 178px;
+    }
 `;
 
 export const HomePageTitle = styled.h2`
@@ -34,6 +45,12 @@ export const HomePageTitle = styled.h2`
         margin-bottom: 32px;
 
         font-size: 80px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+        margin-bottom: 0px;
+
+        font-size: 90px;
     }
 `;
 
@@ -60,7 +77,7 @@ export const HomePageImg = styled.div`
     height: 402px;
     border-radius: 30px;
 
-    /* background: url(${home_tab_X1}) no-repeat center center; */
+    background: url(${home_tab_X1}) no-repeat center center;
     background-size: contain;
 
     @media (max-width: 767px) {
@@ -85,23 +102,17 @@ export const HomePageImg = styled.div`
             background-size: cover;
         }
     }
-    /* 
+
     @media only screen and (min-width: 1280px) {
-        width: 512px;
-        height: 660px;
+        width: 1216px;
+        height: 384px;
 
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-
-        background: url() no-repeat center center;
+        background: url(${home_desk_X1}) no-repeat center center;
         background-size: cover;
-        z-index: 1;
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: url() no-repeat center center;
+            background: url(${home_desk_X2}) no-repeat center center;
             background-size: cover;
-        } */
-    /* } */
+        }
+    }
 `;

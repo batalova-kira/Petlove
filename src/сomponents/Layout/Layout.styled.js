@@ -12,13 +12,13 @@ export const Container = styled.div`
 
     @media only screen and (min-width: 768px) {
         max-width: 704px;
-        width: 704px;
+        /* width: 704px; */
         padding: 32px 0px;
     }
 
     @media only screen and (min-width: 1280px) {
-        max-width: 1152px;
-        width: 1152px;
+        max-width: 1216px;
+        /* width: 1216px; */
     }
 `;
 
@@ -40,13 +40,23 @@ export const Header = styled.header`
         padding: ${({ $isHomePage }) => ($isHomePage ? "0px 32px" : 0)};
         margin-bottom: 32px;
     }
+
+    @media only screen and (min-width: 1280px) {
+        /* margin-top: ${({ $isHomePage }) => ($isHomePage ? "16px" : 0)}; */
+        padding: ${({ $isHomePage }) => ($isHomePage ? "0px 64px" : 0)};
+        /* margin-bottom: 32px; */
+    }
 `;
 
 export const StyledNavLink = styled(NavLink)`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid ${(props) => props.theme.colors.borderWhite};
+
+    border: ${({ $isHomePage, theme }) =>
+        $isHomePage
+            ? `1px solid ${theme.colors.yellow}`
+            : `1px solid ${theme.colors.borderWhite}`};
     border-radius: 30px;
     padding: 15px 0;
     width: 119px;
@@ -56,17 +66,27 @@ export const StyledNavLink = styled(NavLink)`
     letter-spacing: -0.03em;
     text-decoration: none;
 
-    color: ${(props) => props.theme.colors.secondBackground};
+    color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.black : theme.colors.secondBackground};
     transition-duration: 0.4s;
 
     &:not(.active) {
-        border: 1px solid ${(props) => props.theme.colors.borderWhiteActive};
+        border: ${({ $isHomePage, theme }) =>
+            $isHomePage
+                ? `1px solid ${theme.colors.borderGrey}`
+                : `1px solid ${theme.colors.borderWhiteActive}`};
     }
 
     &:hover {
         cursor: pointer;
-        background: ${(props) => props.theme.colors.lightYellow};
-        color: ${(props) => props.theme.colors.yellow};
+        border: ${({ $isHomePage, theme }) =>
+            $isHomePage
+                ? `1px solid ${theme.colors.yellow}`
+                : `1px solid ${theme.colors.borderWhite}`};
+        background: ${({ $isHomePage, theme }) =>
+            $isHomePage ? "none" : theme.colors.lightYellow};
+        color: ${({ $isHomePage, theme }) =>
+            $isHomePage ? theme.colors.black : theme.colors.yellow};
     }
 
     @media only screen and (min-width: 768px) {
@@ -123,13 +143,22 @@ export const NavLinkDesk = styled(NavLink)`
     line-height: 125%;
     letter-spacing: -0.03em;
 
-    border: 1px solid ${(props) => props.theme.colors.borderGrey};
+    border: ${({ $isHomePage, theme }) =>
+        $isHomePage
+            ? `1px solid ${theme.colors.accentWhite}`
+            : `1px solid ${theme.colors.borderGrey}`};
     border-radius: 30px;
-    color: ${(props) => props.theme.colors.black};
+    color: ${({ $isHomePage, theme }) =>
+        $isHomePage ? theme.colors.secondBackground : theme.colors.black};
 
     &:hover {
         cursor: pointer;
-        border: 1px solid ${(props) => props.theme.colors.yellow};
+        border: ${({ $isHomePage, theme }) =>
+            $isHomePage ? "none" : `1px solid ${theme.colors.borderGrey}`};
+        color: ${({ $isHomePage, theme }) =>
+            $isHomePage ? theme.colors.yellow : "none"};
+        background: ${({ $isHomePage, theme }) =>
+            $isHomePage ? theme.colors.lightYellow : "none"};
     }
 `;
 
@@ -161,7 +190,6 @@ export const WrapperHeart = styled.div`
         $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
     color: ${({ $isHomePage, theme }) =>
         $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
-    transition-duration: 0.4s;
 
     svg {
         width: 17px;

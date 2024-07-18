@@ -48,9 +48,15 @@ const Layout = ({ children, $isHomePage, ...rest }) => {
                     </LogoBtn>
                 </NavLink>
                 <WrapperNavMenu>
-                    <NavLinkDesk to="/news">News</NavLinkDesk>
-                    <NavLinkDesk to="/notices">Find pet</NavLinkDesk>
-                    <NavLinkDesk to="/friends">Our friends</NavLinkDesk>
+                    <NavLinkDesk to="/news" $isHomePage={$isHomePage}>
+                        News
+                    </NavLinkDesk>
+                    <NavLinkDesk to="/notices" $isHomePage={$isHomePage}>
+                        Find pet
+                    </NavLinkDesk>
+                    <NavLinkDesk to="/friends" $isHomePage={$isHomePage}>
+                        Our friends
+                    </NavLinkDesk>
                 </WrapperNavMenu>
                 <AuthContainer>
                     <WrapperAuthNav>
@@ -81,12 +87,23 @@ const Layout = ({ children, $isHomePage, ...rest }) => {
                                     height={32}
                                 />
                             </WrapperBtnClose>
-                            <WrapperNav $isHomePage={$isHomePage}>
-                                <StyledNavLink to="/news">News</StyledNavLink>
-                                <StyledNavLink to="/notices">
+                            <WrapperNav>
+                                <StyledNavLink
+                                    $isHomePage={$isHomePage}
+                                    to="/news"
+                                >
+                                    News
+                                </StyledNavLink>
+                                <StyledNavLink
+                                    $isHomePage={$isHomePage}
+                                    to="/notices"
+                                >
                                     Find pet
                                 </StyledNavLink>
-                                <StyledNavLink to="/friends">
+                                <StyledNavLink
+                                    $isHomePage={$isHomePage}
+                                    to="/friends"
+                                >
                                     Our friends
                                 </StyledNavLink>
                             </WrapperNav>
