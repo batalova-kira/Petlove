@@ -1,4 +1,4 @@
-import{u as T,j as L,R as M}from"./index-Bw_PVNPN.js";const hr="/petlove/shape_bcgr_mob1.png",xr="/petlove/shape_bcgr_tab1.png",pr="/petlove/shape_bcgr_desk1.png",vr=T.div`
+import{u as T,j as L,R as M}from"./index-n065eDVc.js";const hr="/petlove/shape_bcgr_mob1.png",xr="/petlove/shape_bcgr_tab1.png",pr="/petlove/shape_bcgr_desk1.png",vr=T.div`
     width: 335px;
     height: 280px;
     border-radius: 30px;
@@ -79,7 +79,7 @@ import{u as T,j as L,R as M}from"./index-Bw_PVNPN.js";const hr="/petlove/shape_b
 
     /* background: url() no-repeat center center; */
     background-size: contain;
-    z-index: 10;
+    z-index: 101;
 
     @media (max-width: 767px) {
         background: url(${mr}) no-repeat center center;
