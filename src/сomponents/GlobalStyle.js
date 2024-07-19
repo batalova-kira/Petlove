@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import "modern-normalize";
 
 export const GlobalStyle = createGlobalStyle`
  :root {
@@ -33,10 +32,8 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: inherit;
-    
   }
 
-  
 
   button {
     display: flex;

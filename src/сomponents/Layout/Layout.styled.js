@@ -18,7 +18,8 @@ export const Container = styled.div`
 
     @media only screen and (min-width: 1280px) {
         max-width: 1216px;
-        /* width: 1216px; */
+        padding: ${({ $isHomePage }) =>
+            $isHomePage ? "16px 0px" : "32px 0px"};
     }
 `;
 

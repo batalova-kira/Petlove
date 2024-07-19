@@ -28,7 +28,7 @@ export const IconDogMobile = styled.div`
 
     /* background: url() no-repeat center center; */
     background-size: contain;
-    z-index: 10;
+    z-index: 101;
 
     @media (max-width: 767px) {
         background: url(${dog_hero_X1}) no-repeat center center;

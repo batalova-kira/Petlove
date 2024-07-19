@@ -27,7 +27,7 @@ import { useSelector } from "react-redux";
 import { selectAuthenticated } from "../../redux/auth/auth-selectors";
 import { LogoutButton } from "../LogoutButton/LogoutButton";
 
-const Layout = ({ children, $isHomePage, ...rest }) => {
+const Layout = ({ children, $isHomePage }) => {
     const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
     const isAuthenticated = useSelector(selectAuthenticated);
 
@@ -36,7 +36,7 @@ const Layout = ({ children, $isHomePage, ...rest }) => {
     };
 
     return (
-        <Container {...rest}>
+        <Container $isHomePage={$isHomePage}>
             <Header $isHomePage={$isHomePage}>
                 <NavLink to="/">
                     <LogoBtn $isHomePage={$isHomePage}>
