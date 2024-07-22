@@ -274,6 +274,54 @@ export const BurgerMenuBtn = styled.button`
     }
 `;
 
+export const WrapperAvatar = styled.div`
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+`;
+
+export const WrapperAvatarIcon = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background: ${(props) => props.theme.colors.lightYellow};
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        width: 50px;
+        height: 50px;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+`;
+
+export const NameAvatar = styled.p`
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
+
+    @media only screen and (min-width: 768px) {
+        font-weight: var(--font-weight-bold);
+        font-size: 20px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+    }
+`;
+
 export const WrapperBurgerMenu = styled.div`
     position: fixed;
     top: 0;

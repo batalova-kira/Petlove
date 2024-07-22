@@ -10,9 +10,11 @@ import {
     Container,
     Header,
     LogoBtn,
+    NameAvatar,
     NavLinkDesk,
     StyledNavLink,
     WrapperAuthNav,
+    WrapperAvatarIcon,
     WrapperBtnClose,
     WrapperBurgerAuthNav,
     WrapperBurgerAuthNavTablet,
@@ -24,12 +26,16 @@ import {
 import { Icon } from "../Icon/Icon";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectAuthenticated } from "../../redux/auth/auth-selectors";
+import {
+    selectAuthenticated,
+    selectUserData,
+} from "../../redux/auth/auth-selectors";
 import { LogoutButton } from "../LogoutButton/LogoutButton";
 
 const Layout = ({ children, $isHomePage }) => {
     const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
     const isAuthenticated = useSelector(selectAuthenticated);
+    const user = useSelector(selectUserData);
 
     const toggleBurgerMenu = () => {
         setIsBurgerMenuOpen(!isBurgerMenuOpen);
@@ -60,22 +66,30 @@ const Layout = ({ children, $isHomePage }) => {
                 </WrapperNavMenu>
                 <AuthContainer>
                     <WrapperAuthNav>
-                        <AuthNavLinkLogin to="/login" $isHomePage={$isHomePage}>
-                            Log in
-                        </AuthNavLinkLogin>
                         {isAuthenticated ? (
-                            <LogoutButton $isHomePage={$isHomePage} />
+                            <>
+                                <LogoutButton $isHomePage={$isHomePage} />
+                            </>
                         ) : (
-                            <AuthNavLinkRegistration
-                                to="/registration"
-                                $isHomePage={$isHomePage}
-                            >
-                                Registration
-                            </AuthNavLinkRegistration>
+                            <>
+                                <AuthNavLinkLogin
+                                    to="/login"
+                                    $isHomePage={$isHomePage}
+                                >
+                                    Log in
+                                </AuthNavLinkLogin>
+                                <AuthNavLinkRegistration
+                                    to="/registration"
+                                    $isHomePage={$isHomePage}
+                                >
+                                    Registration
+                                </AuthNavLinkRegistration>
+                            </>
                         )}
                     </WrapperAuthNav>
                     {isBurgerMenuOpen ? (
                         // Випливаюче бургер-меню
+
                         <WrapperBurgerMenu $isHomePage={$isHomePage}>
                             <WrapperBtnClose
                                 $isHomePage={$isHomePage}
@@ -133,6 +147,18 @@ const Layout = ({ children, $isHomePage }) => {
                     ) : (
                         // Кнопка бургер-меню
                         <>
+                            {isAuthenticated ? (
+                                <>
+                                    <WrapperAvatarIcon>
+                                        <Icon
+                                            name="user-avatar"
+                                            width={20}
+                                            height={20}
+                                        />
+                                    </WrapperAvatarIcon>
+                                    <NameAvatar>{user.name}</NameAvatar>
+                                </>
+                            ) : null}
                             <BurgerMenuBtn
                                 $isHomePage={$isHomePage}
                                 onClick={toggleBurgerMenu}
