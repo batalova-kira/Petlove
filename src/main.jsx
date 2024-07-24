@@ -1,7 +1,7 @@
+import "modern-normalize/modern-normalize.css"; // Імпорт modern-normalize
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./сomponents/App";
-import "./сomponents/index.css";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";

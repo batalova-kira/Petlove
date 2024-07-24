@@ -1,7 +1,12 @@
 import React from "react";
 
 const Friends = () => {
-    return <div>Friends</div>;
+    return (
+        <>
+            <h2>Our friends</h2>
+            <table>12345</table>
+        </>
+    );
 };
 
 export default Friends;
