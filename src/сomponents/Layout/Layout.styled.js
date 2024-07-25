@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import breakpoints from "../../constants/breakpoints";
 
 export const Container = styled.div`
     // Basic styles
@@ -23,29 +24,45 @@ export const Container = styled.div`
     }
 `;
 
+const getMarginBottom = (props) => {
+    if (props.$isFriendsPage) {
+        return {
+            large: "60px",
+            medium: "44px",
+            small: "40px",
+        };
+    }
+
+    return {
+        large: "32px",
+        medium: "32px",
+        small: "20px",
+    };
+};
+
 export const Header = styled.header`
     width: 100%;
     max-width: 100%;
     display: flex;
-    /* flex-wrap: wrap; */
+
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* gap: 16px; */
+
     padding: ${({ $isHomePage }) => ($isHomePage ? "0px 20px" : 0)};
     padding-top: 18px;
-    margin-bottom: 20px;
 
-    @media only screen and (min-width: 768px) {
+    margin-bottom: ${(props) => getMarginBottom(props).small};
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
         margin-top: ${({ $isHomePage }) => ($isHomePage ? "16px" : 0)};
         padding: ${({ $isHomePage }) => ($isHomePage ? "0px 32px" : 0)};
-        margin-bottom: 32px;
+        margin-bottom: ${(props) => getMarginBottom(props).medium};
     }
 
-    @media only screen and (min-width: 1280px) {
-        /* margin-top: ${({ $isHomePage }) => ($isHomePage ? "16px" : 0)}; */
+    @media only screen and (min-width: ${breakpoints.large}) {
         padding: ${({ $isHomePage }) => ($isHomePage ? "0px 64px" : 0)};
-        /* margin-bottom: 32px; */
+        margin-bottom: ${(props) => getMarginBottom(props).large};
     }
 `;
 

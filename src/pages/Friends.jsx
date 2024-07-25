@@ -1,9 +1,10 @@
 import React from "react";
+import { FriendsTitle } from "./Friends.styled";
 
 const Friends = () => {
     return (
         <>
-            <h2>Our friends</h2>
+            <FriendsTitle>Our friends</FriendsTitle>
             <table>12345</table>
         </>
     );

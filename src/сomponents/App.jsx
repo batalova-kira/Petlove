@@ -62,6 +62,7 @@ export const App = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const isHomePage = location.pathname === ROUTES.HOME_ROUTE;
+    const isFriendsPage = location.pathname === ROUTES.FRIENDS_ROUTE;
 
     useEffect(() => {
         dispatch(refreshThunk());
@@ -69,8 +70,11 @@ export const App = () => {
 
     return (
         <>
-            <GlobalStyle $isHomePage={isHomePage} />
-            <Layout $isHomePage={isHomePage}>
+            <GlobalStyle
+                $isHomePage={isHomePage}
+                $isFriendsPage={isFriendsPage}
+            />
+            <Layout $isHomePage={isHomePage} $isFriendsPage={isFriendsPage}>
                 <Suspense fallback={<Loader />}>
                     <Routes>
                         {appRoutes.map(({ path, element }) => (
