@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import breakpoints from "../../constants/breakpoints.js";
+import { breakpoints } from "../../constants/breakpoints.js";
 
 export const Container = styled.div`
     // Basic styles
