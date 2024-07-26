@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FormInput } from "../LoginForm/LoginForm.styled";
+import { breakpoints } from "../../constants/breakpoints.js";
 
 export const WrapperFilter = styled.form`
     position: relative;
@@ -10,7 +11,7 @@ export const WrapperFilter = styled.form`
     margin-bottom: 24px;
     width: 100%;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 230px;
         margin-bottom: 0;
     }
@@ -19,7 +20,7 @@ export const WrapperFilter = styled.form`
 export const InputFilter = styled(FormInput)`
     background-color: transparent;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         padding: 14px;
     }
 `;
@@ -31,7 +32,7 @@ export const BtnLoupe = styled.button`
 
     background-color: transparent;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         position: absolute;
         top: 15px;
         right: 14px;

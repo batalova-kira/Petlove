@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../constants/breakpoints.js";
 import cat_hero_X1 from "/images/cat-hero-mob-x1.png";
 import cat_hero_X2 from "/images/cat-hero-mob-x2.png";
 import cat_hero_tab_X1 from "/images/cat-hero-tab-x1.png";
@@ -23,7 +24,7 @@ export const IconCatHero = styled.div`
         }
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 364px;
         height: 302px;
 
@@ -41,7 +42,7 @@ export const IconCatHero = styled.div`
         }
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         width: 512px;
         height: 660px;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/breakpoints.js";
 import shapeBcgr from "/shape_bcgr_mob1.png";
 import shapeBcgrTab from "/shape_bcgr_tab1.png";
 import shapeBcgrDesk from "/shape_bcgr_desk1.png";
@@ -13,7 +14,7 @@ export const BackgroundHero = styled.div`
 
     background: ${(props) => props.theme.colors.yellow};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 704px;
         height: 302px;
 
@@ -39,7 +40,7 @@ export const ShapeOverlay = styled.div`
     background-size: contain;
     z-index: 1;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 550px;
         height: 302px;
 
@@ -52,7 +53,7 @@ export const ShapeOverlay = styled.div`
         z-index: 1;
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         width: 530px;
         height: 720px;
 

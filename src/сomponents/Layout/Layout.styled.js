@@ -11,14 +11,13 @@ export const Container = styled.div`
 
     margin: 0 auto;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         max-width: 704px;
-        /* width: 704px; */
         padding: 32px 0px;
     }
 
-    @media only screen and (min-width: 1280px) {
-        max-width: 1216px;
+    @media only screen and (min-width: ${breakpoints.large}) {
+        max-width: ${({ $isHomePage }) => ($isHomePage ? "1216px" : "1152px")};
         padding: ${({ $isHomePage }) =>
             $isHomePage ? "16px 0px" : "32px 0px"};
     }
@@ -107,7 +106,7 @@ export const StyledNavLink = styled(NavLink)`
             $isHomePage ? theme.colors.black : theme.colors.yellow};
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         font-size: 16px;
         line-height: 1.25;
     }
@@ -131,7 +130,7 @@ export const LogoBtn = styled.button`
     fill: ${({ $isHomePage, theme }) =>
         $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         font-size: 28px;
     }
 `;
@@ -139,7 +138,7 @@ export const LogoBtn = styled.button`
 export const WrapperNavMenu = styled.div`
     display: none;
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -190,7 +189,7 @@ export const AuthContainer = styled.div`
 export const WrapperAuthNav = styled.div`
     display: none;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -214,7 +213,7 @@ export const WrapperHeart = styled.div`
         height: 17px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         svg {
             width: 23px;
             height: 23px;
@@ -225,7 +224,7 @@ export const WrapperHeart = styled.div`
 export const AuthNavLinkLogin = styled(NavLink)`
     display: none;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -279,20 +278,20 @@ export const BurgerMenuBtn = styled.button`
         height: 32px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         svg {
             width: 36px;
             height: 36px;
         }
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         display: none;
     }
 `;
 
 export const WrapperAvatar = styled.div`
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         display: flex;
         flex-direction: row;
         gap: 8px;
@@ -315,7 +314,7 @@ export const WrapperAvatarIcon = styled.div`
         height: 20px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 50px;
         height: 50px;
 
@@ -331,7 +330,7 @@ export const NameAvatar = styled.p`
         display: none;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         font-weight: var(--font-weight-bold);
         font-size: 20px;
         line-height: 1;
@@ -351,15 +350,14 @@ export const WrapperBurgerMenu = styled.div`
     width: 218px;
     height: 100vh;
     padding: 28px 20px;
-    /* color: ${({ $isHomePage, theme }) =>
-        $isHomePage ? theme.colors.black : theme.colors.secondBackground}; */
+
     overflow-y: auto;
     z-index: 1000;
     transition: transform 0.3s ease;
     background: ${({ $isHomePage, theme }) =>
         $isHomePage ? theme.colors.secondBackground : theme.colors.yellow};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 374px;
         padding: 40px 32px;
     }
@@ -384,7 +382,7 @@ export const WrapperBtnClose = styled.div`
         height: 32px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         margin-bottom: 294px;
         svg {
             width: 36px;
@@ -410,7 +408,7 @@ export const WrapperBurgerAuthNav = styled.div`
     gap: 8px;
     margin-top: auto;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         display: none;
     }
 `;
@@ -454,7 +452,7 @@ export const ContainerAuthNav = styled.div`
 
 export const WrapperBurgerAuthNavTablet = styled.div`
     display: none;
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;

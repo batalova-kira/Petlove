@@ -15,9 +15,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Manrope", sans-serif;
     color: ${({ $isHomePage, theme }) =>
         $isHomePage ? theme.colors.secondBackground : theme.colors.black};
-    /* color: ${(p) => p.theme.colors.black}; */
-    /* -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background-color: ${(p) => p.theme.colors.background};
   }
 
@@ -68,18 +67,4 @@ export const GlobalStyle = createGlobalStyle`
  textarea {
    resize: none;
  }
-
-  /* .container {
-    width: 100%;
-    padding:28px 20px 20px;
-    margin: 0 auto;
-  }
-
-  .title {
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  margin-bottom: 40px;
-  } */
 `;

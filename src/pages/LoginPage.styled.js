@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../constants/breakpoints.js";
 import dog_hero_X1 from "/images/dog_hero_mob_x1.png";
 import dog_hero_X2 from "/images/dog_hero_mob_x2.png";
 import dog_hero_tabX1 from "/images/dog_hero_tabx1.png";
@@ -11,11 +12,11 @@ export const StyledLoginContainer = styled.div`
     flex-direction: column;
     gap: 10px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         gap: 16px;
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         display: flex;
         flex-direction: row;
         gap: 32px;
@@ -39,7 +40,7 @@ export const IconDogMobile = styled.div`
         }
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 364px;
         height: 302px;
 
@@ -57,7 +58,7 @@ export const IconDogMobile = styled.div`
         }
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         width: 512px;
         height: 660px;
 
