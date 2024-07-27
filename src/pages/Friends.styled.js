@@ -23,3 +23,24 @@ export const FriendsTitle = styled(HomePageTitle)`
         /* font-size: 90px; */
     }
 `;
+
+export const FriendsList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        /* flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 32px;
+        column-gap: 24px;
+        margin-bottom: 60px; */
+    }
+
+    @media only screen and (min-width: ${breakpoints.large}) {
+        /* flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        column-gap: 34px; */
+    }
+`;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/breakpoints.js";
 
 export const WrapperNewsCard = styled.li`
     display: flex;
@@ -7,13 +8,13 @@ export const WrapperNewsCard = styled.li`
     width: 100%;
     height: 379px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         max-width: 340px;
         width: 340px;
         height: 476px;
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         max-width: 361px;
         width: 361px;
     }
@@ -24,7 +25,7 @@ export const ThumbImgNews = styled.div`
     overflow: hidden;
     margin-bottom: 20px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         margin-bottom: 28px;
     }
 `;
@@ -37,7 +38,7 @@ export const ImgNews = styled.img`
     object-fit: cover;
     object-position: center;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         height: 226px;
     }
 `;
@@ -68,7 +69,7 @@ export const TitleNews = styled.h2`
         visibility: hidden;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         font-size: 20px;
         --line-height: 1.3;
     }
@@ -90,7 +91,7 @@ export const TextNews = styled.p`
     letter-spacing: -0.02em;
     color: ${(props) => props.theme.colors.black};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         font-size: 16px;
         --line-height: 1.25;
     }
@@ -105,7 +106,7 @@ export const WrapperFooterNews = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         padding-bottom: 28px;
     }
 `;
@@ -115,9 +116,6 @@ export const DataNews = styled.p`
     line-height: 1.29;
     letter-spacing: -0.02em;
     color: ${(props) => props.theme.colors.lightGrey};
-
-    @media only screen and (min-width: 768px) {
-    }
 `;
 
 export const BtnReadMoreNews = styled.button`
@@ -130,7 +128,4 @@ export const BtnReadMoreNews = styled.button`
     text-decoration-skip-ink: none;
     color: ${(props) => props.theme.colors.yellow};
     background: none;
-
-    /* @media only screen and (min-width: 768px) {
-    } */
 `;

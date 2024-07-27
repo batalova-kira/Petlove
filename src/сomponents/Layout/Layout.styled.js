@@ -94,7 +94,8 @@ export const StyledNavLink = styled(NavLink)`
                 : `1px solid ${theme.colors.borderWhiteActive}`};
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         cursor: pointer;
         border: ${({ $isHomePage, theme }) =>
             $isHomePage
@@ -168,10 +169,11 @@ export const NavLinkDesk = styled(NavLink)`
     color: ${({ $isHomePage, theme }) =>
         $isHomePage ? theme.colors.secondBackground : theme.colors.black};
 
-    &:hover {
+    &:hover,
+    &:focus {
         cursor: pointer;
         border: ${({ $isHomePage, theme }) =>
-            $isHomePage ? "none" : `1px solid ${theme.colors.borderGrey}`};
+            $isHomePage ? "none" : `1px solid ${theme.colors.yellow}`};
         color: ${({ $isHomePage, theme }) =>
             $isHomePage ? theme.colors.yellow : "none"};
         background: ${({ $isHomePage, theme }) =>

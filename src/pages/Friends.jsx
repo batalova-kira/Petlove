@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FriendsTitle } from "./Friends.styled";
+import { FriendsList, FriendsTitle } from "./Friends.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFriends } from "../redux/friends/friends-operations";
 import { selectFriends } from "../redux/friends/friends-selectors";
@@ -16,11 +16,11 @@ const Friends = () => {
     return (
         <>
             <FriendsTitle>Our friends</FriendsTitle>
-            <>
+            <FriendsList>
                 {friends.map((item) => (
                     <FriendCard key={item._id} item={item} />
                 ))}
-            </>
+            </FriendsList>
         </>
     );
 };
