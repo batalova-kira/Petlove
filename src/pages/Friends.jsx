@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FriendsTitle } from "./Friends.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFriends } from "../redux/friends/friends-operations";
+import { selectFriends } from "../redux/friends/friends-selectors";
+import { FriendCard } from "../сomponents/FriendCard/FriendCard";
 
 const Friends = () => {
+    const dispatch = useDispatch();
+    const friends = useSelector(selectFriends);
+
+    useEffect(() => {
+        dispatch(fetchFriends());
+    }, []);
+
     return (
         <>
             <FriendsTitle>Our friends</FriendsTitle>
-            <table>12345</table>
+            <>
+                {friends.map((item) => (
+                    <FriendCard key={item._id} item={item} />
+                ))}
+            </>
         </>
     );
 };
