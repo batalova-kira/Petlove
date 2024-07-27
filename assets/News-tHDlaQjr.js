@@ -1,5 +1,5 @@
-import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}from"./index-Diq7soD4.js";import{F as S}from"./LoginForm.styled-CUzWSbLT.js";const I=e=>e.news.news,P=e=>e.news.currentPage,W=e=>e.news.hasMore,z=e=>e.news.totalPages,B=i.div`
-    @media only screen and (min-width: ${s.medium}) {
+import{u as i,b as n,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}from"./index-CNVEPeOm.js";import{F as S}from"./LoginForm.styled-oZHh1QR-.js";const I=e=>e.news.news,P=e=>e.news.currentPage,W=e=>e.news.hasMore,z=e=>e.news.totalPages,B=i.div`
+    @media only screen and (min-width: ${n.medium}) {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -7,7 +7,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
         margin-bottom: 44px;
     }
 
-    @media only screen and (min-width: ${s.large}) {
+    @media only screen and (min-width: ${n.large}) {
         margin-bottom: 60px;
     }
 `,T=i.h1`
@@ -19,7 +19,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     letter-spacing: -0.03em;
     color: ${e=>e.theme.colors.black};
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         margin-bottom: 0;
     }
 `,M=i.ul`
@@ -28,7 +28,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     gap: 24px;
     margin-bottom: 44px;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         flex-direction: row;
         flex-wrap: wrap;
         row-gap: 32px;
@@ -36,7 +36,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
         margin-bottom: 60px;
     }
 
-    @media only screen and (min-width: ${s.large}) {
+    @media only screen and (min-width: ${n.large}) {
         flex-direction: row;
         flex-wrap: wrap;
         row-gap: 40px;
@@ -48,7 +48,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     justify-content: center;
     gap: 11px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${n.medium}) {
         gap: 24px;
     }
 `,E=i.div`
@@ -56,7 +56,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     flex-direction: row;
     gap: 4px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${n.medium}) {
         gap: 8px;
     }
 `,h=i.button`
@@ -77,7 +77,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
         color: ${e=>e.theme.colors.secondBackground};
         background-color: ${e=>e.theme.colors.yellow};
     }
-`,b=i.div`
+`,u=i.div`
     display: flex;
     align-items: center;
 
@@ -85,7 +85,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
         margin-left: -14px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${n.medium}) {
         svg {
             margin-left: -17px;
         }
@@ -94,7 +94,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     svg:first-child {
         margin-left: 0;
     }
-`,u=i.div`
+`,b=i.div`
     display: flex;
     gap: 6px;
     justify-content: center;
@@ -112,26 +112,26 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
         viewport-fit: 20 20 0 0;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${n.medium}) {
         svg {
             width: 24px;
             height: 24px;
         }
     }
-`,H=({currentPage:e,handleCurrentPage:r,handleNextPage:d,handlePrevPage:c,handleFirstPage:a,handleLastPage:n,hasMore:x,maxPages:l})=>t.jsxs(D,{children:[t.jsxs(u,{children:[t.jsx(h,{onClick:a,disabled:e===1,children:t.jsxs(b,{children:[t.jsx(p,{name:"arrow-left",width:20,height:20}),t.jsx(p,{name:"arrow-left",width:20,height:20})]})}),t.jsx(h,{onClick:c,disabled:e===1,children:t.jsx(p,{name:"arrow-left",width:20,height:20})})]}),t.jsxs(E,{children:[e>1&&t.jsx(h,{onClick:()=>r(e-1),children:e-1}),t.jsx(h,{disabled:!0,children:e}),e<l&&t.jsxs(t.Fragment,{children:[t.jsx(h,{onClick:()=>r(e+1),children:e+1}),t.jsx(h,{disabled:!0,children:"..."})]})]}),t.jsxs(u,{children:[t.jsx(h,{onClick:d,disabled:!x,children:t.jsx(p,{name:"arrow-right",width:20,height:20})}),t.jsx(h,{onClick:n,disabled:e===l,children:t.jsxs(b,{children:[t.jsx(p,{name:"arrow-right",width:20,height:20}),t.jsx(p,{name:"arrow-right",width:20,height:20})]})})]})]}),L=i.li`
+`,H=({currentPage:e,handleCurrentPage:r,handleNextPage:d,handlePrevPage:c,handleFirstPage:a,handleLastPage:o,hasMore:x,maxPages:l})=>t.jsxs(D,{children:[t.jsxs(b,{children:[t.jsx(h,{onClick:a,disabled:e===1,children:t.jsxs(u,{children:[t.jsx(p,{name:"arrow-left",width:20,height:20}),t.jsx(p,{name:"arrow-left",width:20,height:20})]})}),t.jsx(h,{onClick:c,disabled:e===1,children:t.jsx(p,{name:"arrow-left",width:20,height:20})})]}),t.jsxs(E,{children:[e>1&&t.jsx(h,{onClick:()=>r(e-1),children:e-1}),t.jsx(h,{disabled:!0,children:e}),e<l&&t.jsxs(t.Fragment,{children:[t.jsx(h,{onClick:()=>r(e+1),children:e+1}),t.jsx(h,{disabled:!0,children:"..."})]})]}),t.jsxs(b,{children:[t.jsx(h,{onClick:d,disabled:!x,children:t.jsx(p,{name:"arrow-right",width:20,height:20})}),t.jsx(h,{onClick:o,disabled:e===l,children:t.jsxs(u,{children:[t.jsx(p,{name:"arrow-right",width:20,height:20}),t.jsx(p,{name:"arrow-right",width:20,height:20})]})})]})]}),L=i.li`
     display: flex;
     flex-direction: column;
     max-width: 335px;
     width: 100%;
     height: 379px;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         max-width: 340px;
         width: 340px;
         height: 476px;
     }
 
-    @media only screen and (min-width: ${s.large}) {
+    @media only screen and (min-width: ${n.large}) {
         max-width: 361px;
         width: 361px;
     }
@@ -140,7 +140,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     overflow: hidden;
     margin-bottom: 20px;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         margin-bottom: 28px;
     }
 `,_=i.img`
@@ -151,7 +151,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     object-fit: cover;
     object-position: center;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         height: 226px;
     }
 `,G=i.h2`
@@ -180,7 +180,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
         visibility: hidden;
     }
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         font-size: 20px;
         --line-height: 1.3;
     }
@@ -200,7 +200,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     letter-spacing: -0.02em;
     color: ${e=>e.theme.colors.black};
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         font-size: 16px;
         --line-height: 1.25;
     }
@@ -211,7 +211,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     justify-content: space-between;
     align-items: center;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         padding-bottom: 28px;
     }
 `,J=i.p`
@@ -229,7 +229,7 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     text-decoration-skip-ink: none;
     color: ${e=>e.theme.colors.yellow};
     background: none;
-`,O=({newsItem:e})=>{const{title:r,text:d,date:c,imgUrl:a}=e,n=c.slice(0,10).replace(/-/g,"/");return t.jsxs(L,{children:[t.jsx(R,{children:t.jsx(_,{src:a,alt:"Image of news"})}),t.jsx(G,{children:r}),t.jsx(U,{children:d}),t.jsx(q,{}),t.jsxs(A,{children:[t.jsx(J,{children:n}),t.jsx(K,{children:"Read more"})]})]},e._id)},Q=i.form`
+`,O=({newsItem:e})=>{const{title:r,text:d,date:c,imgUrl:a}=e,o=c.slice(0,10).replace(/-/g,"/");return t.jsxs(L,{children:[t.jsx(R,{children:t.jsx(_,{src:a,alt:"Image of news"})}),t.jsx(G,{children:r}),t.jsx(U,{children:d}),t.jsx(q,{}),t.jsxs(A,{children:[t.jsx(J,{children:o}),t.jsx(K,{children:"Read more"})]})]},e._id)},Q=i.form`
     position: relative;
 
     display: flex;
@@ -238,14 +238,14 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
     margin-bottom: 24px;
     width: 100%;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         width: 230px;
         margin-bottom: 0;
     }
 `,V=i(S)`
     background-color: transparent;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         padding: 14px;
     }
 `,X=i.button`
@@ -255,9 +255,9 @@ import{u as i,b as s,j as t,I as p,r as w,a as N,c as g,d as C,f as m,s as F}fro
 
     background-color: transparent;
 
-    @media only screen and (min-width: ${s.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         position: absolute;
         top: 15px;
         right: 14px;
     }
-`,Y=({onFilterSubmit:e})=>{const[r,d]=w.useState(""),c=n=>{d(n.target.value)},a=n=>{n.preventDefault(),e(r)};return t.jsxs(Q,{onSubmit:a,children:[t.jsx(V,{type:"text",value:r,onChange:c,placeholder:"Search"}),t.jsx(X,{type:"submit",children:t.jsx(p,{name:"loupe",width:18,height:18})})]})},te=()=>{const e=N(),r=g(I),d=g(P),c=g(W),a=g(z),n=6,[x,l]=w.useState(1);w.useEffect(()=>{e(C()),e(m({page:1,limit:n}))},[e,n]);const f=o=>{l(o),e(m({page:o,limit:n}))},j=()=>{if(c){const o=x+1;l(o),e(m({page:o,limit:n}))}},y=()=>{if(d>1){const o=x-1;l(o),e(m({page:o,limit:n}))}},v=()=>{l(1),e(m({page:1,limit:n}))},k=()=>{l(a),e(m({page:a,limit:n}))},$=o=>{e(F(o)),l(1),e(m({page:1,limit:n,filterWord:o}))};return t.jsxs("div",{children:[t.jsxs(B,{children:[t.jsx(T,{children:"News"}),t.jsx(Y,{onFilterSubmit:$})]}),t.jsx(M,{children:r.map(o=>t.jsx(O,{newsItem:o,id:`news-${o._id}`},o._id))}),t.jsx(H,{currentPage:d,handleCurrentPage:f,handleNextPage:j,handlePrevPage:y,handleFirstPage:v,handleLastPage:k,hasMore:c,maxPages:a})]})};export{te as default};
+`,Y=({onFilterSubmit:e})=>{const[r,d]=w.useState(""),c=o=>{d(o.target.value)},a=o=>{o.preventDefault(),e(r)};return t.jsxs(Q,{onSubmit:a,children:[t.jsx(V,{type:"text",value:r,onChange:c,placeholder:"Search"}),t.jsx(X,{type:"submit",children:t.jsx(p,{name:"loupe",width:18,height:18})})]})},te=()=>{const e=N(),r=g(I),d=g(P),c=g(W),a=g(z),o=6,[x,l]=w.useState(1);w.useEffect(()=>{e(C()),e(m({page:1,limit:o}))},[e,o]);const f=s=>{l(s),e(m({page:s,limit:o}))},j=()=>{if(c){const s=x+1;l(s),e(m({page:s,limit:o}))}},y=()=>{if(d>1){const s=x-1;l(s),e(m({page:s,limit:o}))}},v=()=>{l(1),e(m({page:1,limit:o}))},$=()=>{l(a),e(m({page:a,limit:o}))},k=s=>{e(F(s)),l(1),e(m({page:1,limit:o,filterWord:s}))};return t.jsxs("div",{children:[t.jsxs(B,{children:[t.jsx(T,{children:"News"}),t.jsx(Y,{onFilterSubmit:k})]}),t.jsx(M,{children:r.map(s=>t.jsx(O,{newsItem:s,id:`news-${s._id}`},s._id))}),t.jsx(H,{currentPage:d,handleCurrentPage:f,handleNextPage:j,handlePrevPage:y,handleFirstPage:v,handleLastPage:$,hasMore:c,maxPages:a})]})};export{te as default};

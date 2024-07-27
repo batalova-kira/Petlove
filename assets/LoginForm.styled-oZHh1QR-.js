@@ -1,4 +1,4 @@
-import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
+import{u as t,b as i,h as n,N as r}from"./index-CNVEPeOm.js";const s=t.div`
     padding: 55px 20px;
 
     width: 335px;
@@ -11,7 +11,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
 
         width: 704px;
     }
-`,s=t.div`
+`,l=t.div`
     margin-bottom: 24px;
 
     letter-spacing: -0.02em;
@@ -20,7 +20,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
     letter-spacing: -0.02em;
     color: ${e=>e.theme.colors.black};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         margin-bottom: 32px;
 
         font-size: 18px;
@@ -32,12 +32,12 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
     gap: 20px;
     margin-bottom: 40px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         gap: 16px;
 
         margin-bottom: 54px;
     }
-`,l=t.input`
+`,d=t.input`
     width: 100%;
     padding: 12px;
 
@@ -62,21 +62,21 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
         border-color: ${e=>e.theme.colors.red};
     }
 
-    ${({$isinvalid:e})=>e&&i`
+    ${({$isinvalid:e})=>e&&n`
             border-color: ${o=>o.theme.colors.red};
         `}
 
-    ${({$isvalid:e})=>e&&i`
+    ${({$isvalid:e})=>e&&n`
             border-color: ${o=>o.theme.colors.green};
         `}
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: ${i.medium}) {
         padding: 16px;
 
         font-size: 16px;
         line-height: 1.25;
     }
-`,d=t.div`
+`,m=t.div`
     position: relative;
     width: 100%;
 `,c=t.div`
@@ -95,7 +95,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
         height: 18px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         top: 23px;
         right: 15px;
 
@@ -104,7 +104,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
             height: 22px;
         }
     }
-`,x=t.div`
+`,h=t.div`
     position: absolute;
     top: 19px;
     right: 42px;
@@ -120,7 +120,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
         height: 18px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         top: 23px;
         right: 46px;
 
@@ -129,7 +129,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
             height: 22px;
         }
     }
-`,m=t.div`
+`,x=t.div`
     position: absolute;
     top: 19px;
     right: 16px;
@@ -145,7 +145,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
         height: 18px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         top: 23px;
         right: 15px;
 
@@ -154,7 +154,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
             height: 22px;
         }
     }
-`,h=t.p`
+`,g=t.p`
     margin-left: 12px;
     margin-bottom: -10px;
 
@@ -163,10 +163,10 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
     letter-spacing: -0.03em;
     color: ${e=>e.theme.colors.red};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         margin-left: 16px;
     }
-`,g=t.p`
+`,f=t.p`
     margin-left: 12px;
     margin-bottom: -10px;
 
@@ -175,10 +175,10 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
     letter-spacing: -0.03em;
     color: ${e=>e.theme.colors.green};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         margin-left: 16px;
     }
-`,f=t.button`
+`,u=t.button`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,7 +196,7 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
     color: ${e=>e.theme.colors.secondBackground};
     background: ${e=>e.theme.colors.yellow};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         padding: 16px 0;
         margin-bottom: 16px;
 
@@ -213,13 +213,13 @@ import{u as t,h as i,N as n}from"./index-Diq7soD4.js";const a=t.div`
     letter-spacing: -0.03em;
     color: ${e=>e.theme.colors.lightGrey};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${i.medium}) {
         font-size: 14px;
         line-height: 1.43;
     }
-`,b=t(n)`
+`,b=t(r)`
     font-weight: var(--font-weight-bold);
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: ${e=>e.theme.colors.yellow};
-`;export{b as A,f as B,h as E,l as F,d as I,a as L,y as T,g as V,p as W,s as a,c as b,m as c,x as d,w as e};
+`;export{b as A,u as B,g as E,d as F,m as I,s as L,y as T,f as V,p as W,l as a,c as b,x as c,h as d,w as e};
