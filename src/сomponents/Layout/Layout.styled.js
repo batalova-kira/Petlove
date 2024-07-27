@@ -26,9 +26,9 @@ export const Container = styled.div`
 const getMarginBottom = (props) => {
     if (props.$isFriendsPage) {
         return {
-            large: "60px",
-            medium: "44px",
-            small: "40px",
+            large: "96px",
+            medium: "85px",
+            small: "54px",
         };
     }
 

@@ -11,14 +11,11 @@ export const WrapperFriendCard = styled.li`
     background: ${(props) => props.theme.colors.secondBackground};
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
+        max-width: 342px;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
+        max-width: 370px;
     }
 `;
 
@@ -37,9 +34,8 @@ export const WrapperWorkHours = styled.div`
     background: ${(props) => props.theme.colors.lightYellow};
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
+        font-size: 14px;
+        line-height: 1.29;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
@@ -54,14 +50,11 @@ export const WrapperFriendDescription = styled.div`
     gap: 14px;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
+        gap: 16px;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
+        gap: 20px;
     }
 `;
 
@@ -69,19 +62,13 @@ export const WrapperFriendAvatar = styled.div`
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-size: cover; /* Масштабує фон до розміру контейнера */
-    background-position: center; /* Центрує зображення всередині контейнера */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
-    }
-
-    @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
+        width: 90px;
+        height: 90px;
     }
 `;
 
@@ -90,16 +77,13 @@ export const FriendAvatar = styled.img`
     height: 100%;
     object-fit: cover;
     display: block;
+`;
+
+export const ContainerFriendText = styled.div`
+    max-width: 185px;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
-    }
-
-    @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
+        max-width: 196px;
     }
 `;
 
@@ -110,17 +94,14 @@ export const FriendTitle = styled.h3`
     font-size: 16px;
     line-height: 1.25;
     letter-spacing: -0.04em;
+
     color: ${(props) => props.theme.colors.black};
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
-    }
+        margin-bottom: 20px;
 
-    @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
+        font-size: 20px;
+        line-height: 1.3;
     }
 `;
 
@@ -128,17 +109,6 @@ export const WrapperFriendText = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
-    }
-
-    @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
-    }
 `;
 
 export const FriendText = styled.p`
@@ -146,17 +116,9 @@ export const FriendText = styled.p`
     line-height: 1.29;
     letter-spacing: -0.02em;
     color: ${(props) => props.theme.colors.lightGrey};
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
-    }
-
-    @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
-    }
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const FriendTextAccent = styled.span`

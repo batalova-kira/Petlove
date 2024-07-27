@@ -1,4 +1,5 @@
 import {
+    ContainerFriendText,
     FriendAvatar,
     FriendText,
     FriendTextAccent,
@@ -33,7 +34,7 @@ export const FriendCard = ({ item }) => {
                 <WrapperFriendAvatar>
                     <FriendAvatar src={imageUrl} alt={title} />
                 </WrapperFriendAvatar>
-                <div>
+                <ContainerFriendText>
                     <FriendTitle>{title}</FriendTitle>
                     <WrapperFriendText>
                         <FriendText>
@@ -55,7 +56,7 @@ export const FriendCard = ({ item }) => {
                             </FriendTextAccent>
                         </FriendText>
                     </WrapperFriendText>
-                </div>
+                </ContainerFriendText>
             </WrapperFriendDescription>
         </WrapperFriendCard>
     );
