@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/breakpoints.js";
 
 export const StyledLogoutButton = styled.button`
     display: flex;
@@ -23,7 +24,6 @@ export const StyledLogoutButton = styled.button`
     background: ${(props) => props.theme.colors.yellow};
 
     white-space: nowrap;
-    /* text-align: center; */
 
     &:hover {
         cursor: pointer;
@@ -31,7 +31,7 @@ export const StyledLogoutButton = styled.button`
         color: ${(props) => props.theme.colors.yellow};
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: auto;
         padding: 15px 35px;
         font-size: 16px;

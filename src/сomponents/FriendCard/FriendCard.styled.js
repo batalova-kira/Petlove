@@ -37,11 +37,6 @@ export const WrapperWorkHours = styled.div`
         font-size: 14px;
         line-height: 1.29;
     }
-
-    @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
-    }
 `;
 
 export const WrapperFriendDescription = styled.div`

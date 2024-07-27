@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
+import { breakpoints } from "../../constants/breakpoints.js";
 
 export const LoginFormContainer = styled.div`
     padding: 55px 20px;
@@ -25,7 +26,7 @@ export const LoginFormText = styled.div`
     letter-spacing: -0.02em;
     color: ${(props) => props.theme.colors.black};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         margin-bottom: 32px;
 
         font-size: 18px;
@@ -39,7 +40,7 @@ export const WrapperInputs = styled.div`
     gap: 20px;
     margin-bottom: 40px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         gap: 16px;
 
         margin-bottom: 54px;
@@ -83,7 +84,7 @@ export const FormInput = styled.input`
             border-color: ${(props) => props.theme.colors.green};
         `}
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: ${breakpoints.medium}) {
         padding: 16px;
 
         font-size: 16px;
@@ -112,7 +113,7 @@ export const IconMessageWrapper = styled.div`
         height: 18px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         top: 23px;
         right: 15px;
 
@@ -139,7 +140,7 @@ export const IconPasswordMessageWrapper = styled.div`
         height: 18px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         top: 23px;
         right: 46px;
 
@@ -166,7 +167,7 @@ export const EyeWrapper = styled.div`
         height: 18px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         top: 23px;
         right: 15px;
 
@@ -186,7 +187,7 @@ export const ErrorText = styled.p`
     letter-spacing: -0.03em;
     color: ${(props) => props.theme.colors.red};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         margin-left: 16px;
     }
 `;
@@ -200,7 +201,7 @@ export const ValidationMessage = styled.p`
     letter-spacing: -0.03em;
     color: ${(props) => props.theme.colors.green};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         margin-left: 16px;
     }
 `;
@@ -223,7 +224,7 @@ export const BtnSubmit = styled.button`
     color: ${(props) => props.theme.colors.secondBackground};
     background: ${(props) => props.theme.colors.yellow};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         padding: 16px 0;
         margin-bottom: 16px;
 
@@ -244,7 +245,7 @@ export const TextForLink = styled.p`
     letter-spacing: -0.03em;
     color: ${(props) => props.theme.colors.lightGrey};
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         font-size: 14px;
         line-height: 1.43;
     }

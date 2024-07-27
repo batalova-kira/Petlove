@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/breakpoints.js";
 
 export const ContainerPagination = styled.div`
     display: flex;
@@ -6,7 +7,7 @@ export const ContainerPagination = styled.div`
     justify-content: center;
     gap: 11px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         gap: 24px;
     }
 `;
@@ -16,7 +17,7 @@ export const ContainerButtons = styled.div`
     flex-direction: row;
     gap: 4px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         gap: 8px;
     }
 `;
@@ -49,7 +50,7 @@ export const IconWrapper = styled.div`
         margin-left: -14px;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         svg {
             margin-left: -17px;
         }
@@ -78,7 +79,7 @@ export const BtnsWrapper = styled.div`
         viewport-fit: 20 20 0 0;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         svg {
             width: 24px;
             height: 24px;

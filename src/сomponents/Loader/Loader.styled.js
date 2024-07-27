@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../constants/breakpoints.js";
 import tabX1 from "/images/loader_tab_x1.jpg";
 import tabX2 from "/images/loader_tab_x2.jpg";
 import mobX1 from "/images/loader_mob_x1.jpg";
@@ -35,7 +36,7 @@ export const Preloader = styled.div`
     }
 
     // Tablets
-    @media (min-width: 768px) and (max-width: 1279px) {
+    @media (min-width: ${breakpoints.medium}) and (max-width: 1279px) {
         background: url(${tabX1}) no-repeat center center,
             ${(props) => props.theme.colors.backgroundBlur};
         background-size: cover;
@@ -47,7 +48,7 @@ export const Preloader = styled.div`
     }
 
     // Desktop
-    @media (min-width: 1280px) {
+    @media (min-width: ${breakpoints.large}) {
         background: url(${deskX1}) no-repeat center center,
             ${(props) => props.theme.colors.backgroundBlur};
         background-size: cover;
@@ -69,12 +70,12 @@ export const SpinningContainer = styled.div`
     height: 292px;
     animation: spin 2s linear infinite;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         width: 427px;
         height: 427px;
     }
 
-    @media only screen and (min-width: 1280px) {
+    @media only screen and (min-width: ${breakpoints.large}) {
         width: 396px;
         height: 396px;
     }
@@ -107,7 +108,7 @@ export const LoaderPercentage = styled.div`
     color: ${(props) => props.theme.colors.secondBackground};
     z-index: 1;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: ${breakpoints.medium}) {
         font-size: 80px;
     }
 `;

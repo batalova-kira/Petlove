@@ -59,12 +59,12 @@ export const IconDogMobile = styled.div`
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
-        width: 512px;
-        height: 660px;
+        width: 490px;
+        height: 640px;
 
         position: absolute;
-        bottom: -8px;
-        left: 50%;
+        bottom: 0px;
+        left: 45%;
         transform: translateX(-50%);
 
         background: url(${dog_hero_desk_X1}) no-repeat center center;
