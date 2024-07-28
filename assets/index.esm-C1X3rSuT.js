@@ -1,4 +1,4 @@
-import{u as T,b as G,j as $,R as M}from"./index-CNVEPeOm.js";const xr="/petlove/shape_bcgr_mob1.png",vr="/petlove/shape_bcgr_tab1.png",pr="/petlove/shape_bcgr_desk1.png",br=T.div`
+import{u as T,b as G,j as $,R as M}from"./index-CDKA4die.js";const xr="/petlove/shape_bcgr_mob1.png",vr="/petlove/shape_bcgr_tab1.png",pr="/petlove/shape_bcgr_desk1.png",br=T.div`
     width: 335px;
     height: 280px;
     border-radius: 30px;
@@ -17,7 +17,7 @@ import{u as T,b as G,j as $,R as M}from"./index-CNVEPeOm.js";const xr="/petlove/
 
     @media only screen and (min-width: ${G.large}) {
         margin-left: -32px;
-        width: 590px;
+        width: 592px;
         height: 654px;
     }
 `,_r=T.div`

@@ -1,4 +1,4 @@
-import{u as t,b as i,h as n,N as r}from"./index-CNVEPeOm.js";const s=t.div`
+import{u as t,b as i,k as n,N as r}from"./index-CDKA4die.js";const s=t.div`
     padding: 55px 20px;
 
     width: 335px;
@@ -11,7 +11,14 @@ import{u as t,b as i,h as n,N as r}from"./index-CNVEPeOm.js";const s=t.div`
 
         width: 704px;
     }
-`,l=t.div`
+
+    @media only screen and (min-width: 1280px) {
+        margin-right: -32px;
+        padding: 118px 84px;
+
+        width: 592px;
+    }
+`,p=t.div`
     margin-bottom: 24px;
 
     letter-spacing: -0.02em;
@@ -26,7 +33,7 @@ import{u as t,b as i,h as n,N as r}from"./index-CNVEPeOm.js";const s=t.div`
         font-size: 18px;
         line-height: 1.22;
     }
-`,p=t.div`
+`,l=t.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -222,4 +229,4 @@ import{u as t,b as i,h as n,N as r}from"./index-CNVEPeOm.js";const s=t.div`
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: ${e=>e.theme.colors.yellow};
-`;export{b as A,u as B,g as E,d as F,m as I,s as L,y as T,f as V,p as W,l as a,c as b,x as c,h as d,w as e};
+`;export{b as A,u as B,g as E,d as F,m as I,s as L,y as T,f as V,l as W,p as a,c as b,x as c,h as d,w as e};
