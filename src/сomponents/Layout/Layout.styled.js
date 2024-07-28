@@ -31,7 +31,13 @@ const getMarginBottom = (props) => {
             small: "54px",
         };
     }
-
+    if (props.$isNoticesPage) {
+        return {
+            large: "96px",
+            medium: "85px",
+            small: "54px",
+        };
+    }
     return {
         large: "32px",
         medium: "32px",

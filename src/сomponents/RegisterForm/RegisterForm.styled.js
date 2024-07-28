@@ -16,6 +16,7 @@ export const RegisterFormContainer = styled.div`
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
+        margin-right: -32px;
         padding: 77px 84px;
 
         width: 592px;

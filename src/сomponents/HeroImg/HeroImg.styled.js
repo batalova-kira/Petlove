@@ -23,7 +23,7 @@ export const BackgroundHero = styled.div`
 
     @media only screen and (min-width: ${breakpoints.large}) {
         margin-left: -32px;
-        width: 590px;
+        width: 592px;
         height: 654px;
     }
 `;

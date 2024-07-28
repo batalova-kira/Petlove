@@ -32,7 +32,7 @@ import {
 } from "../../redux/auth/auth-selectors";
 import { LogoutButton } from "../LogoutButton/LogoutButton";
 
-const Layout = ({ children, $isHomePage, $isFriendsPage }) => {
+const Layout = ({ children, $isHomePage, $isFriendsPage, $isNoticesPage }) => {
     const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
     const isAuthenticated = useSelector(selectAuthenticated);
     const user = useSelector(selectUserData);
@@ -43,7 +43,11 @@ const Layout = ({ children, $isHomePage, $isFriendsPage }) => {
 
     return (
         <Container $isHomePage={$isHomePage}>
-            <Header $isHomePage={$isHomePage} $isFriendsPage={$isFriendsPage}>
+            <Header
+                $isHomePage={$isHomePage}
+                $isFriendsPage={$isFriendsPage}
+                $isNoticesPage={$isNoticesPage}
+            >
                 <NavLink to="/">
                     <LogoBtn $isHomePage={$isHomePage}>
                         petl{" "}

@@ -15,6 +15,13 @@ export const LoginFormContainer = styled.div`
 
         width: 704px;
     }
+
+    @media only screen and (min-width: 1280px) {
+        margin-right: -32px;
+        padding: 118px 84px;
+
+        width: 592px;
+    }
 `;
 
 export const LoginFormText = styled.div`
