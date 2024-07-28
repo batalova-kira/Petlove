@@ -11,6 +11,7 @@ import {
 import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
 import { resetNotices } from "../redux/notices/noticesSlice";
 import { Pagination } from "../сomponents/Pagination/Pagination";
+import { NoticesList } from "./Notices.styled";
 
 const Notices = () => {
     const dispatch = useDispatch();
@@ -60,11 +61,11 @@ const Notices = () => {
     return (
         <>
             <FriendsTitle>Find your favorite pet</FriendsTitle>
-            <ul>
+            <NoticesList>
                 {notices.map((item) => (
                     <NoticesCard key={item._id} noticesItem={item} />
                 ))}
-            </ul>
+            </NoticesList>
             <Pagination
                 currentPage={currentPage}
                 handleCurrentPage={handleCurrentPage}
