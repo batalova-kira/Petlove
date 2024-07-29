@@ -8,17 +8,16 @@ export const NoticesList = styled.ul`
     margin-bottom: 44px;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* flex-direction: row;
+        flex-direction: row;
         flex-wrap: wrap;
-        row-gap: 32px;
-        column-gap: 24px;
-        margin-bottom: 60px; */
+        gap: 20px;
+        margin-bottom: 60px;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
-        /* flex-direction: row;
+        flex-direction: row;
         flex-wrap: wrap;
         row-gap: 40px;
-        column-gap: 34px; */
+        column-gap: 32px;
     }
 `;

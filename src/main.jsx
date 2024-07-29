@@ -16,6 +16,8 @@ const theme = {
         lightYellow: "#FFF4DF",
         yellow: "#F6B83D",
         secondaryYellow: "#FFC531",
+        hoverYellow: "#fbe7c1",
+        secondaryHoverYellow: "#f9b020",
         black: "#262626",
         secondaryBlack: "#2b2b2a",
         mediumGrey: "rgba(38, 38, 38, 0.8)",

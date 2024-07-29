@@ -6,21 +6,19 @@ export const WrapperNoticeCard = styled.li`
     flex-direction: column;
     gap: 24px;
 
-    max-width: 335px;
+    width: 335px;
     padding: 24px;
     border-radius: 16px;
 
     background-color: ${(props) => props.theme.colors.secondBackground};
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* max-width: 340px;
-        width: 340px;
-        height: 476px; */
+        width: 342px;
+        height: 444px;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
-        /* max-width: 361px;
-        width: 361px; */
+        width: 362px;
     }
 `;
 
@@ -33,6 +31,11 @@ export const WrapperNoticeImg = styled.div`
     background-repeat: no-repeat;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
+        width: 294px;
+    }
+
+    @media only screen and (min-width: ${breakpoints.large}) {
+        width: 315px;
     }
 `;
 
@@ -55,6 +58,11 @@ export const TitleNotice = styled.p`
     font-size: 16px;
     line-height: 1.25;
     color: ${(props) => props.theme.colors.secondaryBlack};
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        font-size: 18px;
+        line-height: 1.33;
+    }
 `;
 
 export const WrapperReview = styled.div`
@@ -62,6 +70,14 @@ export const WrapperReview = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 4px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        gap: 2px;
+    }
+
+    @media only screen and (min-width: ${breakpoints.large}) {
+        gap: 4px;
+    }
 `;
 
 export const Star = styled.div`
@@ -69,19 +85,17 @@ export const Star = styled.div`
     align-items: center;
 
     color: ${(props) => props.theme.colors.secondaryYellow};
-
-    /* @media only screen and (min-width: ${breakpoints.medium}) {
-        svg {
-            margin-left: -17px;
-        }
-    } */
 `;
 
 export const PopularityNotice = styled.span`
-    font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
+    letter-spacing: -0.02em;
     color: ${(props) => props.theme.colors.secondaryBlack};
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        line-height: 1.43;
+    }
 `;
 
 export const WrapperMetricsNotice = styled.div`
@@ -89,6 +103,14 @@ export const WrapperMetricsNotice = styled.div`
     flex-direction: row;
     gap: 14px;
     margin-bottom: 16px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        gap: 16px;
+    }
+
+    @media only screen and (min-width: ${breakpoints.large}) {
+        gap: 20px;
+    }
 `;
 
 export const MetricNotice = styled.div`
@@ -122,6 +144,7 @@ export const WrapperBtnsNotice = styled.div`
     display: flex;
     flex-direction: row;
     gap: 10px;
+    margin-top: auto;
 `;
 
 export const BtnNoticeLearnMore = styled.button`
@@ -136,9 +159,30 @@ export const BtnNoticeLearnMore = styled.button`
     border: none;
     border-radius: 30px;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: ${(props) => props.theme.colors.secondaryHoverYellow};
+    }
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        padding: 14px 78px;
+
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+    }
+
+    @media only screen and (min-width: ${breakpoints.large}) {
+        padding: 14px 88px;
+    }
 `;
 
 export const BtnNoticeFavorite = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 14px;
 
     color: ${(props) => props.theme.colors.yellow};
@@ -146,4 +190,13 @@ export const BtnNoticeFavorite = styled.button`
     border: none;
     border-radius: 30px;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: ${(props) => props.theme.colors.hoverYellow};
+    }
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        padding: 15px;
+    }
 `;
