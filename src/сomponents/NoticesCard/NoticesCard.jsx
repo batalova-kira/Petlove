@@ -32,7 +32,7 @@ export const NoticesCard = ({ noticesItem }) => {
         comment,
     } = noticesItem;
 
-    const formBirthday = birthday.replace(/-/g, ".");
+    const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
 
     return (
         <WrapperNoticeCard key={_id}>

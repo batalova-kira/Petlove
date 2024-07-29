@@ -7,11 +7,20 @@ export const instance = axios.create({
 
 export const fetchNotices = createAsyncThunk(
     "notices/fetchNotices",
-    async ({ page, limit }, thunkApi) => {
+    async ({ page, limit, category }, thunkApi) => {
         try {
-            const { data } = await instance.get(
-                `/notices?page=${page}&limit=${limit}`
-            );
+            // Перевіряємо, чи всі параметри мають значення
+            if (page === null || limit === null) {
+                throw new Error("Page or limit cannot be null");
+            }
+
+            const queryString = new URLSearchParams({
+                page,
+                limit,
+                ...(category && { category }), // Додаємо category лише якщо він не пустий
+            }).toString();
+
+            const { data } = await instance.get(`/notices?${queryString}`);
             console.log("Response notices:", data);
             return data;
         } catch (err) {

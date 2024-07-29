@@ -12,6 +12,8 @@ import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
 import { resetNotices } from "../redux/notices/noticesSlice";
 import { Pagination } from "../сomponents/Pagination/Pagination";
 import { NoticesList } from "./Notices.styled";
+import { selectSearchCategory } from "../redux/filters/filters-selectors";
+import { FiltersNotices } from "../сomponents/FiltersNotices/FiltersNotices";
 
 const Notices = () => {
     const dispatch = useDispatch();
@@ -23,21 +25,39 @@ const Notices = () => {
 
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
+    const selectedCategory = useSelector(selectSearchCategory);
+    console.log("Selected Category:", selectedCategory);
+    // const gender = useSelector(selectGender);
+    // const searchQuery = useSelector(selectSearchQuery);
+    // const species = useSelector(selectSpecies);
+
     useEffect(() => {
         dispatch(resetNotices());
-        dispatch(fetchNotices({ page: 1, limit }));
-    }, [dispatch, limit]);
+        dispatch(
+            fetchNotices({
+                page: 1,
+                limit,
+                category: selectedCategory,
+            })
+        );
+    }, [dispatch, limit, selectedCategory]);
 
     const handleCurrentPage = (page) => {
         setCurrentPageNumber(page);
-        dispatch(fetchNotices({ page, limit }));
+        dispatch(fetchNotices({ page, limit, category: selectedCategory }));
     };
 
     const handleNextPage = () => {
         if (hasMore) {
             const nextPage = currentPageNumber + 1;
             setCurrentPageNumber(nextPage);
-            dispatch(fetchNotices({ page: nextPage, limit }));
+            dispatch(
+                fetchNotices({
+                    page: nextPage,
+                    limit,
+                    category: selectedCategory,
+                })
+            );
         }
     };
 
@@ -45,22 +65,35 @@ const Notices = () => {
         if (currentPage > 1) {
             const prevPage = currentPageNumber - 1;
             setCurrentPageNumber(prevPage);
-            dispatch(fetchNotices({ page: prevPage, limit }));
+            dispatch(
+                fetchNotices({
+                    page: prevPage,
+                    limit,
+                    category: selectedCategory,
+                })
+            );
         }
     };
 
     const handleFirstPage = () => {
         setCurrentPageNumber(1);
-        dispatch(fetchNotices({ page: 1, limit }));
+        dispatch(fetchNotices({ page: 1, limit, category: selectedCategory }));
     };
 
     const handleLastPage = () => {
         setCurrentPageNumber(totalPages);
-        dispatch(fetchNotices({ page: totalPages, limit }));
+        dispatch(
+            fetchNotices({
+                page: totalPages,
+                limit,
+                category: selectedCategory,
+            })
+        );
     };
     return (
         <>
             <FriendsTitle>Find your favorite pet</FriendsTitle>
+            <FiltersNotices />
             <NoticesList>
                 {notices.map((item) => (
                     <NoticesCard key={item._id} noticesItem={item} />
