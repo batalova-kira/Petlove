@@ -1,4 +1,4 @@
-import{u as o,b as n,j as t,r as p,I as v,a as j,c as h,d as N,f as r,s as $}from"./index-CF_oQxaD.js";import{P}from"./Pagination-CdbvX4cs.js";import{F as k}from"./LoginForm.styled-F_bwmY2s.js";const F=e=>e.news.news,C=e=>e.news.currentPage,S=e=>e.news.hasMore,z=e=>e.news.totalPages,I=o.div`
+import{u as o,b as n,j as t,r as p,I as v,a as j,c as h,d as N,f as r,s as $}from"./index-BXLA8KMG.js";import{P}from"./Pagination-DKJ1KVDw.js";import{F as k}from"./LoginForm.styled-CIC2OpLs.js";const F=e=>e.news.news,C=e=>e.news.currentPage,S=e=>e.news.hasMore,z=e=>e.news.totalPages,I=o.div`
     @media only screen and (min-width: ${n.medium}) {
         display: flex;
         flex-direction: row;
