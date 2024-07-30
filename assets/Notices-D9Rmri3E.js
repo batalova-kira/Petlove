@@ -1,4 +1,4 @@
-import{u as j,b as W,j as E,I as Ut,r as m,R as zt,e as vr,a as yn,c as he,g as mr,h as gr,i as br,k as me}from"./index-BXLA8KMG.js";import{F as yr}from"./Friends.styled-BPEKz24t.js";import{P as Sr}from"./Pagination-DKJ1KVDw.js";import"./HomePage.styled-DO2l6b2l.js";const Cr=e=>e.notices.notices,xr=e=>e.notices.currentPage,Or=e=>e.notices.hasMore,wr=e=>e.notices.totalPages,Ir=j.li`
+import{u as j,b as W,j as E,I as Ut,r as m,R as zt,h as vr,a as yn,c as he,i as mr,k as gr,l as br,m as me}from"./index-BPW5TksM.js";import{F as yr}from"./Friends.styled-l4Zcs-PC.js";import{P as Sr}from"./Pagination-YPtPjctF.js";import"./HomePage.styled-DbAOjLh9.js";const Cr=e=>e.notices.notices,xr=e=>e.notices.currentPage,Or=e=>e.notices.hasMore,wr=e=>e.notices.totalPages,Ir=j.li`
     display: flex;
     flex-direction: column;
     gap: 24px;
