@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Icon from "../Icon/Icon";
 import {
     BtnSlider,

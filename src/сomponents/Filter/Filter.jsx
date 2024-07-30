@@ -13,6 +13,7 @@ export const Filter = ({ onFilterSubmit }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         onFilterSubmit(filterWord);
+        setFilterWord("");
     };
 
     return (
