@@ -7,7 +7,7 @@ export const instance = axios.create({
 
 export const fetchNotices = createAsyncThunk(
     "notices/fetchNotices",
-    async ({ page, limit, category }, thunkApi) => {
+    async ({ page, limit, category, keyword }, thunkApi) => {
         try {
             // Перевіряємо, чи всі параметри мають значення
             if (page === null || limit === null) {
@@ -18,10 +18,24 @@ export const fetchNotices = createAsyncThunk(
                 page,
                 limit,
                 ...(category && { category }), // Додаємо category лише якщо він не пустий
+                ...(keyword && { keyword }),
             }).toString();
 
             const { data } = await instance.get(`/notices?${queryString}`);
             console.log("Response notices:", data);
+            return data;
+        } catch (err) {
+            return thunkApi.rejectWithValue(err.message);
+        }
+    }
+);
+
+export const fetchCategories = createAsyncThunk(
+    "filters/fetchCategories",
+    async (_, thunkApi) => {
+        try {
+            const { data } = await instance.get(`/notices/categories`);
+            console.log("Response Categories:", data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);

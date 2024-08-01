@@ -7,12 +7,12 @@ import {
     selectNoticesCurrentPage,
     selectNoticesHasMore,
     selectNoticesTotalPages,
+    selectSearchCategory,
 } from "../redux/notices/notices-selectors";
 import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
 import { resetNotices } from "../redux/notices/noticesSlice";
 import { Pagination } from "../сomponents/Pagination/Pagination";
 import { NoticesList } from "./Notices.styled";
-import { selectSearchCategory } from "../redux/filters/filters-selectors";
 import { FiltersNotices } from "../сomponents/FiltersNotices/FiltersNotices";
 
 const Notices = () => {
@@ -24,6 +24,7 @@ const Notices = () => {
     const limit = 6;
 
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
+    const [keyword, setKeyword] = useState("");
 
     const selectedCategory = useSelector(selectSearchCategory);
     console.log("Selected Category:", selectedCategory);
@@ -38,13 +39,16 @@ const Notices = () => {
                 page: 1,
                 limit,
                 category: selectedCategory,
+                keyword: keyword,
             })
         );
-    }, [dispatch, limit, selectedCategory]);
+    }, [dispatch, limit, selectedCategory, keyword]);
 
     const handleCurrentPage = (page) => {
         setCurrentPageNumber(page);
-        dispatch(fetchNotices({ page, limit, category: selectedCategory }));
+        dispatch(
+            fetchNotices({ page, limit, category: selectedCategory, keyword })
+        );
     };
 
     const handleNextPage = () => {
@@ -56,6 +60,7 @@ const Notices = () => {
                     page: nextPage,
                     limit,
                     category: selectedCategory,
+                    keyword,
                 })
             );
         }
@@ -70,6 +75,7 @@ const Notices = () => {
                     page: prevPage,
                     limit,
                     category: selectedCategory,
+                    keyword,
                 })
             );
         }
@@ -77,7 +83,14 @@ const Notices = () => {
 
     const handleFirstPage = () => {
         setCurrentPageNumber(1);
-        dispatch(fetchNotices({ page: 1, limit, category: selectedCategory }));
+        dispatch(
+            fetchNotices({
+                page: 1,
+                limit,
+                category: selectedCategory,
+                keyword,
+            })
+        );
     };
 
     const handleLastPage = () => {
@@ -87,9 +100,11 @@ const Notices = () => {
                 page: totalPages,
                 limit,
                 category: selectedCategory,
+                keyword,
             })
         );
     };
+
     return (
         <>
             <FriendsTitle>Find your favorite pet</FriendsTitle>

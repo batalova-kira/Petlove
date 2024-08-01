@@ -1,11 +1,13 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { fetchNotices } from "./notices-operations";
+import { fetchCategories, fetchNotices } from "./notices-operations";
 
 const initialState = {
     isLoading: false,
     error: null,
     notices: [],
     allNotices: [],
+    categories: [],
+    selectedCategory: "",
     currentPage: 1,
     hasMore: true,
     totalPages: 0,
@@ -28,6 +30,9 @@ const noticesSlice = createSlice({
             state.allNotices = payload;
             state.notices = payload;
         },
+        setCategory: (state, { payload }) => {
+            state.selectedCategory = payload;
+        },
     },
     extraReducers: (builder) =>
         builder
@@ -37,6 +42,11 @@ const noticesSlice = createSlice({
                 state.hasMore = payload.page < payload.totalPages;
                 state.currentPage = payload.page;
                 state.totalPages = payload.totalPages;
+            })
+            .addCase(fetchCategories.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.categories = payload;
+                console.log("Categories loaded:", payload);
             })
             .addMatcher(isAnyOf(fetchNotices.pending), (state) => {
                 state.isLoading = true;
@@ -51,5 +61,6 @@ const noticesSlice = createSlice({
             ),
 });
 
-export const { resetNotices, setAllNotices } = noticesSlice.actions;
+export const { resetNotices, setAllNotices, setCategory } =
+    noticesSlice.actions;
 export const noticesReducer = noticesSlice.reducer;
