@@ -6,12 +6,12 @@ import Icon from "../Icon/Icon";
 export const Filter = ({ onFilterSubmit }) => {
     const [filterWord, setFilterWord] = useState("");
 
-    const handleFilterChange = (event) => {
-        setFilterWord(event.target.value);
+    const handleFilterChange = (e) => {
+        setFilterWord(e.target.value);
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
         onFilterSubmit(filterWord);
         setFilterWord("");
     };

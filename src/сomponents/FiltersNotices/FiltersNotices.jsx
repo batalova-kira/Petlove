@@ -2,21 +2,23 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Select from "react-select";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
     selectCategory,
     selectSearchCategory,
 } from "../../redux/notices/notices-selectors";
-import { fetchCategories } from "../../redux/notices/notices-operations";
-import { setCategory } from "../../redux/notices/noticesSlice";
+import {
+    fetchCategories,
+    fetchNotices,
+} from "../../redux/notices/notices-operations";
+import { setCategory, setFilterWord } from "../../redux/notices/noticesSlice";
+import { Filter } from "../Filter/Filter";
 
 export const FiltersNotices = () => {
     const dispatch = useDispatch();
     const categories = useSelector(selectCategory);
     const selectedCategory = useSelector(selectSearchCategory);
-    // const gender = useSelector(selectGender);
-    // const searchQuery = useSelector(selectSearchQuery);
-    // const species = useSelector(selectSpecies);
+    const [inputValue, setInputValue] = useState("");
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -24,6 +26,11 @@ export const FiltersNotices = () => {
 
     const handleCategoryChange = (selectedOption) => {
         dispatch(setCategory(selectedOption ? selectedOption.value : ""));
+    };
+
+    const handleFilterSubmit = (filterWord) => {
+        dispatch(setFilterWord(filterWord));
+        dispatch(fetchNotices({ page: 1, limit: 6, keyword: filterWord }));
     };
 
     const options =
@@ -35,15 +42,19 @@ export const FiltersNotices = () => {
             : [];
 
     return (
-        <Select
-            value={
-                options.find((option) => option.value === selectedCategory) ||
-                ""
-            }
-            onChange={handleCategoryChange}
-            options={options}
-            isClearable
-            placeholder="Select a category"
-        />
+        <>
+            <Filter onFilterSubmit={handleFilterSubmit} />
+            <Select
+                value={
+                    options.find(
+                        (option) => option.value === selectedCategory
+                    ) || ""
+                }
+                onChange={handleCategoryChange}
+                options={options}
+                isClearable
+                placeholder="Select a category"
+            />
+        </>
     );
 };

@@ -12,7 +12,7 @@ import {
 } from "./NewsCard.styled";
 
 export const NewsCard = ({ newsItem }) => {
-    const { title, text, date, imgUrl } = newsItem;
+    const { title, text, date, imgUrl, url } = newsItem;
     const data = date.slice(0, 10).replace(/-/g, "/");
 
     return (
@@ -25,7 +25,13 @@ export const NewsCard = ({ newsItem }) => {
             <Spacer />
             <WrapperFooterNews>
                 <DataNews>{data}</DataNews>
-                <BtnReadMoreNews>Read more</BtnReadMoreNews>
+                <BtnReadMoreNews
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Read more
+                </BtnReadMoreNews>
             </WrapperFooterNews>
         </WrapperNewsCard>
     );

@@ -6,12 +6,12 @@ const initialState = {
     error: null,
     notices: [],
     allNotices: [],
+    filterWord: "",
     categories: [],
     selectedCategory: "",
     currentPage: 1,
     hasMore: true,
     totalPages: 0,
-    filterWord: "",
 };
 
 const noticesSlice = createSlice({
@@ -32,6 +32,10 @@ const noticesSlice = createSlice({
         },
         setCategory: (state, { payload }) => {
             state.selectedCategory = payload;
+        },
+        setFilterWord: (state, { payload }) => {
+            state.filterWord = payload;
+            console.log(state.filterWord);
         },
     },
     extraReducers: (builder) =>
@@ -61,6 +65,6 @@ const noticesSlice = createSlice({
             ),
 });
 
-export const { resetNotices, setAllNotices, setCategory } =
+export const { resetNotices, setAllNotices, setFilterWord, setCategory } =
     noticesSlice.actions;
 export const noticesReducer = noticesSlice.reducer;

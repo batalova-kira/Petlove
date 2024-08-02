@@ -7,11 +7,15 @@ export const instance = axios.create({
 
 export const fetchNews = createAsyncThunk(
     "news/fetchNews",
-    async ({ page, limit }, thunkApi) => {
+    async ({ page, limit, keyword }, thunkApi) => {
         try {
-            const { data } = await instance.get(
-                `/news?page=${page}&limit=${limit}`
-            );
+            const queryString = new URLSearchParams({
+                page,
+                limit,
+                ...(keyword && { keyword }), // Додаємо keyword лише якщо він не пустий
+            }).toString();
+
+            const { data } = await instance.get(`/news?${queryString}`);
             console.log("Response data:", data);
             return data;
         } catch (err) {

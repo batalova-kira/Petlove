@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     selectFilteredNews,
+    selectFilterWord,
     selectNews,
     selectNewsCurrentPage,
     selectTotalPages,
@@ -27,6 +28,7 @@ const News = () => {
     const dispatch = useDispatch();
     const news = useSelector(selectNews);
     const filteredNews = useSelector(selectFilteredNews);
+    const filterWord = useSelector(selectFilterWord);
     const currentPage = useSelector(selectNewsCurrentPage);
     const totalPages = useSelector(selectTotalPages);
     const limit = 6;
@@ -35,8 +37,8 @@ const News = () => {
 
     useEffect(() => {
         dispatch(resetNews());
-        dispatch(fetchNews({ page: 1, limit }));
-    }, [dispatch, limit]);
+        dispatch(fetchNews({ page: 1, limit, keyword: filterWord }));
+    }, [dispatch, limit, filterWord]);
 
     useEffect(() => {
         setCurrentPageNumber(currentPage);
@@ -46,7 +48,7 @@ const News = () => {
     const handleCurrentPage = (page) => {
         setCurrentPageNumber(page);
         dispatch(setCurrentPage(page));
-        dispatch(fetchNews({ page, limit }));
+        dispatch(fetchNews({ page, limit, keyword: filterWord }));
     };
 
     const handleNextPage = () => {
@@ -54,7 +56,7 @@ const News = () => {
             const nextPage = currentPageNumber + 1;
             setCurrentPageNumber(nextPage);
             dispatch(setCurrentPage(nextPage));
-            dispatch(fetchNews({ page: nextPage, limit }));
+            dispatch(fetchNews({ page: nextPage, limit, keyword: filterWord }));
         }
     };
 
@@ -63,40 +65,28 @@ const News = () => {
             const prevPage = currentPageNumber - 1;
             setCurrentPageNumber(prevPage);
             dispatch(setCurrentPage(prevPage));
-            dispatch(fetchNews({ page: prevPage, limit }));
+            dispatch(fetchNews({ page: prevPage, limit, keyword: filterWord }));
         }
     };
 
     const handleFirstPage = () => {
         setCurrentPageNumber(1);
         dispatch(setCurrentPage(1));
-        dispatch(fetchNews({ page: 1, limit }));
+        dispatch(fetchNews({ page: 1, limit, keyword: filterWord }));
     };
 
     const handleLastPage = () => {
         setCurrentPageNumber(totalPages);
         dispatch(setCurrentPage(totalPages));
-        dispatch(fetchNews({ page: totalPages, limit }));
+        dispatch(fetchNews({ page: totalPages, limit, keyword: filterWord }));
     };
 
     const handleFilterSubmit = (filterWord) => {
         dispatch(setFilterWord(filterWord));
-        setCurrentPageNumber(1);
-        const allNews = news.flat(); // Плоский масив всіх новин для фільтрації
-        const filtered = allNews.filter((item) =>
-            item.title
-                .toLowerCase()
-                .includes(
-                    filterWord.toLowerCase() ||
-                        item.text
-                            .toLowerCase()
-                            .includes(filterWord.toLowerCase())
-                )
-        );
-        dispatch(setFilteredNews(filtered));
+        dispatch(fetchNews({ page: 1, limit, keyword: filterWord }));
     };
 
-    const newsToDisplay = filteredNews.length > 0 ? filteredNews : news;
+    const newsToDisplay = filterWord ? filteredNews : news;
 
     return (
         <div>
@@ -105,7 +95,7 @@ const News = () => {
                 <Filter onFilterSubmit={handleFilterSubmit} />
             </WrapperNewsHeader>
             <ContainerNewsCards>
-                {Array.isArray(newsToDisplay) && newsToDisplay.length > 0 ? (
+                {newsToDisplay && newsToDisplay.length > 0 ? (
                     newsToDisplay.map((item) => (
                         <NewsCard
                             key={item._id}

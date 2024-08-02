@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNotices } from "../redux/notices/notices-operations";
 import { FriendsTitle } from "./Friends.styled";
 import {
+    selectFilterWord,
     selectNotices,
     selectNoticesCurrentPage,
     selectNoticesHasMore,
@@ -24,13 +25,9 @@ const Notices = () => {
     const limit = 6;
 
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
-    const [keyword, setKeyword] = useState("");
 
     const selectedCategory = useSelector(selectSearchCategory);
-    console.log("Selected Category:", selectedCategory);
-    // const gender = useSelector(selectGender);
-    // const searchQuery = useSelector(selectSearchQuery);
-    // const species = useSelector(selectSpecies);
+    const filterWord = useSelector(selectFilterWord);
 
     useEffect(() => {
         dispatch(resetNotices());
@@ -39,15 +36,20 @@ const Notices = () => {
                 page: 1,
                 limit,
                 category: selectedCategory,
-                keyword: keyword,
+                keyword: filterWord,
             })
         );
-    }, [dispatch, limit, selectedCategory, keyword]);
+    }, [dispatch, limit, selectedCategory, filterWord]);
 
     const handleCurrentPage = (page) => {
         setCurrentPageNumber(page);
         dispatch(
-            fetchNotices({ page, limit, category: selectedCategory, keyword })
+            fetchNotices({
+                page,
+                limit,
+                category: selectedCategory,
+                keyword: filterWord,
+            })
         );
     };
 
@@ -60,7 +62,7 @@ const Notices = () => {
                     page: nextPage,
                     limit,
                     category: selectedCategory,
-                    keyword,
+                    keyword: filterWord,
                 })
             );
         }
@@ -75,7 +77,7 @@ const Notices = () => {
                     page: prevPage,
                     limit,
                     category: selectedCategory,
-                    keyword,
+                    keyword: filterWord,
                 })
             );
         }
@@ -88,7 +90,7 @@ const Notices = () => {
                 page: 1,
                 limit,
                 category: selectedCategory,
-                keyword,
+                keyword: filterWord,
             })
         );
     };
@@ -100,7 +102,7 @@ const Notices = () => {
                 page: totalPages,
                 limit,
                 category: selectedCategory,
-                keyword,
+                keyword: filterWord,
             })
         );
     };

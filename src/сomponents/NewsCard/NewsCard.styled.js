@@ -118,7 +118,7 @@ export const DataNews = styled.p`
     color: ${(props) => props.theme.colors.lightGrey};
 `;
 
-export const BtnReadMoreNews = styled.button`
+export const BtnReadMoreNews = styled.a`
     padding: 0;
     margin: 0;
     font-size: 14px;
