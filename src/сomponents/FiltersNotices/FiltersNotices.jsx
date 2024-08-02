@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-
 import Select from "react-select";
-
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
     selectCategory,
+    selectFilterWord,
     selectSearchCategory,
 } from "../../redux/notices/notices-selectors";
 import {
@@ -17,8 +16,8 @@ import { Filter } from "../Filter/Filter";
 export const FiltersNotices = () => {
     const dispatch = useDispatch();
     const categories = useSelector(selectCategory);
+    const filterWord = useSelector(selectFilterWord);
     const selectedCategory = useSelector(selectSearchCategory);
-    const [inputValue, setInputValue] = useState("");
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -26,11 +25,26 @@ export const FiltersNotices = () => {
 
     const handleCategoryChange = (selectedOption) => {
         dispatch(setCategory(selectedOption ? selectedOption.value : ""));
+        dispatch(
+            fetchNotices({
+                page: 1,
+                limit: 6,
+                category: selectedOption ? selectedOption.value : "",
+                keyword: filterWord, // Додаємо keyword в запит
+            })
+        );
     };
 
     const handleFilterSubmit = (filterWord) => {
         dispatch(setFilterWord(filterWord));
-        dispatch(fetchNotices({ page: 1, limit: 6, keyword: filterWord }));
+        dispatch(
+            fetchNotices({
+                page: 1,
+                limit: 6,
+                category: selectedCategory,
+                keyword: filterWord,
+            })
+        );
     };
 
     const options =

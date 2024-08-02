@@ -11,7 +11,6 @@ import { fetchNews } from "../redux/news/news-operations";
 import {
     resetNews,
     setCurrentPage,
-    setFilteredNews,
     setFilterWord,
 } from "../redux/news/newsSlice";
 

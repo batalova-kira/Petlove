@@ -33,13 +33,13 @@ const Notices = () => {
         dispatch(resetNotices());
         dispatch(
             fetchNotices({
-                page: 1,
+                page: currentPageNumber,
                 limit,
                 category: selectedCategory,
                 keyword: filterWord,
             })
         );
-    }, [dispatch, limit, selectedCategory, filterWord]);
+    }, [dispatch, currentPageNumber, limit, selectedCategory, filterWord]);
 
     const handleCurrentPage = (page) => {
         setCurrentPageNumber(page);
@@ -116,16 +116,18 @@ const Notices = () => {
                     <NoticesCard key={item._id} noticesItem={item} />
                 ))}
             </NoticesList>
-            <Pagination
-                currentPage={currentPage}
-                handleCurrentPage={handleCurrentPage}
-                handleNextPage={handleNextPage}
-                handlePrevPage={handlePrevPage}
-                handleFirstPage={handleFirstPage}
-                handleLastPage={handleLastPage}
-                hasMore={hasMore}
-                maxPages={totalPages}
-            />
+            {notices.length > 0 && totalPages > 1 && (
+                <Pagination
+                    currentPage={currentPage}
+                    handleCurrentPage={handleCurrentPage}
+                    handleNextPage={handleNextPage}
+                    handlePrevPage={handlePrevPage}
+                    handleFirstPage={handleFirstPage}
+                    handleLastPage={handleLastPage}
+                    hasMore={hasMore}
+                    maxPages={totalPages}
+                />
+            )}
         </>
     );
 };
