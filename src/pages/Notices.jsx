@@ -9,6 +9,7 @@ import {
     selectNoticesHasMore,
     selectNoticesTotalPages,
     selectSearchCategory,
+    selectSearchGender,
 } from "../redux/notices/notices-selectors";
 import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
 import { resetNotices } from "../redux/notices/noticesSlice";
@@ -27,6 +28,7 @@ const Notices = () => {
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
     const selectedCategory = useSelector(selectSearchCategory);
+    const selectedGender = useSelector(selectSearchGender);
     const filterWord = useSelector(selectFilterWord);
 
     useEffect(() => {
@@ -107,16 +109,20 @@ const Notices = () => {
         );
     };
 
+    const filteredNotices = notices.filter((notice) =>
+        selectedGender ? notice.sex === selectedGender : true
+    );
+
     return (
         <>
             <FriendsTitle>Find your favorite pet</FriendsTitle>
             <FiltersNotices />
             <NoticesList>
-                {notices.map((item) => (
+                {filteredNotices.map((item) => (
                     <NoticesCard key={item._id} noticesItem={item} />
                 ))}
             </NoticesList>
-            {notices.length > 0 && totalPages > 1 && (
+            {filteredNotices.length > 0 && totalPages > 1 && (
                 <Pagination
                     currentPage={currentPage}
                     handleCurrentPage={handleCurrentPage}

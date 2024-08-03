@@ -1,5 +1,9 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { fetchCategories, fetchNotices } from "./notices-operations";
+import {
+    fetchCategories,
+    fetchGender,
+    fetchNotices,
+} from "./notices-operations";
 
 const initialState = {
     isLoading: false,
@@ -9,6 +13,8 @@ const initialState = {
     filterWord: "",
     categories: [],
     selectedCategory: "",
+    gender: [],
+    selectedGender: "",
     currentPage: 1,
     hasMore: true,
     totalPages: 0,
@@ -33,6 +39,10 @@ const noticesSlice = createSlice({
         setCategory: (state, { payload }) => {
             state.selectedCategory = payload;
         },
+        setGender: (state, { payload }) => {
+            state.selectedGender = payload;
+            console.log(state.selectedGender);
+        },
         setFilterWord: (state, { payload }) => {
             state.filterWord = payload;
             console.log(state.filterWord);
@@ -50,7 +60,11 @@ const noticesSlice = createSlice({
             .addCase(fetchCategories.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.categories = payload;
-                console.log("Categories loaded:", payload);
+            })
+            .addCase(fetchGender.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.gender = payload;
+                console.log("state.gender", state.gender);
             })
             .addMatcher(isAnyOf(fetchNotices.pending), (state) => {
                 state.isLoading = true;
@@ -65,6 +79,11 @@ const noticesSlice = createSlice({
             ),
 });
 
-export const { resetNotices, setAllNotices, setFilterWord, setCategory } =
-    noticesSlice.actions;
+export const {
+    resetNotices,
+    setAllNotices,
+    setFilterWord,
+    setCategory,
+    setGender,
+} = noticesSlice.actions;
 export const noticesReducer = noticesSlice.reducer;

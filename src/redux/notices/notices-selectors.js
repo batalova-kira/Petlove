@@ -5,3 +5,5 @@ export const selectNoticesTotalPages = (state) => state.notices.totalPages;
 export const selectFilterWord = (state) => state.notices.filterWord;
 export const selectCategory = (state) => state.notices.categories;
 export const selectSearchCategory = (state) => state.notices.selectedCategory;
+export const selectGender = (state) => state.notices.gender;
+export const selectSearchGender = (state) => state.notices.selectedGender;
