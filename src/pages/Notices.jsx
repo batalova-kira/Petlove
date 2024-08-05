@@ -12,7 +12,7 @@ import {
     selectSearchGender,
 } from "../redux/notices/notices-selectors";
 import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
-import { resetNotices } from "../redux/notices/noticesSlice";
+import { resetNotices, setAllNotices } from "../redux/notices/noticesSlice";
 import { Pagination } from "../сomponents/Pagination/Pagination";
 import { NoticesList } from "./Notices.styled";
 import { FiltersNotices } from "../сomponents/FiltersNotices/FiltersNotices";
@@ -32,16 +32,44 @@ const Notices = () => {
     const filterWord = useSelector(selectFilterWord);
 
     useEffect(() => {
-        dispatch(resetNotices());
+        // Диспатч асинхронної дії для завантаження даних перший раз
         dispatch(
             fetchNotices({
-                page: currentPageNumber,
-                limit,
+                page: 1,
+                limit: 6,
                 category: selectedCategory,
+                sex: "",
                 keyword: filterWord,
             })
         );
-    }, [dispatch, currentPageNumber, limit, selectedCategory, filterWord]);
+    }, [dispatch, selectedCategory, filterWord]);
+
+    // Fetch notices when pagination changes
+    useEffect(() => {
+        dispatch(
+            fetchNotices({
+                page: currentPageNumber,
+                limit: 6,
+                category: selectedCategory,
+                sex: selectedGender,
+                keyword: filterWord,
+            })
+        );
+    }, [
+        dispatch,
+        currentPageNumber,
+        selectedCategory,
+        selectedGender,
+        filterWord,
+    ]);
+
+    // Filter notices based on gender
+    const filteredNotices = notices.filter((notice) => {
+        const genderMatch = selectedGender
+            ? notice.sex === selectedGender
+            : true;
+        return genderMatch;
+    });
 
     const handleCurrentPage = (page) => {
         setCurrentPageNumber(page);
@@ -50,6 +78,7 @@ const Notices = () => {
                 page,
                 limit,
                 category: selectedCategory,
+                sex: selectedGender,
                 keyword: filterWord,
             })
         );
@@ -64,6 +93,7 @@ const Notices = () => {
                     page: nextPage,
                     limit,
                     category: selectedCategory,
+                    sex: selectedGender,
                     keyword: filterWord,
                 })
             );
@@ -79,6 +109,7 @@ const Notices = () => {
                     page: prevPage,
                     limit,
                     category: selectedCategory,
+                    sex: selectedGender,
                     keyword: filterWord,
                 })
             );
@@ -92,6 +123,7 @@ const Notices = () => {
                 page: 1,
                 limit,
                 category: selectedCategory,
+                sex: selectedGender,
                 keyword: filterWord,
             })
         );
@@ -104,14 +136,11 @@ const Notices = () => {
                 page: totalPages,
                 limit,
                 category: selectedCategory,
+                sex: selectedGender,
                 keyword: filterWord,
             })
         );
     };
-
-    const filteredNotices = notices.filter((notice) =>
-        selectedGender ? notice.sex === selectedGender : true
-    );
 
     return (
         <>

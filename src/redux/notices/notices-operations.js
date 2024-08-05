@@ -9,21 +9,26 @@ export const fetchNotices = createAsyncThunk(
     "notices/fetchNotices",
     async ({ page, limit, category, keyword, sex }, thunkApi) => {
         try {
-            // Перевіряємо, чи всі параметри мають значення
             if (page === null || limit === null) {
                 throw new Error("Page or limit cannot be null");
             }
-            const queryString = new URLSearchParams({
+
+            const queryParams = {
                 page,
                 limit,
                 category: category || "",
                 sex: sex || "",
                 keyword: keyword || "",
-            }).toString();
+            };
+
+            // Логування параметрів запиту
+            console.log("Query Parameters:", queryParams);
+
+            const queryString = new URLSearchParams(queryParams).toString();
+            console.log("Query String:", queryString); // Логування рядка запиту
 
             const { data } = await instance.get(`/notices?${queryString}`);
             console.log("Response from API:", data);
-
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);
@@ -36,7 +41,6 @@ export const fetchCategories = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get(`/notices/categories`);
-            console.log("Response Categories:", data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);
