@@ -3,6 +3,7 @@ import {
     fetchCategories,
     fetchGender,
     fetchNotices,
+    fetchSpecies,
 } from "./notices-operations";
 
 const initialState = {
@@ -15,6 +16,10 @@ const initialState = {
     selectedCategory: "",
     gender: [],
     selectedGender: "",
+    species: [],
+    selectedSpecies: "",
+    locationId: "",
+    uniqueLocations: [],
     currentPage: 1,
     hasMore: true,
     totalPages: 0,
@@ -31,6 +36,9 @@ const noticesSlice = createSlice({
             state.hasMore = true;
             state.totalPages = 0;
             state.filterWord = "";
+            state.species = [];
+            state.categories = [];
+            state.locationId = "";
         },
         setAllNotices: (state, { payload }) => {
             state.allNotices = payload;
@@ -41,11 +49,15 @@ const noticesSlice = createSlice({
         },
         setGender: (state, { payload }) => {
             state.selectedGender = payload;
-            console.log(state.selectedGender);
+        },
+        setSpecies: (state, { payload }) => {
+            state.selectedSpecies = payload;
+        },
+        setLocation(state, { payload }) {
+            state.locationId = payload;
         },
         setFilterWord: (state, { payload }) => {
             state.filterWord = payload;
-            console.log(state.filterWord);
         },
     },
     extraReducers: (builder) =>
@@ -56,6 +68,14 @@ const noticesSlice = createSlice({
                 state.hasMore = payload.page < payload.totalPages;
                 state.currentPage = payload.page;
                 state.totalPages = payload.totalPages;
+                // Збір унікальних локацій
+                const uniqueLocations = payload.results
+                    .map((item) => item.location)
+                    .filter(
+                        (value, index, self) => self.indexOf(value) === index
+                    );
+
+                state.uniqueLocations = uniqueLocations;
             })
             .addCase(fetchCategories.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
@@ -64,7 +84,10 @@ const noticesSlice = createSlice({
             .addCase(fetchGender.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.gender = payload;
-                console.log("state.gender", state.gender);
+            })
+            .addCase(fetchSpecies.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.species = payload;
             })
             .addMatcher(isAnyOf(fetchNotices.pending), (state) => {
                 state.isLoading = true;
@@ -84,6 +107,8 @@ export const {
     setAllNotices,
     setFilterWord,
     setCategory,
+    setSpecies,
     setGender,
+    setLocation,
 } = noticesSlice.actions;
 export const noticesReducer = noticesSlice.reducer;

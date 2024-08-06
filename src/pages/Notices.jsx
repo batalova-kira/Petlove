@@ -4,15 +4,16 @@ import { fetchNotices } from "../redux/notices/notices-operations";
 import { FriendsTitle } from "./Friends.styled";
 import {
     selectFilterWord,
+    selectLocation,
     selectNotices,
     selectNoticesCurrentPage,
     selectNoticesHasMore,
     selectNoticesTotalPages,
     selectSearchCategory,
     selectSearchGender,
+    selectSearchSpecies,
 } from "../redux/notices/notices-selectors";
 import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
-import { resetNotices, setAllNotices } from "../redux/notices/noticesSlice";
 import { Pagination } from "../сomponents/Pagination/Pagination";
 import { NoticesList } from "./Notices.styled";
 import { FiltersNotices } from "../сomponents/FiltersNotices/FiltersNotices";
@@ -29,7 +30,9 @@ const Notices = () => {
 
     const selectedCategory = useSelector(selectSearchCategory);
     const selectedGender = useSelector(selectSearchGender);
+    const selectedSpices = useSelector(selectSearchSpecies);
     const filterWord = useSelector(selectFilterWord);
+    const selectedLocation = useSelector(selectLocation);
 
     useEffect(() => {
         // Диспатч асинхронної дії для завантаження даних перший раз
@@ -38,13 +41,21 @@ const Notices = () => {
                 page: 1,
                 limit: 6,
                 category: selectedCategory,
+                species: selectedSpices,
                 sex: "",
+                locationId: selectedLocation,
                 keyword: filterWord,
             })
         );
-    }, [dispatch, selectedCategory, filterWord]);
+    }, [
+        dispatch,
+        selectedCategory,
+        selectedSpices,
+        selectedLocation,
+        filterWord,
+    ]);
 
-    // Fetch notices when pagination changes
+    // Диспатч коли відбулися зміни
     useEffect(() => {
         dispatch(
             fetchNotices({
@@ -52,6 +63,8 @@ const Notices = () => {
                 limit: 6,
                 category: selectedCategory,
                 sex: selectedGender,
+                species: selectedSpices,
+                locationId: selectedLocation,
                 keyword: filterWord,
             })
         );
@@ -60,10 +73,12 @@ const Notices = () => {
         currentPageNumber,
         selectedCategory,
         selectedGender,
+        selectedSpices,
+        selectedLocation,
         filterWord,
     ]);
 
-    // Filter notices based on gender
+    // Відфільтровані картки по статі
     const filteredNotices = notices.filter((notice) => {
         const genderMatch = selectedGender
             ? notice.sex === selectedGender
@@ -79,6 +94,8 @@ const Notices = () => {
                 limit,
                 category: selectedCategory,
                 sex: selectedGender,
+                species: selectedSpices,
+                locationId: selectedLocation,
                 keyword: filterWord,
             })
         );
@@ -94,6 +111,8 @@ const Notices = () => {
                     limit,
                     category: selectedCategory,
                     sex: selectedGender,
+                    species: selectedSpices,
+                    locationId: selectedLocation,
                     keyword: filterWord,
                 })
             );
@@ -110,6 +129,7 @@ const Notices = () => {
                     limit,
                     category: selectedCategory,
                     sex: selectedGender,
+                    locationId: selectedLocation,
                     keyword: filterWord,
                 })
             );
@@ -124,6 +144,7 @@ const Notices = () => {
                 limit,
                 category: selectedCategory,
                 sex: selectedGender,
+                locationId: selectedLocation,
                 keyword: filterWord,
             })
         );
@@ -137,10 +158,15 @@ const Notices = () => {
                 limit,
                 category: selectedCategory,
                 sex: selectedGender,
+                locationId: selectedLocation,
                 keyword: filterWord,
             })
         );
     };
+
+    const shouldShowPagination =
+        (selectedGender ? filteredNotices.length : notices.length) > 0 &&
+        totalPages > 1;
 
     return (
         <>
@@ -151,7 +177,7 @@ const Notices = () => {
                     <NoticesCard key={item._id} noticesItem={item} />
                 ))}
             </NoticesList>
-            {filteredNotices.length > 0 && totalPages > 1 && (
+            {shouldShowPagination && (
                 <Pagination
                     currentPage={currentPage}
                     handleCurrentPage={handleCurrentPage}

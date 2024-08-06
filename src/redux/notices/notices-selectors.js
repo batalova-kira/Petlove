@@ -7,3 +7,7 @@ export const selectCategory = (state) => state.notices.categories;
 export const selectSearchCategory = (state) => state.notices.selectedCategory;
 export const selectGender = (state) => state.notices.gender;
 export const selectSearchGender = (state) => state.notices.selectedGender;
+export const selectSpecies = (state) => state.notices.species;
+export const selectSearchSpecies = (state) => state.notices.selectedSpecies;
+export const selectLocation = (state) => state.notices.locationId;
+export const selectUniqueLocations = (state) => state.notices.uniqueLocations;
