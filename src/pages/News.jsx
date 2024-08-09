@@ -41,7 +41,6 @@ const News = () => {
 
     useEffect(() => {
         setCurrentPageNumber(currentPage);
-        console.log(currentPage);
     }, [currentPage]);
 
     const handleCurrentPage = (page) => {

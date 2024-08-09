@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: "https://petlove.b.goit.study/api/",
+    baseURL: "https://petlove.b.goit.study/api",
 });
 
 export const fetchNotices = createAsyncThunk(

@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: "https://petlove.b.goit.study/api/",
+    baseURL: "https://petlove.b.goit.study/api",
 });
 
 export const fetchNews = createAsyncThunk(
@@ -16,7 +16,6 @@ export const fetchNews = createAsyncThunk(
             }).toString();
 
             const { data } = await instance.get(`/news?${queryString}`);
-            console.log("Response data:", data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);

@@ -46,17 +46,14 @@ const theme = {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <BrowserRouter basename="/petlove">
+        <ThemeProvider theme={theme}>
             <Provider store={store}>
-                <PersistGate persistor={persistor}>
-                    <ThemeProvider theme={theme}>
+                <BrowserRouter basename="/petlove">
+                    <PersistGate persistor={persistor}>
                         <App />
-                        {/* <GlobalStyle
-                            isHomePage={window.location.pathname === "/"}
-                        /> */}
-                    </ThemeProvider>
-                </PersistGate>
+                    </PersistGate>
+                </BrowserRouter>
             </Provider>
-        </BrowserRouter>
+        </ThemeProvider>
     </React.StrictMode>
 );

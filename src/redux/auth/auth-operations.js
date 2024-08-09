@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: "https://petlove.b.goit.study/api/",
+    baseURL: "https://petlove.b.goit.study/api",
 });
 
 const setToken = (token) => {
@@ -15,7 +15,6 @@ export const loginThunk = createAsyncThunk(
         try {
             const { data } = await instance.post("/users/signin", formData);
             setToken(data.token);
-            console.log(data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);
