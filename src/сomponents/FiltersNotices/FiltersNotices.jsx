@@ -14,11 +14,9 @@ import {
 } from "../../redux/notices/notices-selectors";
 import {
     fetchCategories,
-    fetchCities,
     fetchGender,
     fetchNotices,
     fetchSpecies,
-    instance,
 } from "../../redux/notices/notices-operations";
 import {
     setCategory,
@@ -30,6 +28,7 @@ import {
 import { Filter } from "../Filter/Filter";
 import AsyncSelect from "react-select/async";
 import { debounce } from "../../constants/debounce";
+import { CitySearchInput } from "../CitySearchInput/CitySearchInput";
 
 export const FiltersNotices = () => {
     const dispatch = useDispatch();
@@ -42,8 +41,6 @@ export const FiltersNotices = () => {
     const selectedSpecies = useSelector(selectSearchSpecies);
     const selectedLocation = useSelector(selectSearchLocation);
     const cities = useSelector(selectCities);
-
-    console.log(selectedLocation);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -98,27 +95,28 @@ export const FiltersNotices = () => {
         );
     };
 
-    // Асинхронне завантаження міст під час введення тексту
-    const loadCityOptions = useCallback(
-        debounce(async (inputValue, callback) => {
-            if (inputValue.length < 2) {
-                callback([]);
-                return;
-            }
+    // // Асинхронне завантаження міст під час введення тексту
 
-            const filteredCities = cities
-                .filter((city) =>
-                    city.cityEn.toLowerCase().includes(inputValue.toLowerCase())
-                )
-                .map((city) => ({
-                    value: city._id, // ID міста
-                    label: `${city.stateEn}, ${city.cityEn}`, // Форматування: область, населений пункт
-                }));
+    // const loadCityOptions = useCallback(
+    //     debounce(async (inputValue, callback) => {
+    //         if (inputValue.length < 2) {
+    //             callback([]);
+    //             return;
+    //         }
 
-            callback(filteredCities);
-        }, 300),
-        [cities]
-    );
+    //         const filteredCities = cities
+    //             .filter((city) =>
+    //                 city.cityEn.toLowerCase().includes(inputValue.toLowerCase())
+    //             )
+    //             .map((city) => ({
+    //                 value: city._id, // ID міста
+    //                 label: `${city.stateEn}, ${city.cityEn}`, // Форматування: область, населений пункт
+    //             }));
+
+    //         callback(filteredCities);
+    //     }, 300),
+    //     [cities]
+    // );
 
     const options =
         categories?.length > 0
@@ -175,21 +173,7 @@ export const FiltersNotices = () => {
                 isClearable
                 placeholder="By type"
             />
-            <AsyncSelect
-                value={
-                    selectedLocationOption
-                        ? {
-                              value: selectedLocationOption._id,
-                              label: `${selectedLocationOption.stateEn}, ${selectedLocationOption.cityEn}`,
-                          }
-                        : null
-                }
-                onChange={(option) => handleFilterChange("location", option)}
-                loadOptions={loadCityOptions}
-                defaultOptions={[]}
-                isClearable
-                placeholder="Location"
-            />
+            <CitySearchInput />
         </>
     );
 };
