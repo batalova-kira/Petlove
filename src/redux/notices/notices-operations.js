@@ -73,3 +73,16 @@ export const fetchSpecies = createAsyncThunk(
         }
     }
 );
+
+export const fetchCities = createAsyncThunk(
+    "notices/fetchCities",
+    async (_, thunkApi) => {
+        try {
+            const { data } = await instance.get(`/cities`);
+            console.log("Response Cities:", data);
+            return data;
+        } catch (err) {
+            return thunkApi.rejectWithValue(err.message);
+        }
+    }
+);

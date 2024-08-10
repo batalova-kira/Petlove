@@ -4,13 +4,13 @@ import { fetchNotices } from "../redux/notices/notices-operations";
 import { FriendsTitle } from "./Friends.styled";
 import {
     selectFilterWord,
-    selectLocation,
     selectNotices,
     selectNoticesCurrentPage,
     selectNoticesHasMore,
     selectNoticesTotalPages,
     selectSearchCategory,
     selectSearchGender,
+    selectSearchLocation,
     selectSearchSpecies,
 } from "../redux/notices/notices-selectors";
 import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
@@ -32,7 +32,7 @@ const Notices = () => {
     const selectedGender = useSelector(selectSearchGender);
     const selectedSpices = useSelector(selectSearchSpecies);
     const filterWord = useSelector(selectFilterWord);
-    const selectedLocation = useSelector(selectLocation);
+    const selectedLocation = useSelector(selectSearchLocation);
 
     useEffect(() => {
         // Диспатч асинхронної дії для завантаження даних перший раз

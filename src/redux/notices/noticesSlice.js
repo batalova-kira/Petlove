@@ -1,6 +1,7 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import {
     fetchCategories,
+    fetchCities,
     fetchGender,
     fetchNotices,
     fetchSpecies,
@@ -18,8 +19,8 @@ const initialState = {
     selectedGender: "",
     species: [],
     selectedSpecies: "",
-    locationId: "",
-    uniqueLocations: [],
+    cities: [],
+    selectedLocation: "",
     currentPage: 1,
     hasMore: true,
     totalPages: 0,
@@ -38,7 +39,12 @@ const noticesSlice = createSlice({
             state.filterWord = "";
             state.species = [];
             state.categories = [];
-            state.locationId = "";
+            state.gender = [];
+            state.cities = [];
+            state.selectedCategory = "";
+            state.selectedGender = "";
+            state.selectedSpecies = "";
+            state.selectedLocation = "";
         },
         setAllNotices: (state, { payload }) => {
             state.allNotices = payload;
@@ -54,7 +60,7 @@ const noticesSlice = createSlice({
             state.selectedSpecies = payload;
         },
         setLocation(state, { payload }) {
-            state.locationId = payload;
+            state.selectedLocation = payload;
         },
         setFilterWord: (state, { payload }) => {
             state.filterWord = payload;
@@ -68,14 +74,6 @@ const noticesSlice = createSlice({
                 state.hasMore = payload.page < payload.totalPages;
                 state.currentPage = payload.page;
                 state.totalPages = payload.totalPages;
-                // Збір унікальних локацій
-                const uniqueLocations = payload.results
-                    .map((item) => item.location)
-                    .filter(
-                        (value, index, self) => self.indexOf(value) === index
-                    );
-
-                state.uniqueLocations = uniqueLocations;
             })
             .addCase(fetchCategories.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
@@ -89,12 +87,31 @@ const noticesSlice = createSlice({
                 state.isLoading = false;
                 state.species = payload;
             })
-            .addMatcher(isAnyOf(fetchNotices.pending), (state) => {
-                state.isLoading = true;
-                state.error = null;
+            .addCase(fetchCities.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.cities = payload;
             })
             .addMatcher(
-                isAnyOf(fetchNotices.rejected),
+                isAnyOf(
+                    fetchNotices.pending,
+                    fetchCategories.pending,
+                    fetchGender.pending,
+                    fetchSpecies.pending,
+                    fetchCities.pending
+                ),
+                (state) => {
+                    state.isLoading = true;
+                    state.error = null;
+                }
+            )
+            .addMatcher(
+                isAnyOf(
+                    fetchNotices.rejected,
+                    fetchCategories.rejected,
+                    fetchGender.rejected,
+                    fetchSpecies.rejected,
+                    fetchCities.rejected
+                ),
                 (state, { payload }) => {
                     state.isLoading = false;
                     state.error = payload;

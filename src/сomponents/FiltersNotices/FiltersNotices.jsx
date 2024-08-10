@@ -1,22 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import {
     selectCategory,
+    selectCities,
     selectFilterWord,
     selectGender,
-    selectLocation,
     selectSearchCategory,
     selectSearchGender,
+    selectSearchLocation,
     selectSearchSpecies,
     selectSpecies,
-    selectUniqueLocations,
 } from "../../redux/notices/notices-selectors";
 import {
     fetchCategories,
+    fetchCities,
     fetchGender,
     fetchNotices,
     fetchSpecies,
+    instance,
 } from "../../redux/notices/notices-operations";
 import {
     setCategory,
@@ -26,6 +28,8 @@ import {
     setSpecies,
 } from "../../redux/notices/noticesSlice";
 import { Filter } from "../Filter/Filter";
+import AsyncSelect from "react-select/async";
+import { debounce } from "../../constants/debounce";
 
 export const FiltersNotices = () => {
     const dispatch = useDispatch();
@@ -36,8 +40,10 @@ export const FiltersNotices = () => {
     const selectedGender = useSelector(selectSearchGender);
     const species = useSelector(selectSpecies);
     const selectedSpecies = useSelector(selectSearchSpecies);
-    const selectedLocation = useSelector(selectLocation);
-    const uniqueLocations = useSelector(selectUniqueLocations);
+    const selectedLocation = useSelector(selectSearchLocation);
+    const cities = useSelector(selectCities);
+
+    console.log(selectedLocation);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -92,6 +98,28 @@ export const FiltersNotices = () => {
         );
     };
 
+    // Асинхронне завантаження міст під час введення тексту
+    const loadCityOptions = useCallback(
+        debounce(async (inputValue, callback) => {
+            if (inputValue.length < 2) {
+                callback([]);
+                return;
+            }
+
+            const filteredCities = cities
+                .filter((city) =>
+                    city.cityEn.toLowerCase().includes(inputValue.toLowerCase())
+                )
+                .map((city) => ({
+                    value: city._id, // ID міста
+                    label: `${city.stateEn}, ${city.cityEn}`, // Форматування: область, населений пункт
+                }));
+
+            callback(filteredCities);
+        }, 300),
+        [cities]
+    );
+
     const options =
         categories?.length > 0
             ? categories.map((category) => ({
@@ -110,14 +138,6 @@ export const FiltersNotices = () => {
             ? species.map((item) => ({ value: item, label: item }))
             : [];
 
-    const optionsLocations =
-        uniqueLocations?.length > 0
-            ? uniqueLocations.map((location) => ({
-                  value: location,
-                  label: location,
-              }))
-            : [];
-
     const selectedCategoryOption =
         options.find((option) => option.value === selectedCategory) || null;
 
@@ -129,8 +149,7 @@ export const FiltersNotices = () => {
         null;
 
     const selectedLocationOption =
-        optionsLocations.find((option) => option.value === selectedLocation) ||
-        null;
+        cities.find((city) => city._id === selectedLocation) || null;
 
     return (
         <>
@@ -140,28 +159,36 @@ export const FiltersNotices = () => {
                 onChange={(option) => handleFilterChange("category", option)}
                 options={options}
                 isClearable
-                placeholder="Select a category"
+                placeholder="Category"
             />
             <Select
                 value={selectedGenderOption}
                 onChange={(option) => handleFilterChange("gender", option)}
                 options={optionsGender}
                 isClearable
-                placeholder="Select by Gender"
+                placeholder="By Gender"
             />
             <Select
                 value={selectedSpeciesOption}
                 onChange={(option) => handleFilterChange("species", option)}
                 options={optionsSpecies}
                 isClearable
-                placeholder="Select by Type"
+                placeholder="By type"
             />
-            <Select
-                value={selectedLocationOption}
+            <AsyncSelect
+                value={
+                    selectedLocationOption
+                        ? {
+                              value: selectedLocationOption._id,
+                              label: `${selectedLocationOption.stateEn}, ${selectedLocationOption.cityEn}`,
+                          }
+                        : null
+                }
                 onChange={(option) => handleFilterChange("location", option)}
-                options={optionsLocations}
+                loadOptions={loadCityOptions}
+                defaultOptions={[]}
                 isClearable
-                placeholder="Select by Location"
+                placeholder="Location"
             />
         </>
     );
