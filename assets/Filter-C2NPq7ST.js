@@ -1,4 +1,4 @@
-import{u as n,b as r,j as e,I as o,r as g}from"./index-CcGegbIu.js";import{F as u}from"./LoginForm.styled-B4yaAMxm.js";const j=n.div`
+import{u as n,b as r,j as e,I as o,r as g}from"./index-BKAqx5zb.js";import{F as u}from"./LoginForm.styled-DIchXNRT.js";const j=n.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -74,7 +74,7 @@ import{u as n,b as r,j as e,I as o,r as g}from"./index-CcGegbIu.js";import{F as 
             height: 24px;
         }
     }
-`,$=({currentPage:i,handleCurrentPage:s,handleNextPage:l,handlePrevPage:a,handleFirstPage:c,handleLastPage:d,hasMore:x,maxPages:h})=>e.jsxs(j,{children:[e.jsxs(m,{children:[e.jsx(t,{onClick:c,disabled:i===1,children:e.jsxs(p,{children:[e.jsx(o,{name:"arrow-left",width:20,height:20}),e.jsx(o,{name:"arrow-left",width:20,height:20})]})}),e.jsx(t,{onClick:a,disabled:i===1,children:e.jsx(o,{name:"arrow-left",width:20,height:20})})]}),e.jsxs(w,{children:[i>1&&e.jsx(t,{onClick:()=>s(i-1),children:i-1}),e.jsx(t,{disabled:!0,children:i}),i<h&&e.jsxs(e.Fragment,{children:[e.jsx(t,{onClick:()=>s(i+1),children:i+1}),e.jsx(t,{disabled:!0,children:"..."})]})]}),e.jsxs(m,{children:[e.jsx(t,{onClick:l,disabled:!x,children:e.jsx(o,{name:"arrow-right",width:20,height:20})}),e.jsx(t,{onClick:d,disabled:i===h,children:e.jsxs(p,{children:[e.jsx(o,{name:"arrow-right",width:20,height:20}),e.jsx(o,{name:"arrow-right",width:20,height:20})]})})]})]}),b=n.form`
+`,$=({currentPage:i,handleCurrentPage:s,handleNextPage:a,handlePrevPage:l,handleFirstPage:c,handleLastPage:d,hasMore:x,maxPages:h})=>e.jsxs(j,{children:[e.jsxs(m,{children:[e.jsx(t,{onClick:c,disabled:i===1,children:e.jsxs(p,{children:[e.jsx(o,{name:"arrow-left",width:20,height:20}),e.jsx(o,{name:"arrow-left",width:20,height:20})]})}),e.jsx(t,{onClick:l,disabled:i===1,children:e.jsx(o,{name:"arrow-left",width:20,height:20})})]}),e.jsxs(w,{children:[i>1&&e.jsx(t,{onClick:()=>s(i-1),children:i-1}),e.jsx(t,{disabled:!0,children:i}),i<h&&e.jsxs(e.Fragment,{children:[e.jsx(t,{onClick:()=>s(i+1),children:i+1}),e.jsx(t,{disabled:!0,children:"..."})]})]}),e.jsxs(m,{children:[e.jsx(t,{onClick:a,disabled:!x,children:e.jsx(o,{name:"arrow-right",width:20,height:20})}),e.jsx(t,{onClick:d,disabled:i===h,children:e.jsxs(p,{children:[e.jsx(o,{name:"arrow-right",width:20,height:20}),e.jsx(o,{name:"arrow-right",width:20,height:20})]})})]})]}),b=n.form`
     position: relative;
 
     display: flex;
@@ -105,4 +105,4 @@ import{u as n,b as r,j as e,I as o,r as g}from"./index-CcGegbIu.js";import{F as 
         top: 15px;
         right: 14px;
     }
-`,C=({onFilterSubmit:i})=>{const[s,l]=g.useState(""),a=d=>{l(d.target.value)},c=d=>{d.preventDefault(),i(s),l("")};return e.jsxs(b,{onSubmit:c,children:[e.jsx(f,{type:"text",value:s,onChange:a,placeholder:"Search"}),e.jsx(y,{type:"submit",children:e.jsx(o,{name:"loupe",width:18,height:18})})]})};export{C as F,$ as P};
+`,C=({onFilterSubmit:i})=>{const[s,a]=g.useState(""),l=d=>{a(d.target.value)},c=d=>{d.preventDefault(),i(s),a("")};return e.jsxs(b,{onSubmit:c,children:[e.jsx(f,{type:"text",value:s,onChange:l,placeholder:"Search"}),e.jsx(y,{type:"submit",children:e.jsx(o,{name:"loupe",width:18,height:18})})]})};export{y as B,C as F,$ as P};
