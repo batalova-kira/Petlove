@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { debounce } from "../../constants/debounce";
 import { fetchCities } from "../../redux/notices/notices-operations";
 import { selectCities } from "../../redux/notices/notices-selectors";
+import { IconSearch } from "./IconSearch";
 
 export const CitySearchInput = () => {
     const dispatch = useDispatch();
@@ -58,7 +59,9 @@ export const CitySearchInput = () => {
             loadOptions={loadCityOptions}
             onChange={handleChange}
             defaultOptions
+            isClearable
             placeholder="Location"
+            components={{ SingleValue: IconSearch }}
         />
     );
 };
