@@ -17,6 +17,7 @@ import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
 import { Pagination } from "../сomponents/Pagination/Pagination";
 import { NoticesList } from "./Notices.styled";
 import { FiltersNotices } from "../сomponents/FiltersNotices/FiltersNotices";
+import { SortOptions } from "../сomponents/SortOptions/SortOptions";
 
 const Notices = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const Notices = () => {
     const limit = 6;
 
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
+    const [sortOrder, setSortOrder] = useState("");
 
     const selectedCategory = useSelector(selectSearchCategory);
     const selectedGender = useSelector(selectSearchGender);
@@ -35,32 +37,10 @@ const Notices = () => {
     const selectedLocation = useSelector(selectSearchLocation);
 
     useEffect(() => {
-        // Диспатч асинхронної дії для завантаження даних перший раз
-        dispatch(
-            fetchNotices({
-                page: 1,
-                limit: 6,
-                category: selectedCategory,
-                species: selectedSpices,
-                sex: "",
-                locationId: selectedLocation,
-                keyword: filterWord,
-            })
-        );
-    }, [
-        dispatch,
-        selectedCategory,
-        selectedSpices,
-        selectedLocation,
-        filterWord,
-    ]);
-
-    // Диспатч коли відбулися зміни
-    useEffect(() => {
         dispatch(
             fetchNotices({
                 page: currentPageNumber,
-                limit: 6,
+                limit,
                 category: selectedCategory,
                 sex: selectedGender,
                 species: selectedSpices,
@@ -78,100 +58,69 @@ const Notices = () => {
         filterWord,
     ]);
 
-    // Відфільтровані картки по статі
-    const filteredNotices = notices.filter((notice) => {
-        const genderMatch = selectedGender
-            ? notice.sex === selectedGender
-            : true;
-        return genderMatch;
-    });
+    const sortNotices = (notices) => {
+        const sorted = [...notices]; // Робимо копію масиву
+        switch (sortOrder) {
+            case "popular":
+                return sorted.sort((a, b) => b.popularity - a.popularity);
+            case "unpopular":
+                return sorted.sort((a, b) => a.popularity - b.popularity);
+            case "cheap":
+                return sorted.sort(
+                    (a, b) =>
+                        (parseFloat(a.price) || Infinity) -
+                        (parseFloat(b.price) || Infinity)
+                );
+            case "expensive":
+                return sorted.sort(
+                    (a, b) =>
+                        (parseFloat(b.price) || -Infinity) -
+                        (parseFloat(a.price) || -Infinity)
+                );
+            default:
+                return sorted;
+        }
+    };
+
+    const filteredNotices = sortNotices(
+        notices.filter((notice) => {
+            return selectedGender ? notice.sex === selectedGender : true;
+        })
+    );
+
+    const shouldShowPagination = notices.length > 0 && totalPages > 1;
 
     const handleCurrentPage = (page) => {
         setCurrentPageNumber(page);
-        dispatch(
-            fetchNotices({
-                page,
-                limit,
-                category: selectedCategory,
-                sex: selectedGender,
-                species: selectedSpices,
-                locationId: selectedLocation,
-                keyword: filterWord,
-            })
-        );
     };
 
     const handleNextPage = () => {
         if (hasMore) {
-            const nextPage = currentPageNumber + 1;
-            setCurrentPageNumber(nextPage);
-            dispatch(
-                fetchNotices({
-                    page: nextPage,
-                    limit,
-                    category: selectedCategory,
-                    sex: selectedGender,
-                    species: selectedSpices,
-                    locationId: selectedLocation,
-                    keyword: filterWord,
-                })
-            );
+            setCurrentPageNumber((prev) => prev + 1);
         }
     };
 
     const handlePrevPage = () => {
-        if (currentPage > 1) {
-            const prevPage = currentPageNumber - 1;
-            setCurrentPageNumber(prevPage);
-            dispatch(
-                fetchNotices({
-                    page: prevPage,
-                    limit,
-                    category: selectedCategory,
-                    sex: selectedGender,
-                    locationId: selectedLocation,
-                    keyword: filterWord,
-                })
-            );
+        if (currentPageNumber > 1) {
+            setCurrentPageNumber((prev) => prev - 1);
         }
     };
 
     const handleFirstPage = () => {
         setCurrentPageNumber(1);
-        dispatch(
-            fetchNotices({
-                page: 1,
-                limit,
-                category: selectedCategory,
-                sex: selectedGender,
-                locationId: selectedLocation,
-                keyword: filterWord,
-            })
-        );
     };
 
     const handleLastPage = () => {
         setCurrentPageNumber(totalPages);
-        dispatch(
-            fetchNotices({
-                page: totalPages,
-                limit,
-                category: selectedCategory,
-                sex: selectedGender,
-                locationId: selectedLocation,
-                keyword: filterWord,
-            })
-        );
     };
-
-    const shouldShowPagination =
-        (selectedGender ? filteredNotices.length : notices.length) > 0 &&
-        totalPages > 1;
 
     return (
         <>
             <FriendsTitle>Find your favorite pet</FriendsTitle>
-            <FiltersNotices />
+            <div>
+                <FiltersNotices />
+                <SortOptions onChangeSortOrder={setSortOrder} />
+            </div>
             <NoticesList>
                 {filteredNotices.map((item) => (
                     <NoticesCard key={item._id} noticesItem={item} />
@@ -179,7 +128,7 @@ const Notices = () => {
             </NoticesList>
             {shouldShowPagination && (
                 <Pagination
-                    currentPage={currentPage}
+                    currentPage={currentPageNumber}
                     handleCurrentPage={handleCurrentPage}
                     handleNextPage={handleNextPage}
                     handlePrevPage={handlePrevPage}
