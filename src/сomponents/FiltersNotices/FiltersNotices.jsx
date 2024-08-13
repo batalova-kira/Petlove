@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import {
     selectCategory,
-    selectCities,
     selectFilterWord,
     selectGender,
     selectSearchCategory,
@@ -26,11 +25,9 @@ import {
     setSpecies,
 } from "../../redux/notices/noticesSlice";
 import { Filter } from "../Filter/Filter";
-import AsyncSelect from "react-select/async";
-import { debounce } from "../../constants/debounce";
 import { CitySearchInput } from "../CitySearchInput/CitySearchInput";
 
-export const FiltersNotices = () => {
+export const FiltersNotices = ({ $isNoticesPage }) => {
     const dispatch = useDispatch();
     const categories = useSelector(selectCategory);
     const filterWord = useSelector(selectFilterWord);
@@ -40,7 +37,7 @@ export const FiltersNotices = () => {
     const species = useSelector(selectSpecies);
     const selectedSpecies = useSelector(selectSearchSpecies);
     const selectedLocation = useSelector(selectSearchLocation);
-    const cities = useSelector(selectCities);
+    // const cities = useSelector(selectCities);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -95,29 +92,6 @@ export const FiltersNotices = () => {
         );
     };
 
-    // // Асинхронне завантаження міст під час введення тексту
-
-    // const loadCityOptions = useCallback(
-    //     debounce(async (inputValue, callback) => {
-    //         if (inputValue.length < 2) {
-    //             callback([]);
-    //             return;
-    //         }
-
-    //         const filteredCities = cities
-    //             .filter((city) =>
-    //                 city.cityEn.toLowerCase().includes(inputValue.toLowerCase())
-    //             )
-    //             .map((city) => ({
-    //                 value: city._id, // ID міста
-    //                 label: `${city.stateEn}, ${city.cityEn}`, // Форматування: область, населений пункт
-    //             }));
-
-    //         callback(filteredCities);
-    //     }, 300),
-    //     [cities]
-    // );
-
     const options =
         categories?.length > 0
             ? categories.map((category) => ({
@@ -146,12 +120,15 @@ export const FiltersNotices = () => {
         optionsSpecies.find((option) => option.value === selectedSpecies) ||
         null;
 
-    const selectedLocationOption =
-        cities.find((city) => city._id === selectedLocation) || null;
+    // const selectedLocationOption =
+    //     cities.find((city) => city._id === selectedLocation) || null;
 
     return (
         <>
-            <Filter onFilterSubmit={handleFilterSubmit} />
+            <Filter
+                onFilterSubmit={handleFilterSubmit}
+                $isNoticesPage={$isNoticesPage}
+            />
             <Select
                 value={selectedCategoryOption}
                 onChange={(option) => handleFilterChange("category", option)}

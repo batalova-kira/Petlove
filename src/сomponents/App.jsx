@@ -28,9 +28,9 @@ export const appRoutes = [
         path: ROUTES.NOTICES_ROUTE,
         element: (
             // <PrivateRoute>
-            <Notices />
-            // </PrivateRoute>
+            <Notices isNoticesPage={true} />
         ),
+        // </PrivateRoute>
     },
     {
         path: ROUTES.FRIENDS_ROUTE,

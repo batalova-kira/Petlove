@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { BtnLoupe, InputFilter, WrapperFilter } from "./Filter.styled";
 import Icon from "../Icon/Icon";
 
-export const Filter = ({ onFilterSubmit }) => {
+export const Filter = ({ onFilterSubmit, $isNoticesPage }) => {
     const [filterWord, setFilterWord] = useState("");
 
     const handleFilterChange = (e) => {
@@ -17,12 +17,13 @@ export const Filter = ({ onFilterSubmit }) => {
     };
 
     return (
-        <WrapperFilter onSubmit={handleSubmit}>
+        <WrapperFilter onSubmit={handleSubmit} $isNoticesPage={$isNoticesPage}>
             <InputFilter
                 type="text"
                 value={filterWord}
                 onChange={handleFilterChange}
                 placeholder="Search"
+                $isNoticesPage={$isNoticesPage}
             />
             <BtnLoupe type="submit">
                 <Icon name="loupe" width={18} height={18} />

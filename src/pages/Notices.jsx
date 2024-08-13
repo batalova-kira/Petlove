@@ -5,7 +5,6 @@ import { FriendsTitle } from "./Friends.styled";
 import {
     selectFilterWord,
     selectNotices,
-    selectNoticesCurrentPage,
     selectNoticesHasMore,
     selectNoticesTotalPages,
     selectSearchCategory,
@@ -15,14 +14,13 @@ import {
 } from "../redux/notices/notices-selectors";
 import { NoticesCard } from "../сomponents/NoticesCard/NoticesCard";
 import { Pagination } from "../сomponents/Pagination/Pagination";
-import { NoticesList } from "./Notices.styled";
+import { NoticesFiltersWrapper, NoticesList } from "./Notices.styled";
 import { FiltersNotices } from "../сomponents/FiltersNotices/FiltersNotices";
 import { SortOptions } from "../сomponents/SortOptions/SortOptions";
 
-const Notices = () => {
+const Notices = ({ isNoticesPage }) => {
     const dispatch = useDispatch();
     const notices = useSelector(selectNotices);
-    const currentPage = useSelector(selectNoticesCurrentPage);
     const hasMore = useSelector(selectNoticesHasMore);
     const totalPages = useSelector(selectNoticesTotalPages);
     const limit = 6;
@@ -117,10 +115,10 @@ const Notices = () => {
     return (
         <>
             <FriendsTitle>Find your favorite pet</FriendsTitle>
-            <div>
-                <FiltersNotices />
+            <NoticesFiltersWrapper>
+                <FiltersNotices $isNoticesPage={isNoticesPage} />
                 <SortOptions onChangeSortOrder={setSortOrder} />
-            </div>
+            </NoticesFiltersWrapper>
             <NoticesList>
                 {filteredNotices.map((item) => (
                     <NoticesCard key={item._id} noticesItem={item} />

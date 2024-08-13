@@ -8,7 +8,8 @@ export const WrapperFilter = styled.form`
     display: flex;
     align-items: center;
 
-    margin-bottom: 24px;
+    margin-bottom: ${({ $isNoticesPage }) =>
+        $isNoticesPage ? "14px" : "24px"};
     width: 100%;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
@@ -18,7 +19,8 @@ export const WrapperFilter = styled.form`
 `;
 
 export const InputFilter = styled(FormInput)`
-    background-color: transparent;
+    background: ${({ $isNoticesPage, theme }) =>
+        $isNoticesPage ? theme.colors.secondBackground : "transparent"};
 
     @media only screen and (min-width: ${breakpoints.medium}) {
         padding: 14px;
