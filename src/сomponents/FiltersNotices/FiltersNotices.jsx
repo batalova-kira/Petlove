@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import Select from "react-select";
 import { useEffect } from "react";
 import {
     selectCategory,
@@ -26,6 +25,8 @@ import {
 } from "../../redux/notices/noticesSlice";
 import { Filter } from "../Filter/Filter";
 import { CitySearchInput } from "../CitySearchInput/CitySearchInput";
+import Select from "react-select";
+import { customStylesCategory } from "./FiltersNotices.styled";
 
 export const FiltersNotices = ({ $isNoticesPage }) => {
     const dispatch = useDispatch();
@@ -135,6 +136,7 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
                 options={options}
                 isClearable
                 placeholder="Category"
+                styles={customStylesCategory}
             />
             <Select
                 value={selectedGenderOption}
