@@ -8,7 +8,7 @@ export const WrapperFilter = styled.form`
     align-items: center;
 
     margin-bottom: ${({ $isNoticesPage }) =>
-        $isNoticesPage ? "12px" : "24px"};
+        $isNoticesPage ? "none" : "24px"};
     width: 100%;
 
     @media only screen and (min-width: ${breakpoints.medium}) {

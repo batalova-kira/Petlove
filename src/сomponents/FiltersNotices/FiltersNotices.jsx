@@ -26,7 +26,12 @@ import {
 import { Filter } from "../Filter/Filter";
 import { CitySearchInput } from "../CitySearchInput/CitySearchInput";
 import Select from "react-select";
-import { customStylesCategory } from "./FiltersNotices.styled";
+import {
+    customStylesCategory,
+    customStylesGender,
+    WrapperAddSelects,
+    WrapperSelects,
+} from "./FiltersNotices.styled";
 
 export const FiltersNotices = ({ $isNoticesPage }) => {
     const dispatch = useDispatch();
@@ -125,26 +130,32 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
     //     cities.find((city) => city._id === selectedLocation) || null;
 
     return (
-        <>
+        <WrapperSelects>
             <Filter
                 onFilterSubmit={handleFilterSubmit}
                 $isNoticesPage={$isNoticesPage}
             />
-            <Select
-                value={selectedCategoryOption}
-                onChange={(option) => handleFilterChange("category", option)}
-                options={options}
-                isClearable
-                placeholder="Category"
-                styles={customStylesCategory}
-            />
-            <Select
-                value={selectedGenderOption}
-                onChange={(option) => handleFilterChange("gender", option)}
-                options={optionsGender}
-                isClearable
-                placeholder="By Gender"
-            />
+            <WrapperAddSelects>
+                <Select
+                    value={selectedCategoryOption}
+                    onChange={(option) =>
+                        handleFilterChange("category", option)
+                    }
+                    options={options}
+                    isClearable
+                    placeholder="Category"
+                    styles={customStylesCategory}
+                />
+                <Select
+                    value={selectedGenderOption}
+                    onChange={(option) => handleFilterChange("gender", option)}
+                    options={optionsGender}
+                    isClearable
+                    placeholder="By Gender"
+                    styles={customStylesGender}
+                />
+            </WrapperAddSelects>
+
             <Select
                 value={selectedSpeciesOption}
                 onChange={(option) => handleFilterChange("species", option)}
@@ -153,6 +164,6 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
                 placeholder="By type"
             />
             <CitySearchInput />
-        </>
+        </WrapperSelects>
     );
 };
