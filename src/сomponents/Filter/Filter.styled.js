@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FormInput } from "../LoginForm/LoginForm.styled";
 import { breakpoints } from "../../constants/breakpoints.js";
 
 export const WrapperFilter = styled.form`
@@ -9,21 +8,52 @@ export const WrapperFilter = styled.form`
     align-items: center;
 
     margin-bottom: ${({ $isNoticesPage }) =>
-        $isNoticesPage ? "14px" : "24px"};
+        $isNoticesPage ? "12px" : "24px"};
     width: 100%;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        width: 230px;
+        width: ${({ $isNoticesPage }) => ($isNoticesPage ? "265px" : "230px")};
         margin-bottom: 0;
     }
 `;
 
-export const InputFilter = styled(FormInput)`
+export const InputFilter = styled.input`
+    width: 100%;
+    padding: 12px;
+
+    border: ${({ $isNoticesPage, theme }) =>
+        $isNoticesPage ? "none" : `1px solid ${theme.colors.borderGrey}`};
+    border-radius: 30px;
+
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.03em;
+
+    color: ${({ $isNoticesPage, theme }) =>
+        $isNoticesPage ? theme.colors.black : theme.colors.mediumGrey};
     background: ${({ $isNoticesPage, theme }) =>
         $isNoticesPage ? theme.colors.secondBackground : "transparent"};
 
+    &::placeholder {
+        color: ${({ $isNoticesPage, theme }) =>
+            $isNoticesPage ? theme.colors.black : theme.colors.lightGrey};
+    }
+
+    &:focus {
+        border-color: ${(props) => props.theme.colors.yellow};
+        outline: none;
+    }
+
+    &.error {
+        border-color: ${(props) => props.theme.colors.red};
+    }
+
     @media only screen and (min-width: ${breakpoints.medium}) {
-        padding: 14px;
+        /* padding: 14px; */
+        padding: 16px;
+
+        font-size: 16px;
+        line-height: 1.25;
     }
 `;
 

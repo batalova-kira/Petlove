@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { breakpoints } from "../../constants/breakpoints.js";
+import { InputFilter } from "../Filter/Filter.styled.js";
 
 export const LoginFormContainer = styled.div`
     padding: 55px 20px;
@@ -54,31 +55,7 @@ export const WrapperInputs = styled.div`
     }
 `;
 
-export const FormInput = styled.input`
-    width: 100%;
-    padding: 12px;
-
-    border: 1px solid ${(props) => props.theme.colors.borderGrey};
-    border-radius: 30px;
-
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.03em;
-    color: ${(props) => props.theme.colors.mediumGrey};
-
-    ::placeholder {
-        color: ${(props) => props.theme.colors.lightGrey};
-    }
-
-    &:focus {
-        border-color: ${(props) => props.theme.colors.yellow};
-        outline: none;
-    }
-
-    &.error {
-        border-color: ${(props) => props.theme.colors.red};
-    }
-
+export const FormInput = styled(InputFilter)`
     ${({ $isinvalid }) =>
         $isinvalid &&
         css`
@@ -89,14 +66,8 @@ export const FormInput = styled.input`
         $isvalid &&
         css`
             border-color: ${(props) => props.theme.colors.green};
-        `}
-
-        @media only screen and (min-width: ${breakpoints.medium}) {
-        padding: 16px;
-
-        font-size: 16px;
-        line-height: 1.25;
-    }
+        `} /* @media only screen and (min-width: ${breakpoints.medium}) {
+    } */
 `;
 
 export const InputWrapper = styled.div`
