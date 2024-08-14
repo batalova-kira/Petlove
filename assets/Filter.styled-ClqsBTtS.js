@@ -1,13 +1,13 @@
-import{u as e,b as i}from"./index-7KNDe6pl.js";const t=e.form`
+import{u as e,b as n}from"./index-_dVtDf9T.js";const t=e.form`
     position: relative;
 
     display: flex;
     align-items: center;
 
-    margin-bottom: ${({$isNoticesPage:o})=>o?"12px":"24px"};
+    margin-bottom: ${({$isNoticesPage:o})=>o?"none":"24px"};
     width: 100%;
 
-    @media only screen and (min-width: ${i.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         width: ${({$isNoticesPage:o})=>o?"265px":"230px"};
         margin-bottom: 0;
     }
@@ -38,7 +38,7 @@ import{u as e,b as i}from"./index-7KNDe6pl.js";const t=e.form`
         border-color: ${o=>o.theme.colors.red};
     }
 
-    @media only screen and (min-width: ${i.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         /* padding: 14px; */
         padding: 16px;
 
@@ -52,7 +52,7 @@ import{u as e,b as i}from"./index-7KNDe6pl.js";const t=e.form`
 
     background-color: transparent;
 
-    @media only screen and (min-width: ${i.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
         position: absolute;
         top: 15px;
         right: 14px;

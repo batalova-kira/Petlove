@@ -1,4 +1,4 @@
-import{u as n,b as r,j as e,a as u,c as w,r as f,v as j}from"./index-7KNDe6pl.js";import{F as b,a as y}from"./Friends.styled-Dl_0lZ_d.js";import"./HomePage.styled-CP5dlbzO.js";const F=i=>i.friends.friends,$=n.li`
+import{u as n,b as r,j as e,a as u,c as w,r as f,v as j}from"./index-_dVtDf9T.js";import{F as b,a as y}from"./Friends.styled-BsGDwloI.js";import"./HomePage.styled-SJs1_JII.js";const F=i=>i.friends.friends,$=n.li`
     position: relative;
     max-width: 335px;
     width: 100%;
