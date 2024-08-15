@@ -36,9 +36,9 @@ export const NoticesFiltersWrapper = styled.div`
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
-        /* flex-direction: row;
-        flex-wrap: wrap;
-        row-gap: 40px;
-        column-gap: 32px; */
+        max-width: 1216px;
+        padding: 40px;
+        margin-right: -32px;
+        margin-left: -32px;
     }
 `;

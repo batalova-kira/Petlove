@@ -6,6 +6,7 @@ import { debounce } from "../../constants/debounce";
 import { fetchCities } from "../../redux/notices/notices-operations";
 import { selectCities } from "../../redux/notices/notices-selectors";
 import { DropdownIndicator } from "./DropdownIndicator";
+import { customStylesLocation } from "./CitySearchInput.styled";
 
 export const CitySearchInput = () => {
     const dispatch = useDispatch();
@@ -62,6 +63,7 @@ export const CitySearchInput = () => {
             isClearable
             placeholder="Location"
             components={{ DropdownIndicator }}
+            styles={customStylesLocation}
         />
     );
 };

@@ -99,6 +99,10 @@ export const customStylesCategory = {
         "@media only screen and (min-width: 768px)": {
             width: "170px",
         },
+
+        "@media only screen and (min-width: 1280px)": {
+            width: "200px",
+        },
     }),
 };
 
@@ -111,6 +115,10 @@ export const customStylesGender = {
 
         "@media only screen and (min-width: 768px)": {
             width: "170px",
+        },
+
+        "@media only screen and (min-width: 1280px)": {
+            width: "190px",
         },
     }),
 };
@@ -132,6 +140,10 @@ export const WrapperSelects = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    border-bottom: 1px solid ${(props) => props.theme.colors.lightestGrey};
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
         flex-direction: row;
