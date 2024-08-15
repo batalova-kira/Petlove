@@ -1,4 +1,4 @@
-import{u as e,b as n}from"./index-_dVtDf9T.js";const t=e.form`
+import{u as e,b as n}from"./index-Du_qQf8C.js";const t=e.form`
     position: relative;
 
     display: flex;
@@ -39,11 +39,12 @@ import{u as e,b as n}from"./index-_dVtDf9T.js";const t=e.form`
     }
 
     @media only screen and (min-width: ${n.medium}) {
-        /* padding: 14px; */
         padding: 16px;
 
         font-size: 16px;
         line-height: 1.25;
+
+        padding: ${({$isNoticesPage:o})=>o?"14px":"16px"};
     }
 `,l=e.button`
     position: absolute;
