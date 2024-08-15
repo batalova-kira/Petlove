@@ -2,26 +2,34 @@ import styled from "styled-components";
 import { breakpoints } from "../../constants/breakpoints.js";
 
 export const baseStyles = {
-    control: (provided) => ({
-        ...provided,
-        borderRadius: "30px",
-        border: "none", // Можна змінити на потрібний колір
-        boxShadow: "none",
-        padding: "12px",
-    }),
+    control: (provided) => {
+        const isWideScreen = window.innerWidth >= 768;
+
+        return {
+            ...provided,
+            borderRadius: "30px",
+            border: "none",
+            boxShadow: "none",
+            padding: isWideScreen ? "14px" : "12px",
+        };
+    },
     valueContainer: (provided) => ({
         ...provided,
         padding: "0", // Задає падінги в контейнері значення
     }),
-    input: (provided) => ({
-        ...provided,
-        margin: "0",
-        padding: "0",
-        fontSize: "14px",
-        lineHeight: "1.29",
-        letterSpacing: "-0.03em",
-        color: "262626",
-    }),
+    input: (provided) => {
+        const isWideScreen = window.innerWidth >= 768;
+
+        return {
+            ...provided,
+            margin: "0",
+            padding: "0",
+            fontSize: isWideScreen ? "16px" : "14px",
+            lineHeight: isWideScreen ? "1.25" : "1.29",
+            letterSpacing: "-0.03em",
+            color: "262626",
+        };
+    },
     clearIndicator: (provided) => ({
         ...provided,
         color: "262626",
@@ -66,17 +74,19 @@ export const baseStyles = {
         color: "rgba(38, 38, 38, 0.6)",
         boxShadow: "none",
     }),
-    option: (provided) => ({
+    option: (provided, state) => ({
         ...provided,
+        margin: "0",
+        color:
+            state.data.value === "all"
+                ? "#f6b83d"
+                : state.isSelected
+                ? "white"
+                : "#rgba(38, 38, 38, 0.6)",
         backgroundColor: "transparent",
-        color: "#rgba(38, 38, 38, 0.6)",
-        "&:hover": {
-            color: "#f6b83d", // Застосування жовтого кольору під час наведення
-        },
-        "&:focus": {
-            outline: "none",
-            color: "#f6b83d", // Відключення стандартного означення фокусу
-        },
+        // state.isFocused
+        // ? "#f6b83d22" // Колір фону при наведенні
+        // : "transparent",
     }),
 };
 
@@ -85,6 +95,10 @@ export const customStylesCategory = {
     control: (provided) => ({
         ...baseStyles.control(provided),
         width: "143px",
+
+        "@media only screen and (min-width: 768px)": {
+            width: "170px",
+        },
     }),
 };
 
@@ -101,14 +115,37 @@ export const customStylesGender = {
     }),
 };
 
+export const customStylesType = {
+    ...baseStyles,
+    control: (provided) => ({
+        ...baseStyles.control(provided),
+
+        width: "100%",
+
+        "@media only screen and (min-width: 768px)": {
+            width: "190px",
+        },
+    }),
+};
+
 export const WrapperSelects = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
 `;
 
 export const WrapperAddSelects = styled.div`
     display: flex;
     flex-direction: row;
     gap: 8px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        gap: 16px;
+    }
 `;

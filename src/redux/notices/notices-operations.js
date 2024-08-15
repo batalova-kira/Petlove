@@ -28,7 +28,6 @@ export const fetchNotices = createAsyncThunk(
             const queryString = new URLSearchParams(queryParams).toString();
 
             const { data } = await instance.get(`/notices?${queryString}`);
-            console.log("Response from API:", data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);
@@ -53,7 +52,6 @@ export const fetchGender = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get(`/notices/sex`);
-            console.log("Response Gender:", data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);
@@ -66,7 +64,6 @@ export const fetchSpecies = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get(`/notices/species`);
-            console.log("Response Species:", data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);

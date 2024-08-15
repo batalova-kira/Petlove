@@ -17,6 +17,7 @@ import {
     fetchSpecies,
 } from "../../redux/notices/notices-operations";
 import {
+    setAllNotices,
     setCategory,
     setFilterWord,
     setGender,
@@ -29,6 +30,7 @@ import Select from "react-select";
 import {
     customStylesCategory,
     customStylesGender,
+    customStylesType,
     WrapperAddSelects,
     WrapperSelects,
 } from "./FiltersNotices.styled";
@@ -53,31 +55,71 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
 
     const handleFilterChange = (type, selectedOption) => {
         const value = selectedOption ? selectedOption.value : "";
-        switch (type) {
-            case "category":
-                dispatch(setCategory(value));
-                break;
-            case "gender":
-                dispatch(setGender(value));
-                break;
-            case "species":
-                dispatch(setSpecies(value));
-                break;
-            case "location":
-                dispatch(setLocation(value));
-                break;
-            default:
-                return;
+
+        if (value === "all" || value === "") {
+            switch (type) {
+                case "category":
+                    dispatch(setCategory(""));
+                    break;
+                case "gender":
+                    dispatch(setGender(""));
+                    break;
+                case "species":
+                    dispatch(setSpecies(""));
+                    break;
+                case "location":
+                    dispatch(setLocation(""));
+                    break;
+                default:
+                    return;
+            }
+        } else {
+            switch (type) {
+                case "category":
+                    dispatch(setCategory(value));
+                    break;
+                case "gender":
+                    dispatch(setGender(value));
+                    break;
+                case "species":
+                    dispatch(setSpecies(value));
+                    break;
+                case "location":
+                    dispatch(setLocation(value));
+                    break;
+                default:
+                    return;
+            }
         }
 
         dispatch(
             fetchNotices({
                 page: 1,
                 limit: 6,
-                category: type === "category" ? value : selectedCategory,
-                sex: type === "gender" ? value : selectedGender,
-                species: type === "species" ? value : selectedSpecies,
-                locationId: type === "location" ? value : selectedLocation,
+                category:
+                    type === "category"
+                        ? value === "all"
+                            ? ""
+                            : value
+                        : selectedCategory,
+                sex:
+                    type === "gender"
+                        ? value === "all"
+                            ? ""
+                            : value
+                        : selectedGender,
+                species:
+                    type === "species"
+                        ? value === "all"
+                            ? ""
+                            : value
+                        : selectedSpecies,
+                locationId:
+                    type === "location"
+                        ? value === "all"
+                            ? ""
+                            : value
+                        : selectedLocation,
                 keyword: filterWord,
             })
         );
@@ -98,23 +140,26 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
         );
     };
 
-    const options =
-        categories?.length > 0
-            ? categories.map((category) => ({
-                  value: category,
-                  label: category,
-              }))
-            : [];
+    const options = [
+        { value: "all", label: "Show all" },
+        ...categories.map((category) => ({
+            value: category,
+            label: category,
+        })),
+    ];
 
-    const optionsGender =
-        gender?.length > 0
-            ? gender.map((item) => ({ value: item, label: item }))
-            : [];
+    const optionsGender = [
+        { value: "all", label: "Show all" },
+        ...gender.map((item) => ({
+            value: item,
+            label: item,
+        })),
+    ];
 
-    const optionsSpecies =
-        species?.length > 0
-            ? species.map((item) => ({ value: item, label: item }))
-            : [];
+    const optionsSpecies = [
+        { value: "all", label: "Show all" },
+        ...species.map((item) => ({ value: item, label: item })),
+    ];
 
     const selectedCategoryOption =
         options.find((option) => option.value === selectedCategory) || null;
@@ -142,7 +187,7 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
                         handleFilterChange("category", option)
                     }
                     options={options}
-                    isClearable
+                    isClearable={true}
                     placeholder="Category"
                     styles={customStylesCategory}
                 />
@@ -151,17 +196,17 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
                     onChange={(option) => handleFilterChange("gender", option)}
                     options={optionsGender}
                     isClearable
-                    placeholder="By Gender"
+                    placeholder="By gender"
                     styles={customStylesGender}
                 />
             </WrapperAddSelects>
-
             <Select
                 value={selectedSpeciesOption}
                 onChange={(option) => handleFilterChange("species", option)}
                 options={optionsSpecies}
-                isClearable
+                isClearable={true}
                 placeholder="By type"
+                styles={customStylesType}
             />
             <CitySearchInput />
         </WrapperSelects>

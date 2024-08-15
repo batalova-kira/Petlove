@@ -31,10 +31,8 @@ export const NoticesFiltersWrapper = styled.div`
     background: ${(props) => props.theme.colors.lightYellow};
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-bottom: 60px; */
+        max-width: 704px;
+        padding: 40px 32px;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {

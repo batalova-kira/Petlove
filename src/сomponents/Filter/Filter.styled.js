@@ -49,11 +49,12 @@ export const InputFilter = styled.input`
     }
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* padding: 14px; */
         padding: 16px;
 
         font-size: 16px;
         line-height: 1.25;
+
+        padding: ${({ $isNoticesPage }) => ($isNoticesPage ? "14px" : "16px")};
     }
 `;
 
