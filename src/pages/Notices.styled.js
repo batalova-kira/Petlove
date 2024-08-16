@@ -32,13 +32,16 @@ export const NoticesFiltersWrapper = styled.div`
 
     @media only screen and (min-width: ${breakpoints.medium}) {
         max-width: 704px;
+        margin-bottom: 32px;
         padding: 40px 32px;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
         max-width: 1216px;
         padding: 40px;
+
         margin-right: -32px;
         margin-left: -32px;
+        margin-bottom: 40px;
     }
 `;

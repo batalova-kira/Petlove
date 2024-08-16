@@ -66,7 +66,6 @@ export const baseStyles = {
     }),
     menu: (provided) => ({
         ...provided,
-        // margin: "0",
         marginTop: "4px",
         borderRadius: "15px",
         width: "143px",

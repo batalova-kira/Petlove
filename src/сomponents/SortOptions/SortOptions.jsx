@@ -1,46 +1,52 @@
+import { SortOptionBtn, SortOptionWrapper } from "./SortOptions.styled";
+
 export const SortOptions = ({ onChangeSortOrder }) => {
     const handleSortChange = (e) => {
         onChangeSortOrder(e.target.value);
     };
 
     return (
-        <div>
-            <label>
+        <SortOptionWrapper>
+            <SortOptionBtn>
                 <input
                     type="radio"
                     value="popular"
                     name="sort"
                     onChange={handleSortChange}
+                    className="radio-input"
                 />
-                Popular
-            </label>
-            <label>
+                <span>Popular</span>
+            </SortOptionBtn>
+            <SortOptionBtn>
                 <input
                     type="radio"
                     value="unpopular"
                     name="sort"
                     onChange={handleSortChange}
+                    className="radio-input"
                 />
-                Unpopular
-            </label>
-            <label>
+                <span>Unpopular</span>
+            </SortOptionBtn>
+            <SortOptionBtn>
                 <input
                     type="radio"
                     value="cheap"
                     name="sort"
                     onChange={handleSortChange}
+                    className="radio-input"
                 />
-                Cheap
-            </label>
-            <label>
+                <span>Cheap</span>
+            </SortOptionBtn>
+            <SortOptionBtn>
                 <input
                     type="radio"
                     value="expensive"
                     name="sort"
                     onChange={handleSortChange}
+                    className="radio-input"
                 />
-                Expensive
-            </label>
-        </div>
+                <span>Expensive</span>
+            </SortOptionBtn>
+        </SortOptionWrapper>
     );
 };

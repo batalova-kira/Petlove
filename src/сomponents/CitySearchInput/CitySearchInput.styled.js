@@ -1,5 +1,3 @@
-import styled from "styled-components";
-import { breakpoints } from "../../constants/breakpoints.js";
 import { baseStyles } from "../FiltersNotices/FiltersNotices.styled.js";
 
 export const customStylesLocation = {

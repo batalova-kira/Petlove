@@ -17,7 +17,6 @@ import {
     fetchSpecies,
 } from "../../redux/notices/notices-operations";
 import {
-    setAllNotices,
     setCategory,
     setFilterWord,
     setGender,
@@ -45,7 +44,6 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
     const species = useSelector(selectSpecies);
     const selectedSpecies = useSelector(selectSearchSpecies);
     const selectedLocation = useSelector(selectSearchLocation);
-    // const cities = useSelector(selectCities);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -170,9 +168,6 @@ export const FiltersNotices = ({ $isNoticesPage }) => {
     const selectedSpeciesOption =
         optionsSpecies.find((option) => option.value === selectedSpecies) ||
         null;
-
-    // const selectedLocationOption =
-    //     cities.find((city) => city._id === selectedLocation) || null;
 
     return (
         <WrapperSelects>
