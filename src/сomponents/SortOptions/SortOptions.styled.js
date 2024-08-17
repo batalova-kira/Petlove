@@ -8,8 +8,13 @@ export const SortOptionBtn = styled.label`
     position: relative;
 
     padding: 12px;
+    gap: 8px;
     border-radius: 30px;
     border: "none";
+
+    margin-right: 8px; /* Відстань між радіокнопкою та текстом */
+    padding-right: 12px; /* Місце для хрестика */
+    transition: padding-right 0.3s ease; /* Додаємо анімацію для плавного переходу */
 
     font-size: 14px;
     line-height: 1.29;

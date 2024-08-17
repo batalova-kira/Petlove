@@ -7,6 +7,7 @@ import {
 
 export const SortOptions = ({ onChangeSortOrder }) => {
     const [selectedOption, setSelectedOption] = useState("");
+    console.log(selectedOption);
 
     const handleSortChange = (e) => {
         const value = e.target.value;
@@ -15,15 +16,16 @@ export const SortOptions = ({ onChangeSortOrder }) => {
     };
 
     const handleReset = (e) => {
-        e.stopPropagation(); // Зупиняємо поширення події
-        setSelectedOption("");
+        e.stopPropagation();
+        e.preventDefault(); // Додайте це, щоб запобігти додатковим змінам
+        setSelectedOption(""); // Скидаємо вибраний фільтр
         onChangeSortOrder(""); // Скидаємо сортування
     };
 
     return (
         <SortOptionWrapper>
             {["popular", "unpopular", "cheap", "expensive"].map((option) => (
-                <div key={option} style={{ position: "relative" }}>
+                <div key={option} className="sort-option-container">
                     <SortOptionBtn>
                         <input
                             type="radio"
@@ -36,15 +38,10 @@ export const SortOptions = ({ onChangeSortOrder }) => {
                         <span>
                             {option.charAt(0).toUpperCase() + option.slice(1)}
                         </span>
+                        {selectedOption === option && (
+                            <button onClick={handleReset}>&times;</button>
+                        )}
                     </SortOptionBtn>
-                    {selectedOption === option && (
-                        <OptionResetBtn
-                            className="reset-button"
-                            onClick={handleReset}
-                        >
-                            &times;
-                        </OptionResetBtn>
-                    )}
                 </div>
             ))}
         </SortOptionWrapper>
