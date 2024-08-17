@@ -1,4 +1,4 @@
-import{u as k,b as j,j as O,I as Et,R as nn,r as p,g as Tr,a as Nt,c as W,h as Fr,i as Rt,k as kr,l as Ar,m as _r,n as rn,o as on,p as an,q as Lt,t as jr}from"./index-BN5ie3a_.js";import{F as Nr}from"./Friends.styled-DyRDWLRQ.js";import{F as Hr,P as Br}from"./Filter-DPwFpnVD.js";import"./HomePage.styled-BN7nIZ28.js";import"./Filter.styled-Ds1D54eP.js";const Ur=e=>e.notices.notices,zr=e=>e.notices.hasMore,Wr=e=>e.notices.totalPages,Tn=e=>e.notices.filterWord,Gr=e=>e.notices.categories,Fn=e=>e.notices.selectedCategory,Yr=e=>e.notices.gender,kn=e=>e.notices.selectedGender,qr=e=>e.notices.species,An=e=>e.notices.selectedSpecies,Kr=e=>e.notices.cities,_n=e=>e.notices.selectedLocation,Xr=k.li`
+import{u as k,b as j,j as O,I as Et,R as nn,r as p,g as Tr,a as Nt,c as W,h as Fr,i as Rt,k as kr,l as Ar,m as _r,n as rn,o as on,p as an,q as Lt,t as jr}from"./index-Bq4tXhr7.js";import{F as Nr}from"./Friends.styled-Cr3-2Jk1.js";import{F as Hr,P as Br}from"./Filter-CP0I1ouR.js";import"./HomePage.styled-DKsz-3fb.js";import"./Filter.styled-B99pAAMt.js";const Ur=e=>e.notices.notices,zr=e=>e.notices.hasMore,Wr=e=>e.notices.totalPages,Tn=e=>e.notices.filterWord,Gr=e=>e.notices.categories,Fn=e=>e.notices.selectedCategory,Yr=e=>e.notices.gender,kn=e=>e.notices.selectedGender,qr=e=>e.notices.species,An=e=>e.notices.selectedSpecies,Kr=e=>e.notices.cities,_n=e=>e.notices.selectedLocation,Xr=k.li`
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -248,8 +248,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     position: relative;
 
     padding: 12px;
+    gap: 8px;
     border-radius: 30px;
     border: "none";
+
+    margin-right: 8px; /* Відстань між радіокнопкою та текстом */
+    padding-right: 12px; /* Місце для хрестика */
+    transition: padding-right 0.3s ease; /* Додаємо анімацію для плавного переходу */
 
     font-size: 14px;
     line-height: 1.29;
@@ -290,7 +295,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media only screen and (min-width: ${j.medium}) {
         gap: 8px;
     }
-`,Il=k.button`
+`;k.button`
     position: absolute;
     right: 0;
     top: 50%;
@@ -304,4 +309,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     @media only screen and (min-width: ${j.medium}) {
         /* gap: 8px; */
     }
-`,Ml=({onChangeSortOrder:e})=>{const[t,r]=p.useState(""),i=o=>{const s=o.target.value;r(s),e(s)},n=o=>{o.stopPropagation(),r(""),e("")};return O.jsx(Cl,{children:["popular","unpopular","cheap","expensive"].map(o=>O.jsxs("div",{style:{position:"relative"},children:[O.jsxs(Ol,{children:[O.jsx("input",{type:"radio",value:o,name:"sort",checked:t===o,onChange:i,className:"radio-input"}),O.jsx("span",{children:o.charAt(0).toUpperCase()+o.slice(1)})]}),t===o&&O.jsx(Il,{className:"reset-button",onClick:n,children:"×"})]},o))})},$l=({isNoticesPage:e})=>{const t=Nt(),r=W(Ur),i=W(zr),n=W(Wr),o=6,[s,u]=p.useState(1),[a,l]=p.useState(""),c=W(Fn),d=W(kn),b=W(An),g=W(Tn),y=W(_n);p.useEffect(()=>{t(Lt({page:s,limit:o,category:c,sex:d,species:b,locationId:y,keyword:g}))},[t,s,c,d,b,y,g]);const f=(S=>{const M=[...S];switch(a){case"popular":return M.sort((R,D)=>D.popularity-R.popularity);case"unpopular":return M.sort((R,D)=>R.popularity-D.popularity);case"cheap":return M.sort((R,D)=>(parseFloat(R.price)||1/0)-(parseFloat(D.price)||1/0));case"expensive":return M.sort((R,D)=>(parseFloat(D.price)||-1/0)-(parseFloat(R.price)||-1/0));default:return M}})(r.filter(S=>d?S.sex===d:!0)),h=r.length>0&&n>1,v=S=>{u(S)},w=()=>{i&&u(S=>S+1)},x=()=>{s>1&&u(S=>S-1)},E=()=>{u(1)},P=()=>{u(n)};return O.jsxs(O.Fragment,{children:[O.jsx(Nr,{children:"Find your favorite pet"}),O.jsxs(di,{children:[O.jsx(wl,{$isNoticesPage:e}),O.jsx(Ml,{onChangeSortOrder:l})]}),O.jsx(ci,{children:f.map(S=>O.jsx(ui,{noticesItem:S},S._id))}),h&&O.jsx(Br,{currentPage:s,handleCurrentPage:v,handleNextPage:w,handlePrevPage:x,handleFirstPage:E,handleLastPage:P,hasMore:i,maxPages:n})]})};export{$l as default};
+`;const Il=({onChangeSortOrder:e})=>{const[t,r]=p.useState("");console.log(t);const i=o=>{const s=o.target.value;r(s),e(s)},n=o=>{o.stopPropagation(),o.preventDefault(),r(""),e("")};return O.jsx(Cl,{children:["popular","unpopular","cheap","expensive"].map(o=>O.jsx("div",{className:"sort-option-container",children:O.jsxs(Ol,{children:[O.jsx("input",{type:"radio",value:o,name:"sort",checked:t===o,onChange:i,className:"radio-input"}),O.jsx("span",{children:o.charAt(0).toUpperCase()+o.slice(1)}),t===o&&O.jsx("button",{onClick:n,children:"×"})]})},o))})},Ll=({isNoticesPage:e})=>{const t=Nt(),r=W(Ur),i=W(zr),n=W(Wr),o=6,[s,u]=p.useState(1),[a,l]=p.useState(""),c=W(Fn),d=W(kn),b=W(An),g=W(Tn),y=W(_n);p.useEffect(()=>{t(Lt({page:s,limit:o,category:c,sex:d,species:b,locationId:y,keyword:g}))},[t,s,c,d,b,y,g]);const f=(S=>{const M=[...S];switch(a){case"popular":return M.sort((R,D)=>D.popularity-R.popularity);case"unpopular":return M.sort((R,D)=>R.popularity-D.popularity);case"cheap":return M.sort((R,D)=>(parseFloat(R.price)||1/0)-(parseFloat(D.price)||1/0));case"expensive":return M.sort((R,D)=>(parseFloat(D.price)||-1/0)-(parseFloat(R.price)||-1/0));default:return M}})(r.filter(S=>d?S.sex===d:!0)),h=r.length>0&&n>1,v=S=>{u(S)},w=()=>{i&&u(S=>S+1)},x=()=>{s>1&&u(S=>S-1)},E=()=>{u(1)},P=()=>{u(n)};return O.jsxs(O.Fragment,{children:[O.jsx(Nr,{children:"Find your favorite pet"}),O.jsxs(di,{children:[O.jsx(wl,{$isNoticesPage:e}),O.jsx(Il,{onChangeSortOrder:l})]}),O.jsx(ci,{children:f.map(S=>O.jsx(ui,{noticesItem:S},S._id))}),h&&O.jsx(Br,{currentPage:s,handleCurrentPage:v,handleNextPage:w,handlePrevPage:x,handleFirstPage:E,handleLastPage:P,hasMore:i,maxPages:n})]})};export{Ll as default};
