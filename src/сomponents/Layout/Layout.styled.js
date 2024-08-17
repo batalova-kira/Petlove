@@ -5,6 +5,7 @@ import { breakpoints } from "../../constants/breakpoints.js";
 export const Container = styled.div`
     // Basic styles
     min-width: 320px;
+    width: 100vw;
     max-width: 375px;
     padding: 10px 20px;
     padding-bottom: 20px;
@@ -13,6 +14,7 @@ export const Container = styled.div`
 
     @media only screen and (min-width: ${breakpoints.medium}) {
         max-width: 704px;
+        width: 100%;
         padding: 32px 0px;
     }
 

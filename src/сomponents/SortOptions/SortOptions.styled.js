@@ -53,3 +53,19 @@ export const SortOptionWrapper = styled.div`
         gap: 8px;
     }
 `;
+
+export const OptionResetBtn = styled.button`
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: red;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        /* gap: 8px; */
+    }
+`;
