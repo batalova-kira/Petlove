@@ -8,13 +8,13 @@ export const SortOptionBtn = styled.label`
     position: relative;
 
     padding: 12px;
+    padding-right: ${(props) =>
+        props.hasReset
+            ? "30px"
+            : "12px"}; /* Збільшуємо padding-right, якщо є кнопка скидання */
     gap: 8px;
     border-radius: 30px;
     border: "none";
-
-    margin-right: 8px; /* Відстань між радіокнопкою та текстом */
-    padding-right: 12px; /* Місце для хрестика */
-    transition: padding-right 0.3s ease; /* Додаємо анімацію для плавного переходу */
 
     font-size: 14px;
     line-height: 1.29;
@@ -60,15 +60,16 @@ export const SortOptionWrapper = styled.div`
 `;
 
 export const OptionResetBtn = styled.button`
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     background: transparent;
     border: none;
-    font-size: 18px;
+
+    padding: 0;
+    margin: 0;
+
+    font-size: 14px;
+
     cursor: pointer;
-    color: red;
+    stroke: ${(props) => props.theme.colors.secondBackground};
 
     @media only screen and (min-width: ${breakpoints.medium}) {
         /* gap: 8px; */

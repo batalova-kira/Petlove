@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 import Icon from "../Icon/Icon";
 import {
     BtnNoticeFavorite,
@@ -17,6 +18,12 @@ import {
     WrapperNoticeImg,
     WrapperReview,
 } from "./NoticesCard.styled";
+import {
+    selectIsOpenModal,
+    selectModalData,
+} from "../../redux/modal/modal.selectors";
+import { closeModal, openModal } from "../../redux/modal/modalSlice";
+import { FindPetModal } from "../FindPetModal/FindPetModal";
 
 export const NoticesCard = ({ noticesItem }) => {
     const {
@@ -32,7 +39,19 @@ export const NoticesCard = ({ noticesItem }) => {
         comment,
     } = noticesItem;
 
+    const dispatch = useDispatch();
+    const isModalOpen = useSelector(selectIsOpenModal);
+    const modalData = useSelector(selectModalData);
+
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
+
+    const handleLearnMoreClick = () => {
+        dispatch(openModal(noticesItem));
+    };
+
+    const handleCloseModal = () => {
+        dispatch(closeModal());
+    };
 
     return (
         <WrapperNoticeCard key={_id}>
@@ -74,11 +93,20 @@ export const NoticesCard = ({ noticesItem }) => {
                 <CommentText>{comment}</CommentText>
             </div>
             <WrapperBtnsNotice>
-                <BtnNoticeLearnMore>Learn more</BtnNoticeLearnMore>
+                <BtnNoticeLearnMore onClick={handleLearnMoreClick}>
+                    Learn more
+                </BtnNoticeLearnMore>
                 <BtnNoticeFavorite>
                     <Icon name="favorite-heart" width={18} height={18} />
                 </BtnNoticeFavorite>
             </WrapperBtnsNotice>
+            {isModalOpen && (
+                <FindPetModal
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                    modalData={modalData}
+                />
+            )}
         </WrapperNoticeCard>
     );
 };

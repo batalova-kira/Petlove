@@ -4,6 +4,7 @@ import {
     SortOptionBtn,
     SortOptionWrapper,
 } from "./SortOptions.styled";
+import Icon from "../Icon/Icon";
 
 export const SortOptions = ({ onChangeSortOrder }) => {
     const [selectedOption, setSelectedOption] = useState("");
@@ -25,7 +26,7 @@ export const SortOptions = ({ onChangeSortOrder }) => {
     return (
         <SortOptionWrapper>
             {["popular", "unpopular", "cheap", "expensive"].map((option) => (
-                <div key={option} className="sort-option-container">
+                <div key={option} hasReset={selectedOption === option}>
                     <SortOptionBtn>
                         <input
                             type="radio"
@@ -39,7 +40,13 @@ export const SortOptions = ({ onChangeSortOrder }) => {
                             {option.charAt(0).toUpperCase() + option.slice(1)}
                         </span>
                         {selectedOption === option && (
-                            <button onClick={handleReset}>&times;</button>
+                            <OptionResetBtn onClick={handleReset}>
+                                <Icon
+                                    name="icon-close-white"
+                                    width={18}
+                                    height={18}
+                                />
+                            </OptionResetBtn>
                         )}
                     </SortOptionBtn>
                 </div>

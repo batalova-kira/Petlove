@@ -7,6 +7,7 @@ export const baseStyles = {
 
         return {
             ...provided,
+            width: "100%",
             borderRadius: "30px",
             border: "none",
             boxShadow: "none",
@@ -68,10 +69,31 @@ export const baseStyles = {
         ...provided,
         marginTop: "4px",
         borderRadius: "15px",
-        width: "143px",
-        height: "146px",
+        width: "100%",
+        maxHeight: "146px",
+        overflowY: "scroll", // Забезпечує стабільну вертикальну прокрутку
+        overflowX: "hidden", // Приховує горизонтальну прокрутку
         color: "rgba(38, 38, 38, 0.6)",
         boxShadow: "none",
+        boxSizing: "border-box",
+        whiteSpace: "nowrap",
+        WebkitOverflowScrolling: "touch",
+        // Стилі для прокрутки
+        "&::-webkit-scrollbar": {
+            width: "8px", // Ширина повзунка
+            height: "100px", // Висота повзунка
+        },
+        "&::-webkit-scrollbar-track": {
+            backgroundColor: "#fff", // Колір доріжки
+        },
+        "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgba(38, 38, 38, 0.08)", // Колір повзунка
+            borderRadius: "13px", // Закруглення повзунка
+            padding: "12px 6px",
+        },
+        "&::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: "#F6B83D", // Колір повзунка при наведенні
+        },
     }),
     option: (provided, state) => ({
         ...provided,
@@ -132,6 +154,10 @@ export const customStylesType = {
         "@media only screen and (min-width: 768px)": {
             width: "190px",
         },
+    }),
+    menu: (provided) => ({
+        ...provided,
+        maxHeight: "295px",
     }),
 };
 

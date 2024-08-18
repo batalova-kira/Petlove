@@ -22,6 +22,7 @@ const theme = {
         secondaryBlack: "#2b2b2a",
         mediumGrey: "rgba(38, 38, 38, 0.8)",
         lightGrey: "rgba(38, 38, 38, 0.5)",
+        modalGrey: " rgba(38, 38, 38, 0.03)",
         veryLightGrey: "rgba(38, 38, 38, 0.2)",
         lightestGrey: "rgba(38, 38, 38, 0.1)",
         pink: "#F43F5E",

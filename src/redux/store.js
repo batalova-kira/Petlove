@@ -15,6 +15,7 @@ import { authReducer } from "./auth/authSlice";
 import { newsReducer } from "./news/newsSlice";
 import { friendsReducer } from "./friends/friendsSlice";
 import { noticesReducer } from "./notices/noticesSlice";
+import { modalReducer } from "./modal/modalSlice";
 
 const authPersistConfig = {
     key: "auth",
@@ -32,6 +33,7 @@ export const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authReducer),
         news: newsReducer,
+        modal: modalReducer,
         friends: friendsReducer,
         notices: persistReducer(noticesPersistConfig, noticesReducer),
     },
