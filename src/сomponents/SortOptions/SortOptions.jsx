@@ -8,7 +8,6 @@ import Icon from "../Icon/Icon";
 
 export const SortOptions = ({ onChangeSortOrder }) => {
     const [selectedOption, setSelectedOption] = useState("");
-    console.log(selectedOption);
 
     const handleSortChange = (e) => {
         const value = e.target.value;
@@ -26,7 +25,7 @@ export const SortOptions = ({ onChangeSortOrder }) => {
     return (
         <SortOptionWrapper>
             {["popular", "unpopular", "cheap", "expensive"].map((option) => (
-                <div key={option} hasReset={selectedOption === option}>
+                <div key={option}>
                     <SortOptionBtn>
                         <input
                             type="radio"

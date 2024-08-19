@@ -8,10 +8,6 @@ export const SortOptionBtn = styled.label`
     position: relative;
 
     padding: 12px;
-    padding-right: ${(props) =>
-        props.hasReset
-            ? "30px"
-            : "12px"}; /* Збільшуємо padding-right, якщо є кнопка скидання */
     gap: 8px;
     border-radius: 30px;
     border: "none";

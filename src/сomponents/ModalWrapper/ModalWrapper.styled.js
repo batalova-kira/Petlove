@@ -8,23 +8,29 @@ export const StyledModal = styled.div`
     bottom: 0;
     left: 0;
     background-color: ${(p) => p.theme.colors.modalGrey};
+    /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
     &:hover {
         cursor: pointer;
     }
 
     .modal {
-        padding: 64px;
-        max-width: ${(props) => props.modalWidth || "566px"};
+        padding: ${(props) => props.modalPadding || "40px 28px"};
+        max-width: ${(props) => props.modalWidth || "335px"};
         width: 100%;
-        min-height: ${(props) => props.modalHeight || "450px"};
         background-color: ${(p) => p.theme.colors.secondBackground};
         border-radius: 30px;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+
         &:hover {
             cursor: auto;
+        }
+
+        @media (mіn-width: 768px) {
+            padding: ${(props) => props.mediumModalPadding || "40px 72px"};
+            max-width: ${(props) => props.mediumModalWidth || "473px"};
         }
     }
 `;
