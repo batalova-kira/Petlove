@@ -12,15 +12,16 @@ export const Star = styled.span`
         props.$filled
             ? props.theme.colors.yellow
             : props.theme.colors.backgroundStarGrey};
-    fill: ${(props) =>
-        props.$filled
-            ? props.theme.colors.yellow
-            : props.theme.colors.backgroundStarGrey};
-    stroke: ${(props) =>
-        props.$filled
-            ? props.theme.colors.yellow
-            : props.theme.colors.backgroundStarGrey};
+    color: ${(props) =>
+        props.theme.colors.yellow}; /* Колір заповнення та обведення */
+
+    svg {
+        fill: currentColor; /* Використовує колір з 'color' */
+        stroke: currentColor; /* Використовує колір з 'color' */
+    }
+
     margin-right: 4px;
+
     &:last-child {
         margin-right: 0;
     }

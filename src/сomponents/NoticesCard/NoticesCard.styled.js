@@ -83,9 +83,14 @@ export const WrapperReview = styled.div`
 export const Star = styled.div`
     display: flex;
     align-items: center;
-    fill: ${(props) => props.theme.colors.yellow};
-    stroke: ${(props) => props.theme.colors.yellow};
-    color: ${(props) => props.theme.colors.secondaryYellow};
+
+    color: ${(props) =>
+        props.theme.colors.yellow}; /* Колір заповнення та обведення */
+
+    svg {
+        fill: currentColor; /* Використовує колір з 'color' */
+        stroke: currentColor; /* Використовує колір з 'color' */
+    }
 `;
 
 export const PopularityNotice = styled.span`
