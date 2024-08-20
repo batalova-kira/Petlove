@@ -25,6 +25,7 @@ const theme = {
         modalGrey: " rgba(38, 38, 38, 0.25)",
         veryLightGrey: "rgba(38, 38, 38, 0.2)",
         lightestGrey: "rgba(38, 38, 38, 0.1)",
+        backgroundStarGrey: "rgba(38, 38, 38, 0.05)",
         pink: "#F43F5E",
         red: "#ef2447",
         borderWhite: "rgba(255, 255, 255, 0.5)",

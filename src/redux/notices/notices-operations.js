@@ -28,6 +28,7 @@ export const fetchNotices = createAsyncThunk(
             const queryString = new URLSearchParams(queryParams).toString();
 
             const { data } = await instance.get(`/notices?${queryString}`);
+            console.log(data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);
@@ -76,7 +77,6 @@ export const fetchCities = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get(`/cities`);
-            console.log("Response Cities:", data);
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);

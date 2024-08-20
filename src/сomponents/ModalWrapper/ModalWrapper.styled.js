@@ -14,6 +14,11 @@ export const StyledModal = styled.div`
     }
 
     .modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
         padding: ${(props) => props.modalPadding || "40px 28px"};
         max-width: ${(props) => props.modalWidth || "335px"};
         width: 100%;
