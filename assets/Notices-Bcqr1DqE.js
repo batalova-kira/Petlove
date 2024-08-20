@@ -1,4 +1,4 @@
-import{u as R,b as A,R as ge,a as _e,g as zr,r as p,j as S,h as qe,I as Ie,c as z,o as Wr,i as sn,k as Ur,l as Gr,m as Ft,n as Yr,p as qr,q as Kr,t as ln,v as un,w as cn,x as Tt,y as Xr}from"./index-_gFoZiDv.js";import{F as Zr}from"./Friends.styled-PXUXvBMQ.js";import{F as Jr,P as Qr}from"./Filter-JtiGXr4F.js";import"./HomePage.styled-DLG_dJcv.js";import"./Filter.styled-Bi1QZMoS.js";const ei=e=>e.notices.notices,ti=e=>e.notices.hasMore,ni=e=>e.notices.totalPages,Hn=e=>e.notices.filterWord,ri=e=>e.notices.categories,Bn=e=>e.notices.selectedCategory,ii=e=>e.notices.gender,zn=e=>e.notices.selectedGender,oi=e=>e.notices.species,Wn=e=>e.notices.selectedSpecies,ai=e=>e.notices.cities,Un=e=>e.notices.selectedLocation,si=R.li`
+import{u as R,b as A,R as ge,a as _e,g as zr,r as p,j as S,h as qe,I as Ie,c as z,o as Wr,i as sn,k as Ur,l as Gr,m as Ft,n as Yr,p as qr,q as Kr,t as ln,v as un,w as cn,x as Tt,y as Xr}from"./index-tMZr2lNw.js";import{F as Zr}from"./Friends.styled-D_fk4I1c.js";import{F as Jr,P as Qr}from"./Filter-CFi3FtNP.js";import"./HomePage.styled-D67qEwU3.js";import"./Filter.styled-CkNirCuu.js";const ei=e=>e.notices.notices,ti=e=>e.notices.hasMore,ni=e=>e.notices.totalPages,Hn=e=>e.notices.filterWord,ri=e=>e.notices.categories,Bn=e=>e.notices.selectedCategory,ii=e=>e.notices.gender,zn=e=>e.notices.selectedGender,oi=e=>e.notices.species,Wn=e=>e.notices.selectedSpecies,ai=e=>e.notices.cities,Un=e=>e.notices.selectedLocation,si=R.li`
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -68,7 +68,8 @@ import{u as R,b as A,R as ge,a as _e,g as zr,r as p,j as S,h as qe,I as Ie,c as 
 `,pi=R.div`
     display: flex;
     align-items: center;
-
+    fill: ${e=>e.theme.colors.yellow};
+    stroke: ${e=>e.theme.colors.yellow};
     color: ${e=>e.theme.colors.secondaryYellow};
 `,hi=R.span`
     font-size: 14px;
@@ -278,6 +279,8 @@ import{u as R,b as A,R as ge,a as _e,g as zr,r as p,j as S,h as qe,I as Ie,c as 
     align-items: center;
 `,pn=R.span`
     font-size: 24px;
+    color: ${e=>e.$filled?e.theme.colors.yellow:e.theme.colors.backgroundStarGrey};
+    fill: ${e=>e.$filled?e.theme.colors.yellow:e.theme.colors.backgroundStarGrey};
     stroke: ${e=>e.$filled?e.theme.colors.yellow:e.theme.colors.backgroundStarGrey};
     margin-right: 4px;
     &:last-child {
