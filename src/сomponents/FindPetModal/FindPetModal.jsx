@@ -1,15 +1,34 @@
 import React from "react";
 import { ModalWrapper } from "../ModalWrapper/ModalWrapper";
 import {
+    ContainerPetInfo,
     FindPetCategory,
     FindPetImg,
     FindPetTitle,
+    PetInfoText,
+    PetInfoTitle,
+    PetInfoTitleDesc,
+    RatingNumber,
     WrapperFindPetImg,
+    WrapperPetInfo,
+    WrapperRating,
 } from "./FindPetModal.styled";
 import { RatingStars } from "../RaitingStars/RaitingStars";
 
 export const FindPetModal = ({ isOpen, modalData }) => {
-    const { imgURL, category, title, popularity } = modalData;
+    const {
+        imgURL,
+        category,
+        title,
+        popularity,
+        name,
+        birthday,
+        sex,
+        species,
+        comment,
+    } = modalData;
+
+    const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
     return (
         <ModalWrapper
             navigateTo="/notices"
@@ -24,9 +43,32 @@ export const FindPetModal = ({ isOpen, modalData }) => {
             </WrapperFindPetImg>
             <FindPetCategory>{category}</FindPetCategory>
             <FindPetTitle>{title}</FindPetTitle>
-            <div>
+            <WrapperRating>
                 <RatingStars popularity={popularity} />
-                <p>{popularity}</p>
+                <RatingNumber>{popularity}</RatingNumber>
+            </WrapperRating>
+            <ContainerPetInfo>
+                <WrapperPetInfo>
+                    <PetInfoTitle>Name</PetInfoTitle>
+                    <PetInfoTitleDesc>{name}</PetInfoTitleDesc>
+                </WrapperPetInfo>
+                <WrapperPetInfo>
+                    <PetInfoTitle>Birthday</PetInfoTitle>
+                    <PetInfoTitleDesc>{formBirthday}</PetInfoTitleDesc>
+                </WrapperPetInfo>
+                <WrapperPetInfo>
+                    <PetInfoTitle>Sex</PetInfoTitle>
+                    <PetInfoTitleDesc>{sex}</PetInfoTitleDesc>
+                </WrapperPetInfo>
+                <WrapperPetInfo>
+                    <PetInfoTitle>Species</PetInfoTitle>
+                    <PetInfoTitleDesc>{species}</PetInfoTitleDesc>
+                </WrapperPetInfo>
+            </ContainerPetInfo>
+            <PetInfoText>{comment}</PetInfoText>
+            <div>
+                <button></button>
+                <button></button>
             </div>
         </ModalWrapper>
     );
