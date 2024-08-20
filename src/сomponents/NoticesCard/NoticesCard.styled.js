@@ -83,7 +83,8 @@ export const WrapperReview = styled.div`
 export const Star = styled.div`
     display: flex;
     align-items: center;
-
+    fill: ${(props) => props.theme.colors.yellow};
+    stroke: ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.secondaryYellow};
 `;
 
