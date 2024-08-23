@@ -1,11 +1,17 @@
+import { useSelector } from "react-redux";
 import Icon from "../Icon/Icon";
 import { Star, StarContainer } from "./RaitingStars.styled";
 
 export const RatingStars = ({ popularity }) => {
-    const maxRating = 894;
+    const maxRating = useSelector(state => state.notices.maxPopularity);
     const totalStars = 5;
 
-    const filledStars = Math.round((popularity / maxRating) * totalStars);
+    // Обчислюємо кількість заповнених зірок
+    let filledStars = Math.round((popularity / maxRating) * totalStars);
+
+    // Переконуємося, що значення знаходиться в межах від 0 до totalStars
+    filledStars = Math.min(Math.max(filledStars, 0), totalStars);
+
     const emptyStars = totalStars - filledStars;
 
     return (

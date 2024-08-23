@@ -24,6 +24,7 @@ const initialState = {
     currentPage: 1,
     hasMore: true,
     totalPages: 0,
+    maxPopularity: 0,
 };
 
 const noticesSlice = createSlice({
@@ -74,6 +75,9 @@ const noticesSlice = createSlice({
                 state.hasMore = payload.page < payload.totalPages;
                 state.currentPage = payload.page;
                 state.totalPages = payload.totalPages;
+                 // Оновлюємо maxPopularity
+            const maxPopularity = Math.max(...payload.results.map(notice => notice.popularity || 0));
+            state.maxPopularity = maxPopularity;
             })
             .addCase(fetchCategories.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
