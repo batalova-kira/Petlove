@@ -141,3 +141,51 @@ export const PetInfoText = styled.p`
         height: 150px; */
     }
 `;
+export const WrapperBtnsPetFind = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        /* width: 150px;
+        height: 150px; */
+    }
+`;
+
+export const BtnAddTo = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 30px;
+    border-radius: 30px;
+    gap: 8px;
+
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+
+    color: ${(props) => props.theme.colors.secondBackground};
+    background-color: ${(props) => props.theme.colors.yellow};
+
+    svg {
+        background-color: transparent;
+        stroke: ${(props) => props.theme.colors.secondBackground};
+    }
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        /* width: 150px;
+        height: 150px; */
+    }
+`;
+
+export const BtnContact = styled(BtnAddTo)`
+    padding: 12px 36px;
+
+    color: ${(props) => props.theme.colors.yellow};
+    background-color: ${(props) => props.theme.colors.lightYellow};
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        /* width: 150px;
+        height: 150px; */
+    }
+`;

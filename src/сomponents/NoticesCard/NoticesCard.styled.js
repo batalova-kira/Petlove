@@ -191,7 +191,8 @@ export const BtnNoticeFavorite = styled.button`
 
     padding: 14px;
 
-    color: ${(props) => props.theme.colors.yellow};
+    stroke: ${(props) => props.theme.colors.yellow};
+    color: ${(props) => props.theme.colors.lightYellow};
     background-color: ${(props) => props.theme.colors.lightYellow};
     border: none;
     border-radius: 30px;

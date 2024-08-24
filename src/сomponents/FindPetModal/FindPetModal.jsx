@@ -1,6 +1,8 @@
 import React from "react";
 import { ModalWrapper } from "../ModalWrapper/ModalWrapper";
 import {
+    BtnAddTo,
+    BtnContact,
     ContainerPetInfo,
     FindPetCategory,
     FindPetImg,
@@ -9,11 +11,14 @@ import {
     PetInfoTitle,
     PetInfoTitleDesc,
     RatingNumber,
+    WrapperBtnsPetFind,
     WrapperFindPetImg,
     WrapperPetInfo,
     WrapperRating,
 } from "./FindPetModal.styled";
 import { RatingStars } from "../RaitingStars/RaitingStars";
+import { Star } from "../NoticesCard/NoticesCard.styled";
+import Icon from "../Icon/Icon";
 
 export const FindPetModal = ({ isOpen, modalData }) => {
     const {
@@ -66,10 +71,15 @@ export const FindPetModal = ({ isOpen, modalData }) => {
                 </WrapperPetInfo>
             </ContainerPetInfo>
             <PetInfoText>{comment}</PetInfoText>
-            <div>
-                <button></button>
-                <button></button>
-            </div>
+            <WrapperBtnsPetFind>
+                <BtnAddTo>
+                    Add to
+                    <Star>
+                        <Icon name="favorite-heart" width={18} height={18} />
+                    </Star>
+                </BtnAddTo>
+                <BtnContact>Contact</BtnContact>
+            </WrapperBtnsPetFind>
         </ModalWrapper>
     );
 };
