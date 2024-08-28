@@ -9,61 +9,55 @@ export const ModalWrapper = ({
     isOpen,
     children,
     navigateTo,
-    modalWidth,
-    modalPadding,
-    mediumModalWidth,
-    mediumModalPadding,
-}) => {
+    styles
+  }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+  
     useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.code === "Escape") {
-                dispatch(closeModal());
-            }
-        };
-
-        if (isOpen) {
-            window.addEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "hidden";
+      const handleKeyDown = (event) => {
+        if (event.code === "Escape") {
+          dispatch(closeModal());
         }
-
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "auto";
-        };
+      };
+  
+      if (isOpen) {
+        window.addEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "hidden";
+      }
+  
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "auto";
+      };
     }, [dispatch, isOpen, title, children]);
-
+  
     const handleOverlayClick = (event) => {
-        if (event.target === event.currentTarget) {
-            dispatch(closeModal());
-        }
-    };
-
-    const handleCloseModal = () => {
+      if (event.target === event.currentTarget) {
         dispatch(closeModal());
-        if (navigateTo === "/notices") {
-            navigate("/notices");
-        } else {
-            navigate("/");
-        } // Перенаправлення на сторінку "/"
+      }
     };
-
+  
+    const handleCloseModal = () => {
+      dispatch(closeModal());
+      if (navigateTo === "/notices") {
+        navigate("/notices");
+      } else {
+        navigate("/");
+      }
+    };
+  
     return (
-        isOpen && (
-            <StyledModal
-                onClick={handleOverlayClick}
-                modalWidth={modalWidth}
-                modalPadding={modalPadding}
-                mediumModalWidth={mediumModalWidth}
-                mediumModalPadding={mediumModalPadding}
-            >
-                <div className="modal">
-                    <BtnClose onClick={handleCloseModal} />
-                    {children}
-                </div>
-            </StyledModal>
-        )
+      isOpen && (
+        <StyledModal
+          onClick={handleOverlayClick}
+          styles={styles}
+        >
+          <div className="modal">
+            <BtnClose onClick={handleCloseModal} />
+            {children}
+          </div>
+        </StyledModal>
+      )
     );
-};
+  };

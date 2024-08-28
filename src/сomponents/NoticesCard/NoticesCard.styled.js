@@ -200,6 +200,7 @@ export const BtnNoticeFavorite = styled.button`
 
     &:hover,
     &:focus {
+        color: ${(props) => props.theme.colors.hoverYellow};
         background-color: ${(props) => props.theme.colors.hoverYellow};
     }
 

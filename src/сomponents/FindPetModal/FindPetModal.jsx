@@ -11,6 +11,7 @@ import {
     PetInfoTitle,
     PetInfoTitleDesc,
     RatingNumber,
+    stylesFindPet,
     WrapperBtnsPetFind,
     WrapperFindPetImg,
     WrapperPetInfo,
@@ -34,14 +35,12 @@ export const FindPetModal = ({ isOpen, modalData }) => {
     } = modalData;
 
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
+
     return (
         <ModalWrapper
             navigateTo="/notices"
             isOpen={isOpen}
-            // modalWidth="600px"
-            // modalPadding="70px 78px"
-            // mediumModalWidth="90%"
-            // mediumModalPadding="20px 10px"
+            styles={stylesFindPet}
         >
             <WrapperFindPetImg>
                 <FindPetImg src={imgURL} alt={title} />

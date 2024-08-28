@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { breakpoints } from "../../constants/breakpoints.js";
 
+export const stylesFindPet = {
+    modalWidth: "335px",
+    modalPadding: "40px 28px",
+    mediumModalWidth: "473px",
+    mediumModalPadding: "40px 71px"
+};
+
 export const WrapperFindPetImg = styled.div`
     position: relative;
     margin-bottom: 16px;
@@ -170,6 +177,16 @@ export const BtnAddTo = styled.button`
     svg {
         background-color: transparent;
         stroke: ${(props) => props.theme.colors.secondBackground};
+
+        &:hover,
+        &:focus {
+            fill: ${(props) => props.theme.colors.secondaryHoverYellow};
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: ${(props) => props.theme.colors.secondaryHoverYellow};
     }
 
     @media only screen and (min-width: ${breakpoints.medium}) {
@@ -178,11 +195,25 @@ export const BtnAddTo = styled.button`
     }
 `;
 
-export const BtnContact = styled(BtnAddTo)`
+export const BtnContact = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 12px 36px;
 
+    border-radius: 30px;
+    gap: 8px;
+
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
     color: ${(props) => props.theme.colors.yellow};
     background-color: ${(props) => props.theme.colors.lightYellow};
+
+    &:hover,
+    &:focus {
+        background-color: ${(props) => props.theme.colors.hoverYellow};
+    }
 
     @media only screen and (min-width: ${breakpoints.medium}) {
         /* width: 150px;

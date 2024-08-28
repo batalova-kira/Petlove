@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IoClose } from "react-icons/io5";
+import { breakpoints } from "../../constants/breakpoints.js";
 
 export const StyledModal = styled.div`
     position: fixed;
@@ -8,7 +9,6 @@ export const StyledModal = styled.div`
     bottom: 0;
     left: 0;
     background-color: ${(p) => p.theme.colors.modalGrey};
-    /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
     &:hover {
         cursor: pointer;
     }
@@ -19,8 +19,8 @@ export const StyledModal = styled.div`
         align-items: center;
         flex-direction: column;
 
-        padding: ${(props) => props.modalPadding || "40px 28px"};
-        max-width: ${(props) => props.modalWidth || "335px"};
+        padding: ${(props) => props.styles.modalPadding || "40px 28px"};
+        max-width: ${(props) => props.styles.modalWidth || "335px"};
         width: 100%;
         background-color: ${(p) => p.theme.colors.secondBackground};
         border-radius: 30px;
@@ -33,9 +33,9 @@ export const StyledModal = styled.div`
             cursor: auto;
         }
 
-        @media (mіn-width: 768px) {
-            padding: ${(props) => props.mediumModalPadding || "40px 72px"};
-            max-width: ${(props) => props.mediumModalWidth || "473px"};
+        @media only screen and (min-width: ${breakpoints.medium}) {
+            padding: ${(props) => props.styles.mediumModalPadding || "40px 72px"};
+            max-width: ${(props) => props.styles.mediumModalWidth || "473px"};
         }
     }
 `;
