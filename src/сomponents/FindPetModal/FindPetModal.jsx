@@ -40,7 +40,7 @@ export const FindPetModal = ({ isOpen, modalData }) => {
         <ModalWrapper
             navigateTo="/notices"
             isOpen={isOpen}
-            styles={stylesFindPet}
+            $styles={stylesFindPet}
         >
             <WrapperFindPetImg>
                 <FindPetImg src={imgURL} alt={title} />

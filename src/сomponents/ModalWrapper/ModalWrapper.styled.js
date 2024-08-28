@@ -19,8 +19,8 @@ export const StyledModal = styled.div`
         align-items: center;
         flex-direction: column;
 
-        padding: ${(props) => props.styles.modalPadding || "40px 28px"};
-        max-width: ${(props) => props.styles.modalWidth || "335px"};
+        padding: ${(props) => props.$styles.modalPadding || "40px 28px"};
+        max-width: ${(props) => props.$styles.modalWidth || "335px"};
         width: 100%;
         background-color: ${(p) => p.theme.colors.secondBackground};
         border-radius: 30px;
@@ -34,8 +34,8 @@ export const StyledModal = styled.div`
         }
 
         @media only screen and (min-width: ${breakpoints.medium}) {
-            padding: ${(props) => props.styles.mediumModalPadding || "40px 72px"};
-            max-width: ${(props) => props.styles.mediumModalWidth || "473px"};
+            padding: ${(props) => props.$styles.mediumModalPadding || "40px 72px"};
+            max-width: ${(props) => props.$styles.mediumModalWidth || "473px"};
         }
     }
 `;

@@ -9,7 +9,7 @@ export const ModalWrapper = ({
     isOpen,
     children,
     navigateTo,
-    styles
+    $styles
   }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -51,7 +51,7 @@ export const ModalWrapper = ({
       isOpen && (
         <StyledModal
           onClick={handleOverlayClick}
-          styles={styles}
+          $styles={$styles}
         >
           <div className="modal">
             <BtnClose onClick={handleCloseModal} />
