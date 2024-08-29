@@ -49,6 +49,10 @@ export const FindPetCategory = styled.div`
     &::first-letter {
         text-transform: uppercase;
     }
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        left: 165px;
+        }
 `;
 
 export const FindPetTitle = styled.p`
@@ -66,11 +70,6 @@ export const WrapperRating = styled.div`
     align-items: center;
     gap: 4px;
     margin-bottom: 20px;
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
-    }
 `;
 
 export const RatingNumber = styled.p`
@@ -78,11 +77,6 @@ export const RatingNumber = styled.p`
 
     line-height: 1.43;
     color: ${(props) => props.theme.colors.secondaryBlack};
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
-    }
 `;
 
 export const ContainerPetInfo = styled.div`
@@ -91,22 +85,13 @@ export const ContainerPetInfo = styled.div`
     align-items: center;
     gap: 27px;
     margin-bottom: 18px;
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
-    }
 `;
+
 export const WrapperPetInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
-    }
 `;
 
 export const PetInfoTitle = styled.p`
@@ -128,11 +113,6 @@ export const PetInfoTitleDesc = styled.p`
     line-height: 1.17;
     letter-spacing: -0.02em;
     color: ${(props) => props.theme.colors.black};
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
-    }
 `;
 
 export const PetInfoText = styled.p`
@@ -142,21 +122,12 @@ export const PetInfoText = styled.p`
     line-height: 1.29;
     letter-spacing: -0.02em;
     color: ${(props) => props.theme.colors.secondaryBlack};
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
-    }
 `;
+
 export const WrapperBtnsPetFind = styled.div`
     display: flex;
     flex-direction: row;
     gap: 10px;
-
-    @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
-    }
 `;
 
 export const BtnAddTo = styled.button`
@@ -190,8 +161,7 @@ export const BtnAddTo = styled.button`
     }
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
+        padding: 14px 43.5px;
     }
 `;
 
@@ -216,7 +186,6 @@ export const BtnContact = styled.a`
     }
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 150px;
-        height: 150px; */
+        padding: 12px 50px;
     }
 `;

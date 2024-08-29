@@ -58,6 +58,7 @@ export const BtnClose = styled(IoClose)`
         /* transform: rotate(90deg); */
         fill: ${(p) => p.theme.colors.yellow};
     }
+
 `;
 
 export const TitleModal = styled.h2`
