@@ -24,6 +24,7 @@ import {
 } from "../../redux/modal/modal.selectors";
 import { closeModal, openModal } from "../../redux/modal/modalSlice";
 import { FindPetModal } from "../FindPetModal/FindPetModal";
+import { fetchNoticeById } from "../../redux/notices/notices-operations";
 
 export const NoticesCard = ({ noticesItem }) => {
     const {
@@ -41,12 +42,13 @@ export const NoticesCard = ({ noticesItem }) => {
 
     const dispatch = useDispatch();
     const isModalOpen = useSelector(selectIsOpenModal);
-    const modalData = useSelector(selectModalData);
+    
 
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
 
-    const handleLearnMoreClick = () => {
-        dispatch(openModal(noticesItem));
+    const handleLearnMoreClick = (_id) => {
+        dispatch(openModal());
+        dispatch(fetchNoticeById(_id));
     };
 
     const handleCloseModal = () => {
@@ -104,7 +106,7 @@ export const NoticesCard = ({ noticesItem }) => {
                 <FindPetModal
                     isOpen={isModalOpen}
                     onClose={handleCloseModal}
-                    modalData={modalData}
+                    modalData={noticesItem}
                 />
             )}
         </WrapperNoticeCard>

@@ -32,8 +32,11 @@ export const FindPetModal = ({ isOpen, modalData }) => {
         sex,
         species,
         comment,
+        user
     } = modalData;
 
+    console.log(modalData)
+    
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
 
     return (
@@ -77,7 +80,7 @@ export const FindPetModal = ({ isOpen, modalData }) => {
                         <Icon name="favorite-heart" width={18} height={18} />
                     </Star>
                 </BtnAddTo>
-                <BtnContact>Contact</BtnContact>
+                <BtnContact href={`tel:${user.phone}`}>Contact</BtnContact>
             </WrapperBtnsPetFind>
         </ModalWrapper>
     );

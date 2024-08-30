@@ -121,7 +121,7 @@ const Notices = ({ isNoticesPage }) => {
             </NoticesFiltersWrapper>
             <NoticesList>
                 {filteredNotices.map((item) => (
-                    <NoticesCard key={item._id} noticesItem={item} />
+                    <NoticesCard key={item._id} noticesItem={item} />  
                 ))}
             </NoticesList>
             {shouldShowPagination && (
