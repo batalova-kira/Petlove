@@ -21,7 +21,7 @@ import { RatingStars } from "../RaitingStars/RaitingStars";
 import { Star } from "../NoticesCard/NoticesCard.styled";
 import Icon from "../Icon/Icon";
 
-export const FindPetModal = ({ isOpen, modalData }) => {
+export const FindPetModal = ({ isOpen, modalData, modalId }) => {
     const {
         imgURL,
         category,
@@ -44,6 +44,7 @@ export const FindPetModal = ({ isOpen, modalData }) => {
             navigateTo="/notices"
             isOpen={isOpen}
             $styles={stylesFindPet}
+            modalId={modalId}
         >
             <WrapperFindPetImg>
                 <FindPetImg src={imgURL} alt={title} />

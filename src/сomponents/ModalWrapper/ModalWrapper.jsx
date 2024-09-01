@@ -9,7 +9,8 @@ export const ModalWrapper = ({
     isOpen,
     children,
     navigateTo,
-    $styles
+    $styles,
+    modalId,
   }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ export const ModalWrapper = ({
     useEffect(() => {
       const handleKeyDown = (event) => {
         if (event.code === "Escape") {
-          dispatch(closeModal());
+          dispatch(closeModal(modalId));
         }
       };
   
@@ -30,16 +31,16 @@ export const ModalWrapper = ({
         window.removeEventListener("keydown", handleKeyDown);
         document.body.style.overflow = "auto";
       };
-    }, [dispatch, isOpen, title, children]);
+    }, [dispatch, isOpen, title, children, modalId]);
   
     const handleOverlayClick = (event) => {
       if (event.target === event.currentTarget) {
-        dispatch(closeModal());
+        dispatch(closeModal(modalId));
       }
     };
   
     const handleCloseModal = () => {
-      dispatch(closeModal());
+      dispatch(closeModal(modalId));
       if (navigateTo === "/notices") {
         navigate("/notices");
       } else {
@@ -54,7 +55,7 @@ export const ModalWrapper = ({
           $styles={$styles}
         >
           <div className="modal">
-            <BtnClose onClick={handleCloseModal} />
+          <BtnClose onClick={handleCloseModal} />
             {children}
           </div>
         </StyledModal>

@@ -4,6 +4,7 @@ import { fetchNoticeById } from "../notices/notices-operations";
 const initialState = {
     isOpenModal: false,
     modalData: null,
+    modals: {}
 };
 
 
@@ -11,13 +12,13 @@ const modalSlice = createSlice({
     name: "modal",
     initialState,
     reducers: {
-         openModal(state, action) {
-         state.isOpenModal = true;
-             state.modalData = action.payload;
-         },
-        closeModal(state) {
-            state.isOpenModal = false;
-            state.modalData = null;
+        openModal(state, action) {
+            const modalId = action.payload;
+            state.modals[modalId] = true; // Відкрити конкретну модалку
+        },
+        closeModal(state, action) {
+            const modalId = action.payload;
+            state.modals[modalId] = false; // Закрити конкретну модалку
         },
         extraReducers: (builder) => {
             builder
