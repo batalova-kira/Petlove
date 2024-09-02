@@ -86,12 +86,21 @@ export const fetchCities = createAsyncThunk(
 
 export const fetchNoticeById = createAsyncThunk(
     "notices/fetchNoticeById",
-    async (_id, thunkApi) => {
+    async (_id, { getState, rejectWithValue }) => {
+        const state = getState();
+        const token = state.auth.token;
+
         try {
-            const { data } = await instance.get(`/notices/${_id}`);
+            const { data } = await instance.get(`/notices/${_id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(data);
+            
             return data;
         } catch (err) {
-            return thunkApi.rejectWithValue(err.message);
+            return rejectWithValue(err.message);
         }
     }
 );

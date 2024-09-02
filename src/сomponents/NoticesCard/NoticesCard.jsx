@@ -115,7 +115,7 @@ export const NoticesCard = ({ noticesItem }) => {
                 <FindPetModal
                     isOpen={isModalOpen}
                     onClose={() => handleCloseModal(_id)}
-                    modalData={noticesItem}
+                    // modalData={noticesItem}
                     modalId={_id} 
                 />
             )}

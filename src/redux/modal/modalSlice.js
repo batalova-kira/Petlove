@@ -14,18 +14,17 @@ const modalSlice = createSlice({
     reducers: {
         openModal(state, action) {
             const modalId = action.payload;
-            state.modals[modalId] = true; // Відкрити конкретну модалку
+            state.modals[modalId] = true;
         },
         closeModal(state, action) {
             const modalId = action.payload;
-            state.modals[modalId] = false; // Закрити конкретну модалку
+            state.modals[modalId] = false;
         },
-        extraReducers: (builder) => {
-            builder
-                .addCase(fetchNoticeById.fulfilled, (state, action) => {
-                    state.modalData = action.payload;
-                });
-        },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(fetchNoticeById.fulfilled, (state, { payload }) => {
+            state.modalData = payload;
+        });
     },
 });
 

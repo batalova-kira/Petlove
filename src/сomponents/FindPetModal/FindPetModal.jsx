@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { ModalWrapper } from "../ModalWrapper/ModalWrapper";
 import {
     BtnAddTo,
@@ -18,10 +20,21 @@ import {
     WrapperRating,
 } from "./FindPetModal.styled";
 import { RatingStars } from "../RaitingStars/RaitingStars";
-import { Star } from "../NoticesCard/NoticesCard.styled";
 import Icon from "../Icon/Icon";
+import { fetchNoticeById } from "../../redux/notices/notices-operations";
+import { selectModalData } from "../../redux/modal/modal.selectors";
 
-export const FindPetModal = ({ isOpen, modalData, modalId }) => {
+
+export const FindPetModal = ({ isOpen, modalId }) => {
+    const dispatch = useDispatch();
+    const modalData = useSelector(selectModalData);
+    // Якщо модалка відкрита, отримуємо дані
+    useEffect(() => {
+        if (isOpen) {
+            dispatch(fetchNoticeById(modalId));
+        }
+    }, [dispatch, isOpen, modalId]);
+
     const {
         imgURL,
         category,
@@ -33,10 +46,12 @@ export const FindPetModal = ({ isOpen, modalData, modalId }) => {
         species,
         comment,
         user
-    } = modalData;
+    } = modalData || {}; // Запобігає помилкам, якщо modalData ще не завантажено
 
-    console.log(modalData)
-    
+    if (!modalData) {
+        return null; // Можливо, варто показати лоадер, якщо дані ще не завантажено
+    }
+
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
 
     return (
@@ -77,9 +92,9 @@ export const FindPetModal = ({ isOpen, modalData, modalId }) => {
             <WrapperBtnsPetFind>
                 <BtnAddTo>
                     Add to
-                    <Star>
+                    <>
                         <Icon name="favorite-heart" width={18} height={18} />
-                    </Star>
+                    </>
                 </BtnAddTo>
                 <BtnContact href={`tel:${user.phone}`}>Contact</BtnContact>
             </WrapperBtnsPetFind>

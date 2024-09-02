@@ -146,12 +146,15 @@ export const BtnAddTo = styled.button`
     background-color: ${(props) => props.theme.colors.yellow};
 
     svg {
-        background-color: transparent;
+        background-color: ${(props) => props.theme.colors.yellow};
         stroke: ${(props) => props.theme.colors.secondBackground};
+        color: transparent;
 
         &:hover,
         &:focus {
-            fill: ${(props) => props.theme.colors.secondaryHoverYellow};
+            color: ${(props) => props.theme.colors.secondaryHoverYellow};
+            stroke: ${(props) => props.theme.colors.secondBackground};
+            background-color: ${(props) => props.theme.colors.secondaryHoverYellow};
         }
     }
 

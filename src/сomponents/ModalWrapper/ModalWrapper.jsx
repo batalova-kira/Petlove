@@ -33,8 +33,8 @@ export const ModalWrapper = ({
       };
     }, [dispatch, isOpen, title, children, modalId]);
   
-    const handleOverlayClick = (event) => {
-      if (event.target === event.currentTarget) {
+    const handleOverlayClick = (e) => {
+      if (e.target === e.currentTarget) {
         dispatch(closeModal(modalId));
       }
     };
