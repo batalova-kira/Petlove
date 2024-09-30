@@ -17,10 +17,9 @@ export const fetchNotices = createAsyncThunk(
             }
 
             const queryParams = {
-                page,
-                limit,
+                page: page || 1, // встановлює значення за замовчуванням, якщо page === null або undefined
+                limit: limit || 6,
                 category: category || "",
-                sex: sex || "",
                 species: species || "",
                 locationId: locationId || "",
                 keyword: keyword || "",
@@ -97,7 +96,7 @@ export const fetchNoticeById = createAsyncThunk(
                 },
             });
             console.log(data);
-            
+
             return data;
         } catch (err) {
             return rejectWithValue(err.message);

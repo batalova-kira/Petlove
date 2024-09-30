@@ -46,10 +46,10 @@ export const FindPetModal = ({ isOpen, modalId }) => {
         species,
         comment,
         user
-    } = modalData || {}; // Запобігає помилкам, якщо modalData ще не завантажено
+    } = modalData || {}; 
 
     if (!modalData) {
-        return null; // Можливо, варто показати лоадер, якщо дані ще не завантажено
+        return null;
     }
 
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";

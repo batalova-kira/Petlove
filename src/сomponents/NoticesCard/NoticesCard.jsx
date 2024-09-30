@@ -18,13 +18,12 @@ import {
     WrapperNoticeImg,
     WrapperReview,
 } from "./NoticesCard.styled";
-import {
-    selectIsModalOpen,
-
-} from "../../redux/modal/modal.selectors";
+import { selectIsModalOpen } from "../../redux/modal/modal.selectors";
 import { closeModal, openModal } from "../../redux/modal/modalSlice";
 import { FindPetModal } from "../FindPetModal/FindPetModal";
 import { fetchNoticeById } from "../../redux/notices/notices-operations";
+import { selectAuthenticated } from "../../redux/auth/auth-selectors";
+import { AttentionModal } from "../AttentionModal/AttentionModal";
 
 export const NoticesCard = ({ noticesItem }) => {
     const {
@@ -43,7 +42,7 @@ export const NoticesCard = ({ noticesItem }) => {
     const dispatch = useDispatch();
     // const isModalOpen = useSelector(selectIsOpenModal);
     const isModalOpen = useSelector((state) => selectIsModalOpen(state, _id));
-
+    const isAuthenticated = useSelector(selectAuthenticated);
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
 
     // const handleLearnMoreClick = (_id) => {
@@ -54,7 +53,7 @@ export const NoticesCard = ({ noticesItem }) => {
     const handleLearnMoreClick = (_id) => {
         dispatch(openModal(_id)); // Відкрити модалку для конкретної картки
         dispatch(fetchNoticeById(_id)); // Завантажити дані для конкретної картки
-    }; 
+    };
 
     // const handleCloseModal = () => {
     //     dispatch(closeModal());
@@ -111,14 +110,20 @@ export const NoticesCard = ({ noticesItem }) => {
                     <Icon name="favorite-heart" width={18} height={18} />
                 </BtnNoticeFavorite>
             </WrapperBtnsNotice>
-            {isModalOpen && (
-                <FindPetModal
-                    isOpen={isModalOpen}
-                    onClose={() => handleCloseModal(_id)}
-                    // modalData={noticesItem}
-                    modalId={_id} 
-                />
-            )}
+            {isModalOpen &&
+                (isAuthenticated ? (
+                    <FindPetModal
+                        isOpen={isModalOpen}
+                        onClose={() => handleCloseModal(_id)}
+                        modalId={_id}
+                    />
+                ) : (
+                    <AttentionModal
+                        isOpen={isModalOpen}
+                        onClose={() => handleCloseModal(_id)}
+                        modalId={_id}
+                    />
+                ))}
         </WrapperNoticeCard>
     );
 };
