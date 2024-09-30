@@ -45,19 +45,14 @@ export const NoticesCard = ({ noticesItem }) => {
     const isAuthenticated = useSelector(selectAuthenticated);
     const formBirthday = birthday ? birthday.replace(/-/g, ".") : "";
 
-    // const handleLearnMoreClick = (_id) => {
-    //     dispatch(openModal());
-    //     dispatch(fetchNoticeById(_id));
-    // };
-
     const handleLearnMoreClick = (_id) => {
-        dispatch(openModal(_id)); // Відкрити модалку для конкретної картки
-        dispatch(fetchNoticeById(_id)); // Завантажити дані для конкретної картки
+        if (isAuthenticated) {
+            dispatch(openModal(_id)); // Відкрити модалку для конкретної картки
+            dispatch(fetchNoticeById(_id)); // Завантажити дані для конкретної картки
+        } else {
+            dispatch(openModal(_id)); // Відкрити модалку без запиту, якщо не авторизований
+        }
     };
-
-    // const handleCloseModal = () => {
-    //     dispatch(closeModal());
-    // };
 
     const handleCloseModal = (_id) => {
         dispatch(closeModal(_id)); // Закрити конкретну модалку картки
