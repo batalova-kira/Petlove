@@ -1,4 +1,4 @@
-import{u as n,b as r,j as e,a as u,c as w,r as f,A as j}from"./index-DH1uGIyE.js";import{F as b,a as y}from"./Friends.styled-BFokbYJa.js";import"./HomePage.styled-BpTvbeJB.js";const F=i=>i.friends.friends,$=n.li`
+import{u as n,b as r,j as e,a as u,c as w,r as f,B as j}from"./index-DZjXQ04Z.js";import{F as b,a as y}from"./Friends.styled-BRJAHY-P.js";import"./HomePage.styled-KMGbWV2T.js";const F=i=>i.friends.friends,$=n.li`
     position: relative;
     max-width: 335px;
     width: 100%;
@@ -67,7 +67,7 @@ import{u as n,b as r,j as e,a as u,c as w,r as f,A as j}from"./index-DH1uGIyE.js
     @media only screen and (min-width: ${r.medium}) {
         max-width: 196px;
     }
-`,A=n.h3`
+`,D=n.h3`
     margin-bottom: 14px;
 
     font-weight: var(--font-weight-bold);
@@ -83,7 +83,7 @@ import{u as n,b as r,j as e,a as u,c as w,r as f,A as j}from"./index-DH1uGIyE.js
         font-size: 20px;
         line-height: 1.3;
     }
-`,D=n.div`
+`,A=n.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -97,4 +97,4 @@ import{u as n,b as r,j as e,a as u,c as w,r as f,A as j}from"./index-DH1uGIyE.js
     text-overflow: ellipsis;
 `,a=n.span`
     color: ${i=>i.theme.colors.black};
-`,E=({item:i})=>{const{title:s,workDays:t,imageUrl:m,address:l,phone:c,email:p}=i,h=t?(g=>{const o=g.find(x=>x.from&&x.to);return o?`${o.from} - ${o.to}`:null})(t):null;return e.jsxs($,{children:[e.jsx(k,{children:h?e.jsx("p",{children:h}):e.jsx("p",{children:"Day and night"})}),e.jsxs(v,{children:[e.jsx(W,{children:e.jsx(z,{src:m,alt:s})}),e.jsxs(T,{children:[e.jsx(A,{children:s}),e.jsxs(D,{children:[e.jsxs(d,{children:["Email:"," ",e.jsx(a,{children:p||"website only"})]}),e.jsxs(d,{children:["Address:"," ",e.jsx(a,{children:l||"website only"})]}),e.jsxs(d,{children:["Phone:"," ",e.jsx(a,{children:c||"email only"})]})]})]})]})]},i._id)},G=()=>{const i=u(),s=w(F);return f.useEffect(()=>{i(j())},[]),e.jsxs(e.Fragment,{children:[e.jsx(b,{children:"Our friends"}),e.jsx(y,{children:s.map(t=>e.jsx(E,{item:t},t._id))})]})};export{G as default};
+`,E=({item:i})=>{const{title:s,workDays:t,imageUrl:m,address:l,phone:c,email:p}=i,h=t?(g=>{const o=g.find(x=>x.from&&x.to);return o?`${o.from} - ${o.to}`:null})(t):null;return e.jsxs($,{children:[e.jsx(k,{children:h?e.jsx("p",{children:h}):e.jsx("p",{children:"Day and night"})}),e.jsxs(v,{children:[e.jsx(W,{children:e.jsx(z,{src:m,alt:s})}),e.jsxs(T,{children:[e.jsx(D,{children:s}),e.jsxs(A,{children:[e.jsxs(d,{children:["Email:"," ",e.jsx(a,{children:p||"website only"})]}),e.jsxs(d,{children:["Address:"," ",e.jsx(a,{children:l||"website only"})]}),e.jsxs(d,{children:["Phone:"," ",e.jsx(a,{children:c||"email only"})]})]})]})]})]},i._id)},G=()=>{const i=u(),s=w(F);return f.useEffect(()=>{i(j())},[]),e.jsxs(e.Fragment,{children:[e.jsx(b,{children:"Our friends"}),e.jsx(y,{children:s.map(t=>e.jsx(E,{item:t},t._id))})]})};export{G as default};
