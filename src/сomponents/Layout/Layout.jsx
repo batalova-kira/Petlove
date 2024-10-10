@@ -126,25 +126,31 @@ const Layout = ({ children, $isHomePage, $isFriendsPage, $isNoticesPage }) => {
                                 </StyledNavLink>
                             </WrapperNav>
                             <WrapperBurgerAuthNav>
-                                <AuthNavLink to="/login">Log in</AuthNavLink>
+                                
                                 {isAuthenticated ? (
                                     <LogoutButton />
                                 ) : (
+                                    <>
+                                    <AuthNavLink to="/login">Log in</AuthNavLink>
                                     <AuthNavLink to="/registration">
                                         Registration
                                     </AuthNavLink>
+                                    </>
                                 )}
                             </WrapperBurgerAuthNav>
                             <WrapperBurgerAuthNavTablet>
-                                <AuthNavLinkLoginTablet to="/login">
-                                    Log in
-                                </AuthNavLinkLoginTablet>
+                                
                                 {isAuthenticated ? (
                                     <LogoutButton />
                                 ) : (
+                                    <>
+                                    <AuthNavLinkLoginTablet to="/login">
+                                    Log in
+                                </AuthNavLinkLoginTablet>
                                     <AuthNavLinkRegistrationTablet to="/registration">
                                         Registration
-                                    </AuthNavLinkRegistrationTablet>
+                                    </AuthNavLinkRegistrationTablet></>
+                                    
                                 )}
                             </WrapperBurgerAuthNavTablet>
                         </WrapperBurgerMenu>

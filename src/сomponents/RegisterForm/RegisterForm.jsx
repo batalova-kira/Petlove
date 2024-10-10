@@ -20,16 +20,19 @@ import { RegisterFormContainer } from "./RegisterForm.styled";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { registerThunk } from "../../redux/auth/auth-operations";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [showPassword, setShowPassword] = useState(false);
     const {
         register,
         handleSubmit,
         reset,
         watch,
-        formState: { errors, isValid },
+        formState: { errors, isvalid },
     } = useForm({
         mode: "onBlur",
         defaultValues: {
@@ -56,6 +59,7 @@ export const RegisterForm = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         handleSubmit(onSubmit)();
+        navigate('/profile');
     };
 
     const handleClickShowPassword = () => {
@@ -77,7 +81,7 @@ export const RegisterForm = () => {
                             type="text"
                             placeholder="Name"
                             $isinvalid={errors.name}
-                            $isvalid={!errors.name && isValid}
+                            $isvalid={!errors.name && isvalid}
                             {...register("name", {
                                 required: "This field is required",
                                 minLength: {
@@ -90,7 +94,7 @@ export const RegisterForm = () => {
                         {errors?.name && (
                             <ErrorText>{errors?.name.message}</ErrorText>
                         )}
-                        {isValid && !errors?.name && (
+                        {isvalid && !errors?.name && (
                             <ValidationMessage isValid={true}>
                                 Name successfully validated!
                             </ValidationMessage>
@@ -100,7 +104,7 @@ export const RegisterForm = () => {
                                 <Icon name="red-false" width={18} height={18} />
                             </IconMessageWrapper>
                         )}
-                        {isValid && !errors?.name && (
+                        {isvalid && !errors?.name && (
                             <IconMessageWrapper>
                                 <Icon
                                     name="green-success"
@@ -115,7 +119,7 @@ export const RegisterForm = () => {
                             type="email"
                             placeholder="Email"
                             $isinvalid={errors.email}
-                            $isvalid={!errors.email && isValid}
+                            $isvalid={!errors.email && isvalid}
                             {...register("email", {
                                 required: "This field is required",
                                 pattern: {
@@ -127,7 +131,7 @@ export const RegisterForm = () => {
                         {errors?.email && (
                             <ErrorText>{errors?.email.message}</ErrorText>
                         )}
-                        {isValid && !errors?.email && (
+                        {isvalid && !errors?.email && (
                             <ValidationMessage isValid={true}>
                                 Email successfully validated!
                             </ValidationMessage>
@@ -137,7 +141,7 @@ export const RegisterForm = () => {
                                 <Icon name="red-false" width={18} height={18} />
                             </IconMessageWrapper>
                         )}
-                        {isValid && !errors?.email && (
+                        {isvalid && !errors?.email && (
                             <IconMessageWrapper>
                                 <Icon
                                     name="green-success"
@@ -153,7 +157,7 @@ export const RegisterForm = () => {
                             placeholder="Password"
                             autoComplete="off"
                             $isinvalid={errors?.password}
-                            $isvalid={!errors?.password && isValid}
+                            $isvalid={!errors?.password && isvalid}
                             {...register("password", {
                                 required: "This field is required",
                                 minLength: {
@@ -173,7 +177,7 @@ export const RegisterForm = () => {
                         {errors?.password && (
                             <ErrorText>{errors?.password.message}</ErrorText>
                         )}
-                        {isValid && !errors?.password && (
+                        {isvalid && !errors?.password && (
                             <ValidationMessage isValid={true}>
                                 Password is secure
                             </ValidationMessage>
@@ -183,7 +187,7 @@ export const RegisterForm = () => {
                                 <Icon name="red-false" width={18} height={18} />
                             </IconPasswordMessageWrapper>
                         )}
-                        {isValid && !errors?.password && (
+                        {isvalid && !errors?.password && (
                             <IconPasswordMessageWrapper>
                                 <Icon
                                     name="green-success"
@@ -199,7 +203,7 @@ export const RegisterForm = () => {
                             placeholder="Confirm password"
                             autoComplete="off"
                             $isinvalid={errors?.confirmPassword}
-                            $isvalid={!errors?.confirmPassword && isValid}
+                            $isvalid={!errors?.confirmPassword && isvalid}
                             {...register("confirmPassword", {
                                 required: "Please confirm your password",
                                 validate: (value) =>
@@ -219,7 +223,7 @@ export const RegisterForm = () => {
                                 {errors?.confirmPassword.message}
                             </ErrorText>
                         )}
-                        {isValid && !errors?.confirmPassword && (
+                        {isvalid && !errors?.confirmPassword && (
                             <ValidationMessage isValid={true}>
                                 Password is secure
                             </ValidationMessage>
@@ -229,7 +233,7 @@ export const RegisterForm = () => {
                                 <Icon name="red-false" width={18} height={18} />
                             </IconPasswordMessageWrapper>
                         )}
-                        {isValid && !errors?.confirmPassword && (
+                        {isvalid && !errors?.confirmPassword && (
                             <IconPasswordMessageWrapper>
                                 <Icon
                                     name="green-success"

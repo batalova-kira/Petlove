@@ -7,6 +7,8 @@ import { Loader } from "./Loader/Loader.jsx";
 import { useDispatch } from "react-redux";
 import { refreshThunk } from "../redux/auth/auth-operations.js";
 import { GlobalStyle } from "./GlobalStyle.js";
+import { PrivateRoute } from "./PrivateRoute/PrivateRoute.jsx";
+
 
 const HomePage = lazy(() => import("../pages/HomePage.jsx"));
 const News = lazy(() => import("../pages/News"));
@@ -14,6 +16,7 @@ const Notices = lazy(() => import("../pages/Notices"));
 const Friends = lazy(() => import("../pages/Friends"));
 const Login = lazy(() => import("../pages/LoginPage"));
 const Registration = lazy(() => import("../pages/RegisterPage"));
+const Profile = lazy(() => import("../pages/Profile.jsx"));
 
 export const appRoutes = [
     {
@@ -27,10 +30,16 @@ export const appRoutes = [
     {
         path: ROUTES.NOTICES_ROUTE,
         element: (
-            // <PrivateRoute>
+             <PrivateRoute>
             <Notices isNoticesPage={true} />
-        ),
-        // </PrivateRoute>
+         </PrivateRoute>),
+    },
+    {
+        path: ROUTES.PROFILE_ROUTE,
+        element: (
+             <PrivateRoute>
+            <Profile/>
+         </PrivateRoute>),
     },
     {
         path: ROUTES.FRIENDS_ROUTE,

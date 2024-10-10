@@ -20,15 +20,18 @@ import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/auth/auth-operations";
 import { useState } from "react";
 import Icon from "../Icon/Icon";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [showPassword, setShowPassword] = useState(false);
     const {
         register,
         handleSubmit,
         reset,
-        formState: { errors, isValid },
+        formState: { errors, isvalid },
     } = useForm({
         mode: "onBlur",
         defaultValues: {
@@ -51,6 +54,7 @@ export const LoginForm = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         handleSubmit(onSubmit)();
+        navigate('/profile');
     };
 
     const handleClickShowPassword = () => {
@@ -70,7 +74,7 @@ export const LoginForm = () => {
                             type="email"
                             placeholder="Email"
                             $isinvalid={errors.email}
-                            $isvalid={!errors.email && isValid}
+                            $isvalid={!errors.email && isvalid}
                             {...register("email", {
                                 required: "This field is required",
                                 pattern: {
@@ -82,7 +86,7 @@ export const LoginForm = () => {
                         {errors?.email && (
                             <ErrorText>{errors?.email.message}</ErrorText>
                         )}
-                        {isValid && !errors?.email && (
+                        {isvalid && !errors?.email && (
                             <ValidationMessage isValid={true}>
                                 Email successfully validated!
                             </ValidationMessage>
@@ -92,7 +96,7 @@ export const LoginForm = () => {
                                 <Icon name="red-false" width={18} height={18} />
                             </IconMessageWrapper>
                         )}
-                        {isValid && !errors?.email && (
+                        {isvalid && !errors?.email && (
                             <IconMessageWrapper>
                                 <Icon
                                     name="green-success"
@@ -109,7 +113,7 @@ export const LoginForm = () => {
                             placeholder="Password"
                             autoComplete="off"
                             $isinvalid={errors?.password}
-                            $isvalid={!errors?.password && isValid}
+                            $isvalid={!errors?.password && isvalid}
                             {...register("password", {
                                 required: "This field is required",
                                 minLength: {
@@ -129,7 +133,7 @@ export const LoginForm = () => {
                         {errors?.password && (
                             <ErrorText>{errors?.password.message}</ErrorText>
                         )}
-                        {isValid && !errors?.password && (
+                        {isvalid && !errors?.password && (
                             <ValidationMessage isValid={true}>
                                 Password is secure
                             </ValidationMessage>
@@ -139,7 +143,7 @@ export const LoginForm = () => {
                                 <Icon name="red-false" width={18} height={18} />
                             </IconPasswordMessageWrapper>
                         )}
-                        {isValid && !errors?.password && (
+                        {isvalid && !errors?.password && (
                             <IconPasswordMessageWrapper>
                                 <Icon
                                     name="green-success"
