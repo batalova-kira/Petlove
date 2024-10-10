@@ -1,4 +1,4 @@
-import{u as i,b as e}from"./index-BrwiU59m.js";import{a as o}from"./HomePage.styled-BeYGwog5.js";const m=i.ul`
+import{u as i,b as e}from"./index-BFBGjn-R.js";import{a as o}from"./HomePage.styled-BTLc9Whj.js";const m=i.ul`
     display: flex;
     flex-direction: column;
     gap: 20px;
