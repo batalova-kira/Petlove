@@ -6,6 +6,7 @@ import {
     AuthNavLinkLoginTablet,
     AuthNavLinkRegistration,
     AuthNavLinkRegistrationTablet,
+    AvatarLink,
     BurgerMenuBtn,
     Container,
     Header,
@@ -158,7 +159,7 @@ const Layout = ({ children, $isHomePage, $isFriendsPage, $isNoticesPage }) => {
                         // Кнопка бургер-меню
                         <>
                             {isAuthenticated ? (
-                                <>
+                                <AvatarLink to="/profile">
                                     <WrapperAvatarIcon>
                                         <Icon
                                             name="user-avatar"
@@ -167,7 +168,7 @@ const Layout = ({ children, $isHomePage, $isFriendsPage, $isNoticesPage }) => {
                                         />
                                     </WrapperAvatarIcon>
                                     <NameAvatar>{user.name}</NameAvatar>
-                                </>
+                                </AvatarLink>
                             ) : null}
                             <BurgerMenuBtn
                                 $isHomePage={$isHomePage}

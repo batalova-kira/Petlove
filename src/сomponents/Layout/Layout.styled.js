@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { breakpoints } from "../../constants/breakpoints.js";
 
 export const Container = styled.div`
@@ -305,6 +305,18 @@ export const WrapperAvatar = styled.div`
         display: flex;
         flex-direction: row;
         gap: 8px;
+    }
+`;
+
+export const AvatarLink = styled(Link)`
+    text-decoration:none;
+    display: flex;
+    align-items:center;
+    flex-direction:row;
+    gap: 8px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+        
     }
 `;
 
