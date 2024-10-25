@@ -162,7 +162,7 @@ const Layout = ({ children, $isHomePage, $isFriendsPage, $isNoticesPage }) => {
                                 <AvatarLink to="/profile">
                                     <WrapperAvatarIcon>
                                         <Icon
-                                            name="user-avatar"
+                                            name="user-card"
                                             width={20}
                                             height={20}
                                         />

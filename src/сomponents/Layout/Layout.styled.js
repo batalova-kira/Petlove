@@ -325,10 +325,11 @@ export const WrapperAvatarIcon = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 40px;
-    height: 40px;
+    padding: 10px;
     border-radius: 50%;
 
+    fill: ${(props) => props.theme.colors.yellow};
+    stroke: ${(props) => props.theme.colors.yellow};
     background: ${(props) => props.theme.colors.lightYellow};
 
     svg {

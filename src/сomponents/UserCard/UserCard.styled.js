@@ -48,9 +48,9 @@ letter-spacing: -0.02em;
 `;
 
 export const WrapperIconUserCard = styled.div`
-    /* color: ${(props) => props.theme.colors.secondBackground};
-    background: ${(props) => props.theme.colors.yellow}; */
-
+    width:18px;
+    height:18px;
+    
     @media only screen and (min-width: ${breakpoints.medium}) {
     
     }
