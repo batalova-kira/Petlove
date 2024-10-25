@@ -328,8 +328,7 @@ export const WrapperAvatarIcon = styled.div`
     padding: 10px;
     border-radius: 50%;
 
-    /* fill: ${(props) => props.theme.colors.yellow};
-    color: ${(props) => props.theme.colors.yellow}; */
+    color: ${(props) => props.theme.colors.yellow};
     background: ${(props) => props.theme.colors.lightYellow};
 
     svg {
