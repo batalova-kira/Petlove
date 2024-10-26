@@ -36,7 +36,7 @@ export const UserCard = () => {
         <img src={user.avatar} alt="User Avatar" />
     ) : (
         <WrapperUserBlockAvatar>
-            <Icon name="user-avatar" />
+            <Icon name="user-avatar-profile" />
         </WrapperUserBlockAvatar>
         
     )}
