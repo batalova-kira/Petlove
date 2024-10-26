@@ -1,4 +1,4 @@
-import{u as t,b as n,a as d,c as o,F as c,r as l,G as h,j as e,I as i}from"./index-DuKwjm90.js";const p=t.div`
+import{u as t,b as n,a as d,c as o,F as c,r as l,G as h,j as e,I as i}from"./index-CB7lTyDf.js";const p=t.div`
     width:100%;
     padding: 18px 20px 40px 20px;
 
@@ -76,4 +76,4 @@ align-items:center;
     @media only screen and (min-width: ${n.medium}) {
     
     }
-`,b=()=>{const r=d(),s=o(c);l.useEffect(()=>{r(h())},[r]);const a=()=>{console.log("User Data:",s)};return e.jsxs(p,{children:[e.jsxs(x,{children:[e.jsxs(m,{children:[e.jsx(u,{children:"User"}),e.jsx(g,{children:e.jsx(i,{height:18,width:18,name:"user-card"})})]}),e.jsx(w,{children:e.jsx(i,{height:18,width:18,name:"edit-card"})})]}),e.jsxs("div",{children:[s.avatar?e.jsx("img",{src:s.avatar,alt:"User Avatar"}):e.jsx(j,{children:e.jsx(i,{name:"user-avatar"})}),s.avatar?"none":e.jsx("button",{onClick:a,children:"Upload photo"})]})]})},y=()=>e.jsx(e.Fragment,{children:e.jsx(b,{})});export{y as default};
+`,f=()=>{const r=d(),s=o(c);l.useEffect(()=>{r(h())},[r]);const a=()=>{console.log("User Data:",s)};return e.jsxs(p,{children:[e.jsxs(x,{children:[e.jsxs(m,{children:[e.jsx(u,{children:"User"}),e.jsx(g,{children:e.jsx(i,{height:18,width:18,name:"user-card"})})]}),e.jsx(w,{children:e.jsx(i,{height:18,width:18,name:"edit-card"})})]}),e.jsxs("div",{children:[s.avatar?e.jsx("img",{src:s.avatar,alt:"User Avatar"}):e.jsx(j,{children:e.jsx(i,{name:"user-avatar-profile"})}),s.avatar?"none":e.jsx("button",{onClick:a,children:"Upload photo"})]})]})},y=()=>e.jsx(e.Fragment,{children:e.jsx(f,{})});export{y as default};
