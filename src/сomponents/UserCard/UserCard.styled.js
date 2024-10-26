@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { breakpoints } from "../../constants/breakpoints";
 
+
 export const ContainerUserCard = styled.div`
     width:100%;
     padding: 18px 20px 40px 20px;
@@ -17,7 +18,8 @@ export const ContainerUserCardHeader = styled.div`
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-
+    margin-bottom: 20px;
+    
     @media only screen and (min-width: ${breakpoints.medium}) {
     
     }
@@ -50,7 +52,7 @@ letter-spacing: -0.02em;
 export const WrapperIconUserCard = styled.div`
     width:18px;
     height:18px;
-    
+
     @media only screen and (min-width: ${breakpoints.medium}) {
     
     }
@@ -66,6 +68,27 @@ border-radius: 50%;
     color: ${(props) => props.theme.colors.yellow};
     background: ${(props) => props.theme.colors.lightYellow};
 
+    @media only screen and (min-width: ${breakpoints.medium}) {
+    
+    }
+`;
+
+export const WrapperUserBlockAvatar = styled.div`
+display:flex;
+justify-content: center;
+align-items:center;
+
+    width:94px;
+    height:94px;
+    border-radius:50%;
+
+    background: ${(props) => props.theme.colors.lightYellow};
+
+    svg{
+        width: 40px;
+        height: 40px;
+    }
+    
     @media only screen and (min-width: ${breakpoints.medium}) {
     
     }

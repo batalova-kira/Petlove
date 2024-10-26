@@ -72,3 +72,15 @@ export const logoutThunk = createAsyncThunk(
         }
     }
 );
+
+export const currentUser = createAsyncThunk(
+    "/users/current",
+    async (_, thunkApi) => {
+        try {
+            const { data } = await instance.get("/users/current/full");
+            return data;
+        } catch (err) {
+            return thunkApi.rejectWithValue(err.message);
+        }
+    }
+);
