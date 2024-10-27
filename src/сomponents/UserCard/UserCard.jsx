@@ -1,9 +1,22 @@
-import React, { useEffect } from 'react'
-import { ContainerUserCard, ContainerUserCardHeader, TextIconUserCard, WrapperEditUserBtn, WrapperIconUserCard, WrapperUserBlockAvatar, WrapperUserBtn } from './UserCard.styled'
-import Icon from '../Icon/Icon'
-import { useDispatch, useSelector } from 'react-redux';
-import { currentUser } from '../../redux/auth/auth-operations';
-import { selectUserData } from '../../redux/auth/auth-selectors';
+import React, { useEffect } from "react";
+import {
+    ContainerUserCard,
+    ContainerUserCardHeader,
+    TextIconUserCard,
+    UserBtnUploadPhoto,
+    UserInformationBlock,
+    UserInformationInput,
+    UserInformationTitle,
+    WrapperEditUserBtn,
+    WrapperIconUserCard,
+    WrapperUserBlock,
+    WrapperUserBlockAvatar,
+    WrapperUserBtn,
+} from "./UserCard.styled";
+import Icon from "../Icon/Icon";
+import { useDispatch, useSelector } from "react-redux";
+import { currentUser } from "../../redux/auth/auth-operations";
+import { selectUserData } from "../../redux/auth/auth-selectors";
 
 export const UserCard = () => {
     const dispatch = useDispatch();
@@ -14,41 +27,56 @@ export const UserCard = () => {
     }, [dispatch]);
 
     const handleEditClick = () => {
-        console.log("User Data:", user); 
+        console.log("User Data:", user);
         // Логіка для відкриття модального вікна редагування
     };
 
-  return (
-    <ContainerUserCard>
-        <ContainerUserCardHeader>
-            <WrapperUserBtn>
-                <TextIconUserCard>User</TextIconUserCard>
-                <WrapperIconUserCard >
-                    <Icon height={18} width={18} name="user-card" />
-                </WrapperIconUserCard>
-            </WrapperUserBtn>
-            <WrapperEditUserBtn>
-            <Icon height={18} width={18} name="edit-card" />
-            </WrapperEditUserBtn>
-        </ContainerUserCardHeader>
-        <div>
-            { user.avatar ? (
-        <img src={user.avatar} alt="User Avatar" />
-    ) : (
-        <WrapperUserBlockAvatar>
-            <Icon name="user-avatar-profile" />
-        </WrapperUserBlockAvatar>
-        
-    )}
-    { user.avatar ? (
-        "none"
-    ) : (
-        <button onClick={handleEditClick}>Upload photo</button>
-    )}
-            
-        </div>
-        
+    return (
+        <ContainerUserCard>
+            <ContainerUserCardHeader>
+                <WrapperUserBtn>
+                    <TextIconUserCard>User</TextIconUserCard>
+                    <WrapperIconUserCard>
+                        <Icon height={18} width={18} name="user-card" />
+                    </WrapperIconUserCard>
+                </WrapperUserBtn>
+                <WrapperEditUserBtn>
+                    <Icon height={18} width={18} name="edit-card" />
+                </WrapperEditUserBtn>
+            </ContainerUserCardHeader>
+            <WrapperUserBlock>
+                {user.avatar ? (
+                    <img src={user.avatar} alt="User Avatar" />
+                ) : (
+                    <WrapperUserBlockAvatar>
+                        <Icon name="user-avatar-profile" />
+                    </WrapperUserBlockAvatar>
+                )}
+                {user.avatar ? (
+                    "none"
+                ) : (
+                    <UserBtnUploadPhoto onClick={handleEditClick}>
+                        Upload photo
+                    </UserBtnUploadPhoto>
+                )}
+            </WrapperUserBlock>
+            <div>
+                <UserInformationTitle>My information</UserInformationTitle>
+                <UserInformationBlock>
+                    <UserInformationInput
+                        value={` ${user.name || "Name"}`}
+                        readOnly
+                    />
+                    <UserInformationInput
+                        value={`${user.email || "name@gmail.com"}`}
+                        readOnly
+                    />
+                    <UserInformationInput
+                        value={` ${user.phone || "+380"}`}
+                        readOnly
+                    />
+                </UserInformationBlock>
+            </div>
         </ContainerUserCard>
-  )
-}
-
+    );
+};
