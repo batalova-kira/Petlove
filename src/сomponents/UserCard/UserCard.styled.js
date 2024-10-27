@@ -159,3 +159,49 @@ export const UserInformationInput = styled.input`
     @media only screen and (min-width: ${breakpoints.medium}) {
     }
 `;
+
+export const UserPetsInformationBlock = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 40px;
+    @media only screen and (min-width: ${breakpoints.medium}) {
+    }
+`;
+
+export const UserPetsInformationTitle = styled.h3`
+    font-weight: var(--font-weight-bold);
+    font-size: 16px;
+
+    line-height: 1.25;
+    color: ${(props) => props.theme.colors.secondaryBlack};
+`;
+
+export const PetsAddBtn = styled.button`
+    display: flex;
+    gap: 4px;
+
+    border-radius: 30px;
+    padding: 10px 16px;
+
+    font-size: 16px;
+    line-height: 1.29;
+    color: ${(props) => props.theme.colors.secondBackground};
+    background: ${(props) => props.theme.colors.yellow};
+`;
+
+export const UserInformationLogout = styled.button`
+    border-radius: 30px;
+    padding: 12px 28px;
+
+    font-weight: var(--font-weight-bold);
+    font-size: 14px;
+
+    line-height: 1.29;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+
+    color: ${(props) => props.theme.colors.yellow};
+    background: ${(props) => props.theme.colors.lightYellow};
+`;

@@ -2,11 +2,15 @@ import React, { useEffect } from "react";
 import {
     ContainerUserCard,
     ContainerUserCardHeader,
+    PetsAddBtn,
     TextIconUserCard,
     UserBtnUploadPhoto,
     UserInformationBlock,
     UserInformationInput,
+    UserInformationLogout,
     UserInformationTitle,
+    UserPetsInformationBlock,
+    UserPetsInformationTitle,
     WrapperEditUserBtn,
     WrapperIconUserCard,
     WrapperUserBlock,
@@ -77,6 +81,13 @@ export const UserCard = () => {
                     />
                 </UserInformationBlock>
             </div>
+            <UserPetsInformationBlock>
+                <UserPetsInformationTitle>My pets</UserPetsInformationTitle>
+                <PetsAddBtn>
+                    Add pet <Icon name="plus" height={18} width={18} />
+                </PetsAddBtn>
+            </UserPetsInformationBlock>
+            <UserInformationLogout>Log out</UserInformationLogout>
         </ContainerUserCard>
     );
 };
