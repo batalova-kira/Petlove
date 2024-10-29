@@ -11,54 +11,49 @@ export const ModalWrapper = ({
     navigateTo,
     $styles,
     modalId,
-  }) => {
+}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-  
+
     useEffect(() => {
-      const handleKeyDown = (event) => {
-        if (event.code === "Escape") {
-          dispatch(closeModal(modalId));
+        const handleKeyDown = (event) => {
+            if (event.code === "Escape") {
+                dispatch(closeModal(modalId));
+            }
+        };
+
+        if (isOpen) {
+            window.addEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "hidden";
         }
-      };
-  
-      if (isOpen) {
-        window.addEventListener("keydown", handleKeyDown);
-        document.body.style.overflow = "hidden";
-      }
-  
-      return () => {
-        window.removeEventListener("keydown", handleKeyDown);
-        document.body.style.overflow = "auto";
-      };
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "auto";
+        };
     }, [dispatch, isOpen, title, children, modalId]);
-  
+
     const handleOverlayClick = (e) => {
-      if (e.target === e.currentTarget) {
-        dispatch(closeModal(modalId));
-      }
+        if (e.target === e.currentTarget) {
+            dispatch(closeModal(modalId));
+        }
     };
-  
+
     const handleCloseModal = () => {
-      dispatch(closeModal(modalId));
-      if (navigateTo === "/notices") {
-        navigate("/notices");
-      } else {
-        navigate("/");
-      }
+        dispatch(closeModal(modalId));
+        if (navigateTo) {
+            navigate(navigateTo);
+        }
     };
-  
+
     return (
-      isOpen && (
-        <StyledModal
-          onClick={handleOverlayClick}
-          $styles={$styles}
-        >
-          <div className="modal">
-          <BtnClose onClick={handleCloseModal} />
-            {children}
-          </div>
-        </StyledModal>
-      )
+        isOpen && (
+            <StyledModal onClick={handleOverlayClick} $styles={$styles}>
+                <div className="modal">
+                    <BtnClose onClick={handleCloseModal} />
+                    {children}
+                </div>
+            </StyledModal>
+        )
     );
-  };
+};

@@ -21,10 +21,16 @@ import Icon from "../Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUser } from "../../redux/auth/auth-operations";
 import { selectUserData } from "../../redux/auth/auth-selectors";
+import { openModal } from "../../redux/modal/modalSlice";
+import { selectIsModalOpen } from "../../redux/modal/modal.selectors";
+import { ModalEditUser } from "../ModalEditUser/ModalEditUser";
 
 export const UserCard = () => {
     const dispatch = useDispatch();
     const user = useSelector(selectUserData);
+    const isModalOpen = useSelector((state) =>
+        selectIsModalOpen(state, "editUserModal")
+    );
 
     useEffect(() => {
         dispatch(currentUser()); // Виконуємо запит при завантаженні компонента
@@ -33,6 +39,7 @@ export const UserCard = () => {
     const handleEditClick = () => {
         console.log("User Data:", user);
         // Логіка для відкриття модального вікна редагування
+        dispatch(openModal("editUserModal"));
     };
 
     return (
@@ -44,7 +51,7 @@ export const UserCard = () => {
                         <Icon height={18} width={18} name="user-card" />
                     </WrapperIconUserCard>
                 </WrapperUserBtn>
-                <WrapperEditUserBtn>
+                <WrapperEditUserBtn onClick={() => handleEditClick()}>
                     <Icon height={18} width={18} name="edit-card" />
                 </WrapperEditUserBtn>
             </ContainerUserCardHeader>
@@ -59,7 +66,7 @@ export const UserCard = () => {
                 {user.avatar ? (
                     "none"
                 ) : (
-                    <UserBtnUploadPhoto onClick={handleEditClick}>
+                    <UserBtnUploadPhoto onClick={() => handleEditClick()}>
                         Upload photo
                     </UserBtnUploadPhoto>
                 )}
@@ -88,6 +95,9 @@ export const UserCard = () => {
                 </PetsAddBtn>
             </UserPetsInformationBlock>
             <UserInformationLogout>Log out</UserInformationLogout>
+            {isModalOpen && (
+                <ModalEditUser isOpen={isModalOpen} modalId="editUserModal" />
+            )}
         </ContainerUserCard>
     );
 };

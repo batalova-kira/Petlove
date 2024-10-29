@@ -189,6 +189,11 @@ export const PetsAddBtn = styled.button`
     line-height: 1.29;
     color: ${(props) => props.theme.colors.secondBackground};
     background: ${(props) => props.theme.colors.yellow};
+
+    &:focus,
+    &:hover {
+        background: ${(props) => props.theme.colors.secondaryHoverYellow};
+    }
 `;
 
 export const UserInformationLogout = styled.button`
@@ -204,4 +209,9 @@ export const UserInformationLogout = styled.button`
 
     color: ${(props) => props.theme.colors.yellow};
     background: ${(props) => props.theme.colors.lightYellow};
+
+    &:focus,
+    &:hover {
+        background: ${(props) => props.theme.colors.hoverYellow};
+    }
 `;
