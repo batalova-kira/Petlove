@@ -117,9 +117,15 @@ export const BtnUploadPhoto = styled.button`
     border-radius: 30px;
     padding: 12px;
 
-    color: ${(props) => props.theme.colors.yellow};
     background: ${(props) => props.theme.colors.lightYellow};
     border: 1px solid transparent;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+    }
+`;
+
+export const WrapperUploadPhotoSvg = styled.div`
+    color: ${(props) => props.theme.colors.yellow};
 
     svg {
         width: 18px;

@@ -15,6 +15,7 @@ import {
     UserModalAvatar,
     UserModalContainer,
     UserModalTitle,
+    WrapperUploadPhotoSvg,
     WrapperUserLoadPhoto,
     WrapperUserModalAvatar,
 } from "./ModalEditUser.styled";
@@ -60,7 +61,9 @@ export const ModalEditUser = ({ isOpen, modalId }) => {
                     />
                     <BtnUploadPhoto onClick={handleUpdateAvatar}>
                         <BtnUploadPhotoTitle>Upload photo</BtnUploadPhotoTitle>
-                        <Icon name="loading" />
+                        <WrapperUploadPhotoSvg>
+                            <Icon name="loading" />
+                        </WrapperUploadPhotoSvg>
                     </BtnUploadPhoto>
                 </WrapperUserLoadPhoto>
             </UserModalContainer>
