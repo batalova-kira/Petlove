@@ -15,6 +15,7 @@ import {
     WrapperIconUserCard,
     WrapperUserBlock,
     WrapperUserBlockAvatar,
+    WrapperUserBlockImg,
     WrapperUserBtn,
 } from "./UserCard.styled";
 import Icon from "../Icon/Icon";
@@ -57,14 +58,16 @@ export const UserCard = () => {
             </ContainerUserCardHeader>
             <WrapperUserBlock>
                 {user.avatar ? (
-                    <img src={user.avatar} alt="User Avatar" />
+                    <WrapperUserBlockImg>
+                        <img src={user.avatar} alt="User Avatar" />
+                    </WrapperUserBlockImg>
                 ) : (
                     <WrapperUserBlockAvatar>
                         <Icon name="user-avatar-profile" />
                     </WrapperUserBlockAvatar>
                 )}
                 {user.avatar ? (
-                    "none"
+                    ""
                 ) : (
                     <UserBtnUploadPhoto onClick={() => handleEditClick()}>
                         Upload photo

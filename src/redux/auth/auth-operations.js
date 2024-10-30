@@ -16,7 +16,7 @@ export const loginThunk = createAsyncThunk(
             const { data } = await instance.post("/users/signin", formData);
             setToken(data.token);
             console.log(data);
-            
+
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);
@@ -78,6 +78,20 @@ export const currentUser = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get("/users/current/full");
+            return data;
+        } catch (err) {
+            return thunkApi.rejectWithValue(err.message);
+        }
+    }
+);
+
+export const updateUserAvatar = createAsyncThunk(
+    "/users/current/edit",
+    async (newAvatarUrl, thunkApi) => {
+        try {
+            const { data } = await instance.patch("/users/current/edit", {
+                avatar: newAvatarUrl,
+            });
             return data;
         } catch (err) {
             return thunkApi.rejectWithValue(err.message);

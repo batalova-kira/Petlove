@@ -1,15 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { stylesAttention } from "../AttentionModal/AttentionModal.styled";
 import { ModalWrapper } from "../ModalWrapper/ModalWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserData } from "../../redux/auth/auth-selectors";
-import { currentUser } from "../../redux/auth/auth-operations";
+import {
+    currentUser,
+    updateUserAvatar,
+} from "../../redux/auth/auth-operations";
 import Icon from "../Icon/Icon";
-import { WrapperUserModalAvatar } from "./ModalEditUser.styled";
+import {
+    BtnUploadPhoto,
+    BtnUploadPhotoTitle,
+    InputUrlPhoto,
+    UserModalAvatar,
+    UserModalContainer,
+    UserModalTitle,
+    WrapperUserLoadPhoto,
+    WrapperUserModalAvatar,
+} from "./ModalEditUser.styled";
 
 export const ModalEditUser = ({ isOpen, modalId }) => {
     const dispatch = useDispatch();
     const user = useSelector(selectUserData);
+
+    const [inputValue, setInputValue] = useState("");
+
+    const handleUpdateAvatar = () => {
+        dispatch(updateUserAvatar(inputValue));
+    };
 
     useEffect(() => {
         dispatch(currentUser()); // Виконуємо запит при завантаженні компонента
@@ -22,14 +40,30 @@ export const ModalEditUser = ({ isOpen, modalId }) => {
             $styles={stylesAttention}
             modalId={modalId}
         >
-            <h2>Edit information</h2>
-            {user.avatar ? (
-                <img src={user.avatar} alt="User Avatar" />
-            ) : (
-                <WrapperUserModalAvatar>
-                    <Icon name="user-avatar-profile" />
-                </WrapperUserModalAvatar>
-            )}
+            <UserModalContainer>
+                <UserModalTitle>Edit information</UserModalTitle>
+                {user.avatar ? (
+                    <UserModalAvatar>
+                        <img src={user.avatar} alt="User Avatar" />
+                    </UserModalAvatar>
+                ) : (
+                    <WrapperUserModalAvatar>
+                        <Icon name="user-avatar-profile" />
+                    </WrapperUserModalAvatar>
+                )}
+                <WrapperUserLoadPhoto>
+                    <InputUrlPhoto
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        placeholder="Введіть URL аватара"
+                    />
+                    <BtnUploadPhoto onClick={handleUpdateAvatar}>
+                        <BtnUploadPhotoTitle>Upload photo</BtnUploadPhotoTitle>
+                        <Icon name="cloud" height={18} width={18} />
+                    </BtnUploadPhoto>
+                </WrapperUserLoadPhoto>
+            </UserModalContainer>
         </ModalWrapper>
     );
 };

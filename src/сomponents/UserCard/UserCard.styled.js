@@ -79,6 +79,21 @@ export const WrapperUserBlock = styled.div`
     }
 `;
 
+export const WrapperUserBlockImg = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+
+    width: 94px;
+    height: 94px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+    }
+`;
+
 export const WrapperUserBlockAvatar = styled.div`
     display: flex;
     justify-content: center;
@@ -101,7 +116,6 @@ export const WrapperUserBlockAvatar = styled.div`
 `;
 
 export const UserBtnUploadPhoto = styled.button`
-    font-weight: 500;
     font-size: 12px;
 
     line-height: 1.33;

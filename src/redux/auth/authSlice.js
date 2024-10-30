@@ -5,6 +5,7 @@ import {
     logoutThunk,
     refreshThunk,
     registerThunk,
+    updateUserAvatar,
 } from "./auth-operations";
 
 const initialState = {
@@ -53,9 +54,13 @@ const authSlice = createSlice({
                 state.token = null;
                 state.userData = null;
             })
-            .addCase(currentUser.fulfilled, (state,{ payload }) => {
+            .addCase(currentUser.fulfilled, (state, { payload }) => {
                 state.loading = false;
                 state.userData = payload;
+            })
+            .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
+                // Оновлюємо аватар у стані користувача
+                state.userData.avatar = payload.avatar; // Припускаємо, що ви отримуєте новий аватар у відповіді
             })
             .addMatcher(
                 isAnyOf(
@@ -63,7 +68,8 @@ const authSlice = createSlice({
                     registerThunk.pending,
                     refreshThunk.pending,
                     logoutThunk.pending,
-                    currentUser.pending
+                    currentUser.pending,
+                    updateUserAvatar.pending
                 ),
                 (state) => {
                     state.isLoading = true;
@@ -76,7 +82,8 @@ const authSlice = createSlice({
                     registerThunk.rejected,
                     refreshThunk.rejected,
                     logoutThunk.rejected,
-                    currentUser.rejected
+                    currentUser.rejected,
+                    updateUserAvatar.rejected
                 ),
                 (state, { payload }) => {
                     state.isLoading = false;
