@@ -1,4 +1,4 @@
-import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}from"./index-o0Cm9TaK.js";import{M as b,a as j,e as $}from"./AttentionModal.styled-D7Les6dO.js";const v=o.div`
+import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}from"./index-DHidgmV3.js";import{M as b,a as j,e as $}from"./AttentionModal.styled-BCqprv3w.js";const v=o.div`
     width: 100%;
     padding: 18px 20px 40px 20px;
 
@@ -227,7 +227,7 @@ import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     @media only screen and (min-width: ${n.medium}) {
     }
-`,F=o.div`
+`,S=o.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,7 +246,7 @@ import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     @media only screen and (min-width: ${n.medium}) {
     }
-`,R=o.div`
+`,F=o.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -255,7 +255,7 @@ import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     @media only screen and (min-width: ${n.medium}) {
     }
-`,S=o.input`
+`,R=o.input`
     border: 1px solid #f6b83d;
     border-radius: 30px;
     padding: 13px 39px 13px 12px;
@@ -295,9 +295,13 @@ import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     border-radius: 30px;
     padding: 12px;
 
-    color: ${e=>e.theme.colors.yellow};
     background: ${e=>e.theme.colors.lightYellow};
     border: 1px solid transparent;
+
+    @media only screen and (min-width: ${n.medium}) {
+    }
+`,q=o.div`
+    color: ${e=>e.theme.colors.yellow};
 
     svg {
         width: 18px;
@@ -307,4 +311,4 @@ import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     @media only screen and (min-width: ${n.medium}) {
     }
-`,q=({isOpen:e,modalId:i})=>{const r=h(),a=c(p),[d,u]=m.useState(""),g=()=>{r(w(d))};return m.useEffect(()=>{r(x())},[r]),t.jsx(b,{navigateTo:"/profile",isOpen:e,$styles:j,modalId:i,children:t.jsxs(D,{children:[t.jsx(G,{children:"Edit information"}),a.avatar?t.jsx(H,{children:t.jsx("img",{src:a.avatar,alt:"User Avatar"})}):t.jsx(F,{children:t.jsx(s,{name:"user-avatar-profile"})}),t.jsxs(R,{children:[t.jsx(S,{type:"text",value:d,onChange:f=>u(f.target.value),placeholder:"Введіть URL аватара"}),t.jsxs(N,{onClick:g,children:[t.jsx(V,{children:"Upload photo"}),t.jsx(s,{name:"loading"})]})]})]})})},J=()=>{const e=h(),i=c(p),r=c(d=>$(d,"editUserModal"));m.useEffect(()=>{e(x())},[e]);const a=()=>{console.log("User Data:",i),e(y("editUserModal"))};return t.jsxs(v,{children:[t.jsxs(U,{children:[t.jsxs(k,{children:[t.jsx(B,{children:"User"}),t.jsx(I,{children:t.jsx(s,{height:18,width:18,name:"user-card"})})]}),t.jsx(M,{onClick:()=>a(),children:t.jsx(s,{height:18,width:18,name:"edit-card"})})]}),t.jsxs(C,{children:[i.avatar?t.jsx(z,{children:t.jsx("img",{src:i.avatar,alt:"User Avatar"})}):t.jsx(A,{children:t.jsx(s,{name:"user-avatar-profile"})}),i.avatar?"":t.jsx(P,{onClick:()=>a(),children:"Upload photo"})]}),t.jsxs("div",{children:[t.jsx(W,{children:"My information"}),t.jsxs(E,{children:[t.jsx(l,{value:` ${i.name||"Name"}`,readOnly:!0}),t.jsx(l,{value:`${i.email||"name@gmail.com"}`,readOnly:!0}),t.jsx(l,{value:` ${i.phone||"+380"}`,readOnly:!0})]})]}),t.jsxs(Y,{children:[t.jsx(O,{children:"My pets"}),t.jsxs(T,{children:["Add pet ",t.jsx(s,{name:"plus",height:18,width:18})]})]}),t.jsx(L,{children:"Log out"}),r&&t.jsx(q,{isOpen:r,modalId:"editUserModal"})]})},X=()=>t.jsx(t.Fragment,{children:t.jsx(J,{})});export{X as default};
+`,J=({isOpen:e,modalId:i})=>{const r=h(),d=c(p),[a,u]=m.useState(""),g=()=>{r(w(a))};return m.useEffect(()=>{r(x())},[r]),t.jsx(b,{navigateTo:"/profile",isOpen:e,$styles:j,modalId:i,children:t.jsxs(D,{children:[t.jsx(G,{children:"Edit information"}),d.avatar?t.jsx(H,{children:t.jsx("img",{src:d.avatar,alt:"User Avatar"})}):t.jsx(S,{children:t.jsx(s,{name:"user-avatar-profile"})}),t.jsxs(F,{children:[t.jsx(R,{type:"text",value:a,onChange:f=>u(f.target.value),placeholder:"Введіть URL аватара"}),t.jsxs(N,{onClick:g,children:[t.jsx(V,{children:"Upload photo"}),t.jsx(q,{children:t.jsx(s,{name:"loading"})})]})]})]})})},K=()=>{const e=h(),i=c(p),r=c(a=>$(a,"editUserModal"));m.useEffect(()=>{e(x())},[e]);const d=()=>{console.log("User Data:",i),e(y("editUserModal"))};return t.jsxs(v,{children:[t.jsxs(U,{children:[t.jsxs(k,{children:[t.jsx(B,{children:"User"}),t.jsx(I,{children:t.jsx(s,{height:18,width:18,name:"user-card"})})]}),t.jsx(M,{onClick:()=>d(),children:t.jsx(s,{height:18,width:18,name:"edit-card"})})]}),t.jsxs(C,{children:[i.avatar?t.jsx(z,{children:t.jsx("img",{src:i.avatar,alt:"User Avatar"})}):t.jsx(A,{children:t.jsx(s,{name:"user-avatar-profile"})}),i.avatar?"":t.jsx(P,{onClick:()=>d(),children:"Upload photo"})]}),t.jsxs("div",{children:[t.jsx(W,{children:"My information"}),t.jsxs(E,{children:[t.jsx(l,{value:` ${i.name||"Name"}`,readOnly:!0}),t.jsx(l,{value:`${i.email||"name@gmail.com"}`,readOnly:!0}),t.jsx(l,{value:` ${i.phone||"+380"}`,readOnly:!0})]})]}),t.jsxs(Y,{children:[t.jsx(O,{children:"My pets"}),t.jsxs(T,{children:["Add pet ",t.jsx(s,{name:"plus",height:18,width:18})]})]}),t.jsx(L,{children:"Log out"}),r&&t.jsx(J,{isOpen:r,modalId:"editUserModal"})]})},Z=()=>t.jsx(t.Fragment,{children:t.jsx(K,{})});export{Z as default};
