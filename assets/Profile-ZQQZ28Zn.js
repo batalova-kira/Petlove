@@ -1,21 +1,21 @@
-import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}from"./index-CFQY2nKW.js";import{M as b,a as j,e as $}from"./AttentionModal.styled-DG-Z1Kh4.js";const v=n.div`
+import{u as o,b as n,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}from"./index-oc3VbXtb.js";import{M as b,a as j,e as $}from"./AttentionModal.styled-SS4GKvRq.js";const v=o.div`
     width: 100%;
     padding: 18px 20px 40px 20px;
 
     border-radius: 30px;
     background: ${e=>e.theme.colors.secondBackground};
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,U=n.div`
+`,U=o.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,k=n.button`
+`,k=o.button`
     display: flex;
     flex-direction: row;
     gap: 4px;
@@ -26,21 +26,21 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     color: ${e=>e.theme.colors.secondBackground};
     background: ${e=>e.theme.colors.yellow};
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,B=n.p`
+`,B=o.p`
     font-weight: 500;
     font-size: 14px;
 
     line-height: 1.29;
     letter-spacing: -0.02em;
-`,I=n.div`
+`,I=o.div`
     width: 18px;
     height: 18px;
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,M=n.button`
+`,M=o.button`
     display: flex;
     align-items: center;
 
@@ -50,9 +50,9 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     color: ${e=>e.theme.colors.yellow};
     background: ${e=>e.theme.colors.lightYellow};
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,C=n.div`
+`,C=o.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,9 +60,9 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     margin-bottom: 28px;
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,A=n.div`
+`,z=o.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,9 +73,9 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     border-radius: 50%;
     overflow: hidden;
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,z=n.div`
+`,A=o.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,9 +92,9 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
         height: 40px;
     }
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,P=n.button`
+`,P=o.button`
     font-size: 12px;
 
     line-height: 1.33;
@@ -103,9 +103,9 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     text-decoration-skip-ink: none;
     color: ${e=>e.theme.colors.black};
     background: none;
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,W=n.h3`
+`,W=o.h3`
     margin-bottom: 20px;
 
     font-weight: var(--font-weight-bold);
@@ -114,17 +114,17 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     color: ${e=>e.theme.colors.secondaryBlack};
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,E=n.div`
+`,E=o.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
 
     margin-bottom: 40px;
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,l=n.input`
+`,l=o.input`
     width: 100%;
 
     border: 1px solid ${e=>e.theme.colors.lightestGrey};
@@ -143,23 +143,23 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
         outline: none;
         border: 1px solid ${e=>e.theme.colors.yellow};
     }
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,Y=n.div`
+`,Y=o.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     margin-bottom: 40px;
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,O=n.h3`
+`,O=o.h3`
     font-weight: var(--font-weight-bold);
     font-size: 16px;
 
     line-height: 1.25;
     color: ${e=>e.theme.colors.secondaryBlack};
-`,T=n.button`
+`,T=o.button`
     display: flex;
     gap: 4px;
 
@@ -175,7 +175,7 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     &:hover {
         background: ${e=>e.theme.colors.secondaryHoverYellow};
     }
-`,L=n.button`
+`,L=o.button`
     border-radius: 30px;
     padding: 12px 28px;
 
@@ -193,15 +193,15 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     &:hover {
         background: ${e=>e.theme.colors.hoverYellow};
     }
-`,D=n.div`
+`,D=o.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,H=n.h2`
+`,G=o.h2`
     margin-bottom: 20px;
 
     font-weight: var(--font-weight-bold);
@@ -210,9 +210,9 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     color: ${e=>e.theme.colors.secondaryBlack};
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,F=n.div`
+`,H=o.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,9 +225,9 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
 
     /* color: ${e=>e.theme.colors.secondaryBlack}; */
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,G=n.div`
+`,F=o.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,18 +244,18 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
         height: 40px;
     }
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,R=n.div`
+`,R=o.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 8px;
 
-    @media only screen and (min-width: ${o.medium}) {
+    @media only screen and (min-width: ${n.medium}) {
     }
-`,S=n.input`
+`,S=o.input`
     border: 1px solid #f6b83d;
     border-radius: 30px;
     padding: 13px 39px 13px 12px;
@@ -265,19 +265,29 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     overflow: hidden;
     text-overflow: ellipsis;
 
-    @media only screen and (min-width: ${o.medium}) {
-    }
-`,V=n.span`
-    font-weight: 500;
     font-size: 12px;
 
     line-height: 1.33;
     letter-spacing: -0.02em;
     color: ${e=>e.theme.colors.black};
 
-    @media only screen and (min-width: ${o.medium}) {
+    &::placeholder {
+        font-size: 12px;
+        color: ${e=>e.theme.colors.lightGrey};
     }
-`,N=n.button`
+
+    @media only screen and (min-width: ${n.medium}) {
+    }
+`,V=o.span`
+    font-size: 12px;
+
+    line-height: 1.33;
+    letter-spacing: -0.02em;
+    color: ${e=>e.theme.colors.black};
+
+    @media only screen and (min-width: ${n.medium}) {
+    }
+`,N=o.button`
     display: flex;
     align-items: center;
     gap: 8px;
@@ -289,6 +299,12 @@ import{u as n,b as o,a as h,c,F as p,r as m,G as x,j as t,I as s,H as w,o as y}f
     background: ${e=>e.theme.colors.lightYellow};
     border: 1px solid transparent;
 
-    @media only screen and (min-width: ${o.medium}) {
+    svg {
+        width: 18px;
+        height: 18px;
+        color: inherit;
     }
-`,q=({isOpen:e,modalId:i})=>{const r=h(),d=c(p),[a,u]=m.useState(""),g=()=>{r(w(a))};return m.useEffect(()=>{r(x())},[r]),t.jsx(b,{navigateTo:"/profile",isOpen:e,$styles:j,modalId:i,children:t.jsxs(D,{children:[t.jsx(H,{children:"Edit information"}),d.avatar?t.jsx(F,{children:t.jsx("img",{src:d.avatar,alt:"User Avatar"})}):t.jsx(G,{children:t.jsx(s,{name:"user-avatar-profile"})}),t.jsxs(R,{children:[t.jsx(S,{type:"text",value:a,onChange:f=>u(f.target.value),placeholder:"Введіть URL аватара"}),t.jsxs(N,{onClick:g,children:[t.jsx(V,{children:"Upload photo"}),t.jsx(s,{name:"cloud",height:18,width:18})]})]})]})})},J=()=>{const e=h(),i=c(p),r=c(a=>$(a,"editUserModal"));m.useEffect(()=>{e(x())},[e]);const d=()=>{console.log("User Data:",i),e(y("editUserModal"))};return t.jsxs(v,{children:[t.jsxs(U,{children:[t.jsxs(k,{children:[t.jsx(B,{children:"User"}),t.jsx(I,{children:t.jsx(s,{height:18,width:18,name:"user-card"})})]}),t.jsx(M,{onClick:()=>d(),children:t.jsx(s,{height:18,width:18,name:"edit-card"})})]}),t.jsxs(C,{children:[i.avatar?t.jsx(A,{children:t.jsx("img",{src:i.avatar,alt:"User Avatar"})}):t.jsx(z,{children:t.jsx(s,{name:"user-avatar-profile"})}),i.avatar?"":t.jsx(P,{onClick:()=>d(),children:"Upload photo"})]}),t.jsxs("div",{children:[t.jsx(W,{children:"My information"}),t.jsxs(E,{children:[t.jsx(l,{value:` ${i.name||"Name"}`,readOnly:!0}),t.jsx(l,{value:`${i.email||"name@gmail.com"}`,readOnly:!0}),t.jsx(l,{value:` ${i.phone||"+380"}`,readOnly:!0})]})]}),t.jsxs(Y,{children:[t.jsx(O,{children:"My pets"}),t.jsxs(T,{children:["Add pet ",t.jsx(s,{name:"plus",height:18,width:18})]})]}),t.jsx(L,{children:"Log out"}),r&&t.jsx(q,{isOpen:r,modalId:"editUserModal"})]})},X=()=>t.jsx(t.Fragment,{children:t.jsx(J,{})});export{X as default};
+
+    @media only screen and (min-width: ${n.medium}) {
+    }
+`,q=({isOpen:e,modalId:i})=>{const r=h(),a=c(p),[d,u]=m.useState(""),g=()=>{r(w(d))};return m.useEffect(()=>{r(x())},[r]),t.jsx(b,{navigateTo:"/profile",isOpen:e,$styles:j,modalId:i,children:t.jsxs(D,{children:[t.jsx(G,{children:"Edit information"}),a.avatar?t.jsx(H,{children:t.jsx("img",{src:a.avatar,alt:"User Avatar"})}):t.jsx(F,{children:t.jsx(s,{name:"user-avatar-profile"})}),t.jsxs(R,{children:[t.jsx(S,{type:"text",value:d,onChange:f=>u(f.target.value),placeholder:"Введіть URL аватара"}),t.jsxs(N,{onClick:g,children:[t.jsx(V,{children:"Upload photo"}),t.jsx(s,{name:"cloud"})]})]})]})})},J=()=>{const e=h(),i=c(p),r=c(d=>$(d,"editUserModal"));m.useEffect(()=>{e(x())},[e]);const a=()=>{console.log("User Data:",i),e(y("editUserModal"))};return t.jsxs(v,{children:[t.jsxs(U,{children:[t.jsxs(k,{children:[t.jsx(B,{children:"User"}),t.jsx(I,{children:t.jsx(s,{height:18,width:18,name:"user-card"})})]}),t.jsx(M,{onClick:()=>a(),children:t.jsx(s,{height:18,width:18,name:"edit-card"})})]}),t.jsxs(C,{children:[i.avatar?t.jsx(z,{children:t.jsx("img",{src:i.avatar,alt:"User Avatar"})}):t.jsx(A,{children:t.jsx(s,{name:"user-avatar-profile"})}),i.avatar?"":t.jsx(P,{onClick:()=>a(),children:"Upload photo"})]}),t.jsxs("div",{children:[t.jsx(W,{children:"My information"}),t.jsxs(E,{children:[t.jsx(l,{value:` ${i.name||"Name"}`,readOnly:!0}),t.jsx(l,{value:`${i.email||"name@gmail.com"}`,readOnly:!0}),t.jsx(l,{value:` ${i.phone||"+380"}`,readOnly:!0})]})]}),t.jsxs(Y,{children:[t.jsx(O,{children:"My pets"}),t.jsxs(T,{children:["Add pet ",t.jsx(s,{name:"plus",height:18,width:18})]})]}),t.jsx(L,{children:"Log out"}),r&&t.jsx(q,{isOpen:r,modalId:"editUserModal"})]})},X=()=>t.jsx(t.Fragment,{children:t.jsx(J,{})});export{X as default};
