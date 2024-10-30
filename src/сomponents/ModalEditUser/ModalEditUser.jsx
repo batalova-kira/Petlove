@@ -60,7 +60,7 @@ export const ModalEditUser = ({ isOpen, modalId }) => {
                     />
                     <BtnUploadPhoto onClick={handleUpdateAvatar}>
                         <BtnUploadPhotoTitle>Upload photo</BtnUploadPhotoTitle>
-                        <Icon name="cloud" height={18} width={18} />
+                        <Icon name="cloud" />
                     </BtnUploadPhoto>
                 </WrapperUserLoadPhoto>
             </UserModalContainer>

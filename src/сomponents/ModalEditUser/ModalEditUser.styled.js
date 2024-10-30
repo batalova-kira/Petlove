@@ -83,12 +83,22 @@ export const InputUrlPhoto = styled.input`
     overflow: hidden;
     text-overflow: ellipsis;
 
+    font-size: 12px;
+
+    line-height: 1.33;
+    letter-spacing: -0.02em;
+    color: ${(props) => props.theme.colors.black};
+
+    &::placeholder {
+        font-size: 12px;
+        color: ${(props) => props.theme.colors.lightGrey};
+    }
+
     @media only screen and (min-width: ${breakpoints.medium}) {
     }
 `;
 
 export const BtnUploadPhotoTitle = styled.span`
-    font-weight: 500;
     font-size: 12px;
 
     line-height: 1.33;
@@ -110,6 +120,12 @@ export const BtnUploadPhoto = styled.button`
     color: ${(props) => props.theme.colors.yellow};
     background: ${(props) => props.theme.colors.lightYellow};
     border: 1px solid transparent;
+
+    svg {
+        width: 18px;
+        height: 18px;
+        color: inherit;
+    }
 
     @media only screen and (min-width: ${breakpoints.medium}) {
     }
