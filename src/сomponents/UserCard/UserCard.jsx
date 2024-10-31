@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     ContainerUserCard,
     ContainerUserCardHeader,
@@ -21,7 +21,10 @@ import {
 import Icon from "../Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUser } from "../../redux/auth/auth-operations";
-import { selectUserData } from "../../redux/auth/auth-selectors";
+import {
+    selectAuthenticated,
+    selectUserData,
+} from "../../redux/auth/auth-selectors";
 import { openModal } from "../../redux/modal/modalSlice";
 import { selectIsModalOpen } from "../../redux/modal/modal.selectors";
 import { ModalEditUser } from "../ModalEditUser/ModalEditUser";
@@ -29,18 +32,26 @@ import { ModalEditUser } from "../ModalEditUser/ModalEditUser";
 export const UserCard = () => {
     const dispatch = useDispatch();
     const user = useSelector(selectUserData);
+    const authenticated = useSelector(selectAuthenticated);
     const isModalOpen = useSelector((state) =>
         selectIsModalOpen(state, "editUserModal")
     );
 
     useEffect(() => {
-        dispatch(currentUser()); // Виконуємо запит при завантаженні компонента
-    }, [dispatch]);
+        if (authenticated) {
+            dispatch(currentUser()); // Отримання даних користувача
+        }
+    }, [dispatch, authenticated]);
 
     const handleEditClick = () => {
         console.log("User Data:", user);
         // Логіка для відкриття модального вікна редагування
         dispatch(openModal("editUserModal"));
+    };
+
+    // Функція для перевірки дійсності URL аватарки
+    const isValidAvatarUrl = (url) => {
+        return url && (url.startsWith("http://") || url.startsWith("https://"));
     };
 
     return (
@@ -57,21 +68,19 @@ export const UserCard = () => {
                 </WrapperEditUserBtn>
             </ContainerUserCardHeader>
             <WrapperUserBlock>
-                {user.avatar ? (
+                {isValidAvatarUrl(user.avatar) ? (
                     <WrapperUserBlockImg>
                         <img src={user.avatar} alt="User Avatar" />
                     </WrapperUserBlockImg>
                 ) : (
-                    <WrapperUserBlockAvatar>
-                        <Icon name="user-avatar-profile" />
-                    </WrapperUserBlockAvatar>
-                )}
-                {user.avatar ? (
-                    ""
-                ) : (
-                    <UserBtnUploadPhoto onClick={() => handleEditClick()}>
-                        Upload photo
-                    </UserBtnUploadPhoto>
+                    <>
+                        <WrapperUserBlockAvatar>
+                            <Icon name="user-avatar-profile" />
+                        </WrapperUserBlockAvatar>
+                        <UserBtnUploadPhoto onClick={handleEditClick}>
+                            Upload photo
+                        </UserBtnUploadPhoto>
+                    </>
                 )}
             </WrapperUserBlock>
             <div>

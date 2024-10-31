@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { breakpoints } from "../../constants/breakpoints";
 
+export const stylesEditUser = {
+    modalWidth: "335px",
+    modalPadding: "40px 20px",
+    mediumModalWidth: "480px",
+    mediumModalPadding: "50px",
+};
+
 export const UserModalContainer = styled.div`
     display: flex;
     flex-direction: column;

@@ -12,6 +12,7 @@ import {
     BtnUploadPhoto,
     BtnUploadPhotoTitle,
     InputUrlPhoto,
+    stylesEditUser,
     UserModalAvatar,
     UserModalContainer,
     UserModalTitle,
@@ -38,7 +39,7 @@ export const ModalEditUser = ({ isOpen, modalId }) => {
         <ModalWrapper
             navigateTo="/profile"
             isOpen={isOpen}
-            $styles={stylesAttention}
+            $styles={stylesEditUser}
             modalId={modalId}
         >
             <UserModalContainer>

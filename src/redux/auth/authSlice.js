@@ -30,8 +30,10 @@ const authSlice = createSlice({
                 state.authenticated = true;
                 state.token = payload.token;
                 state.userData = {
+                    ...state.userData,
                     email: payload.email,
                     name: payload.name,
+                    avatar: payload.avatar,
                 };
             })
             .addCase(registerThunk.fulfilled, (state, { payload }) => {
@@ -57,10 +59,11 @@ const authSlice = createSlice({
             .addCase(currentUser.fulfilled, (state, { payload }) => {
                 state.loading = false;
                 state.userData = payload;
+                state.authenticated = true;
             })
             .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
                 // Оновлюємо аватар у стані користувача
-                state.userData.avatar = payload.avatar; // Припускаємо, що ви отримуєте новий аватар у відповіді
+                state.userData.avatar = payload.avatar;
             })
             .addMatcher(
                 isAnyOf(
