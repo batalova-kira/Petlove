@@ -5,7 +5,8 @@ import {
     logoutThunk,
     refreshThunk,
     registerThunk,
-    updateUserAvatar,
+    updateAvatar,
+    updateUser,
 } from "./auth-operations";
 
 const initialState = {
@@ -61,9 +62,13 @@ const authSlice = createSlice({
                 state.userData = payload;
                 state.authenticated = true;
             })
-            .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
-                // Оновлюємо аватар у стані користувача
-                state.userData.avatar = payload.avatar;
+            .addCase(updateUser.fulfilled, (state, { payload }) => {
+                state.loading = false;
+                state.data = { ...state.data, ...payload }; // Оновлюємо дані користувача
+            })
+            .addCase(updateAvatar.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.data.avatar = payload.avatar; // оновлюємо аватар у стані
             })
             .addMatcher(
                 isAnyOf(
@@ -72,7 +77,8 @@ const authSlice = createSlice({
                     refreshThunk.pending,
                     logoutThunk.pending,
                     currentUser.pending,
-                    updateUserAvatar.pending
+                    updateUser.pending,
+                    updateAvatar.pending
                 ),
                 (state) => {
                     state.isLoading = true;
@@ -86,7 +92,8 @@ const authSlice = createSlice({
                     refreshThunk.rejected,
                     logoutThunk.rejected,
                     currentUser.rejected,
-                    updateUserAvatar.rejected
+                    updateUser.rejected,
+                    updateAvatar.rejected
                 ),
                 (state, { payload }) => {
                     state.isLoading = false;

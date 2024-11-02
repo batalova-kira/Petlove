@@ -63,6 +63,11 @@ export const WrapperEditUserBtn = styled.button`
     color: ${(props) => props.theme.colors.yellow};
     background: ${(props) => props.theme.colors.lightYellow};
 
+    &:focus,
+    &:hover {
+        background: ${(props) => props.theme.colors.hoverYellow};
+    }
+
     @media only screen and (min-width: ${breakpoints.medium}) {
     }
 `;

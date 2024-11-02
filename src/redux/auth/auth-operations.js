@@ -85,16 +85,31 @@ export const currentUser = createAsyncThunk(
     }
 );
 
-export const updateUserAvatar = createAsyncThunk(
-    "/users/current/edit",
-    async (newAvatarUrl, thunkApi) => {
+export const updateUser = createAsyncThunk(
+    "user/updateUser",
+    async (userData, { rejectWithValue }) => {
         try {
-            const { data } = await instance.patch("/users/current/edit", {
-                avatar: newAvatarUrl,
+            const response = await instance.patch(
+                "/users/current/edit",
+                userData
+            );
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    }
+);
+
+export const updateAvatar = createAsyncThunk(
+    "user/updateAvatar",
+    async (avatarUrl, { rejectWithValue }) => {
+        try {
+            const response = await instance.patch("/users/current/edit", {
+                avatar: avatarUrl,
             });
-            return data;
-        } catch (err) {
-            return thunkApi.rejectWithValue(err.message);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response.data);
         }
     }
 );

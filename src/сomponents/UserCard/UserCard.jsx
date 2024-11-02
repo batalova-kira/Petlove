@@ -21,27 +21,21 @@ import {
 import Icon from "../Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUser } from "../../redux/auth/auth-operations";
-import {
-    selectAuthenticated,
-    selectUserData,
-} from "../../redux/auth/auth-selectors";
-import { openModal } from "../../redux/modal/modalSlice";
+import { selectUserData } from "../../redux/auth/auth-selectors";
+import { closeModal, openModal } from "../../redux/modal/modalSlice";
 import { selectIsModalOpen } from "../../redux/modal/modal.selectors";
 import { ModalEditUser } from "../ModalEditUser/ModalEditUser";
 
 export const UserCard = () => {
     const dispatch = useDispatch();
     const user = useSelector(selectUserData);
-    const authenticated = useSelector(selectAuthenticated);
     const isModalOpen = useSelector((state) =>
         selectIsModalOpen(state, "editUserModal")
     );
 
     useEffect(() => {
-        if (authenticated) {
-            dispatch(currentUser()); // Отримання даних користувача
-        }
-    }, [dispatch, authenticated]);
+        dispatch(currentUser()); // Отримання даних користувача
+    }, [dispatch]);
 
     const handleEditClick = () => {
         console.log("User Data:", user);
@@ -52,6 +46,10 @@ export const UserCard = () => {
     // Функція для перевірки дійсності URL аватарки
     const isValidAvatarUrl = (url) => {
         return url && (url.startsWith("http://") || url.startsWith("https://"));
+    };
+
+    const handleCloseModal = (_id) => {
+        dispatch(closeModal(_id)); // Закрити конкретну модалку картки
     };
 
     return (
@@ -108,7 +106,11 @@ export const UserCard = () => {
             </UserPetsInformationBlock>
             <UserInformationLogout>Log out</UserInformationLogout>
             {isModalOpen && (
-                <ModalEditUser isOpen={isModalOpen} modalId="editUserModal" />
+                <ModalEditUser
+                    isOpen={isModalOpen}
+                    modalId="editUserModal"
+                    onClose={() => handleCloseModal("editUserModal")}
+                />
             )}
         </ContainerUserCard>
     );
