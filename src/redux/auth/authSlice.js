@@ -64,11 +64,11 @@ const authSlice = createSlice({
             })
             .addCase(updateUser.fulfilled, (state, { payload }) => {
                 state.loading = false;
-                state.data = { ...state.data, ...payload }; // Оновлюємо дані користувача
+                state.userData = { ...state.userData, ...payload }; // Оновлюємо дані користувача
             })
             .addCase(updateAvatar.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.data.avatar = payload.avatar; // оновлюємо аватар у стані
+                state.userData.avatar = payload.avatar; // оновлюємо аватар у стані
             })
             .addMatcher(
                 isAnyOf(

@@ -42,8 +42,6 @@ export const UserModalAvatar = styled.div`
     height: 80px;
     border-radius: 50%;
 
-    /* color: ${(props) => props.theme.colors.secondaryBlack}; */
-
     @media only screen and (min-width: ${breakpoints.medium}) {
     }
 `;
@@ -75,13 +73,14 @@ export const WrapperUserLoadPhoto = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+    margin-bottom: 10px;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
     }
 `;
 
 export const InputUrlPhoto = styled.input`
-    border: 1px solid #f6b83d;
+    border: 1px solid ${(props) => props.theme.colors.yellow};
     border-radius: 30px;
     padding: 13px 39px 13px 12px;
     width: 161px;
@@ -140,6 +139,59 @@ export const WrapperUploadPhotoSvg = styled.div`
         color: inherit;
     }
 
+    @media only screen and (min-width: ${breakpoints.medium}) {
+    }
+`;
+
+export const WrapperUserInputs = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 21px;
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+    }
+`;
+
+export const UserInput = styled.input`
+    width:100%;
+    padding: 12px;
+
+    border: 1px solid ${(props) => props.theme.colors.yellow};
+    border-radius: 30px;
+
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.03em;
+    color: ${(props) => props.theme.colors.black};
+
+    @media only screen and (min-width: ${breakpoints.medium}) {
+    }
+`;
+
+export const BtnSave = styled.button`
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 30px;
+    padding: 12px;
+
+    font-weight: var(--font-weight-bold);
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.03em;
+
+    color: ${(props) => props.theme.colors.secondBackground};
+    background: ${(props) => props.theme.colors.yellow};
+
+    &:focus,
+    &:hover {
+        background: ${(props) => props.theme.colors.secondaryHoverYellow};
+    }
+    
     @media only screen and (min-width: ${breakpoints.medium}) {
     }
 `;

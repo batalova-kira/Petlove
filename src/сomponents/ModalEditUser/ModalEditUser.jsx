@@ -10,14 +10,17 @@ import {
 } from "../../redux/auth/auth-operations";
 import Icon from "../Icon/Icon";
 import {
+    BtnSave,
     BtnUploadPhoto,
     BtnUploadPhotoTitle,
     InputUrlPhoto,
     stylesEditUser,
+    UserInput,
     UserModalAvatar,
     UserModalContainer,
     UserModalTitle,
     WrapperUploadPhotoSvg,
+    WrapperUserInputs,
     WrapperUserLoadPhoto,
 } from "./ModalEditUser.styled";
 import { useForm } from "react-hook-form";
@@ -70,7 +73,7 @@ export const ModalEditUser = ({ isOpen, modalId, onClose }) => {
     };
 
     useEffect(() => {
-        dispatch(currentUser()); // Виконуємо запит при завантаженні компонента
+        dispatch(currentUser());
     }, [dispatch]);
 
     return (
@@ -82,7 +85,6 @@ export const ModalEditUser = ({ isOpen, modalId, onClose }) => {
         >
             <UserModalContainer>
                 <UserModalTitle>Edit information</UserModalTitle>
-
                 {/* Аватар */}
                 <UserModalAvatar>
                     {user.avatar ? (
@@ -91,10 +93,8 @@ export const ModalEditUser = ({ isOpen, modalId, onClose }) => {
                         <Icon name="user-avatar-profile" />
                     )}
                 </UserModalAvatar>
-
                 {/* Форма для редагування даних */}
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    {/* Поле для URL аватара */}
                     <WrapperUserLoadPhoto>
                         <InputUrlPhoto
                             type="text"
@@ -114,38 +114,27 @@ export const ModalEditUser = ({ isOpen, modalId, onClose }) => {
                             </WrapperUploadPhotoSvg>
                         </BtnUploadPhoto>
                     </WrapperUserLoadPhoto>
-
-                    {/* Поле для імені */}
-                    <div>
-                        <input
+                    <WrapperUserInputs>
+                        <UserInput
                             type="text"
                             {...register("name")}
                             placeholder="Enter name"
                         />
                         {errors.name && <p>{errors.name.message}</p>}
-                    </div>
-
-                    {/* Поле для email */}
-                    <div>
-                        <input
+                        <UserInput
                             type="email"
                             {...register("email")}
                             placeholder="Enter email"
                         />
                         {errors.email && <p>{errors.email.message}</p>}
-                    </div>
-
-                    {/* Поле для номера телефону */}
-                    <div>
-                        <input
+                        <UserInput
                             type="tel"
                             {...register("phone")}
                             placeholder="Enter phone number"
                         />
                         {errors.phone && <p>{errors.phone.message}</p>}
-                    </div>
-
-                    <BtnUploadPhoto type="submit">Go to profile</BtnUploadPhoto>
+                    </WrapperUserInputs>
+                    <BtnSave type="submit">Save</BtnSave>
                 </form>
             </UserModalContainer>
         </ModalWrapper>
