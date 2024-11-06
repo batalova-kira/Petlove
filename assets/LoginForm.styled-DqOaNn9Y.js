@@ -1,65 +1,4 @@
-import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as l}from"./Filter.styled-9YydpYeq.js";const c="/petlove/shape_bcgr_mob1.png",m="/petlove/shape_bcgr_tab1.png",x="/petlove/shape_bcgr_desk1.png",h=t.div`
-    width: 335px;
-    height: 280px;
-    border-radius: 30px;
-
-    position: relative;
-    overflow: hidden;
-
-    background: ${e=>e.theme.colors.yellow};
-
-    @media only screen and (min-width: ${i.medium}) {
-        width: 704px;
-        height: 302px;
-
-        border-radius: 60px;
-    }
-
-    @media only screen and (min-width: ${i.large}) {
-        margin-left: -32px;
-        width: 592px;
-        height: 654px;
-    }
-`,g=t.div`
-    width: 305px;
-    height: 280px;
-
-    position: absolute;
-    bottom: -20px;
-    left: 27px;
-
-    background: url(${c}) no-repeat center center;
-    background-size: contain;
-    z-index: 1;
-
-    @media only screen and (min-width: ${i.medium}) {
-        width: 550px;
-        height: 302px;
-
-        position: absolute;
-        bottom: -30px;
-        left: 106px;
-
-        background: url(${m}) no-repeat center center;
-        background-size: contain;
-        z-index: 1;
-    }
-
-    @media only screen and (min-width: ${i.large}) {
-        width: 530px;
-        height: 720px;
-
-        position: absolute;
-        bottom: -65px;
-        left: 30px;
-
-        background: url(${x}) no-repeat center center;
-        background-size: contain;
-        z-index: 1;
-    }
-`,u=t.div`
-    display: inline-block;
-`,X=({children:e})=>o.jsxs(h,{children:[o.jsx(g,{}),o.jsx(u,{children:e})]}),b="/petlove/images/dog_hero_mob_x1.png",f="/petlove/images/dog_hero_mob_x2.png",w="/petlove/images/dog_hero_tabx1.png",v="/petlove/images/dog_hero_tabx2.png",y="/petlove/images/dog_hero_desk_x1.png",$="/petlove/images/dog_hero_desk_x2.png",A=t.div`
+import{u as t,b as i,j as o,D as r,N as p}from"./index-CupOmwXb.js";import{I as l}from"./Filter.styled-_vmxlQaY.js";const c="/petlove/images/dog_hero_mob_x1.png",m="/petlove/images/dog_hero_mob_x2.png",x="/petlove/images/dog_hero_tabx1.png",g="/petlove/images/dog_hero_tabx2.png",h="/petlove/images/dog_hero_desk_x1.png",u="/petlove/images/dog_hero_desk_x2.png",H=t.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -73,7 +12,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         flex-direction: row;
         gap: 32px;
     }
-`,D=t.div`
+`,B=t.div`
     width: 335px;
     height: 280px;
 
@@ -82,10 +21,10 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
     z-index: 101;
 
     @media (max-width: 767px) {
-        background: url(${b}) no-repeat center center;
+        background: url(${c}) no-repeat center center;
         background-size: cover;
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: url(${f}) no-repeat center center;
+            background: url(${m}) no-repeat center center;
             background-size: cover;
         }
     }
@@ -98,12 +37,12 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         bottom: 0;
         left: 258px;
 
-        background: url(${w}) no-repeat center center;
+        background: url(${x}) no-repeat center center;
         background-size: cover;
         z-index: 10;
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: url(${v}) no-repeat center center;
+            background: url(${g}) no-repeat center center;
             background-size: cover;
         }
     }
@@ -117,16 +56,16 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         left: 45%;
         transform: translateX(-50%);
 
-        background: url(${y}) no-repeat center center;
+        background: url(${h}) no-repeat center center;
         background-size: cover;
         z-index: 1;
 
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background: url(${$}) no-repeat center center;
+            background: url(${u}) no-repeat center center;
             background-size: cover;
         }
     }
-`,k=t.div`
+`,b=t.div`
     display: none;
 
     @media only screen and (min-width: 768px) {
@@ -156,7 +95,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         left: 61px;
         z-index: 5;
     }
-`,_=t.div`
+`,f=t.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -165,7 +104,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
     height: 60px;
     border-radius: 100%;
     background: ${e=>e.theme.colors.lightYellow};
-`,z=t.div`
+`,w=t.div`
     width: 32px;
     height: 32px;
     background: url(${e=>e.$avatarSrc}) no-repeat center center;
@@ -178,43 +117,43 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         background-size: cover;
         z-index: 20;
     }
-`,j=t.div`
+`,v=t.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
 
     max-width: 194px;
-`,W=t.div`
+`,y=t.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-`,B=t.h3`
+`,$=t.h3`
     font-weight: var(--font-weight-bold);
     font-size: 16px;
     line-height: 1.25;
     letter-spacing: -0.03em;
     color: ${e=>e.theme.colors.yellow};
-`,H=t.div`
+`,k=t.div`
     display: flex;
     flex-direction: row;
     gap: 4px;
-`,T=t.p`
+`,_=t.p`
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.02em;
     color: ${e=>e.theme.colors.lightGrey};
-`,C=t.p`
+`,z=t.p`
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.02em;
     color: ${e=>e.theme.colors.black};
-`,I=t.p`
+`,j=t.p`
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.02em;
     color: ${e=>e.theme.colors.mediumGrey};
-`,E=({avatarSrc:e,avatarSrc2x:n,title:a,birthDate:d,description:s})=>o.jsxs(k,{children:[o.jsx(_,{children:o.jsx(z,{$avatarSrc:e,$avatarSrc2x:n,alt:"Hero Avatar"})}),o.jsxs(j,{children:[o.jsxs(W,{children:[o.jsx(B,{children:a}),o.jsxs(H,{children:[o.jsx(T,{children:"Birthday: "}),o.jsx(C,{children:d})]})]}),o.jsx(I,{children:s})]})]}),S=t.h1`
+`,I=({avatarSrc:e,avatarSrc2x:n,title:a,birthDate:d,description:s})=>o.jsxs(b,{children:[o.jsx(f,{children:o.jsx(w,{$avatarSrc:e,$avatarSrc2x:n,alt:"Hero Avatar"})}),o.jsxs(v,{children:[o.jsxs(y,{children:[o.jsx($,{children:a}),o.jsxs(k,{children:[o.jsx(_,{children:"Birthday: "}),o.jsx(z,{children:d})]})]}),o.jsx(j,{children:s})]})]}),W=t.h1`
     margin-bottom: 12px;
 
     font-weight: var(--font-weight-bold);
@@ -228,7 +167,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
 
         font-size: 54px;
     }
-`,M=({text:e,color:n})=>o.jsx(S,{color:n,children:e}),Y=t.div`
+`,F=({text:e,color:n})=>o.jsx(W,{color:n,children:e}),L=t.div`
     padding: 55px 20px;
 
     width: 335px;
@@ -248,7 +187,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
 
         width: 592px;
     }
-`,G=t.div`
+`,S=t.div`
     margin-bottom: 24px;
 
     letter-spacing: -0.02em;
@@ -263,7 +202,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         font-size: 18px;
         line-height: 1.22;
     }
-`,N=t.div`
+`,X=t.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -274,7 +213,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
 
         margin-bottom: 54px;
     }
-`,V=t(l)`
+`,A=t(l)`
     ${({$isinvalid:e})=>e&&r`
             border-color: ${n=>n.theme.colors.red};
         `}
@@ -283,10 +222,10 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
             border-color: ${n=>n.theme.colors.green};
         `} /* @media only screen and (min-width: ${i.medium}) {
     } */
-`,O=t.div`
+`,E=t.div`
     position: relative;
     width: 100%;
-`,P=t.div`
+`,M=t.div`
     position: absolute;
     top: 19px;
     right: 16px;
@@ -311,7 +250,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
             height: 22px;
         }
     }
-`,R=t.div`
+`,Y=t.div`
     position: absolute;
     top: 19px;
     right: 42px;
@@ -336,7 +275,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
             height: 22px;
         }
     }
-`,q=t.div`
+`,D=t.div`
     position: absolute;
     top: 19px;
     right: 16px;
@@ -361,7 +300,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
             height: 22px;
         }
     }
-`,J=t.p`
+`,G=t.p`
     margin-left: 12px;
     margin-bottom: -10px;
 
@@ -373,7 +312,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
     @media only screen and (min-width: ${i.medium}) {
         margin-left: 16px;
     }
-`,K=t.p`
+`,N=t.p`
     margin-left: 12px;
     margin-bottom: -10px;
 
@@ -385,7 +324,7 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
     @media only screen and (min-width: ${i.medium}) {
         margin-left: 16px;
     }
-`,Q=t.button`
+`,V=t.button`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -410,11 +349,11 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         font-size: 16px;
         line-height: 1.25;
     }
-`,U=t.div`
+`,P=t.div`
     display: flex;
     align-items: center;
     justify-content: center;
-`,Z=t.p`
+`,R=t.p`
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.03em;
@@ -424,9 +363,9 @@ import{u as t,b as i,j as o,D as r,N as p}from"./index-zYB7A2L3.js";import{I as 
         font-size: 14px;
         line-height: 1.43;
     }
-`,ee=t(p)`
+`,q=t(p)`
     font-weight: var(--font-weight-bold);
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: ${e=>e.theme.colors.yellow};
-`;export{ee as A,Q as B,J as E,V as F,X as H,O as I,Y as L,A as S,M as T,K as V,N as W,G as a,P as b,q as c,R as d,U as e,Z as f,D as g,E as h};
+`;export{q as A,V as B,G as E,A as F,I as H,E as I,L,H as S,F as T,N as V,X as W,S as a,M as b,D as c,Y as d,P as e,R as f,B as g};
