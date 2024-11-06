@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { refreshThunk } from "../redux/auth/auth-operations.js";
 import { GlobalStyle } from "./GlobalStyle.js";
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute.jsx";
+import AddPet from "../pages/AddPet.jsx";
 
 
 const HomePage = lazy(() => import("../pages/HomePage.jsx"));
@@ -64,6 +65,13 @@ export const appRoutes = [
             <Registration />
             // </RestrictedRoute>
         ),
+    },
+    {
+        path: ROUTES.ADD_PAGE_ROUTE,
+        element: (
+             <PrivateRoute>
+            <AddPet />
+         </PrivateRoute>),
     },
 ];
 

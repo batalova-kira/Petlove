@@ -34,12 +34,11 @@ export const UserCard = () => {
     );
 
     useEffect(() => {
-        dispatch(currentUser()); // Отримання даних користувача
+        dispatch(currentUser()); 
     }, [dispatch]);
 
     const handleEditClick = () => {
         console.log("User Data:", user);
-        // Логіка для відкриття модального вікна редагування
         dispatch(openModal("editUserModal"));
     };
 
@@ -49,7 +48,7 @@ export const UserCard = () => {
     };
 
     const handleCloseModal = (_id) => {
-        dispatch(closeModal(_id)); // Закрити конкретну модалку картки
+        dispatch(closeModal(_id)); 
     };
 
     return (
@@ -100,7 +99,7 @@ export const UserCard = () => {
             </div>
             <UserPetsInformationBlock>
                 <UserPetsInformationTitle>My pets</UserPetsInformationTitle>
-                <PetsAddBtn>
+                <PetsAddBtn to="/add-pet">
                     Add pet <Icon name="plus" height={18} width={18} />
                 </PetsAddBtn>
             </UserPetsInformationBlock>

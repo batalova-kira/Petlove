@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../constants/breakpoints";
+import { NavLink } from "react-router-dom";
 
 export const ContainerUserCard = styled.div`
     width: 100%;
@@ -197,7 +198,7 @@ export const UserPetsInformationTitle = styled.h3`
     color: ${(props) => props.theme.colors.secondaryBlack};
 `;
 
-export const PetsAddBtn = styled.button`
+export const PetsAddBtn = styled(NavLink)`
     display: flex;
     gap: 4px;
 

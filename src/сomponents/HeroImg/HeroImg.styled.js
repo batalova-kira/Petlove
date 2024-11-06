@@ -6,7 +6,8 @@ import shapeBcgrDesk from "/shape_bcgr_desk1.png";
 
 export const BackgroundHero = styled.div`
     width: 335px;
-    height: 280px;
+    /* height: 280px; */
+    height: ${({ $heightMobile }) => $heightMobile || "280px"};
     border-radius: 30px;
 
     position: relative;
@@ -16,15 +17,16 @@ export const BackgroundHero = styled.div`
 
     @media only screen and (min-width: ${breakpoints.medium}) {
         width: 704px;
-        height: 302px;
-
+        /* height: 302px; */
+        height: ${({ $heightTablet }) => $heightTablet || "302px"};
         border-radius: 60px;
     }
 
     @media only screen and (min-width: ${breakpoints.large}) {
         margin-left: -32px;
         width: 592px;
-        height: 654px;
+        /* height: 654px; */
+        height: ${({ $heightDesktop }) => $heightDesktop || "654px"};
     }
 `;
 
