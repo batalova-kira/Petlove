@@ -11,7 +11,11 @@ export const DogAddPet = styled.div`
     width: 297px;
     height: 248px;
 
-    /* background: url() no-repeat center center; */
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+
     background-size: contain;
     z-index: 101;
 
@@ -25,8 +29,8 @@ export const DogAddPet = styled.div`
     }
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        /* width: 364px;
-        height: 302px; */
+        width: 364px;
+        height: 302px;
 
         position: absolute;
         bottom: 0;

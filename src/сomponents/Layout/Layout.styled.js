@@ -309,14 +309,13 @@ export const WrapperAvatar = styled.div`
 `;
 
 export const AvatarLink = styled(Link)`
-    text-decoration:none;
+    text-decoration: none;
     display: flex;
-    align-items:center;
-    flex-direction:row;
+    align-items: center;
+    flex-direction: row;
     gap: 8px;
 
     @media only screen and (min-width: ${breakpoints.medium}) {
-        
     }
 `;
 
@@ -335,6 +334,11 @@ export const WrapperAvatarIcon = styled.div`
         color: ${(props) => props.theme.colors.yellow};
         width: 20px;
         height: 20px;
+
+        use {
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 
     @media only screen and (min-width: ${breakpoints.medium}) {

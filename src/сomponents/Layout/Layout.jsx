@@ -127,31 +127,31 @@ const Layout = ({ children, $isHomePage, $isFriendsPage, $isNoticesPage }) => {
                                 </StyledNavLink>
                             </WrapperNav>
                             <WrapperBurgerAuthNav>
-                                
                                 {isAuthenticated ? (
                                     <LogoutButton />
                                 ) : (
                                     <>
-                                    <AuthNavLink to="/login">Log in</AuthNavLink>
-                                    <AuthNavLink to="/registration">
-                                        Registration
-                                    </AuthNavLink>
+                                        <AuthNavLink to="/login">
+                                            Log in
+                                        </AuthNavLink>
+                                        <AuthNavLink to="/registration">
+                                            Registration
+                                        </AuthNavLink>
                                     </>
                                 )}
                             </WrapperBurgerAuthNav>
                             <WrapperBurgerAuthNavTablet>
-                                
                                 {isAuthenticated ? (
                                     <LogoutButton />
                                 ) : (
                                     <>
-                                    <AuthNavLinkLoginTablet to="/login">
-                                    Log in
-                                </AuthNavLinkLoginTablet>
-                                    <AuthNavLinkRegistrationTablet to="/registration">
-                                        Registration
-                                    </AuthNavLinkRegistrationTablet></>
-                                    
+                                        <AuthNavLinkLoginTablet to="/login">
+                                            Log in
+                                        </AuthNavLinkLoginTablet>
+                                        <AuthNavLinkRegistrationTablet to="/registration">
+                                            Registration
+                                        </AuthNavLinkRegistrationTablet>
+                                    </>
                                 )}
                             </WrapperBurgerAuthNavTablet>
                         </WrapperBurgerMenu>
@@ -165,6 +165,7 @@ const Layout = ({ children, $isHomePage, $isFriendsPage, $isNoticesPage }) => {
                                             name="user-avatar"
                                             width={20}
                                             height={20}
+                                            viewBox="0 0 20 20"
                                         />
                                     </WrapperAvatarIcon>
                                     <NameAvatar>{user.name}</NameAvatar>

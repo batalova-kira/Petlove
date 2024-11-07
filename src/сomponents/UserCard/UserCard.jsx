@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
     ContainerUserCard,
     ContainerUserCardHeader,
@@ -34,7 +34,7 @@ export const UserCard = () => {
     );
 
     useEffect(() => {
-        dispatch(currentUser()); 
+        dispatch(currentUser());
     }, [dispatch]);
 
     const handleEditClick = () => {
@@ -48,7 +48,7 @@ export const UserCard = () => {
     };
 
     const handleCloseModal = (_id) => {
-        dispatch(closeModal(_id)); 
+        dispatch(closeModal(_id));
     };
 
     return (
